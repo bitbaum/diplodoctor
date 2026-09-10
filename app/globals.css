@@ -33,6 +33,9 @@
   --primitive-ink-100: #ecedee;
   --primitive-ink-500: #6c7377;
   --primitive-brand-500: #4a6fa5;
+  --primitive-brand-300: #7fa3d8;
+  --primitive-signal-500: #1f9d63;
+  --primitive-signal-300: #4ecb92;
 
   /* Tier 2 — semantics. Components only ever use these. */
   --color-surface-page: #ffffff;
@@ -41,7 +44,25 @@
   --color-fg-secondary: #40474b;
   --color-fg-muted: var(--primitive-ink-500);
   --color-border-subtle: #e3e5e6;
+
+  /* An accent is TWO tokens, not one, and collapsing them is an accessibility
+     bug rather than a simplification.
+     - accent          the accent as a SURFACE (a filled button)
+     - accent-fg       the accent as TEXT, on the page ground
+     They cannot be the same value in both colour schemes. #4a6fa5 carries
+     white at 5.1:1 as a button in either scheme, but as text on the dark
+     ground it is 3.7:1 — below AA. Lightening it fixes the text and breaks
+     the button (white on #7fa3d8 is 2.6:1). So: one token per job, and the
+     dark block lightens only the text one. */
   --color-accent: var(--primitive-brand-500);
+  --color-accent-fg: var(--primitive-brand-500);
+  /* Text ON the accent surface. A token, so a site that rethemes to a pale
+     accent flips this to ink without touching a component. */
+  --color-accent-contrast: #ffffff;
+
+  /* "This host is answering." Status only, never decoration — it keeps
+     meaning something only if nothing else uses it. */
+  --color-signal-live: var(--primitive-signal-500);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -52,6 +73,11 @@
     --color-fg-secondary: #b3b8ba;
     --color-fg-muted: #7c8286;
     --color-border-subtle: #262a2d;
+    /* Only the TEXT accent lightens (3.7:1 → 7.3:1 on this ground). The
+       surface accent stays put: it already carries white at 5.1:1, and
+       lightening it would drop that to 2.6:1. */
+    --color-accent-fg: var(--primitive-brand-300);
+    --color-signal-live: var(--primitive-signal-300);
   }
 }
 
