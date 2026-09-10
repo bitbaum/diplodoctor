@@ -2,38 +2,57 @@
  * The day-zero page.
  *
  * Every site this scaffold creates serves THIS until its owner replaces it, so
- * it is not a placeholder — it is the first thing a client sees after being
- * told their site is live, and for some of them it is the only page they will
- * ever see us make. The previous version was a note to the developer
- * ("Replace this page, and change the tokens in app/globals.css"), rendered at
- * the client. It read as unfinished work left on a public URL.
+ * it is not scaffolding — it is the first thing a client sees after being told
+ * their site is live, and for some of them the only page of ours they will ever
+ * look at. It has to be good enough that they want to build the rest.
  *
- * What it does instead:
- *   1. PROVES the thing works — the host, live, over TLS, in the first line.
- *   2. Tells the owner what to do next, with one primary action.
- *   3. Sends them to FleetCrown, where they can actually build it, rather than
- *      to us. A site nobody can change without emailing the studio is the
- *      failure mode this whole scaffold exists to avoid.
+ * Three jobs, in order:
+ *   1. PROVE it works — the host, live, over TLS, before any claim is made.
+ *      The receipts block below is the whole argument: a client can see the
+ *      repository, the pipeline and the deploy, and none of it is a promise.
+ *   2. Give ONE primary action, into FleetCrown, where they can actually build
+ *      it. A site whose owner cannot change it without emailing a person is the
+ *      dependency this scaffold exists to remove.
+ *   3. Link OrangeCat SECONDARILY. It is where the project is public and
+ *      followable; it is not where the building happens, so it is a text link
+ *      and never the button.
  *
- * It stays honest about being day zero ("waiting for its first page") so that
- * nobody mistakes it for a finished site — the warning in globals.css about
- * shipping the default palette still holds, and this page states it in public
- * rather than in a comment only a developer reads.
+ * It stays plainly day zero ("is waiting for its first page") so it cannot be
+ * mistaken for finished work.
+ *
+ * Everything it claims is gated on the thing being true — see WIDGET below.
  */
 const FLEETCROWN = "https://fleetcrown.orangecat.ch";
+const ORANGECAT = "https://orangecat.ch";
 
-// Written by new-site.sh at scaffold time, alongside the widget token. Absent
-// when the FleetCrown database was unreachable — provisioning is non-fatal by
-// design — so fall back to the project list rather than rendering a dead link
-// to /projects/undefined.
-const projectId = process.env.NEXT_PUBLIC_FC_PROJECT_ID;
-const buildHref = projectId ? `${FLEETCROWN}/projects/${projectId}` : `${FLEETCROWN}/projects`;
+// Written by new-site.sh at scaffold time. Both are absent when the FleetCrown
+// database was unreachable — provisioning is non-fatal by design — so each link
+// degrades rather than rendering /projects/undefined.
+const fcProject = process.env.NEXT_PUBLIC_FC_PROJECT_ID;
+const ocProject = process.env.NEXT_PUBLIC_OC_PROJECT_ID;
+
+const buildHref = fcProject ? `${FLEETCROWN}/projects/${fcProject}` : `${FLEETCROWN}/projects`;
+const ocHref = ocProject ? `${ORANGECAT}/projects/${ocProject}` : null;
+
+// WIDGET. The "change it from this page" claim is TRUE ONLY IF the widget is
+// actually on the page, and layout.tsx renders that script on exactly this
+// variable. Diplodoctor shipped with the claim and without the widget, because
+// provisioning failed non-fatally and nothing tied the sentence to the fact.
+// Gate the CLAIM on the same value that gates the SCRIPT, or it is marketing.
+const hasWidget = Boolean(process.env.NEXT_PUBLIC_FC_WIDGET_TOKEN);
+
+const RECEIPTS = [
+  ["Host", "diplodoctor.orangecat.ch"],
+  ["Repository", "github.com/bitbaum/diplodoctor"],
+  ["Pipeline", "tested on every change, deployed on merge"],
+  ["Certificate", "issued and renewed automatically"],
+];
 
 const STEPS = [
   {
     n: "01",
     title: "Say what you want",
-    body: "Plain words, not a brief. A one-page site for a Zürich clinic, calm, with a booking button.",
+    body: "Plain words, not a brief. What this is for, who it is for, and how it should feel.",
   },
   {
     n: "02",
@@ -49,45 +68,76 @@ const STEPS = [
 
 export default function Home() {
   return (
-    <main className="mx-auto flex min-h-screen max-w-shell flex-col px-6 py-12 sm:px-10 sm:py-16">
-      {/* Proof before pitch: the host, live, right at the top. */}
-      <p className="flex items-center gap-2.5 font-mono text-xs uppercase tracking-caps text-fg-muted">
-        <span className="relative flex h-2 w-2 shrink-0" aria-hidden="true">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-signal-live opacity-60 motion-reduce:hidden" />
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-signal-live" />
-        </span>
-        <span className="sr-only">Live:</span>
-        diplodoctor.orangecat.ch
-      </p>
+    <main className="mx-auto flex min-h-screen max-w-shell flex-col px-6 py-10 sm:px-10 sm:py-14">
+      <header className="flex flex-wrap items-center justify-between gap-4">
+        <p className="flex items-center gap-2.5 font-mono text-xs uppercase tracking-caps text-fg-muted">
+          <span className="relative flex h-2 w-2 shrink-0" aria-hidden="true">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-signal-live opacity-60 motion-reduce:hidden" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-signal-live" />
+          </span>
+          <span className="sr-only">Live:</span>
+          diplodoctor.orangecat.ch
+        </p>
+        <a
+          href={FLEETCROWN}
+          className="font-mono text-xs uppercase tracking-caps text-fg-muted underline decoration-border-subtle underline-offset-4 transition-colors hover:text-fg-primary hover:decoration-fg-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-fg"
+        >
+          Built with FleetCrown
+        </a>
+      </header>
 
-      <div className="flex flex-1 flex-col justify-center py-16 sm:py-24">
-        <h1 className="font-heading text-4xl font-semibold leading-[1.05] tracking-display text-fg-primary sm:text-6xl">
+      <div className="flex flex-1 flex-col justify-center py-14 sm:py-20">
+        {/* Name and clause are separate elements, not one wrapped heading. As a
+            single block the clause set at heading size, and "page." fell alone
+            onto a third line — the kind of orphan that makes a page look
+            unconsidered no matter how good the rest of it is. */}
+        <h1 className="font-heading text-5xl font-semibold leading-[0.95] tracking-display text-fg-primary sm:text-7xl">
           Diplodoctor
-          <span className="block font-normal text-fg-muted">is waiting for its first page.</span>
         </h1>
+        <p className="mt-3 max-w-[24ch] font-heading text-2xl leading-[1.15] tracking-display text-fg-muted sm:text-4xl">
+          is waiting for its first page.
+        </p>
 
         <p className="mt-8 max-w-prose text-lg leading-relaxed text-fg-secondary">
-          Everything underneath it already runs. A certificate, a repository, tests on every change
-          and a deploy that happens on its own. What is missing is the part only you can decide:
+          Everything underneath it already runs. What is missing is the part only you can decide:
           what this should say, and who it should say it to.
         </p>
 
-        <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+        <div className="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-8">
           <a
             href={buildHref}
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3 text-base font-medium text-accent-contrast transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-fg"
+            className="inline-flex min-h-12 items-center justify-center gap-2.5 rounded-card bg-accent px-7 text-base font-medium text-accent-contrast transition-opacity hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-fg"
           >
             Build this site
             <span aria-hidden="true">&rarr;</span>
           </a>
-          <p className="text-sm leading-relaxed text-fg-muted">
-            Opens this site&rsquo;s project in FleetCrown.
-          </p>
+          {ocHref && (
+            <a
+              href={ocHref}
+              className="inline-flex min-h-12 items-center text-base text-fg-secondary underline decoration-border-subtle underline-offset-[6px] transition-colors hover:text-fg-primary hover:decoration-fg-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-fg"
+            >
+              Follow it on OrangeCat
+              <span aria-hidden="true" className="ml-1.5 text-accent-fg">
+                &#8599;
+              </span>
+            </a>
+          )}
         </div>
       </div>
 
+      {/* Receipts. The point is that none of this is a promise — a client can
+          click the repository and read it. This is what makes the page land. */}
+      <dl className="grid gap-x-8 gap-y-4 border-t border-border-subtle py-10 sm:grid-cols-[10rem_1fr]">
+        {RECEIPTS.map(([term, value]) => (
+          <div key={term} className="contents">
+            <dt className="font-mono text-xs uppercase tracking-caps text-accent-fg">{term}</dt>
+            <dd className="-mt-2 font-mono text-sm text-fg-secondary sm:mt-0">{value}</dd>
+          </div>
+        ))}
+      </dl>
+
       <div className="border-t border-border-subtle pt-10">
-        <ol className="grid gap-8 sm:grid-cols-3 sm:gap-10">
+        <ol className="grid gap-10 sm:grid-cols-3">
           {STEPS.map((step) => (
             <li key={step.n}>
               <p className="font-mono text-xs uppercase tracking-caps text-accent-fg">{step.n}</p>
@@ -99,20 +149,12 @@ export default function Home() {
           ))}
         </ol>
 
-        <p className="mt-12 max-w-prose rounded-lg bg-surface-raised px-5 py-4 text-sm leading-relaxed text-fg-secondary">
-          You can also change it from here. Point at anything on the page, say what is wrong, and it
-          becomes a pull request &mdash; the same one an agent would open.
-        </p>
-
-        <p className="mt-10 font-mono text-xs uppercase tracking-caps text-fg-muted">
-          Built with{" "}
-          <a
-            href={FLEETCROWN}
-            className="text-fg-secondary underline decoration-border-subtle underline-offset-4 transition-colors hover:decoration-fg-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-fg"
-          >
-            FleetCrown
-          </a>
-        </p>
+        {hasWidget && (
+          <p className="mt-12 max-w-prose rounded-card bg-surface-raised px-5 py-4 text-sm leading-relaxed text-fg-secondary">
+            You can also change it from here. Point at anything on this page, say what is wrong, and
+            it becomes a pull request &mdash; the same one an agent would open.
+          </p>
+        )}
       </div>
     </main>
   );
