@@ -49,7 +49,7 @@ export default function ReportPage({ params }: { params: Promise<{ id: string }>
           onChange={saveReport}
           onDelete={() => {
             deleteReport(data.id);
-            router.push(ROUTES.reports);
+            router.push(ROUTES.records);
           }}
         />
       ) : hydrated ? (
@@ -57,7 +57,7 @@ export default function ReportPage({ params }: { params: Promise<{ id: string }>
           <h1 className="text-3xl font-semibold tracking-tight">{t("notHereTitle")}</h1>
           <p className="mt-3 max-w-prose text-fg-secondary">{t("notHereBody")}</p>
           <p className="mt-4">
-            <Link href={ROUTES.reports} className={`${link} inline-flex min-h-11 items-center`}>
+            <Link href={ROUTES.records} className={`${link} inline-flex min-h-11 items-center`}>
               {t("goReports")}
             </Link>
           </p>

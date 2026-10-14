@@ -6,6 +6,14 @@ brackets, it is the pull request to read for the detail.
 
 ## 2026-10-15
 
+### Changed
+
+- **A health file, not a report reader.** The header is now Today, Records and
+  People. Today shows what is next, the latest results and your medicines;
+  Records is everything in one list you can search (a typo still finds it) and
+  filter, and you can add medicines, appointments and notes beside reports. The
+  home page says so in fewer words.
+
 ### Added
 
 - **Accounts, if you want one.** Sign in with email and password, a link,

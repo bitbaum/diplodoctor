@@ -28,7 +28,7 @@ jobs:
           set -uo pipefail
           fail=0
           for l in en de fr it es; do
-            for path in "/$l" "/$l/reports" "/$l/reports/new" "/$l/reports/sample" "/$l/people" "/$l/platform" "/$l/security" "/$l/ecosystem" "/$l/settings" "/$l/roadmap" "/$l/changelog" "/$l/sign-in" "/$l/sign-up"; do
+            for path in "/$l" "/$l/today" "/$l/records" "/$l/records/add" "/$l/reports/new" "/$l/reports/sample" "/$l/people" "/$l/platform" "/$l/security" "/$l/ecosystem" "/$l/settings" "/$l/roadmap" "/$l/changelog" "/$l/sign-in" "/$l/sign-up"; do
               code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "https://diplodoctor.orangecat.ch$path")
               echo "::notice::$path → $code"
               [ "$code" = "200" ] || fail=1
@@ -47,11 +47,11 @@ jobs:
             body=$(curl -s --max-time 20 "https://diplodoctor.orangecat.ch$1")
             if printf '%s' "$body" | grep -q "$2"; then echo "::notice::$1 has «$2»"; else echo "::error::$1 lacks «$2»"; fail=1; fi
           }
-          check /en/reports "My reports"
-          check /de/reports "Meine Berichte"
-          check /fr/reports "Mes rapports"
-          check /it/reports "I miei referti"
-          check /es/reports "Mis informes"
+          check /en/records "Records"
+          check /de/records "Unterlagen"
+          check /fr/records "Dossier"
+          check /it/records "Cartella"
+          check /es/records "Historial"
           exit $fail
 
       - name: Security headers are on

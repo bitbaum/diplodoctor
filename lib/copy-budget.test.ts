@@ -22,6 +22,10 @@ function words(tree: string | Tree): number {
 const BUDGETS: Record<string, number> = {
   // What a first visit reads. One screen of essentials and a few lines more.
   Home: 240,
+  // The page people return to, and the list behind it: short by construction.
+  Today: 90,
+  Records: 110,
+  Add: 130,
   // A form: every line is something someone must read to proceed.
   NewReport: 380,
   // The result, around the values themselves.

@@ -9,7 +9,8 @@ const SECTIONS = [
   {
     key: "product",
     links: [
-      { key: "reports", href: ROUTES.reports },
+      { key: "today", href: ROUTES.today },
+      { key: "records", href: ROUTES.records },
       { key: "new", href: ROUTES.newReport },
       { key: "people", href: ROUTES.people },
       { key: "settings", href: ROUTES.settings },

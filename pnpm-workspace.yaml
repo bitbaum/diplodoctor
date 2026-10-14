@@ -4,6 +4,8 @@
 # build, and a fully provisioned host serves 502. pnpm 11 no longer reads the
 # "pnpm" field in package.json; a setting written there is present and inert.
 allowBuilds:
+  # listkit is git-hosted and builds on install; allowed by its exact commit.
+  listkit@git+https://github.com/bitbaum/listkit.git#69cb4f4ef12d6a2a56b56db1bb4d4ac14aced525: true
   # native image codec next uses for image optimisation
   sharp: true
   # native resolver used by eslint-config-next

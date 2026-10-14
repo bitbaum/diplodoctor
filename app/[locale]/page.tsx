@@ -37,7 +37,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </h1>
             <p className="mt-6 max-w-lede text-lg text-fg-primary sm:text-xl">{t("hero.lede")}</p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link href={ROUTES.newReport} className="btn-frame-accent">
+              <Link href={ROUTES.today} className="btn-frame-accent">
                 {t("hero.open")}
               </Link>
               <Link href={ROUTES.sampleReport} className="btn-frame">
@@ -144,7 +144,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <section className="public-backdrop border-t border-border-subtle py-section-tight">
         <div className="section-shell flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
           <h2 className="headline-caps text-3xl sm:text-4xl">{t("closing.title")}</h2>
-          <Link href={ROUTES.newReport} className="btn-frame-accent">
+          <Link href={ROUTES.today} className="btn-frame-accent">
             {t("closing.cta")}
           </Link>
         </div>

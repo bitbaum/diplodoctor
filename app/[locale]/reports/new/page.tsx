@@ -468,7 +468,7 @@ export default function NewReportPage() {
           <h2 className="text-2xl font-semibold tracking-tight">{t("byHand.title")}</h2>
           <p className="text-sm text-fg-secondary">
             {t("byHand.body")}{" "}
-            <Link href={ROUTES.reports} className={link}>
+            <Link href={ROUTES.records} className={link}>
               {t("byHand.import")}
             </Link>
           </p>

@@ -5,7 +5,6 @@
   },
   "Nav": {
     "main": "Navigation principale",
-    "reports": "Mes rapports",
     "settings": "Réglages",
     "new": "Lire un rapport",
     "beta": "Bêta",
@@ -18,7 +17,9 @@
     "people": "Personnes",
     "dark": "Mode sombre",
     "account": "Compte",
-    "signIn": "Se connecter"
+    "signIn": "Se connecter",
+    "today": "Aujourd’hui",
+    "records": "Dossier"
   },
   "Footer": {
     "tagline": "La couche santé de la flotte : un agent qui lit le rapport, et les personnes que vous choisissez pour vous aider.",
@@ -28,7 +29,6 @@
       "open": "En public"
     },
     "links": {
-      "reports": "Mes rapports",
       "new": "Lire un rapport",
       "settings": "Réglages",
       "platform": "Comment c'est construit",
@@ -40,7 +40,9 @@
       "license": "Licence MIT",
       "orangecat": "Diplodoctor sur OrangeCat",
       "solon": "Diplodoctor sur Solon",
-      "people": "Des personnes qui aident"
+      "people": "Des personnes qui aident",
+      "today": "Aujourd’hui",
+      "records": "Dossier"
     },
     "disclaimer": "Bêta : en service, pas encore publié. Diplodoctor donne de l'information de santé, pas un diagnostic, et n'est ni un dispositif médical ni un substitut à un médecin. En cas d'urgence, appelez votre numéro d'urgence.",
     "openSource": "Open source sous licence MIT. Construit à Zurich.",
@@ -49,10 +51,10 @@
   "Home": {
     "hero": {
       "kicker": "Ouvert, privé, l'aide de votre choix",
-      "line1": "Vos résultats,",
-      "line2": "lus avec vous.",
-      "lede": "Ajoutez un rapport de laboratoire. Voyez ce qui sort de l'intervalle, ce que cela peut signifier et quoi demander à votre médecin.",
-      "open": "Lire un rapport",
+      "line1": "Votre santé,",
+      "line2": "au même endroit.",
+      "lede": "Gardez résultats, médicaments et rendez-vous ensemble. Ajoutez un rapport de laboratoire et lisez ce qu’il dit, en mots simples.",
+      "open": "Commencer votre dossier",
       "sample": "Voir un exemple"
     },
     "example": {
@@ -78,16 +80,16 @@
     "how": {
       "title": "Comment ça marche",
       "add": {
-        "title": "Ajoutez-le",
-        "body": "Collez le texte ou photographiez les pages."
+        "title": "Ajoutez ce que vous avez",
+        "body": "Un rapport de laboratoire, un médicament, un rendez-vous."
       },
       "read": {
-        "title": "Voyez chaque valeur",
-        "body": "Chacune avec son intervalle et la ligne d'où elle vient."
+        "title": "Comprendre",
+        "body": "Chaque valeur, son intervalle et sa source."
       },
       "ask": {
-        "title": "Allez plus loin",
-        "body": "Des questions pour votre médecin, prêtes à apporter."
+        "title": "Tout garder ensemble",
+        "body": "Un seul endroit, prêt pour votre prochaine visite."
       }
     },
     "privacy": {
@@ -98,8 +100,8 @@
         "body": "Retiré dans votre navigateur avant tout envoi."
       },
       "browser": {
-        "title": "Conservé sur votre appareil",
-        "body": "Pas de compte. Pas de copie sur notre serveur."
+        "title": "Sur votre appareil",
+        "body": "Compte facultatif. Rien de cela sur notre serveur."
       },
       "model": {
         "title": "N’importe quel modèle d’IA",
@@ -131,8 +133,8 @@
       "link": "Ce qui fonctionne aujourd'hui"
     },
     "closing": {
-      "title": "Essayez avec un rapport que vous avez.",
-      "cta": "Lire un rapport"
+      "title": "Commencez par ce que vous avez.",
+      "cta": "Commencer votre dossier"
     }
   },
   "Reports": {
@@ -203,7 +205,7 @@
     "sampleBanner": "Un exemple détaillé. Tous les détails personnels sont inventés.",
     "notHereTitle": "Ce rapport n'est pas sur cet appareil",
     "notHereBody": "Les rapports sont conservés dans le navigateur qui les a lus. Ouvrez-le là où vous l'avez lu, ou importez son fichier de rapport.",
-    "goReports": "Aller à mes rapports",
+    "goReports": "Retour au dossier",
     "aiNotice": "Une IA a lu ceci et peut mal lire un nombre. Vérifiez chaque valeur avec sa ligne source. De l'information, pas un diagnostic.",
     "facts": {
       "provider": "Établi par",
@@ -298,18 +300,33 @@
     "unreachable": "Diplodoctor était injoignable pour vérifier la clé. Vérifiez votre connexion."
   },
   "Records": {
-    "roadmap": "Feuille de route",
-    "changelog": "Changements",
-    "home": "Retour au produit",
-    "profile": "Profil de développement complet",
-    "beta": "Bêta — en service, pas encore publié",
-    "source": "Ces entrées proviennent du profil de référence du projet. Un travail prévu n'est pas une promesse de livraison.",
-    "unavailable": "Les entrées de développement sont momentanément indisponibles. Veuillez réessayer sous peu.",
-    "emptyRoadmap": "Aucun élément de feuille de route n'a encore été enregistré.",
-    "emptyChangelog": "Aucun changement n'a encore été enregistré.",
-    "progress": "progression enregistrée",
-    "target": "Échéance",
-    "englishOnly": "Ces entrées sont tenues en anglais."
+    "title": "Dossier",
+    "search": "Rechercher",
+    "kinds": {
+      "report": "Rapports",
+      "medication": "Médicaments",
+      "appointment": "Rendez-vous",
+      "note": "Notes"
+    },
+    "kind": "Type",
+    "flagged": "À regarder de près",
+    "sort": {
+      "label": "Tri",
+      "newest": "Plus récents",
+      "oldest": "Plus anciens"
+    },
+    "count": "{count} éléments",
+    "empty": "Rien pour l’instant.",
+    "noMatch": "Aucun résultat.",
+    "clear": "Effacer",
+    "prev": "Précédent",
+    "next": "Suivant",
+    "page": "Page {page} sur {pages}",
+    "import": "Importer un fichier",
+    "importError": "Ce fichier n’est pas un fichier Diplodoctor.",
+    "add": "Ajouter",
+    "outside": "{outside} sur {total} hors intervalle",
+    "undated": "Sans date"
   },
   "Redact": {
     "title": "Anonymiser avant l'envoi",
@@ -784,5 +801,66 @@
       "action": "Choisir un nouveau mot de passe"
     },
     "ignore": "Si ce n’était pas vous, ignorez cet e-mail — rien ne change."
+  },
+  "Today": {
+    "title": "Aujourd’hui",
+    "add": {
+      "report": "Lire un rapport",
+      "medication": "Ajouter un médicament",
+      "appointment": "Ajouter un rendez-vous",
+      "note": "Ajouter une note"
+    },
+    "upcoming": "À venir",
+    "nothingUpcoming": "Rien de prévu.",
+    "todo": "De vos rapports",
+    "latest": "Derniers résultats",
+    "medicines": "Médicaments",
+    "noMedicines": "Aucun.",
+    "all": "Tout le dossier",
+    "local": "Conservé sur cet appareil.",
+    "start": {
+      "title": "Commencez votre dossier",
+      "body": "Ajoutez ce que vous avez. Cela reste sur cet appareil.",
+      "example": "Voir un exemple"
+    }
+  },
+  "Add": {
+    "title": {
+      "medication": "Ajouter un médicament",
+      "appointment": "Ajouter un rendez-vous",
+      "note": "Ajouter une note"
+    },
+    "edit": {
+      "medication": "Modifier le médicament",
+      "appointment": "Modifier le rendez-vous",
+      "note": "Modifier la note"
+    },
+    "kind": "Que voulez-vous ajouter ?",
+    "kinds": {
+      "medication": "Médicament",
+      "appointment": "Rendez-vous",
+      "note": "Note"
+    },
+    "fields": {
+      "name": "Nom",
+      "dose": "Dose",
+      "schedule": "Prise",
+      "started": "Depuis",
+      "title": "Quoi",
+      "when": "Quand",
+      "who": "Avec qui",
+      "text": "Note",
+      "date": "Date",
+      "notes": "Remarques"
+    },
+    "hints": {
+      "schedule": "Par exemple : matin et soir",
+      "who": "Un médecin, un cabinet"
+    },
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "cancel": "Annuler",
+    "error": "Remplissez le champ obligatoire.",
+    "notFound": "Cet élément n’est pas sur cet appareil."
   }
 }

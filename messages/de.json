@@ -5,7 +5,6 @@
   },
   "Nav": {
     "main": "Hauptnavigation",
-    "reports": "Meine Berichte",
     "settings": "Einstellungen",
     "new": "Bericht lesen",
     "beta": "Beta",
@@ -18,7 +17,9 @@
     "people": "Menschen",
     "dark": "Dunkler Modus",
     "account": "Konto",
-    "signIn": "Anmelden"
+    "signIn": "Anmelden",
+    "today": "Heute",
+    "records": "Unterlagen"
   },
   "Footer": {
     "tagline": "Die Gesundheitsebene der Flotte: ein Agent, der den Bericht liest, und die Menschen, die Sie als Hilfe wählen.",
@@ -28,7 +29,6 @@
       "open": "Öffentlich"
     },
     "links": {
-      "reports": "Meine Berichte",
       "new": "Bericht lesen",
       "settings": "Einstellungen",
       "platform": "Wie es gebaut ist",
@@ -40,7 +40,9 @@
       "license": "MIT-Lizenz",
       "orangecat": "Diplodoctor auf OrangeCat",
       "solon": "Diplodoctor auf Solon",
-      "people": "Menschen, die helfen"
+      "people": "Menschen, die helfen",
+      "today": "Heute",
+      "records": "Unterlagen"
     },
     "disclaimer": "Beta: in Betrieb, nicht veröffentlicht. Diplodoctor gibt Gesundheitsinformationen, keine Diagnose, und ist weder ein Medizinprodukt noch ein Ersatz für eine Ärztin oder einen Arzt. Im Notfall rufen Sie Ihre Notrufnummer an.",
     "openSource": "Open Source unter der MIT-Lizenz. Gebaut in Zürich.",
@@ -49,10 +51,10 @@
   "Home": {
     "hero": {
       "kicker": "Offen, privat, Hilfe nach Ihrer Wahl",
-      "line1": "Ihre Resultate,",
-      "line2": "mit Ihnen gelesen.",
-      "lede": "Fügen Sie einen Laborbericht hinzu. Sehen Sie, was ausserhalb des Bereichs liegt, was das bedeuten kann und was Sie Ihre Ärztin oder Ihren Arzt fragen können.",
-      "open": "Bericht lesen",
+      "line1": "Ihre Gesundheit,",
+      "line2": "an einem Ort.",
+      "lede": "Halten Sie Resultate, Medikamente und Termine beisammen. Fügen Sie einen Laborbericht hinzu und lesen Sie in einfachen Worten, was darin steht.",
+      "open": "Akte beginnen",
       "sample": "Beispiel ansehen"
     },
     "example": {
@@ -78,16 +80,16 @@
     "how": {
       "title": "So funktioniert es",
       "add": {
-        "title": "Hinzufügen",
-        "body": "Text einfügen oder die Seiten fotografieren."
+        "title": "Fügen Sie hinzu, was Sie haben",
+        "body": "Ein Laborbericht, ein Medikament, ein Termin."
       },
       "read": {
-        "title": "Jeden Wert sehen",
-        "body": "Jeder mit seinem Bereich und der Zeile, aus der er stammt."
+        "title": "Verstehen",
+        "body": "Jeder Wert mit Bereich und Fundstelle."
       },
       "ask": {
-        "title": "Weitergehen",
-        "body": "Fragen an Ihre Ärztin oder Ihren Arzt, bereit zum Mitnehmen."
+        "title": "Alles beisammen",
+        "body": "Ein Ort, bereit für den nächsten Besuch."
       }
     },
     "privacy": {
@@ -98,8 +100,8 @@
         "body": "In Ihrem Browser entfernt, bevor etwas gesendet wird."
       },
       "browser": {
-        "title": "Auf Ihrem Gerät gespeichert",
-        "body": "Kein Konto. Keine Kopie auf unserem Server."
+        "title": "Auf Ihrem Gerät",
+        "body": "Konto freiwillig. Nichts davon auf unserem Server."
       },
       "model": {
         "title": "Jedes KI-Modell",
@@ -131,8 +133,8 @@
       "link": "Was heute funktioniert"
     },
     "closing": {
-      "title": "Probieren Sie es mit einem Bericht, den Sie haben.",
-      "cta": "Bericht lesen"
+      "title": "Beginnen Sie mit dem, was Sie haben.",
+      "cta": "Akte beginnen"
     }
   },
   "Reports": {
@@ -203,7 +205,7 @@
     "sampleBanner": "Ein durchgespieltes Beispiel. Alle persönlichen Angaben sind erfunden.",
     "notHereTitle": "Dieser Bericht ist nicht auf diesem Gerät",
     "notHereBody": "Berichte bleiben in dem Browser, der sie gelesen hat. Öffnen Sie ihn dort, wo Sie ihn gelesen haben, oder importieren Sie seine Berichtsdatei.",
-    "goReports": "Zu meinen Berichten",
+    "goReports": "Zurück zu den Unterlagen",
     "aiNotice": "Eine KI hat das gelesen und kann eine Zahl falsch lesen. Prüfen Sie jeden Wert anhand seiner Quellzeile. Information, keine Diagnose.",
     "facts": {
       "provider": "Ausgestellt von",
@@ -298,18 +300,33 @@
     "unreachable": "Diplodoctor war für die Prüfung des Schlüssels nicht erreichbar. Prüfen Sie Ihre Verbindung."
   },
   "Records": {
-    "roadmap": "Roadmap",
-    "changelog": "Änderungen",
-    "home": "Zurück zum Produkt",
-    "profile": "Vollständiges Entwicklungsprofil",
-    "beta": "Beta — in Betrieb, nicht veröffentlicht",
-    "source": "Diese Einträge stammen aus dem massgebenden Projektprofil. Geplante Arbeit ist kein Lieferversprechen.",
-    "unavailable": "Die Entwicklungseinträge sind vorübergehend nicht verfügbar. Bitte versuchen Sie es in Kürze noch einmal.",
-    "emptyRoadmap": "Es sind noch keine Roadmap-Einträge erfasst.",
-    "emptyChangelog": "Es sind noch keine Änderungen erfasst.",
-    "progress": "erfasster Fortschritt",
-    "target": "Ziel",
-    "englishOnly": "Diese Einträge werden auf Englisch geführt."
+    "title": "Unterlagen",
+    "search": "Unterlagen durchsuchen",
+    "kinds": {
+      "report": "Berichte",
+      "medication": "Medikamente",
+      "appointment": "Termine",
+      "note": "Notizen"
+    },
+    "kind": "Art",
+    "flagged": "Genauer hinsehen",
+    "sort": {
+      "label": "Sortierung",
+      "newest": "Neueste zuerst",
+      "oldest": "Älteste zuerst"
+    },
+    "count": "{count} Einträge",
+    "empty": "Noch nichts hier.",
+    "noMatch": "Keine Treffer.",
+    "clear": "Zurücksetzen",
+    "prev": "Zurück",
+    "next": "Weiter",
+    "page": "Seite {page} von {pages}",
+    "import": "Datei importieren",
+    "importError": "Diese Datei ist keine Diplodoctor-Datei.",
+    "add": "Hinzufügen",
+    "outside": "{outside} von {total} ausserhalb des Bereichs",
+    "undated": "Ohne Datum"
   },
   "Redact": {
     "title": "Vor dem Senden anonymisieren",
@@ -784,5 +801,66 @@
       "action": "Neues Passwort wählen"
     },
     "ignore": "Wenn Sie das nicht waren, ignorieren Sie diese E-Mail — es ändert sich nichts."
+  },
+  "Today": {
+    "title": "Heute",
+    "add": {
+      "report": "Bericht lesen",
+      "medication": "Medikament hinzufügen",
+      "appointment": "Termin hinzufügen",
+      "note": "Notiz hinzufügen"
+    },
+    "upcoming": "Demnächst",
+    "nothingUpcoming": "Nichts geplant.",
+    "todo": "Aus Ihren Berichten",
+    "latest": "Neueste Resultate",
+    "medicines": "Medikamente",
+    "noMedicines": "Keine erfasst.",
+    "all": "Alle Unterlagen",
+    "local": "Auf diesem Gerät gespeichert.",
+    "start": {
+      "title": "Beginnen Sie Ihre Akte",
+      "body": "Fügen Sie hinzu, was Sie haben. Es bleibt auf diesem Gerät.",
+      "example": "Beispiel ansehen"
+    }
+  },
+  "Add": {
+    "title": {
+      "medication": "Medikament hinzufügen",
+      "appointment": "Termin hinzufügen",
+      "note": "Notiz hinzufügen"
+    },
+    "edit": {
+      "medication": "Medikament bearbeiten",
+      "appointment": "Termin bearbeiten",
+      "note": "Notiz bearbeiten"
+    },
+    "kind": "Was fügen Sie hinzu?",
+    "kinds": {
+      "medication": "Medikament",
+      "appointment": "Termin",
+      "note": "Notiz"
+    },
+    "fields": {
+      "name": "Name",
+      "dose": "Dosis",
+      "schedule": "Einnahme",
+      "started": "Seit",
+      "title": "Was",
+      "when": "Wann",
+      "who": "Bei wem",
+      "text": "Notiz",
+      "date": "Datum",
+      "notes": "Bemerkungen"
+    },
+    "hints": {
+      "schedule": "Zum Beispiel: morgens und abends",
+      "who": "Eine Ärztin, eine Praxis"
+    },
+    "save": "Speichern",
+    "delete": "Löschen",
+    "cancel": "Abbrechen",
+    "error": "Bitte füllen Sie das Pflichtfeld aus.",
+    "notFound": "Dieser Eintrag ist nicht auf diesem Gerät."
   }
 }
