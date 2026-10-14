@@ -46,111 +46,92 @@
   },
   "Home": {
     "hero": {
-      "kicker": "Abierto, privado y con la ayuda que usted elija",
+      "kicker": "Abierto, privado, con la ayuda que usted elija",
       "line1": "Sus resultados,",
       "line2": "leídos con usted.",
-      "lede": "Añada un informe de laboratorio como texto o foto. Diplodoctor enumera cada valor, comprueba cuáles están fuera de su intervalo impreso, explica qué miden y redacta las preguntas para llevar a su médico. Su nombre nunca sale de su navegador.",
+      "lede": "Añada un informe de laboratorio. Vea qué está fuera de su intervalo, qué puede significar y qué preguntar a su médico.",
       "open": "Leer un informe",
       "sample": "Ver un ejemplo"
     },
     "example": {
       "label": "Ejemplo",
-      "title": "Ferritina, un valor de un informe",
+      "title": "Un valor, leído",
       "s1": {
         "tool": "Leído",
         "text": "Ferritina 14 µg/L, intervalo 15 – 150"
       },
       "s2": {
         "tool": "Comprobado",
-        "text": "Por debajo del intervalo impreso: por aritmética, no por el modelo"
+        "text": "Por debajo del intervalo, por aritmética, no por el modelo"
       },
       "s3": {
         "tool": "Antes",
-        "text": "22 µg/L en mayo de 2026, en descenso"
+        "text": "22 µg/L en mayo, en descenso"
       },
       "s4": {
         "tool": "Preguntar",
-        "text": "¿Hay que buscar una causa y cuándo debo repetir el análisis?"
-      },
-      "valueLabel": "Valor",
-      "value": "14 µg/L",
-      "rangeLabel": "Intervalo impreso",
-      "range": "15 – 150"
+        "text": "¿Hay que buscar una causa?"
+      }
     },
     "how": {
-      "kicker": "Cómo funciona",
-      "title": "Entra un informe, sale un expediente",
+      "title": "Cómo funciona",
       "add": {
-        "title": "Añada el informe",
-        "body": "Pegue el texto o fotografíe las páginas, en cualquier idioma. Los nombres y números que le identifican se eliminan antes en su navegador."
+        "title": "Añádalo",
+        "body": "Pegue el texto o fotografíe las páginas."
       },
       "read": {
-        "title": "Lee cada valor",
-        "body": "Cada valor con su unidad y su intervalo impreso, la línea de la que se leyó y una marca que sale de comparar los números, no de la opinión de un modelo."
+        "title": "Vea cada valor",
+        "body": "Cada uno con su intervalo y la línea de la que salió."
       },
       "ask": {
-        "title": "Usted lo lleva a una persona",
-        "body": "Información en lenguaje claro sobre lo que está fuera de su intervalo, preguntas para hacer y el informe en una forma que puede exportar y compartir con quien usted elija."
+        "title": "Llévelo más lejos",
+        "body": "Preguntas para su médico, listas para llevar."
       }
     },
     "privacy": {
-      "kicker": "Privado por construcción",
-      "title": "Un historial médico es suyo antes que de nadie",
+      "title": "Privado por diseño",
       "cta": "Cómo se protege",
       "redact": {
         "title": "Los nombres se quedan en casa",
-        "body": "Su nombre, fecha de nacimiento, números de seguro y de pedido se sustituyen por marcadores de posición en su navegador. El modelo lee marcadores; su navegador devuelve los valores reales."
+        "body": "Se eliminan en su navegador antes de enviar nada."
       },
       "browser": {
         "title": "Guardado en su dispositivo",
-        "body": "Sus informes se guardan en este navegador y en ningún otro sitio. No hay cuenta ni copia en nuestro servidor."
+        "body": "Sin cuenta. Sin copia en nuestro servidor."
       },
       "model": {
-        "title": "Su modelo, si quiere",
-        "body": "Modelos compartidos gratuitos por defecto. O conecte su propia clave para un modelo más potente con su propio presupuesto; la clave se queda en su navegador."
+        "title": "Cualquier modelo de IA",
+        "body": "Gratuitos compartidos, o su propia clave."
       }
     },
-    "capabilities": {
-      "kicker": "Lo que existe",
-      "title": "Real hoy, y lo que viene",
-      "lede": "Cada línea indica si funciona ahora. Nada figura como operativo si no lo es.",
-      "roadmap": "Leer la hoja de ruta",
-      "changelog": "Leer el registro de cambios"
-    },
-    "tiersTitle": "Tres tipos de ayuda, y una línea honesta entre ellos",
-    "tiersLead": "La mayoría de los resultados necesitan una explicación, no un tratamiento. Usted elige quién la da: cualquier modelo de IA, una persona que quiere ayudar o un profesional sanitario habilitado. Diplodoctor etiqueta cada uno por lo que es y nunca deja que uno pase por otro.",
+    "tiersTitle": "Tres tipos de ayuda",
+    "tiersLead": "Usted elige quién explica. Cada uno se etiqueta por lo que es.",
     "tiers": {
-      "kicker": "Quién hace qué",
       "ai": {
         "name": "Cualquier modelo de IA",
-        "can": "Lee el informe, enumera cada valor, marca lo que está fuera de su intervalo, explica qué mide y redacta preguntas para su cita. Funciona con modelos compartidos gratuitos o con su propia clave; nada aquí depende de un solo proveedor.",
-        "limit": "Es software. No diagnostica, no receta y no le dice que un resultado carece de importancia."
+        "can": "Lee y explica su informe.",
+        "limit": "Es software. No diagnostica."
       },
       "assistant": {
         "name": "Un asistente de salud",
-        "can": "Cualquiera que quiera ayudar, con un nombre o un seudónimo: una enfermera, un médico de otro país, alguien que ha vivido con el mismo resultado. Explican, traducen, le ayudan a prepararse y dan su opinión, por un precio que fijan ellos.",
-        "limit": "Su opinión es la de una persona, no un consejo médico de un profesional habilitado donde usted está. Se muestra cuán útiles les encontraron otras personas. Usted decide a quién preguntar."
+        "can": "Cualquiera, con un nombre o un seudónimo. Explica, traduce, comparte experiencia.",
+        "limit": "Una opinión, no un consejo médico."
       },
       "licensed": {
         "name": "Un profesional sanitario habilitado",
-        "can": "Un médico u otro profesional sanitario cuya habilitación está verificada, en los lugares donde la tiene. Allí puede aconsejar, diagnosticar y tratar.",
-        "limit": "Previsto. Su habilitación puede demostrarse sin revelar quién es, así que puede seguir usando seudónimo. Todavía no hay nadie en la lista."
+        "can": "Habilitación verificada. Puede aconsejar y tratar donde está habilitado.",
+        "limit": "Previsto. Puede seguir usando seudónimo."
       }
     },
-    "identity": {
-      "problem": "El problema",
-      "solution": "Lo que construimos",
-      "mission": "Misión",
-      "vision": "Visión"
+    "peopleLink": "Cómo pueden ayudar las personas",
+    "status": {
+      "text": "Beta: en funcionamiento, no publicado.",
+      "link": "Qué funciona hoy"
     },
-    "fleet": {
-      "kicker": "Una de una flota",
-      "title": "Construido sobre el mismo terreno que el resto",
-      "lede": "Diplodoctor es la capa de salud de la flota: OrangeCat es su economía, Loki lo construye y Solon decide cómo se gobierna.",
-      "more": "Ver el ecosistema",
+    "closing": {
+      "title": "Pruébelo con un informe que tenga a mano.",
       "cta": "Leer un informe"
-    },
-    "peopleLink": "Cómo pueden ayudar las personas"
+    }
   },
   "Reports": {
     "title": "Mis informes",
@@ -165,17 +146,17 @@
   },
   "NewReport": {
     "title": "Leer un informe",
-    "lead": "Entregue el informe a Diplodoctor. Se envía, anonimizado, a un proveedor de modelos de IA para que lo lea y Diplodoctor no lo almacena; el resultado se guarda solo en este navegador.",
+    "lead": "Pegue un informe o fotografíe sus páginas. Los nombres se eliminan en su navegador, un modelo de IA lo lee y el resultado se queda en este dispositivo.",
     "modelOwn": "Lectura con su propio modelo, {model}.",
-    "modelFree": "Lectura con modelos compartidos gratuitos, que varían y tienen un presupuesto diario reducido.",
-    "modelFreeNoPhoto": "Lectura con modelos compartidos gratuitos, que varían y tienen un presupuesto diario reducido. Ahora mismo pueden leer texto pegado, pero no fotos.",
-    "modelOff": "Los modelos compartidos gratuitos no están activados ahora mismo. Conecte su propio modelo para leer un informe o archívelo a mano más abajo.",
+    "modelFree": "Lo leen modelos compartidos gratuitos (con límite diario).",
+    "modelFreeNoPhoto": "Ahora mismo los modelos compartidos gratuitos leen texto, no fotos.",
+    "modelOff": "Los modelos gratuitos están desactivados ahora mismo. Use su propio modelo o archívelo a mano.",
     "change": "Cambiar",
     "useOwn": "Usar su propio modelo",
     "textLabel": "El texto del informe",
     "textPlaceholder": "Péguelo aquí, en cualquier idioma.",
     "photoLabel": "O fotos de sus páginas",
-    "photoHint": "Hasta {max} páginas, en orden. JPEG, PNG o WebP. Las fotos se reducen en su navegador antes de enviarse.",
+    "photoHint": "Hasta {max} páginas, en orden. Se reducen antes en su navegador.",
     "pages": "{count, plural, one {# página añadida} other {# páginas añadidas}}",
     "page": "Página {n}",
     "removePage": "Quitar la página {n}",
@@ -193,7 +174,7 @@
     "openSettings": "Abrir los ajustes del modelo",
     "byHand": {
       "title": "Archivarlo a mano",
-      "body": "Sin lectura, pero el documento y su fecha se guardan juntos, y el archivo puede entregarse a una persona que usted elija. ¿Ya tiene un archivo de informe?",
+      "body": "Sin lectura, pero el documento y su fecha se guardan juntos. ¿Ya tiene un archivo de informe?",
       "import": "Importarlo",
       "about": "¿Qué es?",
       "provider": "¿Quién lo emitió?",
@@ -202,26 +183,26 @@
       "original": "Original"
     },
     "errors": {
-      "not_configured": "Los modelos compartidos gratuitos no están activados en este sitio ahora mismo. Puede conectar su propio modelo o archivar el informe a mano.",
-      "busy": "Ningún modelo respondió. Puede que se haya agotado el presupuesto gratuito compartido de hoy, o que un proveedor esté caído. Su propio modelo no depende del presupuesto compartido.",
-      "busy_own": "Su modelo no respondió. Es posible que la clave se haya quedado sin crédito o haya sido revocada. Compruébela en los ajustes o elimínela para usar los modelos compartidos gratuitos.",
-      "no_vision": "Ninguno de los modelos disponibles ahora mismo puede leer una foto. Pegue en su lugar el texto del informe o conecte su propio modelo capaz de leer imágenes.",
-      "rate_limited": "Son muchos informes en poco tiempo. Los modelos compartidos gratuitos permiten unos pocos por hora; su propio modelo permite muchos más.",
+      "not_configured": "Los modelos gratuitos están desactivados en este sitio ahora mismo. Use su propio modelo o archive el informe a mano.",
+      "busy": "Ningún modelo respondió. Puede que se haya agotado el presupuesto gratuito de hoy, o que un proveedor esté caído. Su propio modelo no se ve afectado.",
+      "busy_own": "Su modelo no respondió. Es posible que la clave se haya quedado sin crédito o haya sido revocada. Compruébela en los ajustes o elimínela para usar los modelos gratuitos.",
+      "no_vision": "Ningún modelo disponible puede leer una foto ahora mismo. Pegue en su lugar el texto o conecte su propio modelo capaz de leer imágenes.",
+      "rate_limited": "Son muchos informes en poco tiempo. Los modelos gratuitos permiten unos pocos por hora; su propio modelo permite muchos más.",
       "bad_own_model": "No se pudieron usar los ajustes guardados de su modelo. Configúrelos de nuevo.",
-      "unreadable_analysis": "El modelo respondió, pero no de una forma que Diplodoctor pudiera convertir en informe. Inténtelo de nuevo; un modelo más potente lo hace con más fiabilidad.",
+      "unreadable_analysis": "El modelo respondió, pero no de una forma que Diplodoctor pudiera usar. Inténtelo de nuevo; un modelo más potente es más fiable.",
       "empty": "Pegue el texto del informe o añada una foto.",
-      "bad_image": "No se pudo usar ese archivo como foto. Envíe una imagen JPEG, PNG o WebP.",
+      "bad_image": "Ese archivo no se puede usar como foto. Envíe una imagen JPEG, PNG o WebP.",
       "too_many_pages": "Son más de {max} páginas. Añada las páginas que contienen los valores.",
       "offline": "No se pudo contactar con Diplodoctor. Compruebe su conexión e inténtelo de nuevo.",
       "unknown": "La lectura no se completó. Inténtelo de nuevo en un minuto."
     }
   },
   "Report": {
-    "sampleBanner": "Este es un ejemplo. Todos los datos personales que contiene son inventados.",
+    "sampleBanner": "Un ejemplo. Todos los datos personales son inventados.",
     "notHereTitle": "Ese informe no está en este dispositivo",
     "notHereBody": "Los informes se guardan en el navegador que los leyó. Ábralo donde lo leyó o importe su archivo de informe.",
     "goReports": "Ir a mis informes",
-    "aiNotice": "Leído por un modelo de IA, que puede leer mal un número o una palabra. Compruebe cada valor con la línea del informe de la que salió, a un toque de distancia. Esto es información, no un diagnóstico.",
+    "aiNotice": "Lo leyó una IA, que puede leer mal un número. Compruebe cada valor con su línea de origen. Información, no un diagnóstico.",
     "facts": {
       "provider": "Emitido por",
       "kind": "Tipo",
@@ -240,18 +221,18 @@
     "attention": {
       "routine": {
         "title": "En su próxima cita",
-        "body": "Nada en este informe está fuera de su intervalo ni marcado como urgente. Llévelo a su próxima revisión de rutina."
+        "body": "Nada está fuera de su intervalo ni marcado como urgente."
       },
       "soon": {
-        "title": "Pronto: en días o semanas",
-        "body": "Uno o más valores están fuera de su intervalo impreso. Un médico debería ver el informe. Cuándo depende de usted y de sus síntomas, que solo un médico puede valorar."
+        "title": "Pronto, en días o semanas",
+        "body": "Uno o más valores están fuera de su intervalo. Haga que lo vea un médico. Cuándo depende de usted y de sus síntomas."
       },
       "urgent": {
         "title": "Hoy",
-        "body": "El propio informe marca un valor como crítico o pide actuar de inmediato. Consulte a un médico hoy."
+        "body": "El propio informe marca un valor como crítico. Consulte a un médico hoy."
       }
     },
-    "emergency": "Si se encuentra mal ahora —dolor en el pecho, dificultad para respirar, confusión, dolor intenso—, no espere a un informe: llame a su número de emergencias (112 en Europa, 144 en Suiza, 911 en EE. UU.).",
+    "emergency": "¿Se encuentra mal ahora? No espere: llame a su número de emergencias (112 en Europa, 144 en Suiza, 911 en EE. UU.).",
     "outsideTitle": "{count, plural, one {# valor fuera de su intervalo} other {# valores fuera de su intervalo}}",
     "allInRange": "Todos los valores están dentro de su intervalo impreso",
     "insideTitle": "{count, plural, one {# valor dentro del intervalo} other {# valores dentro del intervalo}}",
@@ -268,22 +249,22 @@
       "unknown": "Sin valorar"
     },
     "source": "La línea de la que se leyó",
-    "checked": "Marca decidida comparando el número con el intervalo impreso.",
-    "notChecked": "Marca tal como la indica el informe. No hay un intervalo numérico con el que comprobarla.",
+    "checked": "Marca fijada comparando el número con el intervalo impreso.",
+    "notChecked": "Marca tal como figura impresa. No hay intervalo numérico con el que comprobarla.",
     "questionsTitle": "Preguntas para su médico",
-    "questionsHint": "Redactadas a partir de los valores que están fuera de su intervalo. Llévelas a su cita.",
+    "questionsHint": "A partir de los valores fuera de su intervalo.",
     "copy": "Copiar",
     "copied": "Copiado",
     "termsTitle": "Términos explicados",
     "followUpsTitle": "Lo que el informe indica hacer",
-    "followUpsHint": "Solo lo que el propio documento pide. Márquelo a medida que lo haga.",
+    "followUpsHint": "Solo lo que el propio informe pide.",
     "followUpsDone": "{done} de {total} hechos",
     "notesTitle": "Conviene saber",
     "docTitle": "El documento",
     "language": "Idioma",
     "whoEyebrow": "Una persona",
     "whoTitle": "¿Quiere que lo vea una persona?",
-    "whoBody": "La IA de Diplodoctor explica. Una persona puede decirle más: un asistente de salud, con su opinión y experiencia, o un profesional sanitario habilitado, para un consejo médico. Entregar aquí un informe a una persona está previsto y aún no está disponible: exporte el archivo anonimizado y llévelo a quien usted quiera, o a su propio médico.",
+    "whoBody": "Una persona puede decirle más: un asistente, por su experiencia; un profesional sanitario habilitado, para un consejo médico. Aún no está construido. Exporte el archivo anonimizado y llévelo a alguien de su confianza.",
     "findClinician": "Cómo pueden ayudar las personas",
     "exportAnon": "Exportar anonimizado, para compartir con una persona",
     "export": "Exportar el informe completo",
@@ -330,11 +311,11 @@
   },
   "Redact": {
     "title": "Anonimizar antes de enviar",
-    "lead": "Los nombres, fechas de nacimiento y números que le identifican se sustituyen por marcadores de posición en su navegador antes de enviar el informe. El modelo nunca los ve; su navegador los devuelve al resultado.",
+    "lead": "Los nombres y números que le identifican se cambian por marcadores de posición en su navegador. El modelo nunca los ve.",
     "toggle": "Anonimizar",
     "ownWords": "Ocultar también estas palabras",
     "ownWordsPlaceholder": "Su nombre, su empleador, un familiar…",
-    "ownWordsHint": "Sepárelas con comas. Se conservan en este navegador para sus próximos informes.",
+    "ownWordsHint": "Separadas por comas. Se conservan en este navegador.",
     "found": "{count, plural, =0 {No se ocultará nada} one {Se ocultará # dato} other {Se ocultarán # datos}}. Toque uno para enviarlo de todos modos.",
     "foundNone": "No se encontraron datos personales en el texto. Añada arriba su nombre si aparece.",
     "sendThis": "Enviarlo de todos modos",
@@ -361,7 +342,8 @@
       "AHV": "N.º AVS (Suiza)",
       "REF": "Referencia",
       "BIRTHDATE": "Nacimiento"
-    }
+    },
+    "more": "Más opciones"
   },
   "Capabilities": {
     "status": {
@@ -518,6 +500,19 @@
       "roadmap": "Leer la hoja de ruta",
       "ecosystem": "El ecosistema",
       "source": "Código fuente"
+    },
+    "status": {
+      "kicker": "Lo que existe",
+      "title": "Real hoy, y lo que viene",
+      "lede": "Cada línea indica si funciona ahora.",
+      "roadmap": "Hoja de ruta",
+      "changelog": "Registro de cambios"
+    },
+    "identity": {
+      "problem": "El problema",
+      "solution": "Lo que construimos",
+      "mission": "Misión",
+      "vision": "Visión"
     }
   },
   "Security": {
@@ -624,58 +619,56 @@
     "metaDescription": "Asistentes de salud y profesionales sanitarios habilitados: cómo ayudarán las personas junto a Diplodoctor y qué puede decir cada uno.",
     "eyebrow": "Personas",
     "title": "Una persona, cuando usted la quiera",
-    "lead": "La IA de Diplodoctor explica un informe. Puede que usted quiera además a una persona. Hay dos tipos, y la diferencia no es una jerarquía: es quién puede decir qué y quién responde por ellos. En cualquier caso, usted decide a quién preguntar.",
+    "lead": "La IA de Diplodoctor explica un informe. Puede que usted quiera además a una persona. Los dos tipos se distinguen por quién puede decir qué, no por quién es mejor. Usted decide a quién preguntar.",
     "noneTitle": "Todavía no hay nadie en la lista",
-    "noneBody": "Ningún asistente ni profesional se ha incorporado, así que no se muestra ninguno. Aquí no hay perfiles, valoraciones ni tiempos de espera inventados, y no los habrá. Mientras tanto, exporte el archivo anonimizado y llévelo a quien usted confíe, o a su propio médico.",
+    "noneBody": "Todavía no se ha incorporado nadie, así que no se muestra a nadie. Aquí no hay perfiles ni valoraciones inventados, y no los habrá. Por ahora, exporte el archivo anonimizado y llévelo a alguien de su confianza.",
     "listedUnder": "Figura con {identity}",
     "assistant": {
       "name": "Asistente de salud",
       "identity": "un nombre o un seudónimo",
-      "does1": "Explica un informe en palabras sencillas y en su idioma",
-      "does2": "Aporta su experiencia y su opinión sobre qué preguntar o probar, por un precio que fijan ellos",
-      "does3": "Ayuda con citas, trámites y aseguradoras",
-      "doesNot": "Lo que dicen es la opinión de una persona, no un consejo médico de un profesional habilitado donde usted está. Pueden tener o no una titulación sanitaria, y lo indican en su perfil.",
-      "checks": "Cuán útiles les encontraron otras personas se muestra en su perfil, según las personas a las que ayudaron. Usted decide a quién preguntar."
+      "does1": "Explica con palabras sencillas, en su idioma",
+      "does2": "Comparte experiencia y opinión, por un precio que fijan ellos",
+      "doesNot": "Su opinión es una opinión, no un consejo médico. Pueden tener o no una titulación sanitaria, y lo indican.",
+      "checks": "Se muestra cuán útiles les encontraron otras personas."
     },
     "licensed": {
       "name": "Profesional sanitario habilitado",
       "identity": "una habilitación verificada, y un nombre o un seudónimo",
       "does1": "Aconseja sobre lo que significa un resultado para usted",
-      "does2": "Diagnostica y trata dentro de la habilitación que posee",
-      "does3": "Firma la respuesta que le da",
-      "doesNot": "Solo en los lugares donde está habilitado.",
-      "checks": "Su habilitación se comprueba en el registro público. Con una prueba de conocimiento cero puede demostrar que es válida sin mostrar quién es. Previsto."
+      "does2": "Diagnostica y trata donde está habilitado",
+      "doesNot": "Solo donde están habilitados.",
+      "checks": "Habilitación comprobada en el registro público y demostrable sin revelar quién es (previsto)."
     },
     "wantTitle": "¿Quiere ofrecer esto?",
-    "wantBody": "Cualquiera puede ofrecer su trabajo como servicio en OrangeCat y cobrar allí de la persona a la que ayuda, en cualquier moneda. Diplodoctor añadirá las etiquetas, la verificación de la habilitación y el registro de cuán útiles resultaron las personas; nada de eso está construido todavía.",
+    "wantBody": "Cualquiera puede ofrecer ayuda como servicio en OrangeCat y cobrar allí, en cualquier moneda. Las etiquetas, la verificación de la habilitación y el registro de utilidad aún no están construidos.",
     "offer": "Ofrecer un servicio en OrangeCat",
     "seeRoadmap": "Ver la hoja de ruta",
     "clinic": {
       "eyebrow": "Para clínicas y consultas",
       "title": "Los informes de sus pacientes, leídos antes de la cita",
-      "lead": "Una clínica puede usar Diplodoctor como lo hace un paciente y, más adelante, en sus propios términos:",
-      "c1": "Los pacientes llegan con sus resultados leídos y sus preguntas escritas.",
-      "c2": "Un paciente le entrega su expediente por decisión propia, anonimizado hasta que decida otra cosa.",
-      "c3": "Funciona con un modelo dentro de sus propias paredes, de modo que los datos de los pacientes nunca salen de la consulta.",
-      "status": "Previsto. Nada de esto está aún disponible para las clínicas; está en la hoja de ruta."
+      "lead": "Una clínica podría usar Diplodoctor como lo hace un paciente y, más adelante, en sus propios términos:",
+      "c1": "Los pacientes llegan con los resultados leídos y las preguntas escritas.",
+      "c2": "Un paciente entrega su expediente por decisión propia.",
+      "c3": "Un modelo dentro de sus propias paredes: los datos de los pacientes nunca salen.",
+      "status": "Previsto. En la hoja de ruta."
     },
     "rulesTitle": "Reglas que no se doblan",
     "rules": {
       "label": {
         "title": "Todos están identificados",
-        "body": "Un asistente se muestra como asistente y un profesional sanitario habilitado como tal. La etiqueta indica qué se le permite hacer; no dice quién es mejor."
+        "body": "Un asistente se muestra como asistente, un profesional sanitario habilitado como tal. La etiqueta indica qué puede hacer, no quién es mejor."
       },
       "pseudonym": {
         "title": "El nombre es opcional en todas las partes",
-        "body": "Los pacientes, los asistentes y los profesionales sanitarios habilitados pueden usar seudónimo. Una habilitación puede demostrarse sin revelar quién la posee (previsto)."
+        "body": "Todos pueden usar seudónimo. Una habilitación puede demostrarse sin revelar quién la posee (previsto)."
       },
       "share": {
         "title": "Usted decide qué sale",
-        "body": "Una persona recibe el archivo anonimizado salvo que usted decida compartir más. No se envía nada sin una acción suya."
+        "body": "Una persona recibe el archivo anonimizado salvo que usted comparta más."
       },
       "place": {
         "title": "El consejo vale donde hay habilitación",
-        "body": "El consejo médico, el diagnóstico y el tratamiento solo pueden venir de alguien habilitado donde usted recibe tratamiento. La opinión de un asistente es otra cosa, y siempre se etiqueta como tal."
+        "body": "El consejo médico solo vale si viene de alguien habilitado donde usted recibe tratamiento."
       }
     },
     "start": "Leer un informe"

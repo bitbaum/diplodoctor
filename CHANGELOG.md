@@ -4,6 +4,21 @@ What changed for the people who use Diplodoctor, newest first. Every entry
 comes from a change merged into this repository; where there is a number in
 brackets, it is the pull request to read for the detail.
 
+## 2026-10-15
+
+### Changed
+
+- **Much less to read.** The home page went from about a thousand words to a
+  couple of hundred: what it is, one value read, how it works, why it is
+  private, and who can help. The depth moved to Platform and Security; the
+  intake form, the report page and People were cut by a quarter to a third. A
+  test now holds each page to a word budget. {#less-text}
+- **Warm paper and pine green, not clinical blue.** Blue is every hospital's
+  colour. The look is one file (`app/theme.css`), so it stays a one-line change.
+  {#colour}
+- **Every control in the header and footer is at least 44px**, at phone, tablet
+  and desktop width, in all five languages. {#targets}
+
 ## 2026-10-14 (later)
 
 ### Changed

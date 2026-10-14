@@ -21,9 +21,12 @@
  *
  * Why it differs from OrangeCat, Loki and Solon: they are tools for people
  * who build, black with one orange accent. This is for someone holding a
- * result they may be afraid of, so it is light, calm and rounded by default,
- * and dark only when they ask or their device does. The structure, the
- * tokens and the primitives are the same, so the products still sit together.
+ * result they may be afraid of, so it is warm paper and a deep pine green,
+ * light by default, rounded, and dark only when they ask or their device does.
+ * Not clinical blue: that is every hospital's, and the one colour a health
+ * product cannot be remembered by. Amber and red are kept clear for flagging a
+ * value, so the brand never competes with them. The structure, the tokens and
+ * the primitives are the same as the fleet's, so the products still sit together.
  */
 
 :root {
@@ -49,31 +52,31 @@
   --radius-pill: 9999px;
 
   /* — Light. The action colour is a calm clinical blue. —————————————— */
-  --public-accent: #0a62c9;
+  --public-accent: #1c5f4e;
   --on-accent: 0 0% 100%;
-  --accent-hover: #0852a8;
-  --accent-muted: 212 91% 41% / 0.08;
-  --accent-text: 212 91% 36%;
+  --accent-hover: #15473b;
+  --accent-muted: 165 55% 24% / 0.08;
+  --accent-text: 165 55% 20%;
 
-  --surface-public: 210 45% 96%; /* the marketing band; light here */
-  --surface-page: 210 30% 98%;
-  --surface-base: 0 0% 100%;
-  --surface-raised: 210 28% 95%;
-  --surface-overlay: 210 25% 92%;
-  --surface-modal: 0 0% 100%;
-  --surface-drawer: 210 30% 98%;
-  --surface-hover: 210 25% 93%;
+  --surface-public: 40 38% 95%; /* the marketing band; paper here */
+  --surface-page: 40 33% 97%;
+  --surface-base: 40 40% 99%;
+  --surface-raised: 38 26% 94%;
+  --surface-overlay: 38 22% 91%;
+  --surface-modal: 40 40% 99%;
+  --surface-drawer: 40 33% 97%;
+  --surface-hover: 38 22% 92%;
 
-  --text-primary: 218 35% 11%;
-  --text-secondary: 217 19% 33%;
-  --text-tertiary: 217 14% 42%;
-  --text-muted: 215 14% 62%;
-  --text-inverted: 0 0% 100%;
+  --text-primary: 24 28% 11%;
+  --text-secondary: 24 12% 31%;
+  --text-tertiary: 24 9% 38%;
+  --text-muted: 24 8% 60%;
+  --text-inverted: 40 40% 99%;
 
-  --border-subtle: 214 25% 91%;
-  --border-default: 214 20% 82%;
-  --border-strong: 214 17% 70%;
-  --border-interactive: 217 19% 33%;
+  --border-subtle: 36 20% 88%;
+  --border-default: 36 16% 80%;
+  --border-strong: 36 13% 68%;
+  --border-interactive: 24 12% 31%;
 
   --status-positive: 150 60% 26%;
   --status-positive-subtle: 150 60% 26% / 0.08;
@@ -81,52 +84,52 @@
   --status-warning-subtle: 28 90% 30% / 0.1;
   --status-negative: 0 68% 42%;
   --status-negative-subtle: 0 68% 42% / 0.08;
-  --status-neutral: 217 14% 42%;
+  --status-neutral: 24 9% 38%;
 }
 
 /* — Dark. Only what differs from light. ——————————————————————————————— */
 .dark {
-  --public-accent: #6aaeff;
-  --on-accent: 218 40% 10%;
-  --accent-hover: #8cc0ff;
-  --accent-muted: 212 100% 71% / 0.12;
-  --accent-text: 212 100% 80%;
+  --public-accent: #70cdb5;
+  --on-accent: 165 40% 9%;
+  --accent-hover: #95dac9;
+  --accent-muted: 165 48% 62% / 0.12;
+  --accent-text: 165 48% 78%;
 
-  --surface-public: 218 30% 7%;
-  --surface-page: 218 28% 8%;
-  --surface-base: 218 24% 11%;
-  --surface-raised: 218 22% 14%;
-  --surface-overlay: 218 20% 17%;
-  --surface-modal: 218 24% 11%;
-  --surface-drawer: 218 26% 9.5%;
-  --surface-hover: 218 20% 15%;
+  --surface-public: 24 10% 7%;
+  --surface-page: 24 9% 8%;
+  --surface-base: 24 8% 11%;
+  --surface-raised: 24 8% 14%;
+  --surface-overlay: 24 7% 17%;
+  --surface-modal: 24 8% 11%;
+  --surface-drawer: 24 9% 9.5%;
+  --surface-hover: 24 7% 15%;
 
-  --text-primary: 214 32% 93%;
-  --text-secondary: 214 16% 68%;
-  --text-tertiary: 214 12% 60%;
-  --text-muted: 214 12% 38%;
-  --text-inverted: 218 30% 10%;
+  --text-primary: 36 25% 92%;
+  --text-secondary: 30 10% 68%;
+  --text-tertiary: 30 8% 60%;
+  --text-muted: 30 6% 38%;
+  --text-inverted: 24 10% 8%;
 
-  --border-subtle: 218 20% 15%;
-  --border-default: 218 17% 22%;
-  --border-strong: 218 15% 28%;
-  --border-interactive: 214 16% 62%;
+  --border-subtle: 24 8% 15%;
+  --border-default: 24 7% 22%;
+  --border-strong: 24 6% 28%;
+  --border-interactive: 30 10% 62%;
 
   --status-positive: 150 55% 52%;
   --status-positive-subtle: 150 55% 52% / 0.12;
   --status-warning: 38 92% 60%;
   --status-warning-subtle: 38 92% 60% / 0.12;
-  --status-negative: 0 78% 66%;
-  --status-negative-subtle: 0 78% 66% / 0.12;
-  --status-neutral: 214 12% 60%;
+  --status-negative: 0 80% 70%;
+  --status-negative-subtle: 0 80% 70% / 0.12;
+  --status-neutral: 30 8% 60%;
 }
 
 /* The glow and the grid over the marketing band, in the accent's own hue. */
 .public-backdrop {
-  --public-glow-accent: rgb(10 98 201 / 0.1);
-  --public-grid-stroke: rgb(10 60 120 / 0.05);
+  --public-glow-accent: hsl(165 55% 24% / 0.09);
+  --public-grid-stroke: hsl(24 20% 30% / 0.05);
 }
 .dark .public-backdrop {
-  --public-glow-accent: rgb(106 174 255 / 0.12);
-  --public-grid-stroke: rgb(255 255 255 / 0.04);
+  --public-glow-accent: hsl(165 48% 62% / 0.1);
+  --public-grid-stroke: hsl(36 25% 92% / 0.04);
 }

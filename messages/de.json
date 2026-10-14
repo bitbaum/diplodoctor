@@ -46,111 +46,92 @@
   },
   "Home": {
     "hero": {
-      "kicker": "Offen, privat, und Sie wählen Ihre Hilfe",
+      "kicker": "Offen, privat, Hilfe nach Ihrer Wahl",
       "line1": "Ihre Resultate,",
       "line2": "mit Ihnen gelesen.",
-      "lede": "Fügen Sie einen Laborbericht als Text oder Foto hinzu. Diplodoctor listet jeden Wert auf, prüft, welche ausserhalb ihres angegebenen Bereichs liegen, erklärt, was sie messen, und schreibt die Fragen, die Sie zu Ihrer Ärztin oder Ihrem Arzt mitnehmen können. Ihr Name verlässt Ihren Browser nie.",
+      "lede": "Fügen Sie einen Laborbericht hinzu. Sehen Sie, was ausserhalb des Bereichs liegt, was das bedeuten kann und was Sie Ihre Ärztin oder Ihren Arzt fragen können.",
       "open": "Bericht lesen",
       "sample": "Beispiel ansehen"
     },
     "example": {
       "label": "Beispiel",
-      "title": "Ferritin, ein Wert in einem Bericht",
+      "title": "Ein Wert, gelesen",
       "s1": {
         "tool": "Gelesen",
         "text": "Ferritin 14 µg/L, Bereich 15 – 150"
       },
       "s2": {
         "tool": "Geprüft",
-        "text": "Unter dem angegebenen Bereich — durch Rechnen, nicht durch das Modell"
+        "text": "Unter dem Bereich, durch Rechnen, nicht durch das Modell"
       },
       "s3": {
         "tool": "Früher",
-        "text": "22 µg/L im Mai 2026, sinkend"
+        "text": "22 µg/L im Mai, sinkend"
       },
       "s4": {
         "tool": "Fragen",
-        "text": "Sollen wir nach einer Ursache suchen, und wann soll ich die Untersuchung wiederholen?"
-      },
-      "valueLabel": "Wert",
-      "value": "14 µg/L",
-      "rangeLabel": "Angegebener Bereich",
-      "range": "15 – 150"
+        "text": "Sollen wir nach einer Ursache suchen?"
+      }
     },
     "how": {
-      "kicker": "So funktioniert es",
-      "title": "Ein Bericht hinein, eine Datei heraus",
+      "title": "So funktioniert es",
       "add": {
-        "title": "Bericht hinzufügen",
-        "body": "Fügen Sie den Text ein oder fotografieren Sie die Seiten, in jeder Sprache. Namen und Nummern, die Sie erkennbar machen, werden zuerst in Ihrem Browser entfernt."
+        "title": "Hinzufügen",
+        "body": "Text einfügen oder die Seiten fotografieren."
       },
       "read": {
-        "title": "Es liest jeden Wert",
-        "body": "Jeder Wert mit Einheit und angegebenem Bereich, die Zeile, aus der er gelesen wurde, und eine Markierung, die aus dem Vergleich der Zahlen stammt, nicht aus der Meinung eines Modells."
+        "title": "Jeden Wert sehen",
+        "body": "Jeder mit seinem Bereich und der Zeile, aus der er stammt."
       },
       "ask": {
-        "title": "Sie bringen ihn zu einem Menschen",
-        "body": "Verständliche Informationen dazu, was ausserhalb des Bereichs liegt, Fragen für das Gespräch und der Bericht in einer Form, die Sie exportieren und mit wem Sie möchten teilen können."
+        "title": "Weitergehen",
+        "body": "Fragen an Ihre Ärztin oder Ihren Arzt, bereit zum Mitnehmen."
       }
     },
     "privacy": {
-      "kicker": "Privat durch Bauweise",
-      "title": "Eine Krankenakte gehört zuerst Ihnen",
+      "title": "Privat durch Bauweise",
       "cta": "Wie sie geschützt ist",
       "redact": {
         "title": "Namen bleiben bei Ihnen",
-        "body": "Ihr Name, Ihr Geburtsdatum, Versicherungs- und Auftragsnummern werden in Ihrem Browser durch Platzhalter ersetzt. Das Modell liest Platzhalter; Ihr Browser setzt die echten Werte wieder ein."
+        "body": "In Ihrem Browser entfernt, bevor etwas gesendet wird."
       },
       "browser": {
         "title": "Auf Ihrem Gerät gespeichert",
-        "body": "Ihre Berichte werden in diesem Browser gespeichert und sonst nirgends. Es gibt kein Konto und keine Kopie auf unserem Server."
+        "body": "Kein Konto. Keine Kopie auf unserem Server."
       },
       "model": {
-        "title": "Ihr Modell, wenn Sie möchten",
-        "body": "Standardmässig kostenlose, geteilte Modelle. Oder verbinden Sie Ihren eigenen Schlüssel für ein stärkeres Modell auf Ihr eigenes Budget; der Schlüssel bleibt in Ihrem Browser."
+        "title": "Jedes KI-Modell",
+        "body": "Kostenlose, geteilte, oder Ihr eigener Schlüssel."
       }
     },
-    "capabilities": {
-      "kicker": "Was es gibt",
-      "title": "Heute echt, und was als Nächstes kommt",
-      "lede": "Jede Zeile sagt, ob es jetzt funktioniert. Nichts wird als funktionierend aufgeführt, wenn es das nicht tut.",
-      "roadmap": "Roadmap lesen",
-      "changelog": "Änderungen lesen"
-    },
-    "tiersTitle": "Drei Arten von Hilfe und eine ehrliche Grenze dazwischen",
-    "tiersLead": "Die meisten Resultate brauchen eine Erklärung, keine Behandlung. Sie wählen, wer erklärt: ein beliebiges KI-Modell, ein Mensch, der helfen möchte, oder eine zugelassene Fachperson. Diplodoctor kennzeichnet jede Hilfe als das, was sie ist, und lässt nie eine für die andere durchgehen.",
+    "tiersTitle": "Drei Arten von Hilfe",
+    "tiersLead": "Sie wählen, wer erklärt. Jede ist als das gekennzeichnet, was sie ist.",
     "tiers": {
-      "kicker": "Wer was macht",
       "ai": {
         "name": "Jedes KI-Modell",
-        "can": "Liest den Bericht, listet jeden Wert auf, markiert, was ausserhalb des Bereichs liegt, erklärt, was er misst, und entwirft Fragen für Ihren Termin. Es läuft auf kostenlosen, geteilten Modellen oder mit Ihrem eigenen Schlüssel; nichts hier ist an einen Anbieter gebunden.",
-        "limit": "Es ist Software. Sie stellt keine Diagnose, verschreibt nichts und sagt Ihnen nie, ein Resultat sei unbedenklich."
+        "can": "Liest und erklärt Ihren Bericht.",
+        "limit": "Software. Keine Diagnose."
       },
       "assistant": {
         "name": "Eine Gesundheitsassistenz",
-        "can": "Alle, die helfen möchten, unter einem Namen oder einem Pseudonym: eine Pflegefachperson, ein Arzt oder eine Ärztin aus einem anderen Land, ein Mensch, der mit demselben Resultat gelebt hat. Sie erklären, übersetzen, helfen bei der Vorbereitung und geben ihre Einschätzung, zu einem Preis, den sie selbst festlegen.",
-        "limit": "Ihre Einschätzung ist die Meinung eines Menschen, kein medizinischer Rat einer Fachperson mit Zulassung an Ihrem Ort. Es wird gezeigt, wie hilfreich Menschen sie fanden. Sie entscheiden, wen Sie fragen."
+        "can": "Alle, unter einem Namen oder Pseudonym. Erklären, übersetzen, teilen Erfahrung.",
+        "limit": "Eine Meinung, kein medizinischer Rat."
       },
       "licensed": {
         "name": "Eine zugelassene Fachperson",
-        "can": "Eine Ärztin, ein Arzt oder eine andere Fachperson im Gesundheitswesen mit geprüfter Zulassung, an den Orten, an denen sie zugelassen ist. Sie dürfen dort beraten, diagnostizieren und behandeln.",
-        "limit": "Geplant. Ihre Zulassung lässt sich beweisen, ohne zu verraten, wer sie sind, sodass sie pseudonym bleiben können. Noch ist niemand aufgeführt."
+        "can": "Eine geprüfte Zulassung. Darf dort beraten und behandeln, wo sie gilt.",
+        "limit": "Geplant. Kann pseudonym bleiben."
       }
     },
-    "identity": {
-      "problem": "Das Problem",
-      "solution": "Was wir gebaut haben",
-      "mission": "Auftrag",
-      "vision": "Vision"
+    "peopleLink": "Wie Menschen helfen können",
+    "status": {
+      "text": "Beta: in Betrieb, nicht veröffentlicht.",
+      "link": "Was heute funktioniert"
     },
-    "fleet": {
-      "kicker": "Eines von einer Flotte",
-      "title": "Auf demselben Boden gebaut wie der Rest",
-      "lede": "Diplodoctor ist die Gesundheitsebene der Flotte: OrangeCat ist ihre Wirtschaft, Loki baut sie und Solon entscheidet, wie sie regiert wird.",
-      "more": "Das Ökosystem ansehen",
+    "closing": {
+      "title": "Probieren Sie es mit einem Bericht, den Sie haben.",
       "cta": "Bericht lesen"
-    },
-    "peopleLink": "Wie Menschen helfen können"
+    }
   },
   "Reports": {
     "title": "Meine Berichte",
@@ -165,17 +146,17 @@
   },
   "NewReport": {
     "title": "Bericht lesen",
-    "lead": "Geben Sie Diplodoctor den Bericht. Er geht anonymisiert zum Lesen an einen Anbieter von KI-Modellen und wird von Diplodoctor nicht gespeichert; das Ergebnis bleibt nur in diesem Browser.",
+    "lead": "Fügen Sie einen Bericht ein oder fotografieren Sie die Seiten. Namen werden in Ihrem Browser entfernt, ein KI-Modell liest ihn, und das Ergebnis bleibt auf diesem Gerät.",
     "modelOwn": "Gelesen von Ihrem eigenen Modell, {model}.",
-    "modelFree": "Gelesen von kostenlosen, geteilten Modellen, die wechseln und ein kleines Tagesbudget haben.",
-    "modelFreeNoPhoto": "Gelesen von kostenlosen, geteilten Modellen, die wechseln und ein kleines Tagesbudget haben. Im Moment lesen sie eingefügten Text, aber keine Fotos.",
-    "modelOff": "Die kostenlosen, geteilten Modelle sind im Moment nicht eingeschaltet. Verbinden Sie Ihr eigenes Modell, um einen Bericht zu lesen, oder erfassen Sie ihn unten von Hand.",
+    "modelFree": "Kostenlose, geteilte Modelle lesen ihn (pro Tag begrenzt).",
+    "modelFreeNoPhoto": "Kostenlose, geteilte Modelle lesen im Moment Text, keine Fotos.",
+    "modelOff": "Die kostenlosen Modelle sind im Moment aus. Nutzen Sie Ihr eigenes Modell oder erfassen Sie ihn von Hand.",
     "change": "Ändern",
     "useOwn": "Eigenes Modell verwenden",
     "textLabel": "Der Text des Berichts",
     "textPlaceholder": "Hier einfügen, in jeder Sprache.",
     "photoLabel": "Oder Fotos der Seiten",
-    "photoHint": "Bis zu {max} Seiten, in der richtigen Reihenfolge. JPEG, PNG oder WebP. Fotos werden in Ihrem Browser verkleinert, bevor sie gesendet werden.",
+    "photoHint": "Bis zu {max} Seiten, in der richtigen Reihenfolge. Werden zuerst in Ihrem Browser verkleinert.",
     "pages": "{count, plural, one {# Seite hinzugefügt} other {# Seiten hinzugefügt}}",
     "page": "Seite {n}",
     "removePage": "Seite {n} entfernen",
@@ -193,7 +174,7 @@
     "openSettings": "Modelleinstellungen öffnen",
     "byHand": {
       "title": "Von Hand erfassen",
-      "body": "Keine Auswertung, aber das Dokument und sein Datum bleiben beisammen, und die Akte kann einem Menschen Ihrer Wahl übergeben werden. Sie haben schon eine Berichtsdatei?",
+      "body": "Keine Auswertung, aber das Dokument und sein Datum bleiben beisammen. Sie haben schon eine Berichtsdatei?",
       "import": "Importieren",
       "about": "Worum geht es?",
       "provider": "Wer hat ihn ausgestellt?",
@@ -202,26 +183,26 @@
       "original": "Original"
     },
     "errors": {
-      "not_configured": "Die kostenlosen, geteilten Modelle sind für diese Website im Moment nicht eingeschaltet. Sie können Ihr eigenes Modell verbinden oder den Bericht von Hand erfassen.",
-      "busy": "Kein Modell hat geantwortet. Das kostenlose, geteilte Budget für heute ist vielleicht aufgebraucht, oder ein Anbieter ist ausgefallen. Ihr eigenes Modell ist vom geteilten Budget nicht betroffen.",
-      "busy_own": "Ihr Modell hat nicht geantwortet. Vielleicht ist das Guthaben des Schlüssels aufgebraucht oder der Schlüssel wurde widerrufen. Prüfen Sie ihn in den Einstellungen oder entfernen Sie ihn, um die kostenlosen, geteilten Modelle zu verwenden.",
-      "no_vision": "Keines der im Moment verfügbaren Modelle kann ein Foto lesen. Fügen Sie stattdessen den Text des Berichts ein oder verbinden Sie ein eigenes Modell, das Bilder lesen kann.",
-      "rate_limited": "Das sind viele Berichte in kurzer Zeit. Die kostenlosen, geteilten Modelle erlauben einige pro Stunde, Ihr eigenes Modell viel mehr.",
+      "not_configured": "Die kostenlosen Modelle sind auf dieser Website im Moment aus. Nutzen Sie Ihr eigenes Modell oder erfassen Sie den Bericht von Hand.",
+      "busy": "Kein Modell hat geantwortet. Das kostenlose Budget für heute ist vielleicht aufgebraucht, oder ein Anbieter ist ausgefallen. Ihr eigenes Modell ist nicht betroffen.",
+      "busy_own": "Ihr Modell hat nicht geantwortet. Vielleicht ist das Guthaben aufgebraucht oder der Schlüssel widerrufen. Prüfen Sie ihn in den Einstellungen oder entfernen Sie ihn, um die kostenlosen Modelle zu nutzen.",
+      "no_vision": "Kein verfügbares Modell kann im Moment ein Foto lesen. Fügen Sie stattdessen den Text ein oder verbinden Sie ein eigenes Modell, das Bilder lesen kann.",
+      "rate_limited": "Das sind viele Berichte in kurzer Zeit. Die kostenlosen Modelle erlauben einige pro Stunde, Ihr eigenes viel mehr.",
       "bad_own_model": "Ihre gespeicherten Modelleinstellungen konnten nicht verwendet werden. Richten Sie sie neu ein.",
-      "unreadable_analysis": "Das Modell hat geantwortet, aber nicht in einer Form, aus der Diplodoctor einen Bericht machen konnte. Versuchen Sie es noch einmal; ein stärkeres Modell schafft das zuverlässiger.",
+      "unreadable_analysis": "Das Modell hat geantwortet, aber nicht in einer Form, die Diplodoctor nutzen konnte. Versuchen Sie es noch einmal; ein stärkeres Modell ist zuverlässiger.",
       "empty": "Fügen Sie den Text des Berichts ein oder fügen Sie ein Foto davon hinzu.",
-      "bad_image": "Diese Datei konnte nicht als Foto verwendet werden. Senden Sie ein Bild im Format JPEG, PNG oder WebP.",
+      "bad_image": "Diese Datei ist als Foto nicht brauchbar. Senden Sie ein Bild im Format JPEG, PNG oder WebP.",
       "too_many_pages": "Das sind mehr als {max} Seiten. Fügen Sie die Seiten hinzu, auf denen die Werte stehen.",
       "offline": "Diplodoctor ist nicht erreichbar. Prüfen Sie Ihre Verbindung und versuchen Sie es noch einmal.",
       "unknown": "Die Auswertung ist nicht durchgegangen. Versuchen Sie es in einer Minute noch einmal."
     }
   },
   "Report": {
-    "sampleBanner": "Das ist ein durchgespieltes Beispiel. Alle persönlichen Angaben darin sind erfunden.",
+    "sampleBanner": "Ein durchgespieltes Beispiel. Alle persönlichen Angaben sind erfunden.",
     "notHereTitle": "Dieser Bericht ist nicht auf diesem Gerät",
     "notHereBody": "Berichte bleiben in dem Browser, der sie gelesen hat. Öffnen Sie ihn dort, wo Sie ihn gelesen haben, oder importieren Sie seine Berichtsdatei.",
     "goReports": "Zu meinen Berichten",
-    "aiNotice": "Von einem KI-Modell gelesen, das eine Zahl oder ein Wort falsch lesen kann. Prüfen Sie jeden Wert anhand der Zeile des Berichts, aus der er stammt, einen Fingertipp entfernt. Das ist Information, keine Diagnose.",
+    "aiNotice": "Eine KI hat das gelesen und kann eine Zahl falsch lesen. Prüfen Sie jeden Wert anhand seiner Quellzeile. Information, keine Diagnose.",
     "facts": {
       "provider": "Ausgestellt von",
       "kind": "Art",
@@ -240,18 +221,18 @@
     "attention": {
       "routine": {
         "title": "Bei Ihrem nächsten Termin",
-        "body": "Nichts in diesem Bericht liegt ausserhalb des Bereichs oder ist als dringend markiert. Bringen Sie ihn zu Ihrer nächsten Routinekontrolle mit."
+        "body": "Nichts liegt ausserhalb des Bereichs oder ist als dringend markiert."
       },
       "soon": {
-        "title": "Bald — innerhalb von Tagen oder Wochen",
-        "body": "Ein Wert oder mehrere liegen ausserhalb ihres angegebenen Bereichs. Eine Ärztin oder ein Arzt sollte den Bericht ansehen. Wie bald, hängt von Ihnen und Ihren Beschwerden ab, die nur eine Ärztin oder ein Arzt beurteilen kann."
+        "title": "Bald, innerhalb von Tagen oder Wochen",
+        "body": "Ein Wert oder mehrere liegen ausserhalb ihres Bereichs. Lassen Sie eine Ärztin oder einen Arzt hinschauen. Wie bald, hängt von Ihnen und Ihren Beschwerden ab."
       },
       "urgent": {
         "title": "Heute",
-        "body": "Der Bericht selbst markiert einen Wert als kritisch oder verlangt sofortiges Handeln. Wenden Sie sich heute an eine Ärztin oder einen Arzt."
+        "body": "Der Bericht selbst markiert einen Wert als kritisch. Wenden Sie sich heute an eine Ärztin oder einen Arzt."
       }
     },
-    "emergency": "Wenn Sie sich jetzt unwohl fühlen — Brustschmerzen, Atemnot, Verwirrung, starke Schmerzen —, warten Sie nicht auf einen Bericht: Rufen Sie Ihre Notrufnummer an (112 in Europa, 144 in der Schweiz, 911 in den USA).",
+    "emergency": "Jetzt unwohl? Warten Sie nicht: Rufen Sie Ihre Notrufnummer an (112 in Europa, 144 in der Schweiz, 911 in den USA).",
     "outsideTitle": "{count, plural, one {# Wert ausserhalb des Bereichs} other {# Werte ausserhalb des Bereichs}}",
     "allInRange": "Jeder Wert liegt innerhalb seines angegebenen Bereichs",
     "insideTitle": "{count, plural, one {# Wert innerhalb des Bereichs} other {# Werte innerhalb des Bereichs}}",
@@ -268,22 +249,22 @@
       "unknown": "Nicht bewertet"
     },
     "source": "Die Zeile, aus der er gelesen wurde",
-    "checked": "Markierung durch Vergleich der Zahl mit dem angegebenen Bereich bestimmt.",
-    "notChecked": "Markierung so, wie der Bericht sie setzt. Es gibt keinen Zahlenbereich, mit dem sie sich prüfen liesse.",
+    "checked": "Markierung durch Vergleich der Zahl mit dem angegebenen Bereich gesetzt.",
+    "notChecked": "Markierung wie gedruckt. Kein Zahlenbereich zum Prüfen.",
     "questionsTitle": "Fragen an Ihre Ärztin oder Ihren Arzt",
-    "questionsHint": "Aus den Werten geschrieben, die ausserhalb des Bereichs liegen. Nehmen Sie sie zu Ihrem Termin mit.",
+    "questionsHint": "Aus den Werten ausserhalb des Bereichs.",
     "copy": "Kopieren",
     "copied": "Kopiert",
     "termsTitle": "Erklärte Begriffe",
     "followUpsTitle": "Was der Bericht zu tun empfiehlt",
-    "followUpsHint": "Nur, was das Dokument selbst verlangt. Haken Sie es ab, sobald es erledigt ist.",
+    "followUpsHint": "Nur, was der Bericht selbst verlangt.",
     "followUpsDone": "{done} von {total} erledigt",
     "notesTitle": "Gut zu wissen",
     "docTitle": "Das Dokument",
     "language": "Sprache",
     "whoEyebrow": "Ein Mensch",
     "whoTitle": "Möchten Sie, dass ein Mensch es ansieht?",
-    "whoBody": "Die KI von Diplodoctor erklärt. Ein Mensch kann Ihnen mehr sagen: eine Gesundheitsassistenz mit ihrer Einschätzung und Erfahrung, oder eine zugelassene Fachperson für medizinischen Rat. Einen Bericht hier an einen Menschen zu übergeben, ist geplant und noch nicht verfügbar: Exportieren Sie die anonymisierte Datei und nehmen Sie sie zu jemandem mit, dem Sie vertrauen, oder zu Ihrer eigenen Ärztin oder Ihrem eigenen Arzt.",
+    "whoBody": "Ein Mensch kann Ihnen mehr sagen: eine Gesundheitsassistenz mit Erfahrung, eine zugelassene Fachperson mit medizinischem Rat. Noch nicht gebaut. Exportieren Sie die anonymisierte Datei und nehmen Sie sie zu jemandem mit, dem Sie vertrauen.",
     "findClinician": "Wie Menschen helfen können",
     "exportAnon": "Anonymisiert exportieren, zum Teilen mit einem Menschen",
     "export": "Den ganzen Bericht exportieren",
@@ -330,11 +311,11 @@
   },
   "Redact": {
     "title": "Vor dem Senden anonymisieren",
-    "lead": "Namen, Geburtsdaten und Nummern, die Sie erkennbar machen, werden in Ihrem Browser durch Platzhalter ersetzt, bevor der Bericht gesendet wird. Das Modell sieht sie nie; Ihr Browser setzt sie im Ergebnis wieder ein.",
+    "lead": "Namen und Nummern, die Sie erkennbar machen, werden in Ihrem Browser durch Platzhalter ersetzt. Das Modell sieht sie nie.",
     "toggle": "Anonymisieren",
     "ownWords": "Auch diese Wörter verbergen",
     "ownWordsPlaceholder": "Ihr Name, Ihr Arbeitgeber, ein Familienmitglied…",
-    "ownWordsHint": "Mit Kommas trennen. Bleibt für Ihre nächsten Berichte in diesem Browser gespeichert.",
+    "ownWordsHint": "Mit Kommas trennen. In diesem Browser gespeichert.",
     "found": "{count, plural, =0 {Es wird nichts verborgen} one {# Angabe wird verborgen} other {# Angaben werden verborgen}}. Tippen Sie auf eine, um sie doch zu senden.",
     "foundNone": "Im Text wurden keine persönlichen Angaben gefunden. Tragen Sie oben Ihren Namen ein, falls er vorkommt.",
     "sendThis": "Doch senden",
@@ -361,7 +342,8 @@
       "AHV": "AHV-Nr.",
       "REF": "Referenz",
       "BIRTHDATE": "Geboren"
-    }
+    },
+    "more": "Weitere Optionen"
   },
   "Capabilities": {
     "status": {
@@ -518,6 +500,19 @@
       "roadmap": "Roadmap lesen",
       "ecosystem": "Das Ökosystem",
       "source": "Quellcode"
+    },
+    "status": {
+      "kicker": "Was es gibt",
+      "title": "Heute echt, und was als Nächstes kommt",
+      "lede": "Jede Zeile sagt, ob es jetzt funktioniert.",
+      "roadmap": "Roadmap",
+      "changelog": "Änderungen"
+    },
+    "identity": {
+      "problem": "Das Problem",
+      "solution": "Was wir gebaut haben",
+      "mission": "Auftrag",
+      "vision": "Vision"
     }
   },
   "Security": {
@@ -624,58 +619,56 @@
     "metaDescription": "Gesundheitsassistenzen und zugelassene Fachpersonen: wie Menschen neben Diplodoctor helfen werden und was jede Gruppe sagen darf.",
     "eyebrow": "Menschen",
     "title": "Ein Mensch, wenn Sie einen möchten",
-    "lead": "Die KI von Diplodoctor erklärt einen Bericht. Vielleicht möchten Sie auch einen Menschen. Es gibt zwei Arten, und der Unterschied ist keine Rangordnung: Er betrifft, wer was sagen darf und wer für sie bürgt. In beiden Fällen entscheiden Sie, wen Sie fragen.",
+    "lead": "Die KI von Diplodoctor erklärt einen Bericht. Vielleicht möchten Sie auch einen Menschen. Die zwei Arten unterscheiden sich darin, wer was sagen darf, nicht darin, wer besser ist. Sie entscheiden, wen Sie fragen.",
     "noneTitle": "Noch ist niemand aufgeführt",
-    "noneBody": "Es ist noch keine Assistenz und keine Fachperson beigetreten, deshalb wird niemand gezeigt. Hier gibt es keine erfundenen Profile, Bewertungen oder Wartezeiten, und es wird sie nie geben. Bis dahin exportieren Sie die anonymisierte Datei und nehmen sie zu jemandem mit, dem Sie vertrauen, oder zu Ihrer eigenen Ärztin oder Ihrem eigenen Arzt.",
+    "noneBody": "Noch ist niemand beigetreten, deshalb wird niemand gezeigt. Hier gibt es keine erfundenen Profile oder Bewertungen, und es wird sie nie geben. Exportieren Sie vorerst die anonymisierte Datei und nehmen Sie sie zu jemandem mit, dem Sie vertrauen.",
     "listedUnder": "Geführt unter {identity}",
     "assistant": {
       "name": "Gesundheitsassistenz",
       "identity": "einem Namen oder einem Pseudonym",
-      "does1": "Erklärt einen Bericht in einfachen Worten und in Ihrer Sprache",
-      "does2": "Gibt ihre Erfahrung und Einschätzung dazu, was zu fragen oder auszuprobieren ist, zu einem Preis, den sie selbst festlegt",
-      "does3": "Hilft bei Terminen, Papierkram und Versicherungen",
-      "doesNot": "Was sie sagt, ist die Meinung eines Menschen, kein medizinischer Rat einer Fachperson mit Zulassung an Ihrem Ort. Sie kann eine Gesundheitsqualifikation haben oder nicht und gibt das in ihrem Profil an.",
-      "checks": "Wie hilfreich Menschen sie fanden, steht in ihrem Profil, von den Menschen, denen sie geholfen hat. Sie entscheiden selbst, wen Sie fragen."
+      "does1": "Erklärt in einfachen Worten, in Ihrer Sprache",
+      "does2": "Teilt Erfahrung und Einschätzung, zu einem selbst festgelegten Preis",
+      "doesNot": "Die Einschätzung ist eine Meinung, kein medizinischer Rat. Sie kann eine Gesundheitsqualifikation haben oder nicht und gibt das an.",
+      "checks": "Mit der Angabe, wie hilfreich Menschen sie fanden."
     },
     "licensed": {
       "name": "Zugelassene Fachperson",
       "identity": "einer geprüften Zulassung und einem Namen oder einem Pseudonym",
       "does1": "Berät dazu, was ein Resultat für Sie bedeutet",
-      "does2": "Stellt Diagnosen und behandelt im Rahmen der gehaltenen Zulassung",
-      "does3": "Unterzeichnet die Antwort, die Sie erhalten",
-      "doesNot": "Nur an den Orten, an denen eine Zulassung besteht.",
-      "checks": "Die Zulassung wird mit dem öffentlichen Register abgeglichen. Mit einem Zero-Knowledge-Beweis lässt sich zeigen, dass sie gültig ist, ohne zu zeigen, wer die Person ist. Geplant."
+      "does2": "Stellt Diagnosen und behandelt dort, wo die Zulassung gilt",
+      "doesNot": "Nur dort, wo eine Zulassung besteht.",
+      "checks": "Zulassung mit dem öffentlichen Register abgeglichen und beweisbar, ohne zu verraten, wer die Person ist (geplant)."
     },
     "wantTitle": "Möchten Sie das anbieten?",
-    "wantBody": "Alle können ihre Arbeit als Dienstleistung auf OrangeCat anbieten und werden dort von der Person bezahlt, der sie helfen, in jeder Währung. Diplodoctor wird die Kennzeichnungen, die Zulassungsprüfung und die Erfassung ergänzen, wie hilfreich Menschen waren; nichts davon ist bisher gebaut.",
+    "wantBody": "Alle können Hilfe als Dienstleistung auf OrangeCat anbieten und dort bezahlt werden, in jeder Währung. Kennzeichnungen, Zulassungsprüfung und Hilfreich-Erfassung sind noch nicht gebaut.",
     "offer": "Dienstleistung auf OrangeCat anbieten",
     "seeRoadmap": "Roadmap ansehen",
     "clinic": {
       "eyebrow": "Für Kliniken und Praxen",
       "title": "Die Berichte Ihrer Patientinnen und Patienten, vor dem Termin gelesen",
-      "lead": "Eine Klinik kann Diplodoctor so nutzen wie ein Patient und später zu eigenen Bedingungen:",
+      "lead": "Eine Klinik könnte Diplodoctor so nutzen wie ein Patient und später zu eigenen Bedingungen:",
       "c1": "Patientinnen und Patienten kommen mit gelesenen Resultaten und geschriebenen Fragen.",
-      "c2": "Eine Patientin oder ein Patient übergibt Ihnen die Akte freiwillig, anonymisiert, bis sie oder er anders entscheidet.",
-      "c3": "Läuft auf einem Modell in Ihren eigenen Mauern, sodass Patientendaten die Praxis nie verlassen.",
-      "status": "Geplant. Für Kliniken ist hier noch nichts verfügbar; es steht auf der Roadmap."
+      "c2": "Eine Patientin oder ein Patient übergibt die Akte freiwillig.",
+      "c3": "Ein Modell in Ihren eigenen Mauern: Patientendaten verlassen sie nie.",
+      "status": "Geplant. Auf der Roadmap."
     },
     "rulesTitle": "Regeln, die nicht nachgeben",
     "rules": {
       "label": {
         "title": "Alle sind gekennzeichnet",
-        "body": "Eine Assistenz wird als Assistenz gezeigt und eine zugelassene Fachperson als solche. Die Kennzeichnung sagt, was sie tun dürfen; sie sagt nicht, wer besser ist."
+        "body": "Eine Assistenz wird als Assistenz gezeigt, eine zugelassene Fachperson als solche. Die Kennzeichnung sagt, was sie tun dürfen, nicht, wer besser ist."
       },
       "pseudonym": {
         "title": "Namen sind auf jeder Seite freiwillig",
-        "body": "Patientinnen, Patienten, Assistenzen und zugelassene Fachpersonen dürfen alle ein Pseudonym verwenden. Eine Zulassung lässt sich beweisen, ohne zu verraten, wer sie hält (geplant)."
+        "body": "Alle dürfen ein Pseudonym verwenden. Eine Zulassung lässt sich beweisen, ohne zu verraten, wer sie hält (geplant)."
       },
       "share": {
         "title": "Sie entscheiden, was hinausgeht",
-        "body": "Ein Mensch erhält die anonymisierte Datei, es sei denn, Sie entscheiden sich, mehr zu teilen. Ohne Ihr Zutun wird nichts gesendet."
+        "body": "Ein Mensch erhält die anonymisierte Datei, es sei denn, Sie teilen mehr."
       },
       "place": {
         "title": "Rat zählt dort, wo die Zulassung gilt",
-        "body": "Medizinischer Rat, Diagnose und Behandlung können nur von jemandem kommen, der an Ihrem Behandlungsort zugelassen ist. Die Einschätzung einer Assistenz ist etwas anderes und wird immer als solche gekennzeichnet."
+        "body": "Medizinischer Rat zählt nur von jemandem, der an Ihrem Behandlungsort zugelassen ist."
       }
     },
     "start": "Bericht lesen"
