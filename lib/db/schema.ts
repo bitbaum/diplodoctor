@@ -152,4 +152,24 @@ export const twoFactor = pgTable(
   ],
 );
 
+/**
+ * A person's health file, kept for them only when they turn it on (the row's
+ * existence IS the switch). One sealed document per person: the browser holds
+ * the working copy, this is the copy that follows them to another device.
+ *
+ * `sealed` is AES-256-GCM under SECRET_SEAL_KEY with the owner in the context
+ * (lib/secrets.ts), so it is unreadable in a database dump. It is not yet
+ * unreadable to us: the key is ours. Keys only the owner holds are on the
+ * roadmap, and the account page says so. `version` is the optimistic lock a
+ * second device must present to overwrite.
+ */
+export const healthFile = pgTable("health_files", {
+  userId: text("user_id")
+    .primaryKey()
+    .references(() => user.id, { onDelete: "cascade" }),
+  sealed: text("sealed").notNull(),
+  version: integer("version").notNull().default(1),
+  ...timestamps,
+});
+
 export type User = typeof user.$inferSelect;

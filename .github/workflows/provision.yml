@@ -69,9 +69,10 @@ jobs:
           add() { printf '%s=%s\n' "$1" "$2" >> "$ENV_FILE"; }
           has DATABASE_URL       || add DATABASE_URL "postgresql://$DB:$pass@127.0.0.1:5432/$DB"
           has BETTER_AUTH_SECRET || add BETTER_AUTH_SECRET "$(openssl rand -base64 48 | tr -d '\n')"
+          has SECRET_SEAL_KEY    || add SECRET_SEAL_KEY "$(openssl rand -base64 48 | tr -d '\n')"
           has NEXT_PUBLIC_APP_URL || add NEXT_PUBLIC_APP_URL "https://diplodoctor.orangecat.ch"
           present=""
-          for k in DATABASE_URL BETTER_AUTH_SECRET NEXT_PUBLIC_APP_URL GROQ_API_KEY GEMINI_API_KEY OPENROUTER_API_KEY RESEND_API_KEY; do
+          for k in DATABASE_URL BETTER_AUTH_SECRET SECRET_SEAL_KEY NEXT_PUBLIC_APP_URL GROQ_API_KEY GEMINI_API_KEY OPENROUTER_API_KEY RESEND_API_KEY; do
             has "$k" && present="$present $k"
           done
           echo "database $DB ready; $ENV_FILE has:$present"

@@ -782,7 +782,15 @@
     "deleteConfirm": "Pour supprimer votre compte et tout son contenu, tapez {word}",
     "deleteWord": "supprimer",
     "delete": "Supprimer mon compte",
-    "ownModel": "Votre propre modèle : réglages"
+    "ownModel": "Votre propre modèle : réglages",
+    "file": {
+      "title": "Garder mon dossier dans mon compte",
+      "body": "Désactivé par défaut. Activé, vos documents sont aussi conservés, chiffrés, sur notre serveur en Suisse, pour les ouvrir sur n’importe quel appareil. Tant qu’il n’existe pas de clés que vous seul détenez, nous pourrions techniquement les lire.",
+      "on": "Activé. Votre dossier vous suit sur chaque appareil où vous vous connectez.",
+      "turnOn": "Activer",
+      "turnOff": "Désactiver et supprimer la copie",
+      "error": "Cela n’a pas fonctionné. Votre dossier sur cet appareil est intact. Réessayez."
+    }
   },
   "Mail": {
     "verify": {
@@ -822,7 +830,8 @@
       "title": "Commencez votre dossier",
       "body": "Ajoutez ce que vous avez. Cela reste sur cet appareil.",
       "example": "Voir un exemple"
-    }
+    },
+    "synced": "Conservé sur cet appareil et dans votre compte."
   },
   "Add": {
     "title": {

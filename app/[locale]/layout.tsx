@@ -10,6 +10,7 @@ import { notFound } from "next/navigation";
 import Script from "next/script";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { FileSync } from "@/components/FileSync";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { Logo } from "@/components/site/Logo";
 import { SiteNav } from "@/components/SiteNav";
@@ -104,6 +105,7 @@ export default async function LocaleLayout({
           </div>
 
           <SiteFooter />
+          {session && <FileSync />}
         </NextIntlClientProvider>
 
         {/* The Loki feedback widget: the owner points at what they do not like

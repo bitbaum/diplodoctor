@@ -782,7 +782,15 @@
     "deleteConfirm": "Para eliminar su cuenta y todo lo que contiene, escriba {word}",
     "deleteWord": "eliminar",
     "delete": "Eliminar mi cuenta",
-    "ownModel": "Su modelo: ajustes"
+    "ownModel": "Su modelo: ajustes",
+    "file": {
+      "title": "Guardar mi historial en mi cuenta",
+      "body": "Desactivado por defecto. Activado, sus documentos también se guardan, cifrados, en nuestro servidor en Suiza, para abrirlos en cualquier dispositivo. Hasta que existan claves que solo usted tenga, técnicamente podríamos leerlos.",
+      "on": "Activado. Su historial le sigue a cualquier dispositivo en el que inicie sesión.",
+      "turnOn": "Activar",
+      "turnOff": "Desactivar y eliminar la copia",
+      "error": "No ha funcionado. Su historial en este dispositivo está intacto. Inténtelo de nuevo."
+    }
   },
   "Mail": {
     "verify": {
@@ -822,7 +830,8 @@
       "title": "Empiece su historial",
       "body": "Añada lo que tenga. Se queda en este dispositivo.",
       "example": "Ver un ejemplo"
-    }
+    },
+    "synced": "Guardado en este dispositivo y en su cuenta."
   },
   "Add": {
     "title": {

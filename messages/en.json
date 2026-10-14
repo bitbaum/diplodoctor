@@ -782,7 +782,15 @@
     "deleteConfirm": "To delete your account and everything in it, type {word}",
     "deleteWord": "delete",
     "delete": "Delete my account",
-    "ownModel": "Your own model: settings"
+    "ownModel": "Your own model: settings",
+    "file": {
+      "title": "Keep my file in my account",
+      "body": "Off by default. When on, your records are also kept on our server in Switzerland, encrypted, so you can open them on any device. Until keys only you hold ship, we could technically read them.",
+      "on": "On. Your file follows you to any device you sign in on.",
+      "turnOn": "Turn on",
+      "turnOff": "Turn off and delete the copy",
+      "error": "That did not work. Your file on this device is untouched. Try again."
+    }
   },
   "Mail": {
     "verify": {
@@ -822,7 +830,8 @@
       "title": "Start your file",
       "body": "Add what you have. It stays on this device.",
       "example": "See an example"
-    }
+    },
+    "synced": "Kept on this device and in your account."
   },
   "Add": {
     "title": {

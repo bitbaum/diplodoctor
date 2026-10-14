@@ -782,7 +782,15 @@
     "deleteConfirm": "Per eliminare il Suo account e tutto ciò che contiene, scriva {word}",
     "deleteWord": "elimina",
     "delete": "Elimina il mio account",
-    "ownModel": "Il Suo modello: impostazioni"
+    "ownModel": "Il Suo modello: impostazioni",
+    "file": {
+      "title": "Tenere la mia cartella nel mio account",
+      "body": "Disattivato di default. Attivato, i Suoi documenti sono conservati anche, cifrati, sul nostro server in Svizzera, per aprirli su qualsiasi dispositivo. Finché non esistono chiavi che solo Lei possiede, potremmo tecnicamente leggerli.",
+      "on": "Attivo. La Sua cartella La segue su ogni dispositivo in cui accede.",
+      "turnOn": "Attiva",
+      "turnOff": "Disattiva ed elimina la copia",
+      "error": "Non ha funzionato. La Sua cartella su questo dispositivo è intatta. Riprovi."
+    }
   },
   "Mail": {
     "verify": {
@@ -822,7 +830,8 @@
       "title": "Inizi la Sua cartella",
       "body": "Aggiunga ciò che ha. Resta su questo dispositivo.",
       "example": "Vedere un esempio"
-    }
+    },
+    "synced": "Conservato su questo dispositivo e nel Suo account."
   },
   "Add": {
     "title": {
