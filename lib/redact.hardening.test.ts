@@ -1,10 +1,5 @@
 import { describe, expect, it } from "vitest";
-import {
-  applyRedactions,
-  assignTokens,
-  findPersonalData,
-  restore,
-} from "./redact";
+import { applyRedactions, assignTokens, findPersonalData, restore } from "./redact";
 
 /**
  * What the 2026-10-12 audit found leaking, one case each. Every input is
@@ -12,8 +7,7 @@ import {
  */
 const kinds = (text: string, own?: string[]) =>
   Object.fromEntries(findPersonalData(text, own).map((r) => [r.value, r.kind]));
-const hidden = (text: string) =>
-  applyRedactions(text, assignTokens(findPersonalData(text)));
+const hidden = (text: string) => applyRedactions(text, assignTokens(findPersonalData(text)));
 
 describe("names in the shapes letters really use", () => {
   it("takes the whole name after an academic title, not the title", () => {
@@ -26,9 +20,7 @@ describe("names in the shapes letters really use", () => {
   it("takes a name written with an initial", () => {
     const f = kinds("Frau E. Muster\nPostfach 123\n8000 Zürich");
     expect(f["E. Muster"]).toBe("NAME");
-    expect(hidden("Frau E. Muster\nPostfach 123\n8000 Zürich")).not.toContain(
-      "Muster",
-    );
+    expect(hidden("Frau E. Muster\nPostfach 123\n8000 Zürich")).not.toContain("Muster");
   });
 
   it("takes an all-capitals letterhead", () => {
@@ -40,14 +32,12 @@ describe("names in the shapes letters really use", () => {
   });
 
   it("takes a bare name written above the street, with no title", () => {
-    const letter =
-      "Erika Muster\nMusterstrasse 5\n8000 Zürich\n\nBetreff: Steuern";
+    const letter = "Erika Muster\nMusterstrasse 5\n8000 Zürich\n\nBetreff: Steuern";
     expect(kinds(letter)["Erika Muster"]).toBe("NAME");
   });
 
   it("takes the signer's name after the closing, but not the authority under it", () => {
-    const letter =
-      "Freundliche Grüsse\nHans Beispiel\nKantonales Steueramt Zürich";
+    const letter = "Freundliche Grüsse\nHans Beispiel\nKantonales Steueramt Zürich";
     const f = kinds(letter);
     expect(f["Hans Beispiel"]).toBe("NAME");
     expect(Object.keys(f).join("|")).not.toContain("Steueramt");
@@ -59,9 +49,7 @@ describe("names in the shapes letters really use", () => {
       { value: "Muster", kind: "NAME" },
       { value: "Erika", kind: "NAME" },
     ]);
-    expect(applyRedactions("Musters Sohn und Erikas Konto", r)).not.toMatch(
-      /Muster|Erika/,
-    );
+    expect(applyRedactions("Musters Sohn und Erikas Konto", r)).not.toMatch(/Muster|Erika/);
   });
 
   it("matches a name typed with combining accents or a soft hyphen", () => {
@@ -74,11 +62,9 @@ describe("names in the shapes letters really use", () => {
 
 describe("addresses and numbers in more formats", () => {
   it("finds a French street written number first", () => {
-    expect(
-      kinds("Frau Dupont\n12 rue de la Gare\n1003 Lausanne")[
-        "12 rue de la Gare"
-      ],
-    ).toBe("ADDRESS");
+    expect(kinds("Frau Dupont\n12 rue de la Gare\n1003 Lausanne")["12 rue de la Gare"]).toBe(
+      "ADDRESS",
+    );
   });
 
   it("finds a post office box", () => {
@@ -92,18 +78,12 @@ describe("addresses and numbers in more formats", () => {
   });
 
   it("finds an IBAN with non-breaking spaces and in lower case", () => {
-    expect(Object.values(kinds("CH93 0076 2011 6238 5295 7"))).toContain(
-      "IBAN",
-    );
-    expect(Object.values(kinds("iban ch93 0076 2011 6238 5295 7"))).toContain(
-      "IBAN",
-    );
+    expect(Object.values(kinds("CH93 0076 2011 6238 5295 7"))).toContain("IBAN");
+    expect(Object.values(kinds("iban ch93 0076 2011 6238 5295 7"))).toContain("IBAN");
   });
 
   it("finds a date of birth written after the date", () => {
-    expect(kinds("Frau Muster, am 01.02.1980 geboren")["01.02.1980"]).toBe(
-      "BIRTHDATE",
-    );
+    expect(kinds("Frau Muster, am 01.02.1980 geboren")["01.02.1980"]).toBe("BIRTHDATE");
   });
 
   it("finds a case number with letters inside it", () => {
@@ -129,8 +109,7 @@ describe("placeholders cannot be corrupted", () => {
   });
 
   it("still restores the letter it hid", () => {
-    const letter =
-      "Frau E. Muster\nMusterstrasse 5\n8000 Zürich\nTel 0791234567";
+    const letter = "Frau E. Muster\nMusterstrasse 5\n8000 Zürich\nTel 0791234567";
     const r = assignTokens(findPersonalData(letter));
     expect(restore(applyRedactions(letter, r), r)).toBe(letter);
   });

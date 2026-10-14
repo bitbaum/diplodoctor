@@ -41,8 +41,7 @@ export function contentSecurityPolicy(
     "worker-src 'self' blob:",
     "object-src 'none'",
     "base-uri 'self'",
-    // Sign-in posts here and is redirected to OrangeCat's authorize page.
-    "form-action 'self' https://orangecat.ch",
+    "form-action 'self'",
     "frame-ancestors 'none'",
     "upgrade-insecure-requests",
   ].join("; ");

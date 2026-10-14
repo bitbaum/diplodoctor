@@ -7,14 +7,28 @@ const entry = (over: Record<string, unknown> = {}) => ({
   what: "Understand and answer legal letters",
   identity: { problem: "Letters nobody can read", solution: null, mission: " ", vision: 7 },
   urls: { live: "https://diplodoctor.orangecat.ch", repo: null, orangecat: null, solon: null },
-  roadmap: [{ title: "Read a letter", status: "in progress", progress: 60, targetDate: null, milestones: [] }],
+  roadmap: [
+    {
+      title: "Read a letter",
+      status: "in progress",
+      progress: 60,
+      targetDate: null,
+      milestones: [],
+    },
+  ],
   changelog: [{ date: "2026-10-10", done: "Diplodoctor reads a report." }],
   ...over,
 });
 
 describe("presenceFromMap", () => {
   it("is absent, not invented, when the map is unreadable or has no entry", () => {
-    for (const map of [null, "down", {}, { projects: [] }, { projects: [entry({ slug: "solon" })] }]) {
+    for (const map of [
+      null,
+      "down",
+      {},
+      { projects: [] },
+      { projects: [entry({ slug: "solon" })] },
+    ]) {
       const p = presenceFromMap(map);
       expect(p.development).toBeNull();
       expect(p.orangecatUrl).toBeNull();
@@ -32,7 +46,7 @@ describe("presenceFromMap", () => {
       vision: null,
     });
     expect(p.development?.roadmap).toHaveLength(1);
-    expect(p.development?.changelog[0].date).toBe("2026-10-10");
+    expect(p.development?.changelog[0]!.date).toBe("2026-10-10");
   });
 
   it("links to OrangeCat and Solon only when the map reports an https profile", () => {
@@ -53,7 +67,9 @@ describe("presenceFromMap", () => {
     expect(both.solonUrl).toBe("https://solon.orangecat.ch/orgs/diplodoctor");
 
     const hostile = presenceFromMap({
-      projects: [entry({ urls: { orangecat: "javascript:alert(1)", solon: "http://plain.example" } })],
+      projects: [
+        entry({ urls: { orangecat: "javascript:alert(1)", solon: "http://plain.example" } }),
+      ],
     });
     expect([hostile.orangecatUrl, hostile.solonUrl]).toEqual([null, null]);
   });
@@ -75,8 +91,12 @@ describe("pillarsFromMap", () => {
       ],
     });
     expect(pillars.map((p) => p.slug)).toEqual(["orangecat", "loki"]);
-    expect(pillars[0]).toMatchObject({ name: "OrangeCat", role: "Move value.", url: "https://orangecat.ch" });
-    expect(pillars[1].url).toBeNull();
+    expect(pillars[0]).toMatchObject({
+      name: "OrangeCat",
+      role: "Move value.",
+      url: "https://orangecat.ch",
+    });
+    expect(pillars[1]!.url).toBeNull();
   });
 
   it("is empty when the map is unreadable", () => {

@@ -15,7 +15,8 @@ describe("parseNumber", () => {
     expect(parseNumber("-0.4")).toBe(-0.4);
   });
   it("does not read what is not a plain number", () => {
-    for (const raw of ["<0.5", "negative", "5.8-6.1", "", "5.8 g", "1e3"]) expect(parseNumber(raw)).toBeNull();
+    for (const raw of ["<0.5", "negative", "5.8-6.1", "", "5.8 g", "1e3"])
+      expect(parseNumber(raw)).toBeNull();
   });
 });
 
@@ -35,7 +36,8 @@ describe("computeFlag", () => {
 });
 
 describe("a result in a report", () => {
-  const flagOf = (over: Record<string, unknown>) => parseReport({ ...base, results: [result(over)] })!.results[0];
+  const flagOf = (over: Record<string, unknown>) =>
+    parseReport({ ...base, results: [result(over)] })!.results[0]!;
 
   it("takes its flag from the numbers, not from the model", () => {
     expect(flagOf({ low: 120, high: 160, flag: "normal" }).flag).toBe("low");
@@ -59,7 +61,10 @@ describe("a result in a report", () => {
     expect(flagOf({ flag: "alarming" }).flag).toBe("unknown");
   });
   it("drops a result without a name or a value and keeps the rest", () => {
-    const r = parseReport({ ...base, results: [{ value: "1" }, result({}), { name: "x" }, "nonsense"] });
+    const r = parseReport({
+      ...base,
+      results: [{ value: "1" }, result({}), { name: "x" }, "nonsense"],
+    });
     expect(r?.results.map((x) => x.name)).toEqual(["Hämoglobin"]);
   });
 });
@@ -67,8 +72,16 @@ describe("a result in a report", () => {
 describe("attention", () => {
   it("is never lower than the values imply", () => {
     const high = { low: 120, high: 160 };
-    expect(parseReport({ ...base, attention: "routine", results: [result(high)] })?.attention).toBe("soon");
-    expect(parseReport({ ...base, attention: "routine", results: [result({ ...high, flag: "critical" })] })?.attention).toBe("urgent");
+    expect(parseReport({ ...base, attention: "routine", results: [result(high)] })?.attention).toBe(
+      "soon",
+    );
+    expect(
+      parseReport({
+        ...base,
+        attention: "routine",
+        results: [result({ ...high, flag: "critical" })],
+      })?.attention,
+    ).toBe("urgent");
   });
   it("may be higher than the values imply", () => {
     expect(parseReport({ ...base, attention: "urgent", results: [] })?.attention).toBe("urgent");
@@ -89,10 +102,15 @@ describe("parseReport", () => {
     expect(parseReport({ title: "x", collected: "2026-09-14" })?.collected).toBe("2026-09-14");
   });
   it("gives every result and follow-up an id, and every text a label", () => {
-    const r = parseReport({ title: "x", results: [result({}), result({ name: "Ferritin" })], followUps: [{ text: "Repeat in 3 months" }], texts: [{ lang: "de", text: "t" }] })!;
+    const r = parseReport({
+      title: "x",
+      results: [result({}), result({ name: "Ferritin" })],
+      followUps: [{ text: "Repeat in 3 months" }],
+      texts: [{ lang: "de", text: "t" }],
+    })!;
     expect(r.results.map((x) => x.id)).toEqual(["r1", "r2"]);
     expect(r.followUps[0]).toMatchObject({ id: "f1", done: false });
-    expect(r.texts[0].label).toBe("de");
+    expect(r.texts[0]!.label).toBe("de");
   });
   it("survives a round trip through JSON, which is what export and import are", () => {
     const sample = sampleReport("en");
@@ -101,17 +119,21 @@ describe("parseReport", () => {
 });
 
 describe("the sample report", () => {
-  it.each(["en", "de", "fr", "it", "es"] as const)("flags exactly the four values the report marks, in %s", (locale) => {
-    const flagged = sampleReport(locale).results.filter((r) => r.flag !== "normal");
-    expect(flagged.map((r) => r.name).toSorted()).toEqual([...SAMPLE_FLAGGED].toSorted());
-    expect(flagged.map((r) => r.flag).toSorted()).toEqual(["high", "low", "low", "low"]);
-    expect(sampleReport(locale).attention).toBe("soon");
-  });
+  it.each(["en", "de", "fr", "it", "es"] as const)(
+    "flags exactly the four values the report marks, in %s",
+    (locale) => {
+      const flagged = sampleReport(locale).results.filter((r) => r.flag !== "normal");
+      expect(flagged.map((r) => r.name).toSorted()).toEqual([...SAMPLE_FLAGGED].toSorted());
+      expect(flagged.map((r) => r.flag).toSorted()).toEqual(["high", "low", "low", "low"]);
+      expect(sampleReport(locale).attention).toBe("soon");
+    },
+  );
   it("explains the flagged values and only those", () => {
     for (const r of sampleReport("en").results) expect(Boolean(r.note)).toBe(r.flag !== "normal");
   });
   it("quotes the line each value was read from", () => {
-    for (const r of sampleReport("en").results) expect(sampleReport("en").texts[0].text).toContain(r.quote!.split("  ")[0]);
+    for (const r of sampleReport("en").results)
+      expect(sampleReport("en").texts[0]!.text).toContain(r.quote!.split("  ")[0]);
   });
 });
 
@@ -121,21 +143,37 @@ describe("previousValue", () => {
 
   it("finds the latest earlier report with the same measurement", () => {
     const now = at("c", "2026-09-14", "118");
-    const prev = previousValue(now.results[0], now, [now, at("a", "2026-01-10", "131"), at("b", "2026-05-02", "125")]);
-    expect(prev).toMatchObject({ value: "125", date: "2026-05-02", reportId: "b", direction: "down" });
+    const prev = previousValue(now.results[0]!, now, [
+      now,
+      at("a", "2026-01-10", "131"),
+      at("b", "2026-05-02", "125"),
+    ]);
+    expect(prev).toMatchObject({
+      value: "125",
+      date: "2026-05-02",
+      reportId: "b",
+      direction: "down",
+    });
   });
   it("matches across languages by the English name", () => {
     const now = at("c", "2026-09-14", "118");
-    const earlier = parseReport({ id: "a", title: "a", collected: "2026-01-10", results: [{ name: "Hämoglobin", analyte: "hemoglobin", value: "131", unit: "g/L" }] })!;
-    expect(previousValue(now.results[0], now, [earlier])?.value).toBe("131");
+    const earlier = parseReport({
+      id: "a",
+      title: "a",
+      collected: "2026-01-10",
+      results: [{ name: "Hämoglobin", analyte: "hemoglobin", value: "131", unit: "g/L" }],
+    })!;
+    expect(previousValue(now.results[0]!, now, [earlier])?.value).toBe("131");
   });
   it("does not compare different units, and does not look forward", () => {
     const now = at("c", "2026-09-14", "118");
-    expect(previousValue(now.results[0], now, [at("a", "2026-01-10", "13.1", "g/dL")])).toBeNull();
-    expect(previousValue(now.results[0], now, [at("z", "2026-12-01", "120")])).toBeNull();
+    expect(previousValue(now.results[0]!, now, [at("a", "2026-01-10", "13.1", "g/dL")])).toBeNull();
+    expect(previousValue(now.results[0]!, now, [at("z", "2026-12-01", "120")])).toBeNull();
   });
   it("gives no direction for a value that is not a number", () => {
     const now = at("c", "2026-09-14", "negative");
-    expect(previousValue(now.results[0], now, [at("a", "2026-01-10", "negative")])?.direction).toBeNull();
+    expect(
+      previousValue(now.results[0]!, now, [at("a", "2026-01-10", "negative")])?.direction,
+    ).toBeNull();
   });
 });

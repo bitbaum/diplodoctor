@@ -17,15 +17,7 @@
  */
 
 export type RedactionKind =
-  | "NAME"
-  | "ADDRESS"
-  | "POSTCODE"
-  | "EMAIL"
-  | "PHONE"
-  | "IBAN"
-  | "AHV"
-  | "REF"
-  | "BIRTHDATE";
+  "NAME" | "ADDRESS" | "POSTCODE" | "EMAIL" | "PHONE" | "IBAN" | "AHV" | "REF" | "BIRTHDATE";
 
 export interface Redaction {
   /** The placeholder sent instead, e.g. `[NAME-1]`. */
@@ -206,16 +198,14 @@ const RULES: Rule[] = [
   // The lookbehind keeps the scan from starting inside a run it has already read.
   {
     kind: "EMAIL",
-    pattern:
-      /(?<![\p{L}\d._%+-])([\p{L}\d._%+-]{1,64}@[\p{L}\d.-]{1,255}\.\p{L}{2,24})/gu,
+    pattern: /(?<![\p{L}\d._%+-])([\p{L}\d._%+-]{1,64}@[\p{L}\d.-]{1,255}\.\p{L}{2,24})/gu,
   },
   // Swiss social security number, with or without dots.
   { kind: "AHV", pattern: /\b(756[.\s]?\d{4}[.\s]?\d{4}[.\s]?\d{2})\b/g },
   // IBAN: country, check digits, then groups of four. Either case.
   {
     kind: "IBAN",
-    pattern:
-      /\b([A-Za-z]{2}\d{2}(?:[ ]?[A-Za-z0-9]{4}){2,7}(?:[ ]?[A-Za-z0-9]{1,3})?)\b/g,
+    pattern: /\b([A-Za-z]{2}\d{2}(?:[ ]?[A-Za-z0-9]{4}){2,7}(?:[ ]?[A-Za-z0-9]{1,3})?)\b/g,
   },
   // Phone numbers: international, Swiss or French national, with or without separators.
   {
@@ -232,8 +222,7 @@ const RULES: Rule[] = [
   // …or labels it after the date: "am 01.02.1980 geboren".
   {
     kind: "BIRTHDATE",
-    pattern:
-      /(\d{1,2}[./-]\d{1,2}[./-]\d{4})(?=[ \t]+(?:geboren|geb\.|born|n[ée]e?\b))/giu,
+    pattern: /(\d{1,2}[./-]\d{1,2}[./-]\d{4})(?=[ \t]+(?:geboren|geb\.|born|n[ée]e?\b))/giu,
   },
   // Reference and file numbers, where the letter labels them. The label stays:
   // the model should know a reference exists, not what it is.
@@ -265,10 +254,7 @@ const RULES: Rule[] = [
   // The addressee in a salutation or address block, after any academic title.
   {
     kind: "NAME",
-    pattern: new RegExp(
-      String.raw`${SALUTATION}(?:${SP}|\n[ \t]*)${TITLES}(${NAME})`,
-      "gu",
-    ),
+    pattern: new RegExp(String.raw`${SALUTATION}(?:${SP}|\n[ \t]*)${TITLES}(${NAME})`, "gu"),
   },
   // A street and house number, or a post office box, in German, French or Italian form.
   { kind: "ADDRESS", pattern: new RegExp(String.raw`(${ADDRESS_LINE})`, "gu") },
@@ -276,10 +262,7 @@ const RULES: Rule[] = [
   // block, written without "Herr" or "Frau".
   {
     kind: "NAME",
-    pattern: new RegExp(
-      String.raw`^[ \t]*(${NAME})[ \t]*(?=\n[ \t]*${ADDRESS_LINE})`,
-      "gmu",
-    ),
+    pattern: new RegExp(String.raw`^[ \t]*(${NAME})[ \t]*(?=\n[ \t]*${ADDRESS_LINE})`, "gmu"),
     skip: looksLikeOrganisation,
   },
   // The signer: the line after the closing. The authority under it is not hidden.
@@ -302,11 +285,9 @@ const RULES: Rule[] = [
   },
 ];
 
-const TOKEN =
-  /\[(NAME|ADDRESS|POSTCODE|EMAIL|PHONE|IBAN|AHV|REF|BIRTHDATE)-(\d+)\]/g;
+const TOKEN = /\[(NAME|ADDRESS|POSTCODE|EMAIL|PHONE|IBAN|AHV|REF|BIRTHDATE)-(\d+)\]/g;
 /** The same, as a splitter that keeps each placeholder as its own segment. */
-const PLACEHOLDER =
-  /(\[(?:NAME|ADDRESS|POSTCODE|EMAIL|PHONE|IBAN|AHV|REF|BIRTHDATE)-\d+\])/;
+const PLACEHOLDER = /(\[(?:NAME|ADDRESS|POSTCODE|EMAIL|PHONE|IBAN|AHV|REF|BIRTHDATE)-\d+\])/;
 
 function escapeRegExp(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -356,37 +337,26 @@ export function assignTokens(values: Omit<Redaction, "token">[]): Redaction[] {
  * "Erika Muster" becomes one placeholder rather than "[NAME-2] [NAME-3]".
  * Case-insensitive, whole words only.
  */
-export function applyRedactions(
-  input: string,
-  redactions: Redaction[],
-): string {
+export function applyRedactions(input: string, redactions: Redaction[]): string {
   // Segments that already are placeholders are never touched, whatever the
   // person asked to hide: a hidden word like "12" must not turn `[REF-12]`
   // into something that no longer restores.
   const segments = normalizeForMatching(input).split(PLACEHOLDER);
-  const ordered = [...redactions].sort(
-    (a, b) => b.value.length - a.value.length,
-  );
+  const ordered = [...redactions].sort((a, b) => b.value.length - a.value.length);
   const patterns = ordered.map((r) => {
     const body = escapeRegExp(r.value).replace(/\\? /g, String.raw`\s+`);
     // A name is also hidden in its possessive: "Musters", "Erikas", "Müllers".
     const possessive = r.kind === "NAME" ? String.raw`(?:s|ens|[’']s)?` : "";
     return {
       r,
-      pattern: new RegExp(
-        String.raw`(?<![\p{L}\d])${body}${possessive}(?![\p{L}\d])`,
-        "giu",
-      ),
+      pattern: new RegExp(String.raw`(?<![\p{L}\d])${body}${possessive}(?![\p{L}\d])`, "giu"),
     };
   });
   return segments
     .map((segment, i) =>
       i % 2 === 1
         ? segment
-        : patterns.reduce(
-            (out, { r, pattern }) => out.replace(pattern, r.token),
-            segment,
-          ),
+        : patterns.reduce((out, { r, pattern }) => out.replace(pattern, r.token), segment),
     )
     .join("");
 }
@@ -402,9 +372,7 @@ export function mapStrings<T>(value: T, fn: (s: string) => string): T {
   if (typeof value === "string") return fn(value) as T;
   if (Array.isArray(value)) return value.map((v) => mapStrings(v, fn)) as T;
   if (value && typeof value === "object") {
-    return Object.fromEntries(
-      Object.entries(value).map(([k, v]) => [k, mapStrings(v, fn)]),
-    ) as T;
+    return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, mapStrings(v, fn)])) as T;
   }
   return value;
 }

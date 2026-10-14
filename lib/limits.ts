@@ -1,32 +1,84 @@
-import { clientIp, slidingWindow, toHeaders } from "limitkit";
+import { createHash } from "node:crypto";
+import { clientIp, slidingWindow, toHeaders, type LimitResult } from "limitkit";
 
 /**
- * Rate limits, as limitkit decisions. In-memory and per process, which is the
- * right size for blunting scripted abuse of a free tier on one box and the
- * wrong size for billing — nothing here is billing.
+ * Rate limits, as limitkit decisions. In-memory and per process: the right
+ * size for blunting scripted abuse on one box, the wrong size for billing.
  *
- * The free analysis is the scarce thing: it draws on a daily budget shared by
- * every visitor, so one caller may not drain it. A reader on their own key
- * spends their own budget and gets a much wider window.
+ * KEYED ON THE PROXY'S HOP, NEVER THE FIRST X-Forwarded-For ENTRY. limitkit's
+ * `clientIp()` reads the LAST hop — the one Caddy appended, which the caller
+ * cannot choose. Seven fleet limiters keyed on the first hop and could be
+ * walked past by sending a fresh value per request (fleet SHARED.md, limitkit
+ * row). `trustedProxies: 1` is Caddy on the box.
  */
 export const limits = {
+  /** Guessing a password, a code or a passkey assertion. */
+  credential: slidingWindow({ limit: 10, windowMs: 15 * 60_000 }),
+  /** Anything that sends an email: protects people's inboxes and the shared quota. */
+  mail: slidingWindow({ limit: 5, windowMs: 60 * 60_000 }),
+  /** The same, per recipient, so rotating IPs cannot flood one inbox. */
+  mailTo: slidingWindow({ limit: 3, windowMs: 60 * 60_000 }),
+  /** Everything else under /api/auth (session reads, sign-out, listing). */
+  auth: slidingWindow({ limit: 300, windowMs: 10 * 60_000 }),
+  /** The example model route: a shared free budget, per person. */
+  ai: slidingWindow({ limit: 20, windowMs: 60 * 60_000 }),
+  /** Checking a key against a vendor. */
+  modelProbe: slidingWindow({ limit: 20, windowMs: 10 * 60_000 }),
+  /**
+   * Reading a report draws on a daily budget shared by every visitor, so one
+   * caller may not drain it; a reader on their own key spends their own.
+   */
   analyzeFree: slidingWindow({ limit: 8, windowMs: 60 * 60_000 }),
   analyzeOwn: slidingWindow({ limit: 60, windowMs: 60 * 60_000 }),
   modelCheck: slidingWindow({ limit: 30, windowMs: 10 * 60_000 }),
-  // Keyed by actor, not IP: a signed-in person's budget follows them.
-  turnFree: slidingWindow({ limit: 30, windowMs: 60 * 60_000 }),
-  turnOwn: slidingWindow({ limit: 200, windowMs: 60 * 60_000 }),
-  matterCreate: slidingWindow({ limit: 20, windowMs: 60 * 60_000 }),
-  upload: slidingWindow({ limit: 60, windowMs: 60 * 60_000 }),
   // A spoken take or a photographed page each cost a model call on the shared free tier.
   transcribe: slidingWindow({ limit: 40, windowMs: 10 * 60_000 }),
   pages: slidingWindow({ limit: 20, windowMs: 60 * 60_000 }),
 };
 
-export function callerKey(request: Request, scope: string): string {
-  return `${scope}:${clientIp(request.headers)}`;
+export type Bucket = "credential" | "mail" | "auth";
+
+const MAIL = new Set([
+  "/sign-up/email",
+  "/sign-in/magic-link",
+  "/send-verification-email",
+  "/request-password-reset",
+  "/forget-password",
+  "/change-email",
+]);
+
+const CREDENTIAL_PREFIXES = [
+  "/sign-in/email",
+  "/sign-in/social",
+  "/reset-password",
+  "/change-password",
+  "/verify-password",
+  "/two-factor/",
+  "/passkey/verify-authentication",
+  "/passkey/generate-authenticate-options",
+  "/magic-link/verify",
+  "/delete-user",
+];
+
+/** Which bucket a better-auth path (after /api/auth) spends from. */
+export function authBucket(path: string): Bucket {
+  if (MAIL.has(path)) return "mail";
+  if (CREDENTIAL_PREFIXES.some((p) => path === p || path.startsWith(p))) return "credential";
+  return "auth";
 }
 
-export function tooMany(result: Parameters<typeof toHeaders>[0]): Response {
-  return Response.json({ error: "rate_limited" }, { status: 429, headers: toHeaders(result) });
+export function callerKey(headers: Headers, scope: string): string {
+  return `${scope}:${clientIp(headers, { trustedProxies: 1 })}`;
+}
+
+/** A recipient as a bucket key: hashed, so the limiter never holds an address. */
+export function recipientKey(email: string): string {
+  return `mail-to:${createHash("sha256").update(email.trim().toLowerCase()).digest("hex")}`;
+}
+
+export function tooMany(result: LimitResult): Response {
+  return Response.json(
+    { error: "rate_limited", retryAfterSeconds: result.retryAfterSeconds },
+    { status: 429, headers: { ...toHeaders(result), "Cache-Control": "no-store" } },
+  );
 }

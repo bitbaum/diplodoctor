@@ -44,9 +44,22 @@ Vitamine
 25-OH-Vitamin D     18     µg/L      30 - 100       L`;
 
 /** The values the sample states that are outside their range, for the live check to compare against. */
-export const SAMPLE_FLAGGED = ["Hämoglobin", "Ferritin", "LDL-Cholesterin", "25-OH-Vitamin D"] as const;
+export const SAMPLE_FLAGGED = [
+  "Hämoglobin",
+  "Ferritin",
+  "LDL-Cholesterin",
+  "25-OH-Vitamin D",
+] as const;
 
-type Row = [name: string, analyte: string, value: string, unit: string, range: string, low?: number, high?: number];
+type Row = [
+  name: string,
+  analyte: string,
+  value: string,
+  unit: string,
+  range: string,
+  low?: number,
+  high?: number,
+];
 
 const ROWS: Row[] = [
   ["Hämoglobin", "Hemoglobin", "118", "g/L", "120 - 160", 120, 160],
@@ -79,7 +92,7 @@ const SAID: Record<
     summary:
       "A blood count and metabolic panel from a Swiss laboratory, with 11 values. Four of them are outside the range the laboratory prints.",
     notes: {
-      "Hämoglobin":
+      Hämoglobin:
         "Hemoglobin carries oxygen in the blood. Values below the range are common with low iron stores, and have other causes too.",
       Ferritin:
         "Ferritin reflects the body's iron stores. A low value often goes together with a low hemoglobin; the two are usually read together.",
@@ -93,15 +106,17 @@ const SAID: Record<
       "My LDL cholesterol is above the printed range. How does it fit with my other risk factors?",
       "My vitamin D is low. Does it need treating, and how would we check it afterwards?",
     ],
-    caution: "Which of these matter for you depends on your history and symptoms, which only a doctor can weigh.",
-    reason: "Four values are outside their printed range. A doctor should look at the report; nothing in it is marked critical.",
+    caution:
+      "Which of these matter for you depends on your history and symptoms, which only a doctor can weigh.",
+    reason:
+      "Four values are outside their printed range. A doctor should look at the report; nothing in it is marked critical.",
   },
   de: {
     title: "Blutuntersuchung, September 2026",
     summary:
       "Ein Blutbild mit Stoffwechselwerten aus einem Schweizer Labor, 11 Werte. Vier davon liegen ausserhalb des vom Labor angegebenen Bereichs.",
     notes: {
-      "Hämoglobin":
+      Hämoglobin:
         "Hämoglobin transportiert Sauerstoff im Blut. Werte unter dem Bereich sind häufig bei knappen Eisenspeichern, haben aber auch andere Ursachen.",
       Ferritin:
         "Ferritin zeigt, wie gut die Eisenspeicher des Körpers gefüllt sind. Ein tiefer Wert geht oft mit einem tiefen Hämoglobin einher; beide werden meist zusammen beurteilt.",
@@ -115,15 +130,17 @@ const SAID: Record<
       "Mein LDL-Cholesterin liegt über dem angegebenen Bereich. Wie passt das zu meinen übrigen Risikofaktoren?",
       "Mein Vitamin D ist tief. Muss das behandelt werden, und wie überprüfen wir es danach?",
     ],
-    caution: "Welche dieser Werte für Sie wichtig sind, hängt von Ihrer Vorgeschichte und Ihren Beschwerden ab, die nur eine Ärztin oder ein Arzt beurteilen kann.",
-    reason: "Vier Werte liegen ausserhalb ihres angegebenen Bereichs. Eine Ärztin oder ein Arzt sollte den Bericht ansehen; nichts darin ist als kritisch markiert.",
+    caution:
+      "Welche dieser Werte für Sie wichtig sind, hängt von Ihrer Vorgeschichte und Ihren Beschwerden ab, die nur eine Ärztin oder ein Arzt beurteilen kann.",
+    reason:
+      "Vier Werte liegen ausserhalb ihres angegebenen Bereichs. Eine Ärztin oder ein Arzt sollte den Bericht ansehen; nichts darin ist als kritisch markiert.",
   },
   fr: {
     title: "Analyse de sang, septembre 2026",
     summary:
       "Une formule sanguine avec des valeurs métaboliques, issue d'un laboratoire suisse : 11 valeurs. Quatre d'entre elles sont en dehors de l'intervalle indiqué par le laboratoire.",
     notes: {
-      "Hämoglobin":
+      Hämoglobin:
         "L'hémoglobine transporte l'oxygène dans le sang. Des valeurs sous l'intervalle sont fréquentes quand les réserves de fer sont basses, mais ont aussi d'autres causes.",
       Ferritin:
         "La ferritine reflète les réserves de fer du corps. Une valeur basse accompagne souvent une hémoglobine basse ; les deux se lisent généralement ensemble.",
@@ -137,15 +154,17 @@ const SAID: Record<
       "Mon cholestérol LDL est au-dessus de l'intervalle indiqué. Comment cela s'articule-t-il avec mes autres facteurs de risque ?",
       "Ma vitamine D est basse. Faut-il la traiter, et comment la contrôler ensuite ?",
     ],
-    caution: "Savoir lesquelles de ces valeurs comptent pour vous dépend de vos antécédents et de vos symptômes, que seul un médecin peut évaluer.",
-    reason: "Quatre valeurs sont en dehors de leur intervalle indiqué. Un médecin devrait regarder le rapport ; rien n'y est marqué comme critique.",
+    caution:
+      "Savoir lesquelles de ces valeurs comptent pour vous dépend de vos antécédents et de vos symptômes, que seul un médecin peut évaluer.",
+    reason:
+      "Quatre valeurs sont en dehors de leur intervalle indiqué. Un médecin devrait regarder le rapport ; rien n'y est marqué comme critique.",
   },
   it: {
     title: "Esame del sangue, settembre 2026",
     summary:
       "Un emocromo con valori metabolici di un laboratorio svizzero, 11 valori. Quattro sono fuori dall'intervallo indicato dal laboratorio.",
     notes: {
-      "Hämoglobin":
+      Hämoglobin:
         "L'emoglobina trasporta l'ossigeno nel sangue. Valori sotto l'intervallo sono frequenti quando le riserve di ferro sono scarse, ma hanno anche altre cause.",
       Ferritin:
         "La ferritina riflette le riserve di ferro del corpo. Un valore basso si accompagna spesso a un'emoglobina bassa; di solito i due si leggono insieme.",
@@ -159,15 +178,17 @@ const SAID: Record<
       "Il mio colesterolo LDL è sopra l'intervallo indicato. Come si inserisce con i miei altri fattori di rischio?",
       "La mia vitamina D è bassa. Va trattata e come la controlliamo dopo?",
     ],
-    caution: "Quali di questi valori contino per Lei dipende dalla Sua storia clinica e dai Suoi sintomi, che solo un medico può valutare.",
-    reason: "Quattro valori sono fuori dal loro intervallo indicato. Un medico dovrebbe guardare il referto; nulla vi è segnato come critico.",
+    caution:
+      "Quali di questi valori contino per Lei dipende dalla Sua storia clinica e dai Suoi sintomi, che solo un medico può valutare.",
+    reason:
+      "Quattro valori sono fuori dal loro intervallo indicato. Un medico dovrebbe guardare il referto; nulla vi è segnato come critico.",
   },
   es: {
     title: "Análisis de sangre, septiembre de 2026",
     summary:
       "Un hemograma con valores metabólicos de un laboratorio suizo, 11 valores. Cuatro están fuera del intervalo que indica el laboratorio.",
     notes: {
-      "Hämoglobin":
+      Hämoglobin:
         "La hemoglobina transporta el oxígeno en la sangre. Los valores por debajo del intervalo son frecuentes cuando las reservas de hierro son bajas, pero tienen también otras causas.",
       Ferritin:
         "La ferritina refleja las reservas de hierro del cuerpo. Un valor bajo suele ir con una hemoglobina baja; normalmente se leen juntas.",
@@ -181,15 +202,18 @@ const SAID: Record<
       "Mi colesterol LDL está por encima del intervalo indicado. ¿Cómo encaja con mis otros factores de riesgo?",
       "Mi vitamina D es baja. ¿Hay que tratarla y cómo la controlamos después?",
     ],
-    caution: "Cuáles de estos valores importan en su caso depende de su historial y sus síntomas, que solo un médico puede valorar.",
-    reason: "Cuatro valores están fuera del intervalo indicado. Un médico debería ver el informe; nada en él está marcado como crítico.",
+    caution:
+      "Cuáles de estos valores importan en su caso depende de su historial y sus síntomas, que solo un médico puede valorar.",
+    reason:
+      "Cuatro valores están fuera del intervalo indicado. Un médico debería ver el informe; nada en él está marcado como crítico.",
   },
 };
 
 /** The sample as the reader's language would have it. Never stored unless the reader saves a copy. */
 export function sampleReport(locale: Locale): ReportFile {
   const said = SAID[locale];
-  const noteFor = (name: string) => (name in said.notes ? said.notes[name as keyof typeof said.notes] : undefined);
+  const noteFor = (name: string) =>
+    name in said.notes ? said.notes[name as keyof typeof said.notes] : undefined;
   const parsed = parseReport({
     id: "sample",
     kind: "lab",
@@ -201,7 +225,17 @@ export function sampleReport(locale: Locale): ReportFile {
     summary: said.summary,
     results: ROWS.map(([name, analyte, value, unit, range, low, high]) => {
       const line = SAMPLE_REPORT.split("\n").find((l) => l.startsWith(name));
-      return { name, analyte, value, unit, range, low, high, quote: line?.replace(/\s{2,}/g, "  ").trim(), note: noteFor(name) };
+      return {
+        name,
+        analyte,
+        value,
+        unit,
+        range,
+        low,
+        high,
+        quote: line?.replace(/\s{2,}/g, "  ").trim(),
+        note: noteFor(name),
+      };
     }),
     questions: said.questions,
     notes: [said.caution],

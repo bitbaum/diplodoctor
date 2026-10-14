@@ -38,7 +38,9 @@ const ATTENTION_BORDER = {
 } as const;
 
 function download(data: unknown, name: string) {
-  const url = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: "application/json" }));
+  const url = URL.createObjectURL(
+    new Blob([JSON.stringify(data, null, 2)], { type: "application/json" }),
+  );
   const a = document.createElement("a");
   a.href = url;
   a.download = name;
@@ -73,7 +75,13 @@ function CopyButton({ text }: { text: string }) {
  * read from, one tap away, because a misread number is the worst thing this
  * product can show and the reader is the only one who can catch it.
  */
-function ResultRow({ result, previous }: { result: ReportResult; previous: ReturnType<typeof previousValue> }) {
+function ResultRow({
+  result,
+  previous,
+}: {
+  result: ReportResult;
+  previous: ReturnType<typeof previousValue>;
+}) {
   const t = useTranslations("Report");
   const locale = useLocale();
   const style = FLAG_STYLE[result.flag];
@@ -92,7 +100,9 @@ function ResultRow({ result, previous }: { result: ReportResult; previous: Retur
           </span>
           {result.value}
           {result.unit && <span className="ml-1 text-sm text-fg-secondary">{result.unit}</span>}
-          <span className="ml-2 font-sans text-xs font-bold uppercase tracking-caps">{t(`flag.${result.flag}`)}</span>
+          <span className="ml-2 font-sans text-xs font-bold uppercase tracking-caps">
+            {t(`flag.${result.flag}`)}
+          </span>
         </div>
         <div className="text-sm text-fg-secondary">
           {result.range ? t("range", { range: result.range }) : t("noRange")}
@@ -105,21 +115,31 @@ function ResultRow({ result, previous }: { result: ReportResult; previous: Retur
             date: formatDate(previous.date, locale),
           })}
           {previous.direction && previous.direction !== "same" && (
-            <span className="ml-2" aria-label={t(previous.direction === "up" ? "rising" : "falling")}>
-              {previous.direction === "up" ? "↗" : "↘"} {t(previous.direction === "up" ? "rising" : "falling")}
+            <span
+              className="ml-2"
+              aria-label={t(previous.direction === "up" ? "rising" : "falling")}
+            >
+              {previous.direction === "up" ? "↗" : "↘"}{" "}
+              {t(previous.direction === "up" ? "rising" : "falling")}
             </span>
           )}
         </p>
       )}
-      {result.note && <p className="mt-2 max-w-prose text-sm leading-relaxed text-fg-secondary">{result.note}</p>}
+      {result.note && (
+        <p className="mt-2 max-w-prose text-sm leading-relaxed text-fg-secondary">{result.note}</p>
+      )}
       <details className="mt-1 text-sm">
-        <summary className="inline-flex min-h-11 cursor-pointer items-center text-fg-secondary">{t("source")}</summary>
+        <summary className="inline-flex min-h-11 cursor-pointer items-center text-fg-secondary">
+          {t("source")}
+        </summary>
         {result.quote && (
           <blockquote lang="de" className="border-l-2 border-border pl-3 font-mono text-xs italic">
             {result.quote}
           </blockquote>
         )}
-        <p className="mt-2 text-xs text-fg-secondary">{result.checked ? t("checked") : t("notChecked")}</p>
+        <p className="mt-2 text-xs text-fg-secondary">
+          {result.checked ? t("checked") : t("notChecked")}
+        </p>
       </details>
     </li>
   );
@@ -132,7 +152,9 @@ export function ReportView({ data, others = [], onChange, onDelete, onSaveCopy }
   const shown = data.texts[Math.min(lang, data.texts.length - 1)];
   const doneCount = data.followUps.filter((f) => f.done).length;
   // A report with no reading at all (filed by hand) has nothing an AI wrote.
-  const analysed = Boolean(data.summary || data.results.length || data.questions.length || data.terms.length);
+  const analysed = Boolean(
+    data.summary || data.results.length || data.questions.length || data.terms.length,
+  );
   const outside = data.results.filter((r) => r.flag !== "normal");
   const inside = data.results.filter((r) => r.flag === "normal");
   const previousOf = (r: ReportResult) => previousValue(r, data, others);
@@ -152,7 +174,9 @@ export function ReportView({ data, others = [], onChange, onDelete, onSaveCopy }
       <header className="grid gap-6 lg:grid-cols-[1fr_21rem] lg:items-start">
         <div>
           <h1 className="headline text-3xl sm:text-4xl">{data.title}</h1>
-          {data.summary && <p className="mt-4 max-w-prose leading-relaxed text-fg-secondary">{data.summary}</p>}
+          {data.summary && (
+            <p className="mt-4 max-w-prose leading-relaxed text-fg-secondary">{data.summary}</p>
+          )}
           {facts.length > 0 && (
             <dl className="mt-6 grid gap-x-6 gap-y-2 text-sm sm:grid-cols-[8rem_1fr]">
               {facts.map(([key, value]) => (
@@ -275,7 +299,9 @@ export function ReportView({ data, others = [], onChange, onDelete, onSaveCopy }
                     onChange={(e) =>
                       onChange?.({
                         ...data,
-                        followUps: data.followUps.map((x) => (x.id === f.id ? { ...x, done: e.target.checked } : x)),
+                        followUps: data.followUps.map((x) =>
+                          x.id === f.id ? { ...x, done: e.target.checked } : x,
+                        ),
                       })
                     }
                   />
@@ -324,7 +350,10 @@ export function ReportView({ data, others = [], onChange, onDelete, onSaveCopy }
               ))}
             </div>
           )}
-          <div lang={shown.lang} className={`${card} mt-4 whitespace-pre-wrap font-mono text-sm leading-relaxed`}>
+          <div
+            lang={shown.lang}
+            className={`${card} mt-4 whitespace-pre-wrap font-mono text-sm leading-relaxed`}
+          >
             {shown.text}
           </div>
         </section>
@@ -353,7 +382,11 @@ export function ReportView({ data, others = [], onChange, onDelete, onSaveCopy }
         >
           {t("exportAnon")}
         </button>
-        <button type="button" className={btnQuiet} onClick={() => download(data, `diplodoctor-${data.id}.json`)}>
+        <button
+          type="button"
+          className={btnQuiet}
+          onClick={() => download(data, `diplodoctor-${data.id}.json`)}
+        >
           {t("export")}
         </button>
         {onSaveCopy && (

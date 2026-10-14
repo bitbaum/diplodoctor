@@ -11,13 +11,7 @@ import { MAX_PAGES } from "@/lib/analyze-limits";
 import { newId, type ReportFile } from "@/lib/report";
 import { API, ROUTES } from "@/lib/routes";
 import { shrinkImage, type ShrunkImage } from "@/lib/shrink-image";
-import {
-  applyRedactions,
-  assignTokens,
-  findPersonalData,
-  mapStrings,
-  restore,
-} from "@/lib/redact";
+import { applyRedactions, assignTokens, findPersonalData, mapStrings, restore } from "@/lib/redact";
 import { saveReport, saveOwnWords, useHydrated, useOwnModel, useOwnWords } from "@/lib/store";
 
 /** Sent to the model by English name; shown to the reader in their language. */
@@ -82,7 +76,11 @@ export default function NewReportPage() {
   const [wordsDraft, setWordsDraft] = useState<string | null>(null);
   const wordsText = wordsDraft ?? savedWords.join(", ");
   const ownWordList = useMemo(
-    () => wordsText.split(/[,;\n]/).map((w) => w.trim()).filter((w) => w.length >= 2),
+    () =>
+      wordsText
+        .split(/[,;\n]/)
+        .map((w) => w.trim())
+        .filter((w) => w.length >= 2),
     [wordsText],
   );
   // Values the reader has chosen to send after all (a false find).
@@ -115,7 +113,7 @@ export default function NewReportPage() {
   function fail(code: string) {
     const known: ErrorCode = code in WAYS_OUT ? code : "unknown";
     setFailure(known);
-    if (WAYS_OUT[known].byHand) setManual(true);
+    if (WAYS_OUT[known]?.byHand) setManual(true);
   }
 
   async function addPages(files: FileList | null) {
@@ -279,7 +277,9 @@ export default function NewReportPage() {
                     <span>
                       {t("page", { n: i + 1 })}
                       <span className="ml-2 text-xs text-fg-secondary">
-                        {page.covered ? r("coveredCount", { count: page.covered }) : r("notCovered")}
+                        {page.covered
+                          ? r("coveredCount", { count: page.covered })
+                          : r("notCovered")}
                       </span>
                     </span>
                     <button
@@ -396,11 +396,15 @@ export default function NewReportPage() {
               )}
 
               {pages.some((p) => p.covered === 0) && (
-                <p className="rounded-control border border-accent px-3 py-2 text-sm">{r("photosWarning")}</p>
+                <p className="rounded-control border border-accent px-3 py-2 text-sm">
+                  {r("photosWarning")}
+                </p>
               )}
             </>
           ) : (
-            <p className="rounded-control border border-accent px-3 py-2 text-sm">{r("offWarning")}</p>
+            <p className="rounded-control border border-accent px-3 py-2 text-sm">
+              {r("offWarning")}
+            </p>
           )}
         </section>
 
@@ -434,9 +438,12 @@ export default function NewReportPage() {
         {failure && (
           <div role="alert" className="rounded-control border border-accent px-4 py-3 text-sm">
             <p>{t(`errors.${failure}`, { max: MAX_PAGES })}</p>
-            {WAYS_OUT[failure].ownModel && (
+            {WAYS_OUT[failure]?.ownModel && (
               <p className="mt-1">
-                <Link href={ROUTES.ownModel} className={`${link} inline-flex min-h-11 items-center`}>
+                <Link
+                  href={ROUTES.ownModel}
+                  className={`${link} inline-flex min-h-11 items-center`}
+                >
                   {t("openSettings")}
                 </Link>
               </p>

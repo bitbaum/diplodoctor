@@ -73,7 +73,10 @@ export type Attention = (typeof ATTENTION)[number];
  * else — "<0.5", "negative", "5.8-6.1" — is not a number for comparison.
  */
 export function parseNumber(raw: string): number | null {
-  const s = raw.trim().replace(/[\s'’]/g, "").replace(",", ".");
+  const s = raw
+    .trim()
+    .replace(/[\s'’]/g, "")
+    .replace(",", ".");
   return /^-?\d+(\.\d+)?$/.test(s) ? Number(s) : null;
 }
 
@@ -117,7 +120,8 @@ const ResultSchema = z
     const computed = computeFlag(r.value, r.low, r.high);
     // Only the report itself may call a value critical; the numbers cannot
     // contradict that, but a plain "normal" can.
-    const flag: Flag = r.flag === "critical" && computed !== "normal" ? "critical" : (computed ?? r.flag);
+    const flag: Flag =
+      r.flag === "critical" && computed !== "normal" ? "critical" : (computed ?? r.flag);
     return { ...r, flag, checked: computed !== null };
   });
 
@@ -170,7 +174,17 @@ export const ReportFileSchema = z
       z.object({
         token: z.string().regex(/^\[[A-Z]+-\d+\]$/),
         value: text(500),
-        kind: z.enum(["NAME", "ADDRESS", "POSTCODE", "EMAIL", "PHONE", "IBAN", "AHV", "REF", "BIRTHDATE"]),
+        kind: z.enum([
+          "NAME",
+          "ADDRESS",
+          "POSTCODE",
+          "EMAIL",
+          "PHONE",
+          "IBAN",
+          "AHV",
+          "REF",
+          "BIRTHDATE",
+        ]),
       }),
       200,
     ),
@@ -218,7 +232,8 @@ export function parseReport(input: unknown): ReportFile | null {
 
 /** A date in the reader's language, without shifting it across time zones. */
 export function formatDate(iso: string, locale = "en"): string {
-  const tag = { en: "en-GB", de: "de-CH", fr: "fr-CH", it: "it-CH", es: "es-ES" }[locale] ?? "en-GB";
+  const tag =
+    { en: "en-GB", de: "de-CH", fr: "fr-CH", it: "it-CH", es: "es-ES" }[locale] ?? "en-GB";
   return new Date(`${iso}T00:00:00Z`).toLocaleDateString(tag, {
     day: "numeric",
     month: "long",

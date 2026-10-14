@@ -6,6 +6,13 @@ brackets, it is the pull request to read for the detail.
 
 ## 2026-10-15
 
+### Added
+
+- **Accounts, if you want one.** Sign in with email and password, a link,
+  a passkey, two-factor, OrangeCat or the shared sign-in, in all five languages.
+  Reading a report still needs none, and nothing health-related is stored on
+  the server.
+
 ### Changed
 
 - **Much less to read.** The home page went from about a thousand words to a

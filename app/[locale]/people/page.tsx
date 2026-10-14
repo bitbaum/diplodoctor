@@ -57,7 +57,9 @@ export default async function PeoplePage({ params }: Params) {
 
       <div className="mt-8 rounded-control border border-accent px-5 py-4">
         <p className="font-medium">{t("noneTitle")}</p>
-        <p className="mt-1 max-w-prose text-sm leading-relaxed text-fg-secondary">{t("noneBody")}</p>
+        <p className="mt-1 max-w-prose text-sm leading-relaxed text-fg-secondary">
+          {t("noneBody")}
+        </p>
       </div>
 
       <div className="mt-10 grid gap-5 lg:grid-cols-2">
@@ -82,7 +84,9 @@ export default async function PeoplePage({ params }: Params) {
 
       <section className={`${card} mt-5 sm:p-8`}>
         <h2 className="text-2xl font-semibold tracking-tight">{t("wantTitle")}</h2>
-        <p className="mt-3 max-w-prose text-sm leading-relaxed text-fg-secondary">{t("wantBody")}</p>
+        <p className="mt-3 max-w-prose text-sm leading-relaxed text-fg-secondary">
+          {t("wantBody")}
+        </p>
         <p className="mt-3 flex flex-wrap gap-x-8">
           <a href={EXTERNAL.orangecatOfferService} className={inlineLink}>
             {t("offer")}
@@ -102,7 +106,9 @@ export default async function PeoplePage({ params }: Params) {
             <li key={c}>{t(`clinic.${c}`)}</li>
           ))}
         </ul>
-        <p className="mt-4 max-w-prose text-sm leading-relaxed text-fg-secondary">{t("clinic.status")}</p>
+        <p className="mt-4 max-w-prose text-sm leading-relaxed text-fg-secondary">
+          {t("clinic.status")}
+        </p>
       </section>
 
       <section className="mt-16">
@@ -111,7 +117,9 @@ export default async function PeoplePage({ params }: Params) {
           {RULES.map((rule) => (
             <div key={rule}>
               <dt className="text-lg font-semibold tracking-tight">{t(`rules.${rule}.title`)}</dt>
-              <dd className="mt-1.5 text-sm leading-relaxed text-fg-secondary">{t(`rules.${rule}.body`)}</dd>
+              <dd className="mt-1.5 text-sm leading-relaxed text-fg-secondary">
+                {t(`rules.${rule}.body`)}
+              </dd>
             </div>
           ))}
         </dl>

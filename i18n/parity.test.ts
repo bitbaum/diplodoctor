@@ -43,7 +43,7 @@ function args(message: string): string[] {
   }
   function argument(): void {
     const head = /^\s*(\w+)\s*(?:,\s*(\w+)\s*)?/.exec(message.slice(i))!;
-    found.add(head[1]);
+    found.add(head[1]!);
     i += head[0].length;
     if (message[i] === ",") {
       i++;

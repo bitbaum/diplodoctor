@@ -37,13 +37,13 @@ export async function POST(request: Request) {
 
   const own = parsed.data.byok !== undefined && parsed.data.byok !== null;
   const limiter = own ? limits.analyzeOwn : limits.analyzeFree;
-  const allowed = limiter.check(callerKey(request, own ? "analyze-own" : "analyze"));
+  const allowed = limiter.check(callerKey(request.headers, own ? "analyze-own" : "analyze"));
   if (!allowed.allowed) return tooMany(allowed);
 
   const outcome = await analyzeReport(parsed.data, { env: process.env, signal: request.signal });
   if (!outcome.ok) {
     return Response.json({ error: outcome.error }, { status: STATUS[outcome.error] });
   }
-  console.info(`[analyze] served by ${outcome.servedBy}${outcome.ownModel ? " (own key)" : ""}`);
+  console.warn(`[analyze] served by ${outcome.servedBy}${outcome.ownModel ? " (own key)" : ""}`);
   return Response.json({ report: outcome.report, ownModel: outcome.ownModel });
 }

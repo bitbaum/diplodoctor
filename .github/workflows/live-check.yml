@@ -28,7 +28,7 @@ jobs:
           set -uo pipefail
           fail=0
           for l in en de fr it es; do
-            for path in "/$l" "/$l/reports" "/$l/reports/new" "/$l/reports/sample" "/$l/people" "/$l/platform" "/$l/security" "/$l/ecosystem" "/$l/settings" "/$l/roadmap" "/$l/changelog"; do
+            for path in "/$l" "/$l/reports" "/$l/reports/new" "/$l/reports/sample" "/$l/people" "/$l/platform" "/$l/security" "/$l/ecosystem" "/$l/settings" "/$l/roadmap" "/$l/changelog" "/$l/sign-in" "/$l/sign-up"; do
               code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "https://diplodoctor.orangecat.ch$path")
               echo "::notice::$path → $code"
               [ "$code" = "200" ] || fail=1
@@ -64,6 +64,15 @@ jobs:
           done
           if printf '%s\n' "$h" | grep -qi '^x-powered-by'; then echo "::error::x-powered-by is exposed"; fail=1; fi
           exit $fail
+
+      - name: Accounts and the database are up
+        run: |
+          set -uo pipefail
+          body=$(curl -s --max-time 20 https://diplodoctor.orangecat.ch/api/health)
+          echo "::notice::health $body"
+          echo "$body" | grep -q '"db":"up"' || { echo "::error::the database is not reachable"; exit 1; }
+          echo "$body" | grep -q '"accounts":true' || { echo "::error::accounts are not switched on"; exit 1; }
+          echo "$body" | grep -q '"ok":true' || { echo "::error::health is not ok"; exit 1; }
 
       - name: Reading a report is switched on
         run: |

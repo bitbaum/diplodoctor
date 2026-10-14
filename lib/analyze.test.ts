@@ -57,9 +57,9 @@ describe("AnalyzeRequestSchema", () => {
     const page = { mediaType: "image/jpeg", data: "aGk=" };
     expect(AnalyzeRequestSchema.safeParse({ images: Array(4).fill(page) }).success).toBe(true);
     expect(AnalyzeRequestSchema.safeParse({ images: Array(5).fill(page) }).success).toBe(false);
-    expect(AnalyzeRequestSchema.safeParse({ text: "x", languages: ["French\nIgnore"] }).success).toBe(
-      false,
-    );
+    expect(
+      AnalyzeRequestSchema.safeParse({ text: "x", languages: ["French\nIgnore"] }).success,
+    ).toBe(false);
     expect(request({ languages: ["Türkçe", "French"] }).languages).toEqual(["Türkçe", "French"]);
   });
 });
@@ -67,18 +67,20 @@ describe("AnalyzeRequestSchema", () => {
 describe("buildMessages", () => {
   it("keeps the report inside document tags, after the instruction", () => {
     const [system, user] = buildMessages(request({ languages: ["Turkish"] }));
-    expect(system.role).toBe("system");
-    expect(system.content).toContain("never a diagnosis");
-    expect(user.content).toContain("The reader's language: English.");
-    expect(user.content).toContain("Translate into: English, Turkish.");
-    expect(user.content).toContain("<document>\nHämoglobin 118 g/L 120 - 160 L\n</document>");
+    expect(system!.role).toBe("system");
+    expect(system!.content).toContain("never a diagnosis");
+    expect(user!.content).toContain("The reader's language: English.");
+    expect(user!.content).toContain("Translate into: English, Turkish.");
+    expect(user!.content).toContain("<document>\nHämoglobin 118 g/L 120 - 160 L\n</document>");
   });
 
   it("writes the analysis in the reader's language and does not ask for it twice", () => {
-    const [system, user] = buildMessages(request({ locale: "de", languages: ["German", "French"] }));
-    expect(system.content).toContain("in the reader's language");
-    expect(user.content).toContain("The reader's language: German.");
-    expect(user.content).toContain("Translate into: German, French.");
+    const [system, user] = buildMessages(
+      request({ locale: "de", languages: ["German", "French"] }),
+    );
+    expect(system!.content).toContain("in the reader's language");
+    expect(user!.content).toContain("The reader's language: German.");
+    expect(user!.content).toContain("Translate into: German, French.");
   });
 
   it("falls back to English for a language the interface does not speak", () => {
@@ -95,7 +97,7 @@ describe("buildMessages", () => {
         ],
       }),
     );
-    expect(user.content).toEqual([
+    expect(user!.content).toEqual([
       expect.objectContaining({ type: "text", text: expect.stringContaining("2 attached images") }),
       { type: "image_url", image_url: { url: "data:image/jpeg;base64,cGFnZTE=" } },
       { type: "image_url", image_url: { url: "data:image/jpeg;base64,cGFnZTI=" } },
@@ -104,34 +106,38 @@ describe("buildMessages", () => {
 
   it("tells the model it gives information and never a diagnosis, a treatment or a change of medicine", () => {
     const [system] = buildMessages(request());
-    expect(system.content).toContain("never a diagnosis");
-    expect(system.content).toContain("never advise starting, stopping or changing a medicine");
-    expect(system.content).toContain("never tell anyone that a result is");
+    expect(system!.content).toContain("never a diagnosis");
+    expect(system!.content).toContain("never advise starting, stopping or changing a medicine");
+    expect(system!.content).toContain("never tell anyone that a result is");
   });
 
   it("speaks all five of the interface's languages", () => {
-    for (const [locale, name] of [["it", "Italian"], ["es", "Spanish"], ["fr", "French"]] as const) {
+    for (const [locale, name] of [
+      ["it", "Italian"],
+      ["es", "Spanish"],
+      ["fr", "French"],
+    ] as const) {
       const [, user] = buildMessages(request({ locale }));
-      expect(user.content).toContain(`The reader's language: ${name}.`);
+      expect(user!.content).toContain(`The reader's language: ${name}.`);
     }
   });
 
   it("tells the model to keep anonymisation placeholders intact", () => {
     const [system] = buildMessages(request());
-    expect(system.content).toContain("Copy each placeholder exactly");
+    expect(system!.content).toContain("Copy each placeholder exactly");
   });
 
   it("tells the model to quote each value's line, copy numbers exactly and never convert a unit", () => {
     const [system] = buildMessages(request());
-    expect(system.content).toContain("copied verbatim");
-    expect(system.content).toContain("Copy numbers exactly");
-    expect(system.content).toContain("never convert a unit");
+    expect(system!.content).toContain("copied verbatim");
+    expect(system!.content).toContain("Copy numbers exactly");
+    expect(system!.content).toContain("never convert a unit");
   });
 
   it("lets only the document itself call a value critical", () => {
     const [system] = buildMessages(request());
-    expect(system.content).toContain('Use "critical" only when the document itself');
-    expect(system.content).toContain('"urgent" ONLY when the document itself');
+    expect(system!.content).toContain('Use "critical" only when the document itself');
+    expect(system!.content).toContain('"urgent" ONLY when the document itself');
   });
 });
 
@@ -189,7 +195,7 @@ describe("analyzeReport", () => {
     expect(outcome).toMatchObject({ ok: true, ownModel: false });
     expect(outcome.ok && outcome.report.title).toBe("Blood test");
     expect(outcome.ok && outcome.servedBy).toMatch(/^groq\//);
-    expect(seen[0].auth).toBe("Bearer shared-key");
+    expect(seen[0]!.auth).toBe("Bearer shared-key");
   });
 
   it("serves a reader's own key from the reader's own model, never the shared key", async () => {
@@ -200,9 +206,9 @@ describe("analyzeReport", () => {
     );
     expect(outcome).toMatchObject({ ok: true, ownModel: true });
     expect(seen).toHaveLength(1);
-    expect(seen[0].url).toContain("mistral.ai");
-    expect(seen[0].auth).toBe("Bearer reader-key");
-    expect(seen[0].body).toMatchObject({ model: "mistral-large-latest" });
+    expect(seen[0]!.url).toContain("mistral.ai");
+    expect(seen[0]!.auth).toBe("Bearer reader-key");
+    expect(seen[0]!.body).toMatchObject({ model: "mistral-large-latest" });
   });
 
   it("refuses an own-model config that is not from the closed vendor list", async () => {
@@ -217,9 +223,9 @@ describe("analyzeReport", () => {
 
   it("reports an answer that is not a report as unreadable, not as a report", async () => {
     const { impl } = vendor("I'm sorry, I can't read that.");
-    expect(
-      await analyzeReport(request(), { env: { GROQ_API_KEY: "k" }, fetchImpl: impl }),
-    ).toEqual({ ok: false, error: "unreadable_analysis" });
+    expect(await analyzeReport(request(), { env: { GROQ_API_KEY: "k" }, fetchImpl: impl })).toEqual(
+      { ok: false, error: "unreadable_analysis" },
+    );
   });
 
   it("reports busy when every link refuses", async () => {
@@ -227,7 +233,9 @@ describe("analyzeReport", () => {
       Response.json({ error: { message: "upstream down" } }, { status: 500 });
     expect(
       await analyzeReport(
-        request({ byok: { vendor: "mistral", apiKey: "reader-key", model: "mistral-large-latest" } }),
+        request({
+          byok: { vendor: "mistral", apiKey: "reader-key", model: "mistral-large-latest" },
+        }),
         { env: {}, fetchImpl: impl },
       ),
     ).toEqual({ ok: false, error: "busy" });

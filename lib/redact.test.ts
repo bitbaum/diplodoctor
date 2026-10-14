@@ -1,11 +1,5 @@
 import { describe, expect, it } from "vitest";
-import {
-  applyRedactions,
-  assignTokens,
-  findPersonalData,
-  mapStrings,
-  restore,
-} from "./redact";
+import { applyRedactions, assignTokens, findPersonalData, mapStrings, restore } from "./redact";
 
 /** Invented: the shape of a real Swiss letter, none of its contents. */
 const LETTER = `Frau
@@ -163,7 +157,8 @@ describe("the anonymised export", () => {
 });
 
 describe("medical documents", () => {
-  const found = (text: string) => Object.fromEntries(findPersonalData(text).map((f) => [f.value, f.kind]));
+  const found = (text: string) =>
+    Object.fromEntries(findPersonalData(text).map((f) => [f.value, f.kind]));
 
   it("hides the patient, the birth date and the order number of a laboratory report", () => {
     const f = found(
@@ -191,11 +186,17 @@ describe("medical documents", () => {
   });
 
   it("does not hide a measurement or a table header", () => {
-    const f = found("Name Wert Einheit\nHämoglobin 118 g/L\nFerritin 14 µg/L\nName des Tests: Blutbild");
+    const f = found(
+      "Name Wert Einheit\nHämoglobin 118 g/L\nFerritin 14 µg/L\nName des Tests: Blutbild",
+    );
     expect(Object.keys(f)).toEqual([]);
   });
 
   it("does not hide the laboratory", () => {
-    expect(found("Patientin: Erika Muster\nMedizinisches Labor Beispiel AG")["Medizinisches Labor Beispiel AG"]).toBeUndefined();
+    expect(
+      found("Patientin: Erika Muster\nMedizinisches Labor Beispiel AG")[
+        "Medizinisches Labor Beispiel AG"
+      ],
+    ).toBeUndefined();
   });
 });

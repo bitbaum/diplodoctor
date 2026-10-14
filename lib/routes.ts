@@ -4,6 +4,9 @@
  */
 export const ROUTES = {
   home: "/",
+  signIn: "/sign-in",
+  signUp: "/sign-up",
+  account: "/account",
   reports: "/reports",
   newReport: "/reports/new",
   sampleReport: "/reports/sample",
@@ -33,3 +36,15 @@ export const EXTERNAL = {
   solon: "https://solon.orangecat.ch",
   license: "https://github.com/bitbaum/diplodoctor/blob/main/LICENSE",
 } as const;
+
+/**
+ * Where to go after signing in. Only a path inside this site is accepted, so a
+ * crafted `?next=https://evil.example` or `//evil.example` cannot turn the
+ * sign-in page into an open redirect.
+ */
+export function safeNext(value: string | null | undefined): string {
+  if (!value || !value.startsWith("/") || value.startsWith("//") || value.includes("\\")) {
+    return ROUTES.account;
+  }
+  return value;
+}

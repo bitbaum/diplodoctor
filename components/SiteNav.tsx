@@ -23,7 +23,7 @@ const item =
  * carries `aria-current`, every target is at least 44px, and every href comes
  * from the routes constant. On a phone the same links fold into a menu.
  */
-export function SiteNav() {
+export function SiteNav({ signedIn }: { signedIn: boolean }) {
   const t = useTranslations("Nav");
   const pathname = usePathname();
   const menu = useRef<HTMLDetailsElement>(null);
@@ -34,8 +34,19 @@ export function SiteNav() {
     if (menu.current) menu.current.open = false;
   }, [pathname]);
 
-  const links = NAV.map((n) => (
-    <Link key={n.href} href={n.href} aria-current={isCurrent(n.href) ? "page" : undefined} className={item}>
+  const places = [
+    ...NAV,
+    signedIn
+      ? ({ href: ROUTES.account, key: "account" } as const)
+      : ({ href: ROUTES.signIn, key: "signIn" } as const),
+  ];
+  const links = places.map((n) => (
+    <Link
+      key={n.href}
+      href={n.href}
+      aria-current={isCurrent(n.href) ? "page" : undefined}
+      className={item}
+    >
       {t(n.key)}
     </Link>
   ));

@@ -1,3 +1,4 @@
+/* eslint-disable no-console -- a manual check that prints what it found */
 import { describe, expect, it } from "vitest";
 import { AnalyzeRequestSchema, analyzeReport, freeAvailability } from "../lib/analyze";
 import { SAMPLE_FLAGGED, SAMPLE_REPORT } from "../lib/sample";
@@ -46,7 +47,9 @@ describe.skipIf(!available)("a real model reads the sample report", () => {
       expect(r.attention).toBe("soon");
       // Each value carries the line it was read from, and the flag was checked against a range.
       expect(r.results.filter((x) => x.quote).length).toBeGreaterThanOrEqual(r.results.length - 2);
-      expect(r.results.filter((x) => x.checked).length).toBeGreaterThanOrEqual(r.results.length - 2);
+      expect(r.results.filter((x) => x.checked).length).toBeGreaterThanOrEqual(
+        r.results.length - 2,
+      );
       expect(r.questions.length).toBeGreaterThan(0);
       expect(r.texts.length).toBeGreaterThanOrEqual(1);
     },

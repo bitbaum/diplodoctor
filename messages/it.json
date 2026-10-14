@@ -16,7 +16,9 @@
     "menu": "Menu",
     "skip": "Vai al contenuto",
     "people": "Persone",
-    "dark": "Modalità scura"
+    "dark": "Modalità scura",
+    "account": "Account",
+    "signIn": "Accedi"
   },
   "Footer": {
     "tagline": "Il livello sanitario della flotta: un agente che legge il referto e le persone che sceglie per aiutarLa.",
@@ -672,5 +674,115 @@
       }
     },
     "start": "Leggere un referto"
+  },
+  "Auth": {
+    "signIn": "Accedi",
+    "signInTitle": "Accedi",
+    "signUpTitle": "Crea un account",
+    "signUpLede": "Non serve il nome vero. Scelga il modo che preferisce; potrà aggiungerne altri dopo.",
+    "createAccount": "Crea un account",
+    "withSignin": "Continua con Google, Apple, GitHub, X o Facebook",
+    "withOrangecat": "Continua con OrangeCat",
+    "withPasskey": "Accedi con una passkey",
+    "withLink": "Inviami invece un link di accesso via email",
+    "signUpWithLink": "Registrati invece con un link via email",
+    "orEmail": "oppure con l'email",
+    "email": "Email",
+    "password": "Password",
+    "passwordHint": "Almeno 12 caratteri. Una frase lunga è più facile da ricordare dei simboli.",
+    "displayName": "Nome visualizzato",
+    "displayNameHint": "Facoltativo. Quello che vuole: non deve essere il Suo nome vero.",
+    "checkInbox": "Abbiamo inviato un link a {email}. Lo apra su questo dispositivo per continuare. Vale 10 minuti.",
+    "confirmInbox": "Abbiamo inviato un link a {email}. Lo apra per confermare il Suo indirizzo e completare la creazione dell'account.",
+    "back": "Indietro",
+    "backHome": "Torna alla pagina iniziale",
+    "totpPrompt": "Inserisca il codice a 6 cifre della Sua app di autenticazione.",
+    "backupPrompt": "Inserisca uno dei codici di riserva salvati quando ha attivato l'accesso a due fattori.",
+    "totpCode": "Codice",
+    "backupCode": "Codice di riserva",
+    "trustDevice": "Considera attendibile questo dispositivo per 30 giorni",
+    "verify": "Verifica",
+    "useTotp": "Usa invece l'app di autenticazione",
+    "useBackup": "Usa invece un codice di riserva",
+    "resendVerification": "Invia di nuovo il link di conferma",
+    "noAccount": "Non ha ancora un account?",
+    "haveAccount": "Ha già un account?",
+    "unavailable": "Gli account non sono ancora attivi su questo sito. Tutto ciò che non richiede un account funziona comunque.",
+    "errors": {
+      "rateLimited": "Troppi tentativi. Attenda qualche minuto e riprovi.",
+      "unavailable": "Gli account non sono disponibili al momento. Riprovi tra poco.",
+      "generic": "Non ha funzionato. Riprovi o scelga un altro modo per accedere.",
+      "emailFirst": "Inserisca prima il Suo indirizzo email.",
+      "INVALID_EMAIL_OR_PASSWORD": "Email e password non corrispondono. Controlli entrambe oppure acceda con un link.",
+      "EMAIL_NOT_VERIFIED": "Confermi prima il Suo indirizzo email: il link è nella Sua casella.",
+      "USER_ALREADY_EXISTS": "Esiste già un account con questo indirizzo. Acceda invece.",
+      "USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL": "Esiste già un account con questo indirizzo. Acceda invece.",
+      "PASSWORD_TOO_SHORT": "La password deve avere almeno 12 caratteri.",
+      "PASSWORD_TOO_LONG": "La password può avere al massimo 128 caratteri.",
+      "INVALID_EMAIL": "Non sembra un indirizzo email.",
+      "INVALID_CODE": "Il codice non è corretto o è scaduto. Provi il più recente.",
+      "INVALID_TWO_FACTOR_CODE": "Il codice non è corretto o è scaduto. Provi il più recente.",
+      "SESSION_EXPIRED": "Per sicurezza, acceda di nuovo prima di modificare questo.",
+      "INVALID_PASSWORD": "La password non è corretta."
+    }
+  },
+  "Account": {
+    "title": "Il Suo account",
+    "profile": "Profilo",
+    "noEmail": "nessuna: aggiunga un accesso con password per usare l'email",
+    "unverified": "non ancora confermata",
+    "role": "Ruolo",
+    "roles": {
+      "customer": "Cliente",
+      "helper": "Assistente",
+      "professional": "Professionista",
+      "staff": "Team",
+      "admin": "Amministratore"
+    },
+    "save": "Salva",
+    "saved": "Salvato.",
+    "methods": "Modi per accedere",
+    "methodPassword": "Email e password",
+    "link": "Aggiungi {method}",
+    "passkeys": "Passkey",
+    "passkeysLede": "Acceda con impronta, volto o PIN del dispositivo invece della password.",
+    "passkeyDefaultName": "Passkey",
+    "remove": "Rimuovi",
+    "addPasskey": "Aggiungi una passkey",
+    "twoFactor": "Accesso a due fattori",
+    "twoFactorOn": "Attivo. L'accesso chiede un codice dalla Sua app di autenticazione.",
+    "twoFactorOff": "Non attivo. Lo attivi per chiedere un codice da un'app di autenticazione a ogni accesso.",
+    "currentPassword": "Password attuale",
+    "currentPasswordHint": "Serve se il Suo account ha una password. Senza, acceda di nuovo prima.",
+    "scan": "Aggiunga questo account alla Sua app di autenticazione, poi inserisca il codice mostrato.",
+    "openAuthenticator": "Apra nella Sua app di autenticazione",
+    "backupCodes": "Conservi questi codici di riserva in un posto sicuro. Ognuno vale una volta se perde il telefono.",
+    "turnOn": "Attiva",
+    "turnOff": "Disattiva",
+    "setUp": "Configura",
+    "leave": "Esci o abbandona",
+    "signOut": "Esci",
+    "deleteConfirm": "Per eliminare il Suo account e tutto ciò che contiene, scriva {word}",
+    "deleteWord": "elimina",
+    "delete": "Elimina il mio account",
+    "ownModel": "Il Suo modello: impostazioni"
+  },
+  "Mail": {
+    "verify": {
+      "subject": "Confermi la Sua email per {site}",
+      "lead": "Confermi questo indirizzo per completare la creazione del Suo account su {site}.",
+      "action": "Conferma la mia email"
+    },
+    "magicLink": {
+      "subject": "Il Suo link di accesso per {site}",
+      "lead": "Usi questo link per accedere a {site}. Vale una volta, per 10 minuti.",
+      "action": "Accedi"
+    },
+    "reset": {
+      "subject": "Reimposti la password per {site}",
+      "lead": "Qualcuno ha chiesto di reimpostare la password del Suo account su {site}.",
+      "action": "Scelga una nuova password"
+    },
+    "ignore": "Se non è stato Lei, ignori questa email: non cambia nulla."
   }
 }

@@ -57,7 +57,12 @@ export function PhotoRedactor({
       ctx.drawImage(img, 0, 0);
       ctx.fillStyle = "#000";
       for (const b of draft ? [...boxes, draft] : boxes) {
-        ctx.fillRect(b.x * canvas.width, b.y * canvas.height, b.w * canvas.width, b.h * canvas.height);
+        ctx.fillRect(
+          b.x * canvas.width,
+          b.y * canvas.height,
+          b.w * canvas.width,
+          b.h * canvas.height,
+        );
       }
     };
     if (imgRef.current) return draw();
@@ -78,7 +83,12 @@ export function PhotoRedactor({
   }
 
   function boxFrom(a: { x: number; y: number }, b: { x: number; y: number }): Box {
-    return { x: Math.min(a.x, b.x), y: Math.min(a.y, b.y), w: Math.abs(a.x - b.x), h: Math.abs(a.y - b.y) };
+    return {
+      x: Math.min(a.x, b.x),
+      y: Math.min(a.y, b.y),
+      w: Math.abs(a.x - b.x),
+      h: Math.abs(a.y - b.y),
+    };
   }
 
   function finish() {
@@ -86,7 +96,10 @@ export function PhotoRedactor({
     if (!canvas) return;
     if (boxes.length === 0) return onDone(image, 0);
     const dataUrl = canvas.toDataURL("image/jpeg", 0.85);
-    onDone({ mediaType: "image/jpeg", data: dataUrl.slice(dataUrl.indexOf(",") + 1) }, boxes.length);
+    onDone(
+      { mediaType: "image/jpeg", data: dataUrl.slice(dataUrl.indexOf(",") + 1) },
+      boxes.length,
+    );
   }
 
   return (
