@@ -102,6 +102,26 @@ jobs:
           end $$;
           SQL
           ssh -i ~/.ssh/id -o BatchMode=yes "ubuntu@$IP" "sudo -u postgres psql -qtAX -d diplodoctor -c \"set role diplodoctor; select 'app role reads users: ' || count(*) from users\""
+          # pg_hba.conf is a per-role allowlist (first match wins) ending in a reject
+          # block, so a new role is refused until it has its own line ABOVE the
+          # reject. Add it once for 127.0.0.1 (the address the app's URL uses),
+          # keep a backup, reload, and show the rules.
+          ssh -i ~/.ssh/id -o BatchMode=yes "ubuntu@$IP" 'bash -s' <<'HBA'
+          set -euo pipefail
+          hba=$(sudo -u postgres psql -qtAX -c 'show hba_file')
+          if ! sudo grep -qE '^host(ssl|nossl)?[[:space:]]+diplodoctor[[:space:]]+diplodoctor[[:space:]]+127\.0\.0\.1/32' "$hba"; then
+            sudo cp -p "$hba" "$hba.bak-diplodoctor"
+            tmp=$(mktemp)
+            sudo awk -v rule='host    diplodoctor    diplodoctor    127.0.0.1/32    scram-sha-256' '!done && /^[^#].*reject/ { print rule; done=1 } { print } END { if (!done) print rule }' "$hba" > "$tmp"
+            sudo install -o postgres -g postgres -m 640 "$tmp" "$hba"
+            rm -f "$tmp"
+            sudo -u postgres psql -qtAX -c 'select pg_reload_conf()' >/dev/null
+            echo "added the diplodoctor rule to pg_hba.conf and reloaded"
+          else
+            echo "pg_hba.conf already has the diplodoctor rule"
+          fi
+          echo "pg_hba rules:"; sudo grep -vE '^\s*(#|$)' "$hba"
+          HBA
           # What the app itself would see: its own env file, its own URL, the same
           # query the health probe runs. Nothing here prints the URL.
           ssh -i ~/.ssh/id -o BatchMode=yes "ubuntu@$IP" 'bash -s' <<'DIAG' || true
