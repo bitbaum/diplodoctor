@@ -19,7 +19,8 @@
     "account": "Konto",
     "signIn": "Anmelden",
     "today": "Heute",
-    "records": "Unterlagen"
+    "records": "Unterlagen",
+    "ask": "Fragen"
   },
   "Footer": {
     "tagline": "Die Gesundheitsebene der Flotte: ein Agent, der den Bericht liest, und die Menschen, die Sie als Hilfe wählen.",
@@ -42,7 +43,8 @@
       "solon": "Diplodoctor auf Solon",
       "people": "Menschen, die helfen",
       "today": "Heute",
-      "records": "Unterlagen"
+      "records": "Unterlagen",
+      "ask": "Fragen"
     },
     "disclaimer": "Beta: in Betrieb, nicht veröffentlicht. Diplodoctor gibt Gesundheitsinformationen, keine Diagnose, und ist weder ein Medizinprodukt noch ein Ersatz für eine Ärztin oder einen Arzt. Im Notfall rufen Sie Ihre Notrufnummer an.",
     "openSource": "Open Source unter der MIT-Lizenz. Gebaut in Zürich.",
@@ -871,5 +873,44 @@
     "cancel": "Abbrechen",
     "error": "Bitte füllen Sie das Pflichtfeld aus.",
     "notFound": "Dieser Eintrag ist nicht auf diesem Gerät."
+  },
+  "Ask": {
+    "title": "Fragen",
+    "subtitle": "Fragen zu Ihrer eigenen Akte. Namen werden verborgen, bevor etwas gesendet wird.",
+    "placeholder": "Fragen Sie zu Ihrer Akte",
+    "starters": {
+      "s1": "Was fällt in meinen neuesten Resultaten auf?",
+      "s2": "Was sollte ich meine Ärztin oder meinen Arzt fragen?",
+      "s3": "Was nehme ich, und wann?"
+    },
+    "empty": {
+      "title": "Noch nichts, wonach man fragen könnte",
+      "body": "Fügen Sie zuerst einen Bericht oder ein Medikament hinzu.",
+      "cta": "Hinzufügen"
+    },
+    "thread": {
+      "copy": "Kopieren",
+      "copied": "Kopiert",
+      "retry": "Nochmals",
+      "stop": "Stopp",
+      "working": "Antwort wird verfasst…",
+      "stopped": "Angehalten",
+      "jump": "Zum Neuesten",
+      "failed": "Das hat nicht geklappt",
+      "loading": "Lädt…",
+      "replies": "Vorschläge"
+    },
+    "composer": {
+      "send": "Senden",
+      "stop": "Stopp",
+      "queue": "Nachricht vormerken…"
+    },
+    "errors": {
+      "not_configured": "Zurzeit ist kein Modell verfügbar. Hinterlegen Sie in den Einstellungen Ihren eigenen Schlüssel.",
+      "busy": "Die kostenlosen Modelle sind ausgelastet. Versuchen Sie es gleich nochmals oder nutzen Sie in den Einstellungen Ihren eigenen Schlüssel.",
+      "rate": "Zu viele Fragen für den Moment. Versuchen Sie es später nochmals.",
+      "generic": "Das hat nicht geklappt."
+    },
+    "disclaimer": "Information, keine Diagnose."
   }
 }

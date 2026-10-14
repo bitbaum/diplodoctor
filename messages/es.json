@@ -19,7 +19,8 @@
     "account": "Cuenta",
     "signIn": "Iniciar sesión",
     "today": "Hoy",
-    "records": "Historial"
+    "records": "Historial",
+    "ask": "Preguntas"
   },
   "Footer": {
     "tagline": "La capa de salud de la flota: un agente que lee el informe y las personas que usted elija para ayudarle.",
@@ -42,7 +43,8 @@
       "solon": "Diplodoctor en Solon",
       "people": "Personas que ayudan",
       "today": "Hoy",
-      "records": "Historial"
+      "records": "Historial",
+      "ask": "Preguntas"
     },
     "disclaimer": "Beta: en funcionamiento, no publicado. Diplodoctor ofrece información de salud, no un diagnóstico, y no es un producto sanitario ni sustituye a un médico. En una emergencia, llame a su número de emergencias.",
     "openSource": "Código abierto bajo la licencia MIT. Hecho en Zúrich.",
@@ -871,5 +873,44 @@
     "cancel": "Cancelar",
     "error": "Rellene el campo obligatorio.",
     "notFound": "Ese elemento no está en este dispositivo."
+  },
+  "Ask": {
+    "title": "Preguntas",
+    "subtitle": "Preguntas sobre su propio historial. Los nombres se ocultan antes de enviar nada.",
+    "placeholder": "Pregunte sobre su historial",
+    "starters": {
+      "s1": "¿Qué destaca en mis últimos resultados?",
+      "s2": "¿Qué debería preguntar a mi médico?",
+      "s3": "¿Qué tomo y cuándo?"
+    },
+    "empty": {
+      "title": "Aún no hay nada que preguntar",
+      "body": "Añada primero un informe o un medicamento.",
+      "cta": "Añadir"
+    },
+    "thread": {
+      "copy": "Copiar",
+      "copied": "Copiado",
+      "retry": "Reintentar",
+      "stop": "Detener",
+      "working": "Escribiendo la respuesta…",
+      "stopped": "Detenido",
+      "jump": "Ir al último",
+      "failed": "No ha funcionado",
+      "loading": "Cargando…",
+      "replies": "Sugerencias"
+    },
+    "composer": {
+      "send": "Enviar",
+      "stop": "Detener",
+      "queue": "Poner un mensaje en cola…"
+    },
+    "errors": {
+      "not_configured": "Ahora mismo no hay ningún modelo disponible. Añada su propia clave en los ajustes.",
+      "busy": "Los modelos gratuitos están ocupados. Inténtelo en un momento o use su propia clave en los ajustes.",
+      "rate": "Demasiadas preguntas por ahora. Inténtelo más tarde.",
+      "generic": "No ha funcionado."
+    },
+    "disclaimer": "Información, no un diagnóstico."
   }
 }

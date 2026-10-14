@@ -19,7 +19,8 @@
     "account": "Account",
     "signIn": "Accedi",
     "today": "Oggi",
-    "records": "Cartella"
+    "records": "Cartella",
+    "ask": "Domande"
   },
   "Footer": {
     "tagline": "Il livello sanitario della flotta: un agente che legge il referto e le persone che sceglie per aiutarLa.",
@@ -42,7 +43,8 @@
       "solon": "Diplodoctor su Solon",
       "people": "Persone che aiutano",
       "today": "Oggi",
-      "records": "Cartella"
+      "records": "Cartella",
+      "ask": "Domande"
     },
     "disclaimer": "Beta: in funzione, non ancora pubblicato. Diplodoctor offre informazioni sulla salute, non una diagnosi, e non è un dispositivo medico né un sostituto del medico. In caso di emergenza chiami il numero di emergenza.",
     "openSource": "Open source con licenza MIT. Costruito a Zurigo.",
@@ -871,5 +873,44 @@
     "cancel": "Annulla",
     "error": "Compili il campo obbligatorio.",
     "notFound": "Questa voce non è su questo dispositivo."
+  },
+  "Ask": {
+    "title": "Domande",
+    "subtitle": "Domande sulla Sua cartella. I nomi vengono nascosti prima di inviare qualsiasi cosa.",
+    "placeholder": "Chieda qualcosa sulla Sua cartella",
+    "starters": {
+      "s1": "Che cosa spicca nei miei ultimi risultati?",
+      "s2": "Che cosa chiedere al medico?",
+      "s3": "Che cosa prendo, e quando?"
+    },
+    "empty": {
+      "title": "Ancora niente da chiedere",
+      "body": "Aggiunga prima un referto o un farmaco.",
+      "cta": "Aggiungi"
+    },
+    "thread": {
+      "copy": "Copia",
+      "copied": "Copiato",
+      "retry": "Riprova",
+      "stop": "Ferma",
+      "working": "Scrivo la risposta…",
+      "stopped": "Fermato",
+      "jump": "Vai all’ultimo",
+      "failed": "Non ha funzionato",
+      "loading": "Caricamento…",
+      "replies": "Suggerimenti"
+    },
+    "composer": {
+      "send": "Invia",
+      "stop": "Ferma",
+      "queue": "Metti in coda un messaggio…"
+    },
+    "errors": {
+      "not_configured": "Al momento nessun modello è disponibile. Aggiunga la Sua chiave nelle impostazioni.",
+      "busy": "I modelli gratuiti sono occupati. Riprovi tra un attimo o usi la Sua chiave nelle impostazioni.",
+      "rate": "Troppe domande per ora. Riprovi più tardi.",
+      "generic": "Non ha funzionato."
+    },
+    "disclaimer": "Informazione, non una diagnosi."
   }
 }

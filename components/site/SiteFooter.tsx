@@ -11,6 +11,7 @@ const SECTIONS = [
     links: [
       { key: "today", href: ROUTES.today },
       { key: "records", href: ROUTES.records },
+      { key: "ask", href: ROUTES.ask },
       { key: "new", href: ROUTES.newReport },
       { key: "people", href: ROUTES.people },
       { key: "settings", href: ROUTES.settings },
@@ -33,7 +34,8 @@ const SECTIONS = [
   },
 ] as const;
 
-const linkClass = "inline-flex min-h-11 items-center transition-colors hover:text-fg-primary";
+const linkClass =
+  "inline-flex min-h-11 min-w-11 items-center transition-colors hover:text-fg-primary";
 
 export async function SiteFooter() {
   const t = await getTranslations("Footer");

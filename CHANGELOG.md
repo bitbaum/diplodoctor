@@ -6,6 +6,14 @@ brackets, it is the pull request to read for the detail.
 
 ## 2026-10-15
 
+### Added
+
+- **Keep your file in your account, if you choose.** One switch in Account.
+  The file is kept sealed on our server and follows you to any device you sign
+  in on. Off by default; turning it off deletes the copy.
+- **Ask about your own file.** Questions answered from your records only, with
+  names hidden before anything is sent. Information, not a diagnosis.
+
 ### Changed
 
 - **A health file, not a report reader.** The header is now Today, Records and

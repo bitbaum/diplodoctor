@@ -19,7 +19,8 @@
     "account": "Compte",
     "signIn": "Se connecter",
     "today": "Aujourd’hui",
-    "records": "Dossier"
+    "records": "Dossier",
+    "ask": "Questions"
   },
   "Footer": {
     "tagline": "La couche santé de la flotte : un agent qui lit le rapport, et les personnes que vous choisissez pour vous aider.",
@@ -42,7 +43,8 @@
       "solon": "Diplodoctor sur Solon",
       "people": "Des personnes qui aident",
       "today": "Aujourd’hui",
-      "records": "Dossier"
+      "records": "Dossier",
+      "ask": "Questions"
     },
     "disclaimer": "Bêta : en service, pas encore publié. Diplodoctor donne de l'information de santé, pas un diagnostic, et n'est ni un dispositif médical ni un substitut à un médecin. En cas d'urgence, appelez votre numéro d'urgence.",
     "openSource": "Open source sous licence MIT. Construit à Zurich.",
@@ -871,5 +873,44 @@
     "cancel": "Annuler",
     "error": "Remplissez le champ obligatoire.",
     "notFound": "Cet élément n’est pas sur cet appareil."
+  },
+  "Ask": {
+    "title": "Poser une question",
+    "subtitle": "Des questions sur votre propre dossier. Les noms sont masqués avant tout envoi.",
+    "placeholder": "Posez une question sur votre dossier",
+    "starters": {
+      "s1": "Qu’est-ce qui ressort dans mes derniers résultats ?",
+      "s2": "Que demander à mon médecin ?",
+      "s3": "Que dois-je prendre, et quand ?"
+    },
+    "empty": {
+      "title": "Rien à interroger pour l’instant",
+      "body": "Ajoutez d’abord un rapport ou un médicament.",
+      "cta": "Ajouter"
+    },
+    "thread": {
+      "copy": "Copier",
+      "copied": "Copié",
+      "retry": "Réessayer",
+      "stop": "Arrêter",
+      "working": "Rédaction de la réponse…",
+      "stopped": "Arrêté",
+      "jump": "Aller au plus récent",
+      "failed": "Cela n’a pas fonctionné",
+      "loading": "Chargement…",
+      "replies": "Suggestions"
+    },
+    "composer": {
+      "send": "Envoyer",
+      "stop": "Arrêter",
+      "queue": "Mettre un message en attente…"
+    },
+    "errors": {
+      "not_configured": "Aucun modèle n’est disponible pour le moment. Ajoutez votre propre clé dans les réglages.",
+      "busy": "Les modèles gratuits sont occupés. Réessayez dans un instant ou utilisez votre propre clé dans les réglages.",
+      "rate": "Trop de questions pour l’instant. Réessayez plus tard.",
+      "generic": "Cela n’a pas fonctionné."
+    },
+    "disclaimer": "De l’information, pas un diagnostic."
   }
 }

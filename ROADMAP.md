@@ -68,8 +68,9 @@ rendered here, never written twice.
 
 - [x] Today, Records, and medicines, appointments and notes beside reports {#records}
 - [x] Search that forgives a typo, and filters that live in the address {#find}
-- [ ] The file kept for you across devices, sealed on our host, for signed-in people
-- [ ] Ask about your file, in a chat
+- [x] The file kept for you across devices, sealed on our host, for signed-in people, if they choose
+- [x] Ask about your file, in a chat
+- [ ] Keys only the owner holds, so the operator cannot open the file
 - [ ] Reminders: a retest, a refill, a follow-up
 
 ### Health matters worked by an agent {#matters}
