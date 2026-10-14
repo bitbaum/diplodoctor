@@ -83,4 +83,19 @@ jobs:
           else
             echo "users table already present; nothing to apply"
           fi
+          # The deploy applies migrations as the postgres superuser, so what it
+          # creates is owned by postgres and the app's role cannot read it: the
+          # database is "up" and /api/health says "down" (vitareba, once). Give
+          # everything in public to the app's role, then show what it can read.
+          ssh -i ~/.ssh/id -o BatchMode=yes "ubuntu@$IP" "sudo -u postgres psql -v ON_ERROR_STOP=1 -q -d diplodoctor" <<'SQL'
+          do $$ declare r record; begin
+            for r in select tablename from pg_tables where schemaname = 'public' and tableowner <> 'diplodoctor' loop
+              execute format('alter table public.%I owner to diplodoctor', r.tablename);
+            end loop;
+            for r in select sequencename from pg_sequences where schemaname = 'public' and sequenceowner <> 'diplodoctor' loop
+              execute format('alter sequence public.%I owner to diplodoctor', r.sequencename);
+            end loop;
+          end $$;
+          SQL
+          ssh -i ~/.ssh/id -o BatchMode=yes "ubuntu@$IP" "sudo -u postgres psql -qtAX -d diplodoctor -c \"set role diplodoctor; select 'app role reads users: ' || count(*) from users\""
           rm -f ~/.ssh/id
