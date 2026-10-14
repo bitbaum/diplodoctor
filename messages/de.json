@@ -782,7 +782,15 @@
     "deleteConfirm": "Um Ihr Konto mit allem darin zu löschen, tippen Sie {word}",
     "deleteWord": "löschen",
     "delete": "Mein Konto löschen",
-    "ownModel": "Ihr eigenes Modell: Einstellungen"
+    "ownModel": "Ihr eigenes Modell: Einstellungen",
+    "file": {
+      "title": "Meine Akte im Konto behalten",
+      "body": "Standardmässig aus. Eingeschaltet, werden Ihre Unterlagen zusätzlich verschlüsselt auf unserem Server in der Schweiz gespeichert, damit Sie sie auf jedem Gerät öffnen können. Bis es Schlüssel gibt, die nur Sie besitzen, könnten wir sie technisch lesen.",
+      "on": "Ein. Ihre Akte folgt Ihnen auf jedes Gerät, auf dem Sie sich anmelden.",
+      "turnOn": "Einschalten",
+      "turnOff": "Ausschalten und die Kopie löschen",
+      "error": "Das hat nicht geklappt. Ihre Akte auf diesem Gerät ist unverändert. Versuchen Sie es nochmals."
+    }
   },
   "Mail": {
     "verify": {
@@ -822,7 +830,8 @@
       "title": "Beginnen Sie Ihre Akte",
       "body": "Fügen Sie hinzu, was Sie haben. Es bleibt auf diesem Gerät.",
       "example": "Beispiel ansehen"
-    }
+    },
+    "synced": "Auf diesem Gerät und in Ihrem Konto gespeichert."
   },
   "Add": {
     "title": {

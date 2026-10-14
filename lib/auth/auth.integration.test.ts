@@ -19,10 +19,12 @@ if (!dbName.endsWith("_test")) {
 
 // Fresh per run: a fixed secret in a test file is still a secret in git.
 process.env.BETTER_AUTH_SECRET = randomBytes(32).toString("hex");
+process.env.SECRET_SEAL_KEY = randomBytes(32).toString("hex");
 
 const { SITE } = await import("@/lib/site");
 const route = await import("@/app/api/auth/[...all]/route");
 const health = await import("@/app/api/health/route");
+const fileRoute = await import("@/app/api/file/route");
 
 let ip = 0;
 const nextIp = () => `198.51.100.${++ip}`;
@@ -162,6 +164,77 @@ describe("email and password", () => {
     const { rows } = await db.query("select secret from two_factors");
     expect(rows).toHaveLength(1);
     expect(rows[0]?.secret).not.toContain(secret);
+  });
+
+  it("keeps a health file sealed, only when asked, and never overwrites a newer one", async () => {
+    const call = (method: "GET" | "PUT" | "DELETE", body?: unknown) =>
+      fileRoute[method](
+        new Request(`${SITE.url}/api/file`, {
+          method,
+          headers: { cookie, "content-type": "application/json", "x-forwarded-for": nextIp() },
+          body: body === undefined ? undefined : JSON.stringify(body),
+        }),
+      );
+    const item = (id: string, name: string) => ({
+      id,
+      createdAt: "2026-10-01T10:00:00Z",
+      kind: "medication",
+      name,
+    });
+
+    // Off until the person turns it on.
+    expect(await (await call("GET")).json()).toEqual({ enabled: false });
+
+    const created = await call("PUT", {
+      version: 0,
+      data: { reports: [], items: [item("i_1", "Metformin")] },
+    });
+    expect(created.status).toBe(200);
+    const { rows } = await db.query("select sealed, version from health_files");
+    expect(rows).toHaveLength(1);
+    expect(String(rows[0]?.sealed)).not.toContain("Metformin");
+
+    const read = (await (await call("GET")).json()) as {
+      enabled: boolean;
+      version: number;
+      data: { items: { name: string }[] };
+    };
+    expect(read.enabled).toBe(true);
+    expect(read.data.items[0]?.name).toBe("Metformin");
+
+    // A second device that read version 1 saves; the first, still on version 1, is refused.
+    const saved = await call("PUT", {
+      version: read.version,
+      data: { reports: [], items: [item("i_2", "Ramipril")] },
+    });
+    expect(saved.status).toBe(200);
+    const stale = await call("PUT", { version: read.version, data: { reports: [], items: [] } });
+    expect(stale.status).toBe(409);
+    const current = (await stale.json()) as { current: { data: { items: { name: string }[] } } };
+    expect(current.current.data.items[0]?.name).toBe("Ramipril");
+
+    // Junk is dropped, not stored.
+    const junk = await call("PUT", {
+      version: 2,
+      data: { reports: [{ nope: 1 }], items: [{ kind: "x" }, item("i_3", "Aspirin")] },
+    });
+    expect(junk.status).toBe(200);
+    const after = (await (await call("GET")).json()) as {
+      data: { reports: unknown[]; items: unknown[] };
+    };
+    expect(after.data.reports).toHaveLength(0);
+    expect(after.data.items).toHaveLength(1);
+
+    // Turning it off removes the copy.
+    expect(await (await call("DELETE")).json()).toEqual({ enabled: false });
+    expect((await db.query("select 1 from health_files")).rowCount).toBe(0);
+  });
+
+  it("refuses the health file without a session", async () => {
+    const res = await fileRoute.GET(
+      new Request(`${SITE.url}/api/file`, { headers: { "x-forwarded-for": nextIp() } }),
+    );
+    expect(res.status).toBe(401);
   });
 
   it("deletes the account and everything hanging off it", async () => {

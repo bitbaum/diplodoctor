@@ -5,6 +5,7 @@ import { btnPrimary, btnQuiet, card, link, shell } from "@/components/ui";
 import { Link } from "@/i18n/navigation";
 import { appointmentTime, upcomingAppointments, type Medication } from "@/lib/health-item";
 import { formatDate, reportDate } from "@/lib/report";
+import { useFileCopy } from "@/lib/file-sync";
 import { ROUTES } from "@/lib/routes";
 import { useHydrated, useItems, useReports, useToday } from "@/lib/store";
 
@@ -30,6 +31,7 @@ export default function TodayPage() {
   const items = useItems();
   const hydrated = useHydrated();
   const today = useToday();
+  const copy = useFileCopy();
 
   const upcoming = today ? upcomingAppointments(items, today).slice(0, UPCOMING) : [];
   const latest = reports
@@ -46,7 +48,7 @@ export default function TodayPage() {
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <h1 className="headline text-4xl sm:text-5xl">{t("title")}</h1>
-          <p className="mt-2 text-sm text-fg-secondary">{t("local")}</p>
+          <p className="mt-2 text-sm text-fg-secondary">{t(copy === "on" ? "synced" : "local")}</p>
         </div>
         <div className="flex flex-wrap gap-3">
           <Link href={ROUTES.newReport} className={btnPrimary}>

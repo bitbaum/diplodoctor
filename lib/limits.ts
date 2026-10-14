@@ -22,6 +22,8 @@ export const limits = {
   auth: slidingWindow({ limit: 300, windowMs: 10 * 60_000 }),
   /** The example model route: a shared free budget, per person. */
   ai: slidingWindow({ limit: 20, windowMs: 60 * 60_000 }),
+  /** Reading or saving the person's own health file. */
+  file: slidingWindow({ limit: 120, windowMs: 10 * 60_000 }),
   /** Checking a key against a vendor. */
   modelProbe: slidingWindow({ limit: 20, windowMs: 10 * 60_000 }),
   /**

@@ -66,7 +66,7 @@ function createBrowserStore<T>(key: string, empty: T, parse: (raw: unknown) => T
     };
   }
 
-  return { read, write, use: () => useSyncExternalStore(subscribe, read, () => empty) };
+  return { read, write, subscribe, use: () => useSyncExternalStore(subscribe, read, () => empty) };
 }
 
 const NO_REPORTS: ReportFile[] = [];
@@ -94,6 +94,25 @@ const items = createBrowserStore<HealthItem[]>("diplodoctor.items.v1", NO_ITEMS,
 );
 
 export const useItems = items.use;
+
+/** The whole health file, for syncing it elsewhere (lib/file-sync.ts). */
+export function readFileData(): { reports: ReportFile[]; items: HealthItem[] } {
+  return { reports: reports.read(), items: items.read() };
+}
+
+export function replaceFileData(data: { reports: ReportFile[]; items: HealthItem[] }) {
+  reports.write(data.reports.length ? data.reports : NO_REPORTS);
+  items.write(data.items.length ? data.items : NO_ITEMS);
+}
+
+export function onFileDataChange(listener: () => void): () => void {
+  const a = reports.subscribe(listener);
+  const b = items.subscribe(listener);
+  return () => {
+    a();
+    b();
+  };
+}
 
 export function saveItem(item: HealthItem) {
   const list = items.read();

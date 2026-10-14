@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { AccountPanel } from "@/components/auth/AccountPanel";
+import { FilePanel } from "@/components/auth/FilePanel";
 import { Link } from "@/i18n/navigation";
 import { link, shell } from "@/components/ui";
 import { redirect } from "@/i18n/navigation";
@@ -46,6 +47,7 @@ export default async function AccountPage({ params }: Props) {
   return (
     <div className={`${shell} grid gap-8 py-12 sm:py-16`}>
       <h1 className="text-3xl font-semibold">{t("title")}</h1>
+      <FilePanel />
       <AccountPanel
         user={{
           name: user.name ?? "",
