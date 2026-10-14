@@ -17,12 +17,21 @@ importers:
       '@bitbaum/ai-kit':
         specifier: ^1.20.1
         version: 1.20.1(react@19.3.0)
+      '@bitbaum/chatkit':
+        specifier: git+https://github.com/bitbaum/chatkit.git#163c879163d22c6eb633314b3bd4e25712a01899
+        version: git+https://github.com/bitbaum/chatkit.git#163c879163d22c6eb633314b3bd4e25712a01899(react@19.3.0)
       '@bitbaum/design-tokens':
         specifier: ^1.1.0
         version: 1.1.0
       '@bitbaum/mail-kit':
         specifier: ^0.1.1
         version: 0.1.1
+      '@bitbaum/searchkit':
+        specifier: git+https://github.com/bitbaum/searchkit.git#v0.2.2
+        version: git+https://github.com/bitbaum/searchkit.git#09532b1974c7cb92f38c98decaeed334f3ffea72(react@19.3.0)
+      '@bitbaum/whenkit':
+        specifier: git+https://github.com/bitbaum/whenkit.git#v0.3.2
+        version: git+https://github.com/bitbaum/whenkit.git#f5e0a24208187091c2ca792008cdd7695a19910f(react@19.3.0)
       better-auth:
         specifier: ^1.7.7
         version: 1.7.7(drizzle-kit@0.31.11)(drizzle-orm@0.45.4(@types/pg@8.23.1)(kysely@0.29.6)(pg@8.23.1))(next@16.4.0(@babel/core@7.29.7(supports-color@7.2.0))(@types/node@26.6.5)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(pg@8.23.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(vitest@4.1.11(@types/node@26.6.5)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)))
@@ -35,6 +44,9 @@ importers:
       limitkit:
         specifier: ^0.2.0
         version: 0.2.0
+      listkit:
+        specifier: git+https://github.com/bitbaum/listkit.git#v0.1.0
+        version: git+https://github.com/bitbaum/listkit.git#69cb4f4ef12d6a2a56b56db1bb4d4ac14aced525
       next:
         specifier: 16.4.0
         version: 16.4.0(@babel/core@7.29.7(supports-color@7.2.0))(@types/node@26.6.5)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
@@ -262,6 +274,14 @@ packages:
       react:
         optional: true
 
+  '@bitbaum/chatkit@git+https://github.com/bitbaum/chatkit.git#163c879163d22c6eb633314b3bd4e25712a01899':
+    resolution: {commit: 163c879163d22c6eb633314b3bd4e25712a01899, repo: https://github.com/bitbaum/chatkit.git, type: git}
+    version: 0.6.0
+    engines: {node: '>=20'}
+    hasBin: true
+    peerDependencies:
+      react: '>=18'
+
   '@bitbaum/design-tokens@1.1.0':
     resolution: {integrity: sha512-sDVplKP4jKe0WHCOnW7xk75RC46JsAYqUngcVlctyAs9f1TQqZqbYTfbmyYipYCOaCIHMflnzAneQTbqrQbtBw==}
     engines: {node: '>=20'}
@@ -269,6 +289,22 @@ packages:
   '@bitbaum/mail-kit@0.1.1':
     resolution: {integrity: sha512-3JfaeuwkI+8TVGeSDrr8/esaWkv2d7UAcNg1Xu5HHu6k3cBzuSaLGhuzHp0KlAJgGa2QEQIqtE7W1+PosKFOjw==}
     engines: {node: '>=20'}
+
+  '@bitbaum/searchkit@git+https://github.com/bitbaum/searchkit.git#09532b1974c7cb92f38c98decaeed334f3ffea72':
+    resolution: {commit: 09532b1974c7cb92f38c98decaeed334f3ffea72, repo: https://github.com/bitbaum/searchkit.git, type: git}
+    version: 0.2.2
+    peerDependencies:
+      react: '>=18'
+    peerDependenciesMeta:
+      react:
+        optional: true
+
+  '@bitbaum/whenkit@git+https://github.com/bitbaum/whenkit.git#f5e0a24208187091c2ca792008cdd7695a19910f':
+    resolution: {commit: f5e0a24208187091c2ca792008cdd7695a19910f, repo: https://github.com/bitbaum/whenkit.git, type: git}
+    version: 0.3.2
+    engines: {node: '>=20'}
+    peerDependencies:
+      react: '>=18'
 
   '@cacheable/memory@2.2.0':
     resolution: {integrity: sha512-CTLKqLItRCEixEAewD3/j9DB3/o96gpTPD4eJ1v+DGOlxZRZncRQkGYqqnAGCscYd6RNeXfGeiuCphsPtqyIfQ==}
@@ -2743,6 +2779,11 @@ packages:
     resolution: {integrity: sha512-x05857iOBGf04eRBAXWTtRTrGhRdBfW9fZa8rfJDx3rQNRBVQpwK2z9aiMYNWhRp71QoIjvA0rl4ZiL4+6O8rA==}
     engines: {node: '>=20'}
 
+  listkit@git+https://github.com/bitbaum/listkit.git#69cb4f4ef12d6a2a56b56db1bb4d4ac14aced525:
+    resolution: {commit: 69cb4f4ef12d6a2a56b56db1bb4d4ac14aced525, repo: https://github.com/bitbaum/listkit.git, type: git}
+    version: 0.1.0
+    engines: {node: '>=20'}
+
   locate-path@6.0.0:
     resolution: {integrity: sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==}
     engines: {node: '>=10'}
@@ -3640,9 +3681,21 @@ snapshots:
     optionalDependencies:
       react: 19.3.0
 
+  '@bitbaum/chatkit@git+https://github.com/bitbaum/chatkit.git#163c879163d22c6eb633314b3bd4e25712a01899(react@19.3.0)':
+    dependencies:
+      react: 19.3.0
+
   '@bitbaum/design-tokens@1.1.0': {}
 
   '@bitbaum/mail-kit@0.1.1': {}
+
+  '@bitbaum/searchkit@git+https://github.com/bitbaum/searchkit.git#09532b1974c7cb92f38c98decaeed334f3ffea72(react@19.3.0)':
+    optionalDependencies:
+      react: 19.3.0
+
+  '@bitbaum/whenkit@git+https://github.com/bitbaum/whenkit.git#f5e0a24208187091c2ca792008cdd7695a19910f(react@19.3.0)':
+    dependencies:
+      react: 19.3.0
 
   '@cacheable/memory@2.2.0':
     dependencies:
@@ -5853,6 +5906,8 @@ snapshots:
       lightningcss-win32-x64-msvc: 1.33.0
 
   limitkit@0.2.0: {}
+
+  listkit@git+https://github.com/bitbaum/listkit.git#69cb4f4ef12d6a2a56b56db1bb4d4ac14aced525: {}
 
   locate-path@6.0.0:
     dependencies:

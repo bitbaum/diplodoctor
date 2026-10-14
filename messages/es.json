@@ -5,7 +5,6 @@
   },
   "Nav": {
     "main": "Principal",
-    "reports": "Mis informes",
     "settings": "Ajustes",
     "new": "Leer un informe",
     "beta": "Beta",
@@ -18,7 +17,9 @@
     "people": "Personas",
     "dark": "Modo oscuro",
     "account": "Cuenta",
-    "signIn": "Iniciar sesión"
+    "signIn": "Iniciar sesión",
+    "today": "Hoy",
+    "records": "Historial"
   },
   "Footer": {
     "tagline": "La capa de salud de la flota: un agente que lee el informe y las personas que usted elija para ayudarle.",
@@ -28,7 +29,6 @@
       "open": "A la vista"
     },
     "links": {
-      "reports": "Mis informes",
       "new": "Leer un informe",
       "settings": "Ajustes",
       "platform": "Cómo está construido",
@@ -40,7 +40,9 @@
       "license": "Licencia MIT",
       "orangecat": "Diplodoctor en OrangeCat",
       "solon": "Diplodoctor en Solon",
-      "people": "Personas que ayudan"
+      "people": "Personas que ayudan",
+      "today": "Hoy",
+      "records": "Historial"
     },
     "disclaimer": "Beta: en funcionamiento, no publicado. Diplodoctor ofrece información de salud, no un diagnóstico, y no es un producto sanitario ni sustituye a un médico. En una emergencia, llame a su número de emergencias.",
     "openSource": "Código abierto bajo la licencia MIT. Hecho en Zúrich.",
@@ -49,10 +51,10 @@
   "Home": {
     "hero": {
       "kicker": "Abierto, privado, con la ayuda que usted elija",
-      "line1": "Sus resultados,",
-      "line2": "leídos con usted.",
-      "lede": "Añada un informe de laboratorio. Vea qué está fuera de su intervalo, qué puede significar y qué preguntar a su médico.",
-      "open": "Leer un informe",
+      "line1": "Su salud,",
+      "line2": "en un solo lugar.",
+      "lede": "Mantenga juntos resultados, medicamentos y citas. Añada un informe de laboratorio y lea lo que dice, en palabras sencillas.",
+      "open": "Empiece su historial",
       "sample": "Ver un ejemplo"
     },
     "example": {
@@ -78,16 +80,16 @@
     "how": {
       "title": "Cómo funciona",
       "add": {
-        "title": "Añádalo",
-        "body": "Pegue el texto o fotografíe las páginas."
+        "title": "Añada lo que tenga",
+        "body": "Un informe de laboratorio, un medicamento, una cita."
       },
       "read": {
-        "title": "Vea cada valor",
-        "body": "Cada uno con su intervalo y la línea de la que salió."
+        "title": "Entenderlo",
+        "body": "Cada valor, su rango y de dónde sale."
       },
       "ask": {
-        "title": "Llévelo más lejos",
-        "body": "Preguntas para su médico, listas para llevar."
+        "title": "Todo junto",
+        "body": "Un solo lugar, listo para su próxima visita."
       }
     },
     "privacy": {
@@ -98,8 +100,8 @@
         "body": "Se eliminan en su navegador antes de enviar nada."
       },
       "browser": {
-        "title": "Guardado en su dispositivo",
-        "body": "Sin cuenta. Sin copia en nuestro servidor."
+        "title": "En su dispositivo",
+        "body": "Cuenta opcional. Nada de esto en nuestro servidor."
       },
       "model": {
         "title": "Cualquier modelo de IA",
@@ -131,8 +133,8 @@
       "link": "Qué funciona hoy"
     },
     "closing": {
-      "title": "Pruébelo con un informe que tenga a mano.",
-      "cta": "Leer un informe"
+      "title": "Empiece por lo que tenga.",
+      "cta": "Empiece su historial"
     }
   },
   "Reports": {
@@ -203,7 +205,7 @@
     "sampleBanner": "Un ejemplo. Todos los datos personales son inventados.",
     "notHereTitle": "Ese informe no está en este dispositivo",
     "notHereBody": "Los informes se guardan en el navegador que los leyó. Ábralo donde lo leyó o importe su archivo de informe.",
-    "goReports": "Ir a mis informes",
+    "goReports": "Volver al historial",
     "aiNotice": "Lo leyó una IA, que puede leer mal un número. Compruebe cada valor con su línea de origen. Información, no un diagnóstico.",
     "facts": {
       "provider": "Emitido por",
@@ -298,18 +300,33 @@
     "unreachable": "No se pudo contactar con Diplodoctor para comprobar la clave. Compruebe su conexión."
   },
   "Records": {
-    "roadmap": "Hoja de ruta",
-    "changelog": "Registro de cambios",
-    "home": "Volver al producto",
-    "profile": "Perfil de desarrollo completo",
-    "beta": "Beta: en funcionamiento, no publicado",
-    "source": "Estos registros proceden del perfil canónico del proyecto. El trabajo previsto no es una promesa de entrega.",
-    "unavailable": "Los registros de desarrollo no están disponibles temporalmente. Inténtelo de nuevo en breve.",
-    "emptyRoadmap": "Todavía no se ha registrado ningún elemento de la hoja de ruta.",
-    "emptyChangelog": "Todavía no se ha registrado ningún cambio.",
-    "progress": "progreso registrado",
-    "target": "Objetivo",
-    "englishOnly": "Estas entradas se llevan en inglés."
+    "title": "Historial",
+    "search": "Buscar",
+    "kinds": {
+      "report": "Informes",
+      "medication": "Medicamentos",
+      "appointment": "Citas",
+      "note": "Notas"
+    },
+    "kind": "Tipo",
+    "flagged": "Requiere atención",
+    "sort": {
+      "label": "Orden",
+      "newest": "Más recientes",
+      "oldest": "Más antiguos"
+    },
+    "count": "{count} elementos",
+    "empty": "Aún no hay nada.",
+    "noMatch": "Sin resultados.",
+    "clear": "Borrar",
+    "prev": "Anterior",
+    "next": "Siguiente",
+    "page": "Página {page} de {pages}",
+    "import": "Importar un archivo",
+    "importError": "Ese archivo no es un archivo de Diplodoctor.",
+    "add": "Añadir",
+    "outside": "{outside} de {total} fuera de rango",
+    "undated": "Sin fecha"
   },
   "Redact": {
     "title": "Anonimizar antes de enviar",
@@ -784,5 +801,66 @@
       "action": "Elija una nueva contraseña"
     },
     "ignore": "Si no ha sido usted, ignore este correo: no cambia nada."
+  },
+  "Today": {
+    "title": "Hoy",
+    "add": {
+      "report": "Leer un informe",
+      "medication": "Añadir un medicamento",
+      "appointment": "Añadir una cita",
+      "note": "Añadir una nota"
+    },
+    "upcoming": "Próximamente",
+    "nothingUpcoming": "Nada previsto.",
+    "todo": "De sus informes",
+    "latest": "Últimos resultados",
+    "medicines": "Medicamentos",
+    "noMedicines": "Ninguno.",
+    "all": "Todo el historial",
+    "local": "Guardado en este dispositivo.",
+    "start": {
+      "title": "Empiece su historial",
+      "body": "Añada lo que tenga. Se queda en este dispositivo.",
+      "example": "Ver un ejemplo"
+    }
+  },
+  "Add": {
+    "title": {
+      "medication": "Añadir un medicamento",
+      "appointment": "Añadir una cita",
+      "note": "Añadir una nota"
+    },
+    "edit": {
+      "medication": "Editar medicamento",
+      "appointment": "Editar cita",
+      "note": "Editar nota"
+    },
+    "kind": "¿Qué desea añadir?",
+    "kinds": {
+      "medication": "Medicamento",
+      "appointment": "Cita",
+      "note": "Nota"
+    },
+    "fields": {
+      "name": "Nombre",
+      "dose": "Dosis",
+      "schedule": "Toma",
+      "started": "Desde",
+      "title": "Qué",
+      "when": "Cuándo",
+      "who": "Con quién",
+      "text": "Nota",
+      "date": "Fecha",
+      "notes": "Observaciones"
+    },
+    "hints": {
+      "schedule": "Por ejemplo: mañana y noche",
+      "who": "Un médico, una consulta"
+    },
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "cancel": "Cancelar",
+    "error": "Rellene el campo obligatorio.",
+    "notFound": "Ese elemento no está en este dispositivo."
   }
 }

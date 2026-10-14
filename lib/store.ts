@@ -2,6 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import { isByokConfig, type ByokConfig } from "@bitbaum/ai-kit/byok";
+import { parseItem, type HealthItem } from "./health-item";
 import { parseReport, type ReportFile } from "./report";
 
 /**
@@ -85,6 +86,27 @@ export function saveReport(r: ReportFile) {
 export function deleteReport(id: string) {
   const next = reports.read().filter((x) => x.id !== id);
   reports.write(next.length ? next : NO_REPORTS);
+}
+
+const NO_ITEMS: HealthItem[] = [];
+const items = createBrowserStore<HealthItem[]>("diplodoctor.items.v1", NO_ITEMS, (raw) =>
+  Array.isArray(raw) ? raw.flatMap((i) => parseItem(i) ?? []) : NO_ITEMS,
+);
+
+export const useItems = items.use;
+
+export function saveItem(item: HealthItem) {
+  const list = items.read();
+  items.write(
+    list.some((x) => x.id === item.id)
+      ? list.map((x) => (x.id === item.id ? item : x))
+      : [item, ...list],
+  );
+}
+
+export function deleteItem(id: string) {
+  const next = items.read().filter((x) => x.id !== id);
+  items.write(next.length ? next : NO_ITEMS);
 }
 
 /**

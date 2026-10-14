@@ -83,7 +83,7 @@ export default async function EcosystemPage({ params }: Params) {
         <h2 className="headline-caps mt-4 text-3xl sm:text-4xl">{t("account.title")}</h2>
         <p className="mt-5 max-w-2xl text-fg-secondary">{t("account.body")}</p>
         <div className="mt-8">
-          <Link href={ROUTES.reports} className="btn-primary">
+          <Link href={ROUTES.records} className="btn-primary">
             {t("account.cta")}
           </Link>
         </div>

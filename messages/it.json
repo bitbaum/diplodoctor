@@ -5,7 +5,6 @@
   },
   "Nav": {
     "main": "Principale",
-    "reports": "I miei referti",
     "settings": "Impostazioni",
     "new": "Leggere un referto",
     "beta": "Beta",
@@ -18,7 +17,9 @@
     "people": "Persone",
     "dark": "Modalità scura",
     "account": "Account",
-    "signIn": "Accedi"
+    "signIn": "Accedi",
+    "today": "Oggi",
+    "records": "Cartella"
   },
   "Footer": {
     "tagline": "Il livello sanitario della flotta: un agente che legge il referto e le persone che sceglie per aiutarLa.",
@@ -28,7 +29,6 @@
       "open": "In chiaro"
     },
     "links": {
-      "reports": "I miei referti",
       "new": "Leggere un referto",
       "settings": "Impostazioni",
       "platform": "Come è costruito",
@@ -40,7 +40,9 @@
       "license": "Licenza MIT",
       "orangecat": "Diplodoctor su OrangeCat",
       "solon": "Diplodoctor su Solon",
-      "people": "Persone che aiutano"
+      "people": "Persone che aiutano",
+      "today": "Oggi",
+      "records": "Cartella"
     },
     "disclaimer": "Beta: in funzione, non ancora pubblicato. Diplodoctor offre informazioni sulla salute, non una diagnosi, e non è un dispositivo medico né un sostituto del medico. In caso di emergenza chiami il numero di emergenza.",
     "openSource": "Open source con licenza MIT. Costruito a Zurigo.",
@@ -49,10 +51,10 @@
   "Home": {
     "hero": {
       "kicker": "Aperto, privato, con l’aiuto che sceglie Lei",
-      "line1": "I Suoi risultati,",
-      "line2": "letti insieme a Lei.",
-      "lede": "Aggiunga un referto di laboratorio. Veda cosa è fuori intervallo, cosa può significare e cosa chiedere al medico.",
-      "open": "Leggere un referto",
+      "line1": "La Sua salute,",
+      "line2": "in un solo posto.",
+      "lede": "Tenga insieme risultati, farmaci e appuntamenti. Aggiunga un referto di laboratorio e legga cosa dice, in parole semplici.",
+      "open": "Inizi la Sua cartella",
       "sample": "Vedere un esempio"
     },
     "example": {
@@ -78,16 +80,16 @@
     "how": {
       "title": "Come funziona",
       "add": {
-        "title": "Lo aggiunga",
-        "body": "Incolli il testo o fotografi le pagine."
+        "title": "Aggiunga ciò che ha",
+        "body": "Un referto di laboratorio, un farmaco, un appuntamento."
       },
       "read": {
-        "title": "Veda ogni valore",
-        "body": "Ciascuno con il suo intervallo e la riga da cui proviene."
+        "title": "Capire",
+        "body": "Ogni valore, il suo intervallo e da dove viene."
       },
       "ask": {
-        "title": "Vada oltre",
-        "body": "Domande per il medico, pronte da portare."
+        "title": "Tutto insieme",
+        "body": "Un solo posto, pronto per la prossima visita."
       }
     },
     "privacy": {
@@ -98,8 +100,8 @@
         "body": "Rimossi nel Suo browser prima di qualsiasi invio."
       },
       "browser": {
-        "title": "Conservato sul Suo dispositivo",
-        "body": "Nessun account. Nessuna copia sul nostro server."
+        "title": "Sul Suo dispositivo",
+        "body": "Account facoltativo. Niente di tutto questo sul nostro server."
       },
       "model": {
         "title": "Qualsiasi modello di IA",
@@ -131,8 +133,8 @@
       "link": "Cosa funziona oggi"
     },
     "closing": {
-      "title": "Lo provi con un referto in Suo possesso.",
-      "cta": "Leggere un referto"
+      "title": "Parta da ciò che ha.",
+      "cta": "Inizi la Sua cartella"
     }
   },
   "Reports": {
@@ -203,7 +205,7 @@
     "sampleBanner": "Un esempio svolto. Ogni dato personale è inventato.",
     "notHereTitle": "Questo referto non è su questo dispositivo",
     "notHereBody": "I referti sono conservati nel browser che li ha letti. Lo apra dove lo ha letto, oppure importi il suo file di referto.",
-    "goReports": "Vai ai miei referti",
+    "goReports": "Torna alla cartella",
     "aiNotice": "Lo ha letto un’IA, che può leggere male un numero. Controlli ogni valore con la riga da cui proviene. Informazione, non diagnosi.",
     "facts": {
       "provider": "Emesso da",
@@ -298,18 +300,33 @@
     "unreachable": "Diplodoctor non era raggiungibile per verificare la chiave. Controlli la connessione."
   },
   "Records": {
-    "roadmap": "Roadmap",
-    "changelog": "Changelog",
-    "home": "Torna al prodotto",
-    "profile": "Profilo di sviluppo completo",
-    "beta": "Beta — in funzione, non ancora pubblicato",
-    "source": "Questi registri provengono dal profilo canonico del progetto. Il lavoro pianificato non è una promessa di consegna.",
-    "unavailable": "I registri di sviluppo sono temporaneamente non disponibili. Riprovi tra poco.",
-    "emptyRoadmap": "Non è ancora stata registrata nessuna voce della roadmap.",
-    "emptyChangelog": "Non è ancora stata registrata nessuna modifica.",
-    "progress": "avanzamento registrato",
-    "target": "Obiettivo",
-    "englishOnly": "Queste voci sono tenute in inglese."
+    "title": "Cartella",
+    "search": "Cerca",
+    "kinds": {
+      "report": "Referti",
+      "medication": "Farmaci",
+      "appointment": "Appuntamenti",
+      "note": "Note"
+    },
+    "kind": "Tipo",
+    "flagged": "Da guardare",
+    "sort": {
+      "label": "Ordine",
+      "newest": "Più recenti",
+      "oldest": "Più vecchi"
+    },
+    "count": "{count} voci",
+    "empty": "Ancora niente.",
+    "noMatch": "Nessun risultato.",
+    "clear": "Azzera",
+    "prev": "Indietro",
+    "next": "Avanti",
+    "page": "Pagina {page} di {pages}",
+    "import": "Importa un file",
+    "importError": "Questo file non è un file Diplodoctor.",
+    "add": "Aggiungi",
+    "outside": "{outside} su {total} fuori intervallo",
+    "undated": "Senza data"
   },
   "Redact": {
     "title": "Anonimizzare prima dell’invio",
@@ -784,5 +801,66 @@
       "action": "Scelga una nuova password"
     },
     "ignore": "Se non è stato Lei, ignori questa email: non cambia nulla."
+  },
+  "Today": {
+    "title": "Oggi",
+    "add": {
+      "report": "Leggere un referto",
+      "medication": "Aggiungere un farmaco",
+      "appointment": "Aggiungere un appuntamento",
+      "note": "Aggiungere una nota"
+    },
+    "upcoming": "In programma",
+    "nothingUpcoming": "Niente in programma.",
+    "todo": "Dai Suoi referti",
+    "latest": "Ultimi risultati",
+    "medicines": "Farmaci",
+    "noMedicines": "Nessuno.",
+    "all": "Tutta la cartella",
+    "local": "Conservato su questo dispositivo.",
+    "start": {
+      "title": "Inizi la Sua cartella",
+      "body": "Aggiunga ciò che ha. Resta su questo dispositivo.",
+      "example": "Vedere un esempio"
+    }
+  },
+  "Add": {
+    "title": {
+      "medication": "Aggiungere un farmaco",
+      "appointment": "Aggiungere un appuntamento",
+      "note": "Aggiungere una nota"
+    },
+    "edit": {
+      "medication": "Modificare il farmaco",
+      "appointment": "Modificare l’appuntamento",
+      "note": "Modificare la nota"
+    },
+    "kind": "Che cosa aggiunge?",
+    "kinds": {
+      "medication": "Farmaco",
+      "appointment": "Appuntamento",
+      "note": "Nota"
+    },
+    "fields": {
+      "name": "Nome",
+      "dose": "Dose",
+      "schedule": "Assunzione",
+      "started": "Dal",
+      "title": "Che cosa",
+      "when": "Quando",
+      "who": "Con chi",
+      "text": "Nota",
+      "date": "Data",
+      "notes": "Osservazioni"
+    },
+    "hints": {
+      "schedule": "Per esempio: mattina e sera",
+      "who": "Un medico, uno studio"
+    },
+    "save": "Salva",
+    "delete": "Elimina",
+    "cancel": "Annulla",
+    "error": "Compili il campo obbligatorio.",
+    "notFound": "Questa voce non è su questo dispositivo."
   }
 }

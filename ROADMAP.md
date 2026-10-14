@@ -64,6 +64,14 @@ rendered here, never written twice.
 
 ## Next
 
+### One health file {#file}
+
+- [x] Today, Records, and medicines, appointments and notes beside reports {#records}
+- [x] Search that forgives a typo, and filters that live in the address {#find}
+- [ ] The file kept for you across devices, sealed on our host, for signed-in people
+- [ ] Ask about your file, in a chat
+- [ ] Reminders: a retest, a refill, a follow-up
+
 ### Health matters worked by an agent {#matters}
 
 A health matter is any concern to be handled. The agent keeps the timeline,

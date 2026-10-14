@@ -5,7 +5,6 @@
   },
   "Nav": {
     "main": "Main",
-    "reports": "My reports",
     "settings": "Settings",
     "new": "Read a report",
     "beta": "Beta",
@@ -18,7 +17,9 @@
     "people": "People",
     "dark": "Dark mode",
     "account": "Account",
-    "signIn": "Sign in"
+    "signIn": "Sign in",
+    "today": "Today",
+    "records": "Records"
   },
   "Footer": {
     "tagline": "The health layer of the fleet: an agent that reads the report, and the people you choose to help.",
@@ -28,7 +29,6 @@
       "open": "In the open"
     },
     "links": {
-      "reports": "My reports",
       "new": "Read a report",
       "settings": "Settings",
       "platform": "How it is built",
@@ -40,7 +40,9 @@
       "license": "MIT licence",
       "orangecat": "Diplodoctor on OrangeCat",
       "solon": "Diplodoctor on Solon",
-      "people": "People who help"
+      "people": "People who help",
+      "today": "Today",
+      "records": "Records"
     },
     "disclaimer": "Beta: running, not released. Diplodoctor gives health information, not a diagnosis, and is not a medical device or a substitute for a doctor. In an emergency, call your emergency number.",
     "openSource": "Open source under the MIT licence. Built in Zürich.",
@@ -49,10 +51,10 @@
   "Home": {
     "hero": {
       "kicker": "Open, private, your choice of help",
-      "line1": "Your results,",
-      "line2": "read with you.",
-      "lede": "Add a lab report. See what is outside its range, what that can mean, and what to ask your doctor.",
-      "open": "Read a report",
+      "line1": "Your health,",
+      "line2": "in one place.",
+      "lede": "Keep results, medicines and appointments together. Add a lab report and see what it says, in plain words.",
+      "open": "Start your file",
       "sample": "See an example"
     },
     "example": {
@@ -78,16 +80,16 @@
     "how": {
       "title": "How it works",
       "add": {
-        "title": "Add it",
-        "body": "Paste the text or photograph the pages."
+        "title": "Add what you have",
+        "body": "A lab report, a medicine, an appointment."
       },
       "read": {
-        "title": "See every value",
-        "body": "Each with its range and the line it came from."
+        "title": "Understand it",
+        "body": "Every value, its range and where it came from."
       },
       "ask": {
-        "title": "Take it further",
-        "body": "Questions for your doctor, ready to bring."
+        "title": "Keep it together",
+        "body": "One place, ready for your next visit."
       }
     },
     "privacy": {
@@ -99,7 +101,7 @@
       },
       "browser": {
         "title": "Kept on your device",
-        "body": "No account. No copy on our server."
+        "body": "Accounts are optional. Nothing stored on our server."
       },
       "model": {
         "title": "Any AI model",
@@ -131,8 +133,8 @@
       "link": "What works today"
     },
     "closing": {
-      "title": "Try it with a report you hold.",
-      "cta": "Read a report"
+      "title": "Start with what you have.",
+      "cta": "Start your file"
     }
   },
   "Reports": {
@@ -203,7 +205,7 @@
     "sampleBanner": "A worked example. Every personal detail is invented.",
     "notHereTitle": "That report is not on this device",
     "notHereBody": "Reports are kept in the browser that read them. Open it where you read it, or import its report file.",
-    "goReports": "Go to my reports",
+    "goReports": "Back to records",
     "aiNotice": "An AI read this and can misread a number. Check each value against its source line. Information, not a diagnosis.",
     "facts": {
       "provider": "Issued by",
@@ -298,18 +300,33 @@
     "unreachable": "Could not reach Diplodoctor to check the key. Check your connection."
   },
   "Records": {
-    "roadmap": "Roadmap",
-    "changelog": "Changelog",
-    "home": "Back to the product",
-    "profile": "Full development profile",
-    "beta": "Beta — running, not released",
-    "source": "These records come from the canonical project profile. Planned work is not a delivery promise.",
-    "unavailable": "Development records are temporarily unavailable. Please try again shortly.",
-    "emptyRoadmap": "No roadmap items have been recorded yet.",
-    "emptyChangelog": "No changes have been recorded yet.",
-    "progress": "recorded progress",
-    "target": "Target",
-    "englishOnly": ""
+    "title": "Records",
+    "search": "Search records",
+    "kinds": {
+      "report": "Reports",
+      "medication": "Medicines",
+      "appointment": "Appointments",
+      "note": "Notes"
+    },
+    "kind": "Type",
+    "flagged": "Needs a look",
+    "sort": {
+      "label": "Sort",
+      "newest": "Newest",
+      "oldest": "Oldest"
+    },
+    "count": "{count} records",
+    "empty": "Nothing here yet.",
+    "noMatch": "No match.",
+    "clear": "Clear",
+    "prev": "Previous",
+    "next": "Next",
+    "page": "Page {page} of {pages}",
+    "import": "Import a file",
+    "importError": "That file is not a Diplodoctor file.",
+    "add": "Add",
+    "outside": "{outside} of {total} outside range",
+    "undated": "No date"
   },
   "Redact": {
     "title": "Anonymise before sending",
@@ -784,5 +801,66 @@
       "action": "Choose a new password"
     },
     "ignore": "If this was not you, ignore this email — nothing changes."
+  },
+  "Today": {
+    "title": "Today",
+    "add": {
+      "report": "Read a report",
+      "medication": "Add a medicine",
+      "appointment": "Add an appointment",
+      "note": "Add a note"
+    },
+    "upcoming": "Coming up",
+    "nothingUpcoming": "Nothing planned.",
+    "todo": "From your reports",
+    "latest": "Latest results",
+    "medicines": "Medicines",
+    "noMedicines": "None added.",
+    "all": "All records",
+    "local": "Kept on this device.",
+    "start": {
+      "title": "Start your file",
+      "body": "Add what you have. It stays on this device.",
+      "example": "See an example"
+    }
+  },
+  "Add": {
+    "title": {
+      "medication": "Add a medicine",
+      "appointment": "Add an appointment",
+      "note": "Add a note"
+    },
+    "edit": {
+      "medication": "Edit medicine",
+      "appointment": "Edit appointment",
+      "note": "Edit note"
+    },
+    "kind": "What are you adding?",
+    "kinds": {
+      "medication": "Medicine",
+      "appointment": "Appointment",
+      "note": "Note"
+    },
+    "fields": {
+      "name": "Name",
+      "dose": "Dose",
+      "schedule": "When you take it",
+      "started": "Started",
+      "title": "What",
+      "when": "When",
+      "who": "With whom",
+      "text": "Note",
+      "date": "Date",
+      "notes": "Notes"
+    },
+    "hints": {
+      "schedule": "For example: morning and evening",
+      "who": "A doctor, a clinic"
+    },
+    "save": "Save",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "error": "Fill in the required field.",
+    "notFound": "That record is not on this device."
   }
 }
