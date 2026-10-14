@@ -61,13 +61,32 @@ The blessed column of fleet `STACK.md`, nothing else:
 | A reader's own model  | `ai-kit/byok` + `ai-kit/byok-probe`, key kept in the browser only                            |
 | Validation            | `zod` (the report, every request body, the fleet map entry)                                  |
 | Rate limiting         | `limitkit`                                                                                   |
+| Accounts              | `better-auth` on Drizzle + Postgres, owned by this app (fleet STACK rule; not a package)     |
+| Mail                  | `@bitbaum/mail-kit`, for sign-in links, when a key is set                                    |
+| A list                | `listkit` (filters, order, pages, in the address) + `@bitbaum/searchkit` (typo-tolerant)     |
+| Dates                 | `@bitbaum/whenkit` (nobody types a date)                                                     |
+| Chat                  | `@bitbaum/chatkit` for Ask                                                                   |
 | Roadmap and changelog | `bip-kit`, from the fleet map                                                                |
 | i18n                  | `next-intl`: English, German, French, Italian, Spanish                                       |
 | Design                | `@bitbaum/design-tokens` (tokens.css + the Tailwind preset via `@config`)                    |
 | Tests                 | Vitest, hermetic                                                                             |
 | Deploy                | PR, CI, auto-merge, deploy to the box, Live check                                            |
 
+### Fleet packages not used, and why
+
+`accountkit` (its sign-in is next-auth; accounts here are better-auth, per STACK), `paykit` and
+`threadkit` (they belong to paying and messaging people who help, which does not exist yet),
+`geo-kit`, `speechkit` (it measures how someone speaks, not what they say), `sitekit` (this is an
+app, not a generated site), `ai-forms` (the add forms have three fields; a form assistant would be
+more to read than the form). Header and footer are not packages by design: each product owns its
+navigation, checked against the fleet's navigation contract.
+
 ## What exists today
+
+- `/today` what is next, the latest results and your medicines; `/records` everything in the file in one
+  searchable, filterable list; `/records/add` add a medicine, an appointment or a note
+- `/ask` questions about your own file, answered from it, names hidden first
+- `/account` your account; one switch keeps your file in it, sealed, so it follows you to any device
 
 - `/` what Diplodoctor is; `/platform` how it is built and why; `/security` what
   protects a report; `/ecosystem` the fleet, read from the fleet map
@@ -75,7 +94,7 @@ The blessed column of fleet `STACK.md`, nothing else:
 - `/reports/[id]` the report: every value with unit, printed range, flag and the line it came
   from; trends against earlier reports in this browser; questions for your doctor; terms
   explained; follow-ups the document asks for; the document in each language; export
-- `/reports` reports in this browser, and import of an exported file
+- `/reports` redirects to `/records`, which also imports an exported file
 - `/reports/sample` a worked example with invented personal details
 - `/people` the three kinds of help, the rules for assistants and licensed professionals, and what a clinic would get
 - `/settings` your own model
@@ -95,11 +114,13 @@ Said plainly, because the pages say it too. `ROADMAP.md` has the order.
 - **Nobody is listed.** Nothing pulls in OrangeCat services, labels them, shows how helpful
   people were or checks a licence. Proving a licence with a zero-knowledge proof is planned.
   "Have a person look at it" is planned.
-- **Accounts are optional and hold no health data.** You can sign in (email and
-  password, a link, a passkey, two-factor, OrangeCat or the shared sign-in) but
-  reading a report needs none, and reports still live only in the browser that
-  read them. Your own model key stays in the browser too, never on the server.
-  Matters, reminders and the EPD are on the roadmap.
+- **Accounts are optional, and your file stays on your device unless you say
+  otherwise.** You can sign in (email and password, a link, a passkey,
+  two-factor, OrangeCat or the shared sign-in); reading a report needs none. One
+  switch in Account keeps your file on our server too, sealed, so it follows you
+  across devices. Until keys only you hold exist, we could technically read it,
+  and the switch says so. Your own model key stays in the browser, never on the
+  server. Reminders and the EPD are on the roadmap.
 - **Photos are not anonymised automatically.** The reader covers details by hand.
 - **PDFs are not read** yet; paste the text or photograph the pages.
 - **No independent security review** and **no legal opinion on the medical-device
