@@ -336,7 +336,7 @@ export function ReportView({ data, others = [], onChange, onDelete, onSaveCopy }
           </h2>
           <p className="mt-2 max-w-prose leading-relaxed text-fg-secondary">{t("whoBody")}</p>
           <p className="mt-2">
-            <Link href={ROUTES.clinicians} className={`${link} inline-flex min-h-11 items-center`}>
+            <Link href={ROUTES.people} className={`${link} inline-flex min-h-11 items-center`}>
               {t("findClinician")}
             </Link>
           </p>

@@ -8,7 +8,7 @@ export const ROUTES = {
   newReport: "/reports/new",
   sampleReport: "/reports/sample",
   reportById: (id: string) => `/reports/${id}`,
-  clinicians: "/clinicians",
+  people: "/people",
   settings: "/settings",
   ownModel: "/settings#ai",
   platform: "/platform",

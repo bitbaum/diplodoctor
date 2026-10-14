@@ -1,0 +1,132 @@
+/**
+ * Diplodoctor's look. This is the ONE file that decides it.
+ *
+ * Everything visual — colour, faces, corner radius, whether a headline is a
+ * serif in sentence case or a sans in capitals — is a value here, read by the
+ * shared token package (@bitbaum/design-tokens) and by the few shapes in
+ * globals.css. No component sets a colour, a face or a radius of its own, so
+ * changing the look is editing this file and nothing else:
+ *
+ *   "make it red and white"   → change --public-accent (and its dark twin)
+ *   "make it more gothic"     → --theme-headline-font, --theme-headline-case,
+ *                                 and --radius-* to 0
+ *   "a different typeface"    → --font-display / --font-sans
+ *   "warmer / cooler greys"   → the hue (first number) of the hsl() triples
+ *
+ * The values are HSL triples without the hsl() wrapper, because the token
+ * package composes alpha onto them (`bg-surface-raised/50`).
+ *
+ * `lib/theme.test.ts` reads this file and fails if a change makes text
+ * unreadable (WCAG AA, 4.5:1) in either mode, so a look can be tried freely.
+ *
+ * Why it differs from OrangeCat, Loki and Solon: they are tools for people
+ * who build, black with one orange accent. This is for someone holding a
+ * result they may be afraid of, so it is light, calm and rounded by default,
+ * and dark only when they ask or their device does. The structure, the
+ * tokens and the primitives are the same, so the products still sit together.
+ */
+
+:root {
+  /* — Faces. The display face is for headlines of 1.5rem and up only. ——— */
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* — How a headline is set. Read by .headline and .headline-caps. ————— */
+  --theme-headline-font: var(--font-display);
+  --theme-headline-weight: var(--font-display-weight);
+  --theme-headline-case: none;
+  --theme-headline-tracking: -0.01em;
+  --theme-headline-leading: 1.04;
+  /* Calls to action: square and capitalised, or soft and sentence case. */
+  --theme-action-case: none;
+  --theme-action-tracking: 0.01em;
+  --theme-action-weight: 600;
+
+  /* — Geometry ——————————————————————————————————————————————————————— */
+  --radius-control: 0.5rem;
+  --radius-surface: 0.875rem;
+  --radius-pill: 9999px;
+
+  /* — Light. The action colour is a calm clinical blue. —————————————— */
+  --public-accent: #0a62c9;
+  --on-accent: 0 0% 100%;
+  --accent-hover: #0852a8;
+  --accent-muted: 212 91% 41% / 0.08;
+  --accent-text: 212 91% 36%;
+
+  --surface-public: 210 45% 96%; /* the marketing band; light here */
+  --surface-page: 210 30% 98%;
+  --surface-base: 0 0% 100%;
+  --surface-raised: 210 28% 95%;
+  --surface-overlay: 210 25% 92%;
+  --surface-modal: 0 0% 100%;
+  --surface-drawer: 210 30% 98%;
+  --surface-hover: 210 25% 93%;
+
+  --text-primary: 218 35% 11%;
+  --text-secondary: 217 19% 33%;
+  --text-tertiary: 217 14% 42%;
+  --text-muted: 215 14% 62%;
+  --text-inverted: 0 0% 100%;
+
+  --border-subtle: 214 25% 91%;
+  --border-default: 214 20% 82%;
+  --border-strong: 214 17% 70%;
+  --border-interactive: 217 19% 33%;
+
+  --status-positive: 150 60% 26%;
+  --status-positive-subtle: 150 60% 26% / 0.08;
+  --status-warning: 28 90% 30%;
+  --status-warning-subtle: 28 90% 30% / 0.1;
+  --status-negative: 0 68% 42%;
+  --status-negative-subtle: 0 68% 42% / 0.08;
+  --status-neutral: 217 14% 42%;
+}
+
+/* — Dark. Only what differs from light. ——————————————————————————————— */
+.dark {
+  --public-accent: #6aaeff;
+  --on-accent: 218 40% 10%;
+  --accent-hover: #8cc0ff;
+  --accent-muted: 212 100% 71% / 0.12;
+  --accent-text: 212 100% 80%;
+
+  --surface-public: 218 30% 7%;
+  --surface-page: 218 28% 8%;
+  --surface-base: 218 24% 11%;
+  --surface-raised: 218 22% 14%;
+  --surface-overlay: 218 20% 17%;
+  --surface-modal: 218 24% 11%;
+  --surface-drawer: 218 26% 9.5%;
+  --surface-hover: 218 20% 15%;
+
+  --text-primary: 214 32% 93%;
+  --text-secondary: 214 16% 68%;
+  --text-tertiary: 214 12% 60%;
+  --text-muted: 214 12% 38%;
+  --text-inverted: 218 30% 10%;
+
+  --border-subtle: 218 20% 15%;
+  --border-default: 218 17% 22%;
+  --border-strong: 218 15% 28%;
+  --border-interactive: 214 16% 62%;
+
+  --status-positive: 150 55% 52%;
+  --status-positive-subtle: 150 55% 52% / 0.12;
+  --status-warning: 38 92% 60%;
+  --status-warning-subtle: 38 92% 60% / 0.12;
+  --status-negative: 0 78% 66%;
+  --status-negative-subtle: 0 78% 66% / 0.12;
+  --status-neutral: 214 12% 60%;
+}
+
+/* The glow and the grid over the marketing band, in the accent's own hue. */
+.public-backdrop {
+  --public-glow-accent: rgb(10 98 201 / 0.1);
+  --public-grid-stroke: rgb(10 60 120 / 0.05);
+}
+.dark .public-backdrop {
+  --public-glow-accent: rgb(106 174 255 / 0.12);
+  --public-grid-stroke: rgb(255 255 255 / 0.04);
+}

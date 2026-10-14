@@ -1,12 +1,11 @@
 {
   "Meta": {
     "title": "Diplodoctor — Ihre medizinischen Berichte verstehen",
-    "description": "Diplodoctor liest einen Laborbericht mit Ihnen: jeden Wert, welche ausserhalb ihres Bereichs liegen und was Sie Ihre Ärztin oder Ihren Arzt fragen können. Wenn Sie einen Menschen möchten: eine zugelassene Ärztin oder einen zugelassenen Arzt."
+    "description": "Diplodoctor liest einen Laborbericht mit Ihnen: jeden Wert, welche ausserhalb ihres Bereichs liegen und was Sie fragen können. Jedes KI-Modell und, wenn Sie einen Menschen möchten, eine Gesundheitsassistenz oder eine zugelassene Fachperson Ihrer Wahl."
   },
   "Nav": {
     "main": "Hauptnavigation",
     "reports": "Meine Berichte",
-    "clinicians": "Ärztinnen und Ärzte",
     "settings": "Einstellungen",
     "new": "Bericht lesen",
     "beta": "Beta",
@@ -15,10 +14,12 @@
     "security": "Sicherheit",
     "ecosystem": "Ökosystem",
     "menu": "Menü",
-    "skip": "Zum Inhalt springen"
+    "skip": "Zum Inhalt springen",
+    "people": "Menschen",
+    "dark": "Dunkler Modus"
   },
   "Footer": {
-    "tagline": "Die Gesundheitsebene der Flotte: ein Agent, der den Bericht liest, und eine Ärztin oder ein Arzt, die oder der entscheidet.",
+    "tagline": "Die Gesundheitsebene der Flotte: ein Agent, der den Bericht liest, und die Menschen, die Sie als Hilfe wählen.",
     "sections": {
       "product": "Produkt",
       "platform": "Plattform",
@@ -27,7 +28,6 @@
     "links": {
       "reports": "Meine Berichte",
       "new": "Bericht lesen",
-      "clinicians": "Ärztinnen und Ärzte",
       "settings": "Einstellungen",
       "platform": "Wie es gebaut ist",
       "security": "Sicherheit",
@@ -37,7 +37,8 @@
       "source": "Quellcode",
       "license": "MIT-Lizenz",
       "orangecat": "Diplodoctor auf OrangeCat",
-      "solon": "Diplodoctor auf Solon"
+      "solon": "Diplodoctor auf Solon",
+      "people": "Menschen, die helfen"
     },
     "disclaimer": "Beta: in Betrieb, nicht veröffentlicht. Diplodoctor gibt Gesundheitsinformationen, keine Diagnose, und ist weder ein Medizinprodukt noch ein Ersatz für eine Ärztin oder einen Arzt. Im Notfall rufen Sie Ihre Notrufnummer an.",
     "openSource": "Open Source unter der MIT-Lizenz. Gebaut in Zürich.",
@@ -45,7 +46,7 @@
   },
   "Home": {
     "hero": {
-      "kicker": "Medizin, mit einer Ärztin oder einem Arzt im Spiel",
+      "kicker": "Offen, privat, und Sie wählen Ihre Hilfe",
       "line1": "Ihre Resultate,",
       "line2": "mit Ihnen gelesen.",
       "lede": "Fügen Sie einen Laborbericht als Text oder Foto hinzu. Diplodoctor listet jeden Wert auf, prüft, welche ausserhalb ihres angegebenen Bereichs liegen, erklärt, was sie messen, und schreibt die Fragen, die Sie zu Ihrer Ärztin oder Ihrem Arzt mitnehmen können. Ihr Name verlässt Ihren Browser nie.",
@@ -88,8 +89,8 @@
         "body": "Jeder Wert mit Einheit und angegebenem Bereich, die Zeile, aus der er gelesen wurde, und eine Markierung, die aus dem Vergleich der Zahlen stammt, nicht aus der Meinung eines Modells."
       },
       "ask": {
-        "title": "Sie nehmen ihn zu einer Ärztin oder einem Arzt mit",
-        "body": "Verständliche Informationen dazu, was ausserhalb des Bereichs liegt, Fragen für das Gespräch und der Bericht in einer Form, die Sie exportieren oder einer Fachperson übergeben können."
+        "title": "Sie bringen ihn zu einem Menschen",
+        "body": "Verständliche Informationen dazu, was ausserhalb des Bereichs liegt, Fragen für das Gespräch und der Bericht in einer Form, die Sie exportieren und mit wem Sie möchten teilen können."
       }
     },
     "privacy": {
@@ -116,22 +117,26 @@
       "roadmap": "Roadmap lesen",
       "changelog": "Änderungen lesen"
     },
-    "tiersTitle": "Zwei Arten von Hilfe und eine ehrliche Grenze dazwischen",
-    "tiersLead": "Die meisten Resultate brauchen eine Erklärung, keine Behandlung. Manche brauchen eine Ärztin oder einen Arzt. Diplodoctor hält den Unterschied sichtbar und gibt sich nie als Zweites aus.",
+    "tiersTitle": "Drei Arten von Hilfe und eine ehrliche Grenze dazwischen",
+    "tiersLead": "Die meisten Resultate brauchen eine Erklärung, keine Behandlung. Sie wählen, wer erklärt: ein beliebiges KI-Modell, ein Mensch, der helfen möchte, oder eine zugelassene Fachperson. Diplodoctor kennzeichnet jede Hilfe als das, was sie ist, und lässt nie eine für die andere durchgehen.",
     "tiers": {
       "kicker": "Wer was macht",
       "ai": {
-        "name": "Diplodoctor KI",
-        "can": "Liest, listet jeden Wert auf, markiert, was ausserhalb des Bereichs liegt, erklärt, was er misst, und entwirft Fragen für Ihren Termin.",
-        "limit": "Stellt keine Diagnose, verschreibt nichts und sagt Ihnen nie, ein Resultat sei unbedenklich."
+        "name": "Jedes KI-Modell",
+        "can": "Liest den Bericht, listet jeden Wert auf, markiert, was ausserhalb des Bereichs liegt, erklärt, was er misst, und entwirft Fragen für Ihren Termin. Es läuft auf kostenlosen, geteilten Modellen oder mit Ihrem eigenen Schlüssel; nichts hier ist an einen Anbieter gebunden.",
+        "limit": "Es ist Software. Sie stellt keine Diagnose, verschreibt nichts und sagt Ihnen nie, ein Resultat sei unbedenklich."
       },
-      "clinician": {
-        "name": "Eine zugelassene Ärztin oder ein zugelassener Arzt",
-        "can": "Schaut sich Ihre Akte an und sagt Ihnen, was sie für Sie bedeutet, berät und behandelt, wo das Gesetz es erlaubt.",
-        "limit": "Geplant. Noch ist niemand aufgeführt, und die Seite sagt das."
+      "assistant": {
+        "name": "Eine Gesundheitsassistenz",
+        "can": "Alle, die helfen möchten, unter einem Namen oder einem Pseudonym: eine Pflegefachperson, ein Arzt oder eine Ärztin aus einem anderen Land, ein Mensch, der mit demselben Resultat gelebt hat. Sie erklären, übersetzen, helfen bei der Vorbereitung und geben ihre Einschätzung, zu einem Preis, den sie selbst festlegen.",
+        "limit": "Ihre Einschätzung ist die Meinung eines Menschen, kein medizinischer Rat einer Fachperson mit Zulassung an Ihrem Ort. Es wird gezeigt, wie hilfreich Menschen sie fanden. Sie entscheiden, wen Sie fragen."
+      },
+      "licensed": {
+        "name": "Eine zugelassene Fachperson",
+        "can": "Eine Ärztin, ein Arzt oder eine andere Fachperson im Gesundheitswesen mit geprüfter Zulassung, an den Orten, an denen sie zugelassen ist. Sie dürfen dort beraten, diagnostizieren und behandeln.",
+        "limit": "Geplant. Ihre Zulassung lässt sich beweisen, ohne zu verraten, wer sie sind, sodass sie pseudonym bleiben können. Noch ist niemand aufgeführt."
       }
     },
-    "cliniciansLink": "Wie Ärztinnen und Ärzte mit Diplodoctor arbeiten werden",
     "identity": {
       "problem": "Das Problem",
       "solution": "Was wir gebaut haben",
@@ -144,7 +149,8 @@
       "lede": "Diplodoctor ist die Gesundheitsebene der Flotte: OrangeCat ist ihre Wirtschaft, Loki baut sie und Solon entscheidet, wie sie regiert wird.",
       "more": "Das Ökosystem ansehen",
       "cta": "Bericht lesen"
-    }
+    },
+    "peopleLink": "Wie Menschen helfen können"
   },
   "Reports": {
     "title": "Meine Berichte",
@@ -187,7 +193,7 @@
     "openSettings": "Modelleinstellungen öffnen",
     "byHand": {
       "title": "Von Hand erfassen",
-      "body": "Keine Auswertung, aber das Dokument und sein Datum bleiben beisammen, und die Akte kann einer Fachperson übergeben werden. Sie haben schon eine Berichtsdatei?",
+      "body": "Keine Auswertung, aber das Dokument und sein Datum bleiben beisammen, und die Akte kann einem Menschen Ihrer Wahl übergeben werden. Sie haben schon eine Berichtsdatei?",
       "import": "Importieren",
       "about": "Worum geht es?",
       "provider": "Wer hat ihn ausgestellt?",
@@ -276,75 +282,14 @@
     "docTitle": "Das Dokument",
     "language": "Sprache",
     "whoEyebrow": "Ein Mensch",
-    "whoTitle": "Möchten Sie, dass eine Ärztin oder ein Arzt es ansieht?",
-    "whoBody": "Diplodoctor erklärt; eine zugelassene Ärztin oder ein zugelassener Arzt entscheidet, was es für Sie bedeutet. Einen Bericht an eine Fachperson zu übergeben, ist geplant und noch nicht verfügbar: Exportieren Sie die anonymisierte Datei und nehmen Sie sie zu Ihrer eigenen Ärztin oder Ihrem eigenen Arzt mit.",
-    "findClinician": "Wie Ärztinnen und Ärzte mit Diplodoctor arbeiten werden",
-    "exportAnon": "Für die Fachperson exportieren (anonymisiert)",
+    "whoTitle": "Möchten Sie, dass ein Mensch es ansieht?",
+    "whoBody": "Die KI von Diplodoctor erklärt. Ein Mensch kann Ihnen mehr sagen: eine Gesundheitsassistenz mit ihrer Einschätzung und Erfahrung, oder eine zugelassene Fachperson für medizinischen Rat. Einen Bericht hier an einen Menschen zu übergeben, ist geplant und noch nicht verfügbar: Exportieren Sie die anonymisierte Datei und nehmen Sie sie zu jemandem mit, dem Sie vertrauen, oder zu Ihrer eigenen Ärztin oder Ihrem eigenen Arzt.",
+    "findClinician": "Wie Menschen helfen können",
+    "exportAnon": "Anonymisiert exportieren, zum Teilen mit einem Menschen",
     "export": "Den ganzen Bericht exportieren",
     "saveCopy": "Kopie in meinen Berichten speichern",
     "delete": "Löschen",
     "deleteConfirm": "Diesen Bericht aus diesem Browser löschen? Das lässt sich nicht rückgängig machen."
-  },
-  "Clinicians": {
-    "metaTitle": "Ärztinnen und Ärzte",
-    "metaDescription": "Wie zugelassene Ärztinnen und Ärzte und Patientenassistenz mit Diplodoctor arbeiten werden.",
-    "eyebrow": "Ärztinnen und Ärzte",
-    "title": "Eine Ärztin oder ein Arzt hinter der Antwort",
-    "lead": "Diplodoctor erklärt einen Bericht. Diagnose, Behandlung und Verschreibungen sind gesetzlich zugelassenen Ärztinnen und Ärzten vorbehalten, und diese Grenze verschieben nicht wir. So werden die Menschen auf der anderen Seite mit Ihnen arbeiten.",
-    "noneTitle": "Noch ist niemand aufgeführt",
-    "noneBody": "Es ist noch keine Ärztin, kein Arzt und keine Assistenz beigetreten, deshalb wird niemand gezeigt. Hier gibt es keine erfundenen Profile, Bewertungen oder Wartezeiten, und es wird sie nie geben. Bis dahin exportieren Sie die anonymisierte Datei und nehmen sie zu Ihrer eigenen Ärztin oder Ihrem eigenen Arzt mit.",
-    "listedUnder": "Geführt unter {identity}",
-    "clinician": {
-      "name": "Zugelassene Ärztin oder zugelassener Arzt",
-      "identity": "dem echten Namen und der Zulassungsnummer",
-      "does1": "Berät dazu, was ein Resultat für Sie bedeutet",
-      "does2": "Stellt Diagnosen und behandelt im Rahmen der gehaltenen Zulassung",
-      "does3": "Unterzeichnet die Antwort, die Sie erhalten",
-      "doesNot": "Arbeitet nicht ausserhalb der Orte, an denen eine Zulassung besteht.",
-      "checks": "Die Zulassung wird vertraulich geprüft; der Name wird Ihnen gezeigt, wenn Sie sich für eine Beauftragung entscheiden."
-    },
-    "assistant": {
-      "name": "Patientenassistenz",
-      "identity": "einem Namen oder einem Pseudonym",
-      "does1": "Erklärt einen Bericht in einfachen Worten und in Ihrer Sprache",
-      "does2": "Hilft Ihnen, einen Termin vorzubereiten und Unterlagen zusammenzustellen",
-      "does3": "Hilft bei Papierkram mit Versicherung und Praxis",
-      "doesNot": "Stellt keine Diagnosen, behandelt nicht, verschreibt nichts und gibt keine medizinischen Ratschläge.",
-      "checks": "Immer als Assistenz gekennzeichnet, nie als Ärztin oder Arzt."
-    },
-    "wantTitle": "Möchten Sie das anbieten?",
-    "wantBody": "Ärztinnen, Ärzte und Assistenzen bieten ihre Arbeit als Dienstleistungen auf OrangeCat an und werden dort von der Person bezahlt, der sie helfen. Diplodoctor wird die Kennzeichnung und die Zulassungsprüfung ergänzen; dieser Teil ist noch nicht gebaut.",
-    "offer": "Dienstleistung auf OrangeCat anbieten",
-    "seeRoadmap": "Roadmap ansehen",
-    "clinic": {
-      "eyebrow": "Für Kliniken und Praxen",
-      "title": "Die Berichte Ihrer Patientinnen und Patienten, vor dem Termin gelesen",
-      "lead": "Eine Klinik kann Diplodoctor so nutzen wie ein Patient und später zu eigenen Bedingungen:",
-      "c1": "Patientinnen und Patienten kommen mit gelesenen Resultaten und geschriebenen Fragen.",
-      "c2": "Eine Patientin oder ein Patient übergibt Ihnen die Akte freiwillig, anonymisiert, bis sie oder er anders entscheidet.",
-      "c3": "Läuft auf einem Modell in Ihren eigenen Mauern, sodass Patientendaten die Praxis nie verlassen.",
-      "status": "Geplant. Für Kliniken ist hier noch nichts verfügbar; es steht auf der Roadmap."
-    },
-    "rulesTitle": "Regeln, die nicht nachgeben",
-    "rules": {
-      "label": {
-        "title": "Alle sind gekennzeichnet",
-        "body": "Eine Ärztin oder ein Arzt wird als solche oder solcher gezeigt, eine Assistenz als Assistenz. Die Kennzeichnung ist keine Marketingentscheidung, sie ist die Linie des Gesetzes."
-      },
-      "pseudonym": {
-        "title": "Wer ein Pseudonym nutzen darf",
-        "body": "Patientinnen, Patienten und Assistenzen dürfen ein Pseudonym verwenden. Die Zulassung einer Ärztin oder eines Arztes wird vertraulich geprüft und der echte Name der Patientin oder dem Patienten bei der Beauftragung gezeigt."
-      },
-      "share": {
-        "title": "Sie entscheiden, was hinausgeht",
-        "body": "Eine Ärztin oder ein Arzt erhält die anonymisierte Datei, es sei denn, Sie entscheiden sich, mehr zu teilen. Ohne Ihr Zutun wird nichts gesendet."
-      },
-      "place": {
-        "title": "Zugelassen dort, wo Sie sind",
-        "body": "Nur eine Ärztin oder ein Arzt mit Zulassung an Ihrem Behandlungsort darf Sie dort beraten oder behandeln."
-      }
-    },
-    "start": "Bericht lesen"
   },
   "Settings": {
     "metaTitle": "Einstellungen",
@@ -444,9 +389,13 @@
       "name": "Ihre Unterlagen verbinden",
       "body": "Schweizer und europäische Unterlagen, wie sie geführt werden: das elektronische Patientendossier (EPD), Spitalportale und Labor-PDFs, nicht nur US-Anbieter."
     },
-    "clinicians": {
-      "name": "Eine zugelassene Ärztin oder ein zugelassener Arzt unterzeichnet die Antwort",
-      "body": "Eine Ärztin oder ein Arzt mit Zulassung an Ihrem Ort liest Ihre anonymisierte Datei, korrigiert sie und unterzeichnet sie, und wird dafür über OrangeCat bezahlt."
+    "people": {
+      "name": "Einen Menschen Ihrer Wahl fragen",
+      "body": "Gesundheitsassistenzen, alle unter einem Namen oder einem Pseudonym, mit der Angabe, wie hilfreich Menschen sie fanden, und zugelassene Fachpersonen bieten ihre Hilfe als OrangeCat-Dienstleistungen an, bezahlt in jeder Währung."
+    },
+    "licence": {
+      "name": "Eine Zulassung beweisen, ohne zu verraten, wer Sie sind",
+      "body": "Eine zugelassene Fachperson zeigt mit einem Zero-Knowledge-Beweis, dass ihre Zulassung gültig ist, und kann pseudonym bleiben."
     },
     "matters": {
       "name": "Ein Gesundheitsanliegen, von einem Agenten bearbeitet",
@@ -471,7 +420,7 @@
       "title": "Warum es so gebaut ist",
       "p1": "Ein Laborbericht ist eine Tabelle von Zahlen mit einem Bereich daneben. Das Schwierige für einen Menschen ist nicht die Tabelle, sondern zu wissen, was man fragen soll, und der Antwort zu vertrauen.",
       "p2": "Ein Sprachmodell ist gut darin, die Tabelle zu lesen und in einfachen Worten zu sagen, wofür eine Messung da ist. Es ist das falsche Werkzeug, um zu entscheiden, ob 5.8 über 5.6 liegt. Also liest das Modell, und Code vergleicht.",
-      "p3": "Und nur eine zugelassene Ärztin oder ein zugelassener Arzt darf sagen, was ein Resultat für Sie bedeutet. Diplodoctor ist gebaut, um dieses Gespräch vorzubereiten, nicht um es zu ersetzen."
+      "p3": "Und nur eine zugelassene Fachperson darf dort, wo Sie behandelt werden, medizinischen Rat geben. Ein Mensch ohne Zulassung kann trotzdem helfen, und das Produkt sagt, was jede Person ist. Diplodoctor ist gebaut, um dieses Gespräch vorzubereiten, nicht um es zu ersetzen."
     },
     "architecture": {
       "kicker": "Architektur",
@@ -565,7 +514,7 @@
     "next": {
       "kicker": "Als Nächstes",
       "title": "Wohin es geht",
-      "lede": "Gesundheitsanliegen, von einem Agenten bearbeitet, und eine zugelassene Ärztin oder ein zugelassener Arzt, die oder der die Antwort unterzeichnet. Was gebaut ist und was nicht, steht in dieser Reihenfolge auf der Roadmap.",
+      "lede": "Gesundheitsanliegen, von einem Agenten bearbeitet, und Menschen, die Sie als Hilfe wählen: Assistenzen und zugelassene Fachpersonen, die ihre Zulassung beweisen können, ohne zu verraten, wer sie sind. Was gebaut ist und was nicht, steht in dieser Reihenfolge auf der Roadmap.",
       "roadmap": "Roadmap lesen",
       "ecosystem": "Das Ökosystem",
       "source": "Quellcode"
@@ -652,7 +601,7 @@
       },
       "pay": {
         "title": "Auf OrangeCat bezahlt",
-        "body": "Ärztinnen, Ärzte und Assistenzen werden ihre Arbeit als OrangeCat-Dienstleistungen anbieten und dort bezahlt werden."
+        "body": "Assistenzen und zugelassene Fachpersonen werden ihre Arbeit als OrangeCat-Dienstleistungen anbieten und dort bezahlt werden, in jeder Währung."
       },
       "build": {
         "title": "Mit Loki gebaut",
@@ -669,5 +618,66 @@
       "body": "Einen Bericht zu lesen, braucht keines, und nichts davon liegt auf unserem Server. Sobald Gesundheitsanliegen kommen, öffnet dasselbe OrangeCat-Konto, das den Rest der Flotte öffnet, auch diese.",
       "cta": "Bericht lesen"
     }
+  },
+  "People": {
+    "metaTitle": "Menschen, die helfen",
+    "metaDescription": "Gesundheitsassistenzen und zugelassene Fachpersonen: wie Menschen neben Diplodoctor helfen werden und was jede Gruppe sagen darf.",
+    "eyebrow": "Menschen",
+    "title": "Ein Mensch, wenn Sie einen möchten",
+    "lead": "Die KI von Diplodoctor erklärt einen Bericht. Vielleicht möchten Sie auch einen Menschen. Es gibt zwei Arten, und der Unterschied ist keine Rangordnung: Er betrifft, wer was sagen darf und wer für sie bürgt. In beiden Fällen entscheiden Sie, wen Sie fragen.",
+    "noneTitle": "Noch ist niemand aufgeführt",
+    "noneBody": "Es ist noch keine Assistenz und keine Fachperson beigetreten, deshalb wird niemand gezeigt. Hier gibt es keine erfundenen Profile, Bewertungen oder Wartezeiten, und es wird sie nie geben. Bis dahin exportieren Sie die anonymisierte Datei und nehmen sie zu jemandem mit, dem Sie vertrauen, oder zu Ihrer eigenen Ärztin oder Ihrem eigenen Arzt.",
+    "listedUnder": "Geführt unter {identity}",
+    "assistant": {
+      "name": "Gesundheitsassistenz",
+      "identity": "einem Namen oder einem Pseudonym",
+      "does1": "Erklärt einen Bericht in einfachen Worten und in Ihrer Sprache",
+      "does2": "Gibt ihre Erfahrung und Einschätzung dazu, was zu fragen oder auszuprobieren ist, zu einem Preis, den sie selbst festlegt",
+      "does3": "Hilft bei Terminen, Papierkram und Versicherungen",
+      "doesNot": "Was sie sagt, ist die Meinung eines Menschen, kein medizinischer Rat einer Fachperson mit Zulassung an Ihrem Ort. Sie kann eine Gesundheitsqualifikation haben oder nicht und gibt das in ihrem Profil an.",
+      "checks": "Wie hilfreich Menschen sie fanden, steht in ihrem Profil, von den Menschen, denen sie geholfen hat. Sie entscheiden selbst, wen Sie fragen."
+    },
+    "licensed": {
+      "name": "Zugelassene Fachperson",
+      "identity": "einer geprüften Zulassung und einem Namen oder einem Pseudonym",
+      "does1": "Berät dazu, was ein Resultat für Sie bedeutet",
+      "does2": "Stellt Diagnosen und behandelt im Rahmen der gehaltenen Zulassung",
+      "does3": "Unterzeichnet die Antwort, die Sie erhalten",
+      "doesNot": "Nur an den Orten, an denen eine Zulassung besteht.",
+      "checks": "Die Zulassung wird mit dem öffentlichen Register abgeglichen. Mit einem Zero-Knowledge-Beweis lässt sich zeigen, dass sie gültig ist, ohne zu zeigen, wer die Person ist. Geplant."
+    },
+    "wantTitle": "Möchten Sie das anbieten?",
+    "wantBody": "Alle können ihre Arbeit als Dienstleistung auf OrangeCat anbieten und werden dort von der Person bezahlt, der sie helfen, in jeder Währung. Diplodoctor wird die Kennzeichnungen, die Zulassungsprüfung und die Erfassung ergänzen, wie hilfreich Menschen waren; nichts davon ist bisher gebaut.",
+    "offer": "Dienstleistung auf OrangeCat anbieten",
+    "seeRoadmap": "Roadmap ansehen",
+    "clinic": {
+      "eyebrow": "Für Kliniken und Praxen",
+      "title": "Die Berichte Ihrer Patientinnen und Patienten, vor dem Termin gelesen",
+      "lead": "Eine Klinik kann Diplodoctor so nutzen wie ein Patient und später zu eigenen Bedingungen:",
+      "c1": "Patientinnen und Patienten kommen mit gelesenen Resultaten und geschriebenen Fragen.",
+      "c2": "Eine Patientin oder ein Patient übergibt Ihnen die Akte freiwillig, anonymisiert, bis sie oder er anders entscheidet.",
+      "c3": "Läuft auf einem Modell in Ihren eigenen Mauern, sodass Patientendaten die Praxis nie verlassen.",
+      "status": "Geplant. Für Kliniken ist hier noch nichts verfügbar; es steht auf der Roadmap."
+    },
+    "rulesTitle": "Regeln, die nicht nachgeben",
+    "rules": {
+      "label": {
+        "title": "Alle sind gekennzeichnet",
+        "body": "Eine Assistenz wird als Assistenz gezeigt und eine zugelassene Fachperson als solche. Die Kennzeichnung sagt, was sie tun dürfen; sie sagt nicht, wer besser ist."
+      },
+      "pseudonym": {
+        "title": "Namen sind auf jeder Seite freiwillig",
+        "body": "Patientinnen, Patienten, Assistenzen und zugelassene Fachpersonen dürfen alle ein Pseudonym verwenden. Eine Zulassung lässt sich beweisen, ohne zu verraten, wer sie hält (geplant)."
+      },
+      "share": {
+        "title": "Sie entscheiden, was hinausgeht",
+        "body": "Ein Mensch erhält die anonymisierte Datei, es sei denn, Sie entscheiden sich, mehr zu teilen. Ohne Ihr Zutun wird nichts gesendet."
+      },
+      "place": {
+        "title": "Rat zählt dort, wo die Zulassung gilt",
+        "body": "Medizinischer Rat, Diagnose und Behandlung können nur von jemandem kommen, der an Ihrem Behandlungsort zugelassen ist. Die Einschätzung einer Assistenz ist etwas anderes und wird immer als solche gekennzeichnet."
+      }
+    },
+    "start": "Bericht lesen"
   }
 }

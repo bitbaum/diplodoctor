@@ -11,7 +11,7 @@ import { parseReport, type ReportFile } from "./report";
  * That is a limitation and also the honest privacy story for a first version:
  * a medical record is about as sensitive as data gets, and until there are
  * accounts there is no server of ours it should sit on. Export/import is how a
- * report moves between devices or to a clinician.
+ * report moves between devices or to a person you choose.
  *
  * One store factory because both need the same four non-obvious things: a
  * cached snapshot (useSyncExternalStore loops without one), writes that

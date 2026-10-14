@@ -7,7 +7,7 @@ import { loadFleetPresence } from "@/lib/fleet";
 import { ROUTES } from "@/lib/routes";
 
 const STEPS = ["add", "read", "ask"] as const;
-const TIERS = ["ai", "clinician"] as const;
+const TIERS = ["ai", "assistant", "licensed"] as const;
 const PRIVACY = ["redact", "browser", "model"] as const;
 /** The order a reader is owed it in: what hurts, what we built, why, where it goes. */
 const IDENTITY = ["problem", "solution", "mission", "vision"] as const;
@@ -54,7 +54,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
 
           {/* What a reading looks like. Invented, and labelled so. */}
-          <figure lang={locale} className="rise border border-border bg-surface-base/80 p-6" aria-label={t("example.label")}>
+          <figure lang={locale} className="rise rounded-surface border border-border bg-surface-base/80 p-6" aria-label={t("example.label")}>
             <figcaption className="flex items-center justify-between gap-4">
               <span className="kicker">{t("example.label")}</span>
               <span className="font-mono text-xs text-fg-tertiary">CH</span>
@@ -69,11 +69,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               ))}
             </ol>
             <div className="mt-5 grid gap-3 sm:grid-cols-2">
-              <div className="border border-border-subtle p-3">
+              <div className="rounded-control border border-border-subtle p-3">
                 <div className="kicker">{t("example.valueLabel")}</div>
                 <div className="tabular mt-1 font-semibold text-status-warning">{t("example.value")}</div>
               </div>
-              <div className="border border-border-subtle p-3">
+              <div className="rounded-control border border-border-subtle p-3">
                 <div className="kicker">{t("example.rangeLabel")}</div>
                 <div className="tabular mt-1 font-semibold text-fg-primary">{t("example.range")}</div>
               </div>
@@ -143,9 +143,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div className="kicker">{t("tiers.kicker")}</div>
           <h2 className="headline-caps mt-5 max-w-4xl text-4xl sm:text-5xl">{t("tiersTitle")}</h2>
           <p className="mt-6 max-w-2xl text-lg text-fg-secondary">{t("tiersLead")}</p>
-          <div className="mt-14 grid gap-4 md:grid-cols-2">
+          <div className="mt-14 grid gap-4 md:grid-cols-3">
             {TIERS.map((tier) => (
-              <article key={tier} className="flex flex-col justify-between border border-border p-8">
+              <article key={tier} className="flex flex-col justify-between rounded-surface border border-border p-8">
                 <div>
                   <h3 className="text-2xl font-bold tracking-tight text-fg-primary">{t(`tiers.${tier}.name`)}</h3>
                   <p className="mt-4 text-fg-secondary">{t(`tiers.${tier}.can`)}</p>
@@ -155,8 +155,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             ))}
           </div>
           <p className="mt-8">
-            <Link href={ROUTES.clinicians} className="text-link inline-flex min-h-11 items-center text-sm">
-              {t("cliniciansLink")}
+            <Link href={ROUTES.people} className="text-link inline-flex min-h-11 items-center text-sm">
+              {t("peopleLink")}
             </Link>
           </p>
         </div>

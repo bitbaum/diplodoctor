@@ -9,7 +9,7 @@ import { ROUTES } from "@/lib/routes";
 /** The places in the header. Everything else is one scroll away, in the footer. */
 const NAV = [
   { href: ROUTES.reports, key: "reports" },
-  { href: ROUTES.clinicians, key: "clinicians" },
+  { href: ROUTES.people, key: "people" },
   { href: ROUTES.platform, key: "platform" },
   { href: ROUTES.security, key: "security" },
   { href: ROUTES.ecosystem, key: "ecosystem" },
@@ -55,7 +55,7 @@ export function SiteNav() {
           </summary>
           <nav
             aria-label={t("main")}
-            className="absolute right-0 top-full z-50 mt-2 grid min-w-56 border border-border bg-surface-overlay p-2"
+            className="absolute right-0 top-full z-50 mt-2 grid min-w-56 rounded-surface border border-border bg-surface-overlay p-2"
           >
             {links}
             <Link href={ROUTES.newReport} className={item}>

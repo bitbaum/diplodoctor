@@ -2,9 +2,9 @@ import type { ReportFile } from "./report";
 import { applyRedactions, assignTokens, findPersonalData, mapStrings } from "./redact";
 
 /**
- * The report as a clinician should get it: every personal detail replaced by
+ * The report as a person you choose should get it: every personal detail replaced by
  * its placeholder again, and the table of what the placeholders mean left out.
- * A clinician can read the values, the ranges and the document without
+ * A person can read the values, the ranges and the document without
  * learning who it is about until the reader decides to tell them.
  *
  * Uses the table from the original reading; a report without one (filed by

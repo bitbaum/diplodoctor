@@ -1,12 +1,11 @@
 {
   "Meta": {
     "title": "Diplodoctor — capire i propri referti medici",
-    "description": "Diplodoctor legge con Lei un referto di laboratorio: ogni valore, quali sono fuori intervallo e cosa chiedere al medico. Quando desidera una persona, un medico abilitato."
+    "description": "Diplodoctor legge con Lei un referto di laboratorio: ogni valore, quali sono fuori intervallo e cosa chiedere. Qualsiasi modello di IA e, quando desidera una persona, un assistente sanitario o un professionista sanitario abilitato a Sua scelta."
   },
   "Nav": {
     "main": "Principale",
     "reports": "I miei referti",
-    "clinicians": "Medici",
     "settings": "Impostazioni",
     "new": "Leggere un referto",
     "beta": "Beta",
@@ -15,10 +14,12 @@
     "security": "Sicurezza",
     "ecosystem": "Ecosistema",
     "menu": "Menu",
-    "skip": "Vai al contenuto"
+    "skip": "Vai al contenuto",
+    "people": "Persone",
+    "dark": "Modalità scura"
   },
   "Footer": {
-    "tagline": "Il livello sanitario della flotta: un agente che legge il referto e un medico che decide.",
+    "tagline": "Il livello sanitario della flotta: un agente che legge il referto e le persone che sceglie per aiutarLa.",
     "sections": {
       "product": "Prodotto",
       "platform": "Piattaforma",
@@ -27,7 +28,6 @@
     "links": {
       "reports": "I miei referti",
       "new": "Leggere un referto",
-      "clinicians": "Medici",
       "settings": "Impostazioni",
       "platform": "Come è costruito",
       "security": "Sicurezza",
@@ -37,7 +37,8 @@
       "source": "Codice sorgente",
       "license": "Licenza MIT",
       "orangecat": "Diplodoctor su OrangeCat",
-      "solon": "Diplodoctor su Solon"
+      "solon": "Diplodoctor su Solon",
+      "people": "Persone che aiutano"
     },
     "disclaimer": "Beta: in funzione, non ancora pubblicato. Diplodoctor offre informazioni sulla salute, non una diagnosi, e non è un dispositivo medico né un sostituto del medico. In caso di emergenza chiami il numero di emergenza.",
     "openSource": "Open source con licenza MIT. Costruito a Zurigo.",
@@ -45,7 +46,7 @@
   },
   "Home": {
     "hero": {
-      "kicker": "La medicina, con un medico nel processo",
+      "kicker": "Aperto, privato e con l’aiuto che sceglie Lei",
       "line1": "I Suoi risultati,",
       "line2": "letti insieme a Lei.",
       "lede": "Aggiunga un referto di laboratorio come testo o foto. Diplodoctor elenca ogni valore, verifica quali sono fuori dall’intervallo stampato, spiega cosa misurano e scrive le domande da portare al medico. Il Suo nome non lascia mai il Suo browser.",
@@ -88,8 +89,8 @@
         "body": "Ogni valore con la sua unità e il suo intervallo stampato, la riga da cui è stato letto e una segnalazione che deriva dal confronto dei numeri, non dall’opinione di un modello."
       },
       "ask": {
-        "title": "Lo porta a un medico",
-        "body": "Informazioni in linguaggio semplice su ciò che è fuori intervallo, domande da porre e il referto in una forma che può esportare o consegnare a un professionista sanitario."
+        "title": "Lo porta a una persona",
+        "body": "Informazioni in linguaggio semplice su ciò che è fuori intervallo, domande da porre e il referto in una forma che può esportare e condividere con chi sceglie Lei."
       }
     },
     "privacy": {
@@ -116,22 +117,26 @@
       "roadmap": "Leggere la roadmap",
       "changelog": "Leggere il changelog"
     },
-    "tiersTitle": "Due tipi di aiuto, e un confine onesto tra loro",
-    "tiersLead": "La maggior parte dei risultati richiede una spiegazione, non una cura. Alcuni richiedono un medico. Diplodoctor mantiene visibile la differenza e non finge mai di essere il secondo.",
+    "tiersTitle": "Tre tipi di aiuto, e un confine onesto tra loro",
+    "tiersLead": "La maggior parte dei risultati richiede una spiegazione, non una cura. Sceglie Lei chi spiega: un qualsiasi modello di IA, una persona che desidera aiutare o un professionista sanitario abilitato. Diplodoctor etichetta ciascuno per ciò che è e non lascia mai che uno passi per un altro.",
     "tiers": {
       "kicker": "Chi fa cosa",
       "ai": {
-        "name": "Diplodoctor AI",
-        "can": "Legge, elenca ogni valore, segnala ciò che è fuori intervallo, spiega cosa misura e prepara le domande per la Sua visita.",
-        "limit": "Non diagnostica, non prescrive e non Le dice che un risultato non è motivo di preoccupazione."
+        "name": "Qualsiasi modello di IA",
+        "can": "Legge il referto, elenca ogni valore, segnala ciò che è fuori intervallo, spiega cosa misura e prepara le domande per la Sua visita. Funziona con modelli gratuiti condivisi o con la Sua chiave; nulla qui è legato a un solo fornitore.",
+        "limit": "È un software. Non diagnostica, non prescrive e non Le dice che un risultato non è motivo di preoccupazione."
       },
-      "clinician": {
-        "name": "Un medico abilitato",
-        "can": "Esamina la Sua pratica e Le dice cosa significa per Lei, Le dà consigli e, dove la legge lo consente, La cura.",
-        "limit": "Previsto. Per ora non è elencato nessuno, e la pagina lo dice."
+      "assistant": {
+        "name": "Un assistente sanitario",
+        "can": "Chiunque desideri aiutare, con un nome o uno pseudonimo: un infermiere, un medico di un altro paese, qualcuno che ha vissuto lo stesso risultato. Spiega, traduce, aiuta a prepararsi e dà il proprio parere, per un prezzo che stabilisce lui.",
+        "limit": "Il suo parere è l’opinione di una persona, non un consiglio medico di un professionista abilitato dove si trova Lei. Viene mostrato quanto le persone lo hanno trovato utile. Decide Lei a chi rivolgersi."
+      },
+      "licensed": {
+        "name": "Un professionista sanitario abilitato",
+        "can": "Un medico o un altro professionista sanitario la cui abilitazione è verificata, nei luoghi in cui è abilitato. Lì può consigliare, diagnosticare e curare.",
+        "limit": "Previsto. La sua abilitazione può essere dimostrata senza rivelare chi è, così può restare pseudonimo. Per ora non è elencato nessuno."
       }
     },
-    "cliniciansLink": "Come lavoreranno i medici con Diplodoctor",
     "identity": {
       "problem": "Il problema",
       "solution": "Cosa abbiamo costruito",
@@ -144,7 +149,8 @@
       "lede": "Diplodoctor è il livello sanitario della flotta: OrangeCat ne è l’economia, Loki lo costruisce e Solon decide come viene governato.",
       "more": "Vedere l’ecosistema",
       "cta": "Leggere un referto"
-    }
+    },
+    "peopleLink": "Come possono aiutare le persone"
   },
   "Reports": {
     "title": "I miei referti",
@@ -187,7 +193,7 @@
     "openSettings": "Aprire le impostazioni del modello",
     "byHand": {
       "title": "Archiviarlo a mano",
-      "body": "Nessuna lettura, ma il documento e la sua data restano insieme e il file può essere consegnato a un professionista sanitario. Ha già un file di referto?",
+      "body": "Nessuna lettura, ma il documento e la sua data restano insieme e il file può essere consegnato a una persona di Sua scelta. Ha già un file di referto?",
       "import": "Importarlo",
       "about": "Di cosa si tratta?",
       "provider": "Chi lo ha emesso?",
@@ -276,75 +282,14 @@
     "docTitle": "Il documento",
     "language": "Lingua",
     "whoEyebrow": "Una persona",
-    "whoTitle": "Desidera che un medico lo esamini?",
-    "whoBody": "Diplodoctor spiega; un medico abilitato decide cosa significa per Lei. La consegna di un referto a un medico è prevista ma non ancora disponibile: esporti il file anonimizzato e lo porti al Suo medico.",
-    "findClinician": "Come lavoreranno i medici con Diplodoctor",
-    "exportAnon": "Esportare per un medico (anonimizzato)",
+    "whoTitle": "Desidera che lo esamini una persona?",
+    "whoBody": "L’IA di Diplodoctor spiega. Una persona può dirLe di più: un assistente sanitario per il suo parere e la sua esperienza, un professionista sanitario abilitato per un consiglio medico. La consegna di un referto a una persona qui è prevista ma non ancora disponibile: esporti il file anonimizzato e lo porti a chiunque Le ispiri fiducia, oppure al Suo medico.",
+    "findClinician": "Come possono aiutare le persone",
+    "exportAnon": "Esportare anonimizzato, da condividere con una persona",
     "export": "Esportare il referto completo",
     "saveCopy": "Salvare una copia nei miei referti",
     "delete": "Eliminare",
     "deleteConfirm": "Eliminare questo referto da questo browser? Non è possibile annullare l’operazione."
-  },
-  "Clinicians": {
-    "metaTitle": "Medici",
-    "metaDescription": "Come lavoreranno con Diplodoctor i medici abilitati e gli assistenti del paziente.",
-    "eyebrow": "Medici",
-    "title": "Un medico dietro la risposta",
-    "lead": "Diplodoctor spiega un referto. Diagnosi, cure e prescrizioni sono riservate per legge ai medici abilitati, e questo confine non spetta a noi spostarlo. Ecco come lavoreranno con Lei le persone dall’altra parte.",
-    "noneTitle": "Per ora non è elencato nessuno",
-    "noneBody": "Nessun medico o assistente si è unito, quindi non ne viene mostrato nessuno. Qui non ci sono profili, valutazioni o tempi di attesa inventati, e non ce ne saranno. Fino ad allora, esporti il file anonimizzato e lo porti al Suo medico.",
-    "listedUnder": "Elencato con {identity}",
-    "clinician": {
-      "name": "Medico abilitato",
-      "identity": "nome reale e numero di abilitazione",
-      "does1": "Consiglia su cosa significa un risultato per Lei",
-      "does2": "Diagnostica e cura entro l’abilitazione che possiede",
-      "does3": "Firma la risposta che Le dà",
-      "doesNot": "Non lavora al di fuori dei luoghi in cui è abilitato.",
-      "checks": "L’abilitazione viene verificata in modo riservato; il nome Le viene mostrato quando sceglie di rivolgersi a lui."
-    },
-    "assistant": {
-      "name": "Assistente del paziente",
-      "identity": "un nome o uno pseudonimo",
-      "does1": "Spiega un referto in parole semplici e nella Sua lingua",
-      "does2": "La aiuta a preparare una visita e a raccogliere i documenti",
-      "does3": "La aiuta con le pratiche amministrative di assicurazioni e cliniche",
-      "doesNot": "Non diagnostica, non cura, non prescrive e non dà consigli medici.",
-      "checks": "Sempre indicato come assistente, mai come medico."
-    },
-    "wantTitle": "Desidera offrire questo servizio?",
-    "wantBody": "Medici e assistenti offrono il loro lavoro come servizi su OrangeCat e vengono pagati lì dalla persona che aiutano. Diplodoctor aggiungerà l’etichetta e la verifica dell’abilitazione; questa parte non è ancora realizzata.",
-    "offer": "Offrire un servizio su OrangeCat",
-    "seeRoadmap": "Vedere la roadmap",
-    "clinic": {
-      "eyebrow": "Per cliniche e studi medici",
-      "title": "I referti dei Suoi pazienti, letti prima della visita",
-      "lead": "Una clinica può usare Diplodoctor come lo usa un paziente e, più avanti, alle proprie condizioni:",
-      "c1": "I pazienti arrivano con i risultati già letti e le domande già scritte.",
-      "c2": "Un paziente Le consegna la sua pratica per scelta, anonimizzata finché non decide diversamente.",
-      "c3": "Funziona con un modello all’interno delle Sue mura, così i dati dei pazienti non lasciano mai lo studio.",
-      "status": "Previsto. Nulla di tutto ciò è ancora disponibile per le cliniche; è nella roadmap."
-    },
-    "rulesTitle": "Regole che non si piegano",
-    "rules": {
-      "label": {
-        "title": "Tutti sono etichettati",
-        "body": "Un medico è indicato come medico e un assistente come assistente. L’etichetta non è una scelta di marketing; è il confine tracciato dalla legge."
-      },
-      "pseudonym": {
-        "title": "Chi può usare uno pseudonimo",
-        "body": "Pazienti e assistenti possono usare uno pseudonimo. L’abilitazione di un medico viene verificata in modo riservato e il suo nome reale viene mostrato al paziente al momento dell’incarico."
-      },
-      "share": {
-        "title": "Decide Lei cosa esce",
-        "body": "Un medico riceve il file anonimizzato, a meno che Lei non scelga di condividere di più. Nulla viene inviato senza una Sua azione."
-      },
-      "place": {
-        "title": "Abilitato dove si trova Lei",
-        "body": "Solo un medico abilitato nel Suo luogo di cura può consigliarLa o curarLa lì."
-      }
-    },
-    "start": "Leggere un referto"
   },
   "Settings": {
     "metaTitle": "Impostazioni",
@@ -444,9 +389,13 @@
       "name": "Collegare le Sue cartelle cliniche",
       "body": "Cartelle svizzere ed europee così come sono tenute: la cartella informatizzata del paziente (CIP), i portali degli ospedali e i PDF dei laboratori, non solo i fornitori statunitensi."
     },
-    "clinicians": {
-      "name": "Un medico abilitato firma la risposta",
-      "body": "Un medico ammesso nel luogo in cui si trova legge il Suo file anonimizzato, lo corregge e lo firma, e viene pagato per questo tramite OrangeCat."
+    "people": {
+      "name": "Rivolgersi a una persona a propria scelta",
+      "body": "Assistenti sanitari, chiunque con un nome o uno pseudonimo, mostrati insieme a quanto le persone li hanno trovati utili, e professionisti sanitari abilitati offrono il loro aiuto come servizi OrangeCat, pagati in qualsiasi valuta."
+    },
+    "licence": {
+      "name": "Dimostrare un’abilitazione senza rivelare chi si è",
+      "body": "Un professionista sanitario abilitato dimostra con una prova a conoscenza zero che la sua abilitazione è valida e può restare pseudonimo."
     },
     "matters": {
       "name": "Una pratica sanitaria, seguita da un agente",
@@ -471,7 +420,7 @@
       "title": "Perché è costruito così",
       "p1": "Un referto di laboratorio è una tabella di numeri con un intervallo stampato accanto a ciascuno. Per una persona la difficoltà non è la tabella: è sapere cosa chiedere e potersi fidare della risposta.",
       "p2": "Un modello linguistico è bravo a leggere la tabella e a dire in parole semplici a cosa serve una misurazione. È lo strumento sbagliato per decidere se 5,8 è sopra 5,6. Perciò il modello legge e il codice confronta.",
-      "p3": "E solo un medico abilitato può dire cosa significa un risultato per Lei. Diplodoctor è costruito per preparare quella conversazione, non per sostituirla."
+      "p3": "E solo un professionista sanitario abilitato può dare un consiglio medico dove Lei è in cura. Una persona non abilitata può comunque aiutare, e il prodotto dice cos’è ciascuna. Diplodoctor è costruito per preparare quella conversazione, non per sostituirla."
     },
     "architecture": {
       "kicker": "Architettura",
@@ -565,7 +514,7 @@
     "next": {
       "kicker": "Prossimamente",
       "title": "Dove porta",
-      "lede": "Pratiche sanitarie seguite da un agente e un medico abilitato che firma la risposta. Ciò che è costruito e ciò che non lo è si trova nella roadmap, in quest’ordine.",
+      "lede": "Pratiche sanitarie seguite da un agente e persone che sceglie per aiutarLa: assistenti e professionisti sanitari abilitati che possono dimostrare la propria abilitazione senza rivelare chi sono. Ciò che è costruito e ciò che non lo è si trova nella roadmap, in quest’ordine.",
       "roadmap": "Leggere la roadmap",
       "ecosystem": "L’ecosistema",
       "source": "Codice sorgente"
@@ -652,7 +601,7 @@
       },
       "pay": {
         "title": "Pagati su OrangeCat",
-        "body": "Medici e assistenti offriranno il loro lavoro come servizi OrangeCat e verranno pagati lì."
+        "body": "Assistenti e professionisti sanitari abilitati offriranno il loro lavoro come servizi OrangeCat e verranno pagati lì, in qualsiasi valuta."
       },
       "build": {
         "title": "Costruito con Loki",
@@ -669,5 +618,66 @@
       "body": "Per leggere un referto non ne serve nessuno, e nulla di esso è sul nostro server. Quando arriveranno le pratiche sanitarie, lo stesso account OrangeCat che apre il resto della flotta le aprirà.",
       "cta": "Leggere un referto"
     }
+  },
+  "People": {
+    "metaTitle": "Persone che aiutano",
+    "metaDescription": "Assistenti sanitari e professionisti sanitari abilitati: come le persone aiuteranno accanto a Diplodoctor e cosa può dire ciascuno.",
+    "eyebrow": "Persone",
+    "title": "Una persona, quando La desidera",
+    "lead": "L’IA di Diplodoctor spiega un referto. Potrebbe desiderare anche una persona. Ce ne sono di due tipi, e la differenza non è una graduatoria: è chi può dire cosa e chi garantisce per lui. In ogni caso, decide Lei a chi rivolgersi.",
+    "noneTitle": "Per ora non è elencato nessuno",
+    "noneBody": "Nessun assistente o professionista si è unito, quindi non ne viene mostrato nessuno. Qui non ci sono profili, valutazioni o tempi di attesa inventati, e non ce ne saranno. Fino ad allora, esporti il file anonimizzato e lo porti a chiunque Le ispiri fiducia, oppure al Suo medico.",
+    "listedUnder": "Elencato con {identity}",
+    "assistant": {
+      "name": "Assistente sanitario",
+      "identity": "un nome o uno pseudonimo",
+      "does1": "Spiega un referto in parole semplici e nella Sua lingua",
+      "does2": "Dà la propria esperienza e il proprio parere su cosa chiedere o provare, per un prezzo che stabilisce lui",
+      "does3": "Aiuta con visite, pratiche amministrative e assicurazioni",
+      "doesNot": "Ciò che dice è l’opinione di una persona, non un consiglio medico di un professionista abilitato dove si trova Lei. Può avere o meno una qualifica sanitaria, e lo indica nel suo profilo.",
+      "checks": "Nel suo profilo viene mostrato quanto lo hanno trovato utile le persone che ha aiutato. La decisione su a chi rivolgersi è Sua."
+    },
+    "licensed": {
+      "name": "Professionista sanitario abilitato",
+      "identity": "un’abilitazione verificata, e un nome o uno pseudonimo",
+      "does1": "Consiglia su cosa significa un risultato per Lei",
+      "does2": "Diagnostica e cura entro l’abilitazione che possiede",
+      "does3": "Firma la risposta che Le dà",
+      "doesNot": "Solo nei luoghi in cui è abilitato.",
+      "checks": "La sua abilitazione viene verificata nel registro pubblico. Con una prova a conoscenza zero può mostrare che è valida senza mostrare chi è. Previsto."
+    },
+    "wantTitle": "Desidera offrire questo servizio?",
+    "wantBody": "Chiunque può offrire il proprio lavoro come servizio su OrangeCat e viene pagato lì dalla persona che aiuta, in qualsiasi valuta. Diplodoctor aggiungerà le etichette, la verifica dell’abilitazione e il registro di quanto le persone sono state utili; nulla di ciò è ancora realizzato.",
+    "offer": "Offrire un servizio su OrangeCat",
+    "seeRoadmap": "Vedere la roadmap",
+    "clinic": {
+      "eyebrow": "Per cliniche e studi medici",
+      "title": "I referti dei Suoi pazienti, letti prima della visita",
+      "lead": "Una clinica può usare Diplodoctor come lo usa un paziente e, più avanti, alle proprie condizioni:",
+      "c1": "I pazienti arrivano con i risultati già letti e le domande già scritte.",
+      "c2": "Un paziente Le consegna la sua pratica per scelta, anonimizzata finché non decide diversamente.",
+      "c3": "Funziona con un modello all’interno delle Sue mura, così i dati dei pazienti non lasciano mai lo studio.",
+      "status": "Previsto. Nulla di tutto ciò è ancora disponibile per le cliniche; è nella roadmap."
+    },
+    "rulesTitle": "Regole che non si piegano",
+    "rules": {
+      "label": {
+        "title": "Tutti sono etichettati",
+        "body": "Un assistente è indicato come assistente e un professionista sanitario abilitato come tale. L’etichetta dice cosa può fare; non dice chi è migliore."
+      },
+      "pseudonym": {
+        "title": "I nomi sono facoltativi per tutti",
+        "body": "Pazienti, assistenti e professionisti sanitari abilitati possono tutti usare uno pseudonimo. Un’abilitazione può essere dimostrata senza rivelare chi la possiede (previsto)."
+      },
+      "share": {
+        "title": "Decide Lei cosa esce",
+        "body": "Una persona riceve il file anonimizzato, a meno che Lei non scelga di condividere di più. Nulla viene inviato senza una Sua azione."
+      },
+      "place": {
+        "title": "Il consiglio vale dove è abilitato",
+        "body": "Consigli medici, diagnosi e cure possono venire solo da chi è abilitato dove Lei è in cura. Il parere di un assistente è un’altra cosa e viene sempre indicato come tale."
+      }
+    },
+    "start": "Leggere un referto"
   }
 }

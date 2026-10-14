@@ -28,7 +28,7 @@ jobs:
           set -uo pipefail
           fail=0
           for l in en de fr it es; do
-            for path in "/$l" "/$l/reports" "/$l/reports/new" "/$l/reports/sample" "/$l/clinicians" "/$l/platform" "/$l/security" "/$l/ecosystem" "/$l/settings" "/$l/roadmap" "/$l/changelog"; do
+            for path in "/$l" "/$l/reports" "/$l/reports/new" "/$l/reports/sample" "/$l/people" "/$l/platform" "/$l/security" "/$l/ecosystem" "/$l/settings" "/$l/roadmap" "/$l/changelog"; do
               code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "https://diplodoctor.orangecat.ch$path")
               echo "::notice::$path → $code"
               [ "$code" = "200" ] || fail=1

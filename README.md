@@ -1,8 +1,8 @@
 # Diplodoctor
 
 The health layer of the fleet: an agent that reads a medical report with you, a
-person who decides what leaves it, and licensed clinicians where the law reserves
-the work for them. Paste or photograph a lab report and see every value, which
+person who decides what leaves it, and the people they choose to help: assistants
+anyone can be, and licensed professionals where the law reserves the work for them. Paste or photograph a lab report and see every value, which
 ones are outside their printed range, what they measure and what to ask your
 doctor. Read it without an account, in five languages.
 
@@ -10,17 +10,26 @@ Served at [diplodoctor.orangecat.ch](https://diplodoctor.orangecat.ch). Beta:
 running, not released. Why it looks the way it does, and what it does that
 ChatGPT's Health app does not: [`docs/competition/chatgpt-health.md`](docs/competition/chatgpt-health.md).
 
-## Two kinds of help
+## Three kinds of help
 
 | | Does | Does not |
 | --- | --- | --- |
-| **Diplodoctor AI** | Reads, lists every value, flags what is outside its range, explains what it measures, drafts questions for an appointment | Diagnose, prescribe, advise on a medicine, or say a result is nothing to worry about |
-| **Licensed clinician** (real name, licence) | Advises on what a result means for you, diagnoses and treats within their licence | Work outside the places they are licensed |
+| **Any AI model** | Reads, lists every value, flags what is outside its range, explains what it measures, drafts questions for an appointment | Diagnose, prescribe, advise on a medicine, or say a result is nothing to worry about |
+| **A health assistant** (a name or a pseudonym) | Explains, translates, helps prepare an appointment, gives their experience and view, for a price they set | Give medical advice with a clinician's standing; what they say is an opinion, and is labelled as one |
+| **A licensed professional** (verified licence; a name or a pseudonym) | Advises on what a result means for you, diagnoses and treats within their licence | Work outside the places they are licensed |
 
-The line between them is set by law in almost every country, and it is the one
-rule of the product that is not ours to relax. Planned: patient assistants
-(name or pseudonym) who explain and prepare but never advise medically. Nobody
-is listed yet, and the pages say so.
+There is no "Diplodoctor model": the AI is whichever model answers, from the fleet's
+shared free chain or the reader's own key, and nothing is tied to one vendor.
+
+The first line is software. The last two are people, and the difference between them is
+not a ranking: it is who is allowed to say what, and who vouches for them. An assistant
+may or may not hold a health qualification, and how helpful people found them is shown
+on their profile, so the person asking makes their own decision. A licence is what the
+law requires for medical advice where the patient is, and with a **zero-knowledge proof**
+a professional can show it is valid without showing who they are (planned). The line
+between giving medical advice and giving a view is set by law in almost every country,
+and it is the one rule of the product that is not ours to relax. Nobody is listed yet,
+and the pages say so.
 
 ## Where it sits
 
@@ -32,10 +41,11 @@ Diplodoctor is one product on three planes, like everything else in the fleet
   from the fleet map (`lib/fleet.ts`) and does not author them. `ROADMAP.md`
   and `CHANGELOG.md` are the public record: Loki ingests them and `/roadmap`
   and `/changelog` read the map back through `bip-kit`.
-- **OrangeCat** is its economy and, later, its identity. Clinicians will offer
-  their work as OrangeCat services and be paid there.
-- **Solon** is its governance: who is admitted as a clinician and how a dispute
-  is settled are decisions to be taken there.
+- **OrangeCat** is its economy and, later, its identity. Assistants and licensed
+  professionals will offer their work as OrangeCat services and be paid there, in any
+  currency.
+- **Solon** is its governance: who is admitted as a licensed professional, how helpfulness
+  is evaluated and how a dispute is settled are decisions to be taken there.
 
 It is built the way [Causius](https://github.com/bitbaum/causius) is built, on
 the same packages, for people and later for clinics and practices.
@@ -66,7 +76,7 @@ The blessed column of fleet `STACK.md`, nothing else:
   explained; follow-ups the document asks for; the document in each language; export
 - `/reports` reports in this browser, and import of an exported file
 - `/reports/sample` a worked example with invented personal details
-- `/clinicians` the rules for clinicians and patient assistants, and what a clinic would get
+- `/people` the three kinds of help, the rules for assistants and licensed professionals, and what a clinic would get
 - `/settings` your own model
 - `/roadmap`, `/changelog` the public record
 - `POST /api/analyze` report in, health file out
@@ -81,8 +91,9 @@ reading is written in the reader's language.
 
 Said plainly, because the pages say it too. `ROADMAP.md` has the order.
 
-- **No clinician is listed.** Nothing pulls in OrangeCat services, labels them or
-  checks a licence. "Have a doctor look at it" is planned.
+- **Nobody is listed.** Nothing pulls in OrangeCat services, labels them, shows how helpful
+  people were or checks a licence. Proving a licence with a zero-knowledge proof is planned.
+  "Have a person look at it" is planned.
 - **No accounts and no server-side records.** Reports live in the browser that
   read them. Matters, reminders and the EPD are on the roadmap.
 - **Photos are not anonymised automatically.** The reader covers details by hand.
@@ -144,7 +155,7 @@ are designed in rather than added:
 - **Nothing stored on the server.** A report goes to the model provider and the answer comes
   back; only which model served it is logged. Reports, the placeholder table and a reader's
   own API key live in the browser.
-- **Anonymised hand-over.** "Export for a clinician" writes the report with every personal
+- **Anonymised hand-over.** "Export anonymised" writes the report with every personal
   detail replaced and without the placeholder table.
 - **Headers** (`lib/security.ts`, `proxy.ts`): a per-request nonce CSP with `strict-dynamic`,
   `connect-src 'self'` and `frame-ancestors 'none'`; HSTS for two years; `nosniff`;
@@ -158,15 +169,24 @@ in it**, including in tests and the sample.
 
 ## Design
 
-Every colour, face, radius and measure comes from `@bitbaum/design-tokens`, imported in the
-layout before `app/globals.css`, with its Tailwind preset loaded through
-`tailwind.config.js`. The page is pinned dark, like Solon's and Causius's. `globals.css`
-defines no token: only the few shapes the product repeats, under the same names Solon uses
-(`kicker`, `headline`, `headline-caps`, `btn-primary`, `btn-frame`, `field`). A colour that
-is missing belongs in the token package, so all products get it.
+The look of this product is **one file: `app/theme.css`**. Colour, typefaces, corner radius,
+whether a headline is a serif in sentence case or a sans in capitals, and whether a button
+shouts or speaks are all values there, read by `@bitbaum/design-tokens` and by the few
+shapes in `app/globals.css`. No component sets a colour, a face or a radius of its own. So:
 
-What a capability page says is real is decided in one file, `lib/capabilities.ts`; pages
-name capabilities and never state a status.
+- "make it red and white" is the accent (`--public-accent`) and its dark twin;
+- "more gothic" is `--theme-headline-font`, `--theme-headline-case` and the radii;
+- another typeface is `--font-display` / `--font-sans`;
+- light or dark is the reader's choice, defaulting to their device's.
+
+`lib/theme.test.ts` reads `theme.css` and fails if a change makes text unreadable (WCAG AA,
+4.5:1) in either mode, so a look can be tried freely.
+
+It deliberately differs from OrangeCat, Loki and Solon, which are black with one orange
+accent: this is for someone holding a result they may be afraid of, so it is light, calm and
+rounded by default. The structure, the tokens and the primitives are the same, so the products
+still sit together. What a capability page says is real is decided in one file,
+`lib/capabilities.ts`; pages name capabilities and never state a status.
 
 ## Development
 

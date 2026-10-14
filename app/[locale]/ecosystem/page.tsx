@@ -34,7 +34,7 @@ export default async function EcosystemPage({ params }: Params) {
       {others.length > 0 ? (
         <div className="grid gap-4 md:grid-cols-3">
           {others.map((p) => (
-            <article key={p.slug} className="flex min-h-72 flex-col justify-between border border-border p-8">
+            <article key={p.slug} className="flex min-h-72 flex-col justify-between rounded-surface border border-border p-8">
               <div>
                 <div className="kicker">{t("layer", { layer: p.layer })}</div>
                 <h2 className="headline-caps mt-4 text-4xl">{p.name}</h2>
@@ -69,7 +69,7 @@ export default async function EcosystemPage({ params }: Params) {
         </dl>
       </section>
 
-      <section className="mt-24 border border-border p-8 sm:p-12">
+      <section className="mt-24 rounded-surface border border-border p-8 sm:p-12">
         <div className="kicker">{t("account.kicker")}</div>
         <h2 className="headline-caps mt-4 text-3xl sm:text-4xl">{t("account.title")}</h2>
         <p className="mt-5 max-w-2xl text-fg-secondary">{t("account.body")}</p>
