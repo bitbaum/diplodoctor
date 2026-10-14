@@ -34,7 +34,7 @@ const SECTIONS = [
   },
 ] as const;
 
-const linkClass = "inline-flex min-h-11 items-center transition-colors hover:text-fg-primary";
+const linkClass = "inline-flex min-h-11 min-w-11 items-center transition-colors hover:text-fg-primary";
 
 export async function SiteFooter() {
   const t = await getTranslations("Footer");
