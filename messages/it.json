@@ -46,111 +46,92 @@
   },
   "Home": {
     "hero": {
-      "kicker": "Aperto, privato e con l’aiuto che sceglie Lei",
+      "kicker": "Aperto, privato, con l’aiuto che sceglie Lei",
       "line1": "I Suoi risultati,",
       "line2": "letti insieme a Lei.",
-      "lede": "Aggiunga un referto di laboratorio come testo o foto. Diplodoctor elenca ogni valore, verifica quali sono fuori dall’intervallo stampato, spiega cosa misurano e scrive le domande da portare al medico. Il Suo nome non lascia mai il Suo browser.",
+      "lede": "Aggiunga un referto di laboratorio. Veda cosa è fuori intervallo, cosa può significare e cosa chiedere al medico.",
       "open": "Leggere un referto",
       "sample": "Vedere un esempio"
     },
     "example": {
       "label": "Esempio",
-      "title": "Ferritina, un valore in un referto",
+      "title": "Un valore, letto",
       "s1": {
         "tool": "Letto",
         "text": "Ferritina 14 µg/L, intervallo 15 – 150"
       },
       "s2": {
         "tool": "Verificato",
-        "text": "Sotto l’intervallo stampato — per calcolo aritmetico, non per opinione del modello"
+        "text": "Sotto l’intervallo, per calcolo, non per opinione del modello"
       },
       "s3": {
         "tool": "Prima",
-        "text": "22 µg/L a maggio 2026, in calo"
+        "text": "22 µg/L a maggio, in calo"
       },
       "s4": {
         "tool": "Chiedere",
-        "text": "Dobbiamo cercare una causa e quando devo ripetere l’esame?"
-      },
-      "valueLabel": "Valore",
-      "value": "14 µg/L",
-      "rangeLabel": "Intervallo stampato",
-      "range": "15 – 150"
+        "text": "Dobbiamo cercare una causa?"
+      }
     },
     "how": {
-      "kicker": "Come funziona",
-      "title": "Un referto in ingresso, una pratica in uscita",
+      "title": "Come funziona",
       "add": {
-        "title": "Aggiunga il referto",
-        "body": "Incolli il testo o fotografi le pagine, in qualsiasi lingua. Nomi e numeri che La identificano vengono prima rimossi nel Suo browser."
+        "title": "Lo aggiunga",
+        "body": "Incolli il testo o fotografi le pagine."
       },
       "read": {
-        "title": "Legge ogni valore",
-        "body": "Ogni valore con la sua unità e il suo intervallo stampato, la riga da cui è stato letto e una segnalazione che deriva dal confronto dei numeri, non dall’opinione di un modello."
+        "title": "Veda ogni valore",
+        "body": "Ciascuno con il suo intervallo e la riga da cui proviene."
       },
       "ask": {
-        "title": "Lo porta a una persona",
-        "body": "Informazioni in linguaggio semplice su ciò che è fuori intervallo, domande da porre e il referto in una forma che può esportare e condividere con chi sceglie Lei."
+        "title": "Vada oltre",
+        "body": "Domande per il medico, pronte da portare."
       }
     },
     "privacy": {
-      "kicker": "Privato per costruzione",
-      "title": "Una cartella clinica è Sua prima di essere qualsiasi altra cosa",
+      "title": "Privato per costruzione",
       "cta": "Come è protetta",
       "redact": {
         "title": "I nomi restano a casa",
-        "body": "Il Suo nome, la data di nascita, i numeri di assicurazione e di ordine vengono sostituiti da segnaposto nel Suo browser. Il modello legge i segnaposto; il Suo browser rimette i valori reali."
+        "body": "Rimossi nel Suo browser prima di qualsiasi invio."
       },
       "browser": {
         "title": "Conservato sul Suo dispositivo",
-        "body": "I Suoi referti sono memorizzati in questo browser e da nessun’altra parte. Non c’è alcun account e nessuna copia sul nostro server."
+        "body": "Nessun account. Nessuna copia sul nostro server."
       },
       "model": {
-        "title": "Il Suo modello, se lo desidera",
-        "body": "Per impostazione predefinita, modelli gratuiti condivisi. Oppure colleghi la Sua chiave per un modello più potente con il Suo budget; la chiave resta nel Suo browser."
+        "title": "Qualsiasi modello di IA",
+        "body": "Modelli gratuiti condivisi, o la Sua chiave."
       }
     },
-    "capabilities": {
-      "kicker": "Ciò che esiste",
-      "title": "Reale oggi, e cosa verrà",
-      "lede": "Ogni riga indica se funziona già. Nulla è presentato come funzionante se non lo è.",
-      "roadmap": "Leggere la roadmap",
-      "changelog": "Leggere il changelog"
-    },
-    "tiersTitle": "Tre tipi di aiuto, e un confine onesto tra loro",
-    "tiersLead": "La maggior parte dei risultati richiede una spiegazione, non una cura. Sceglie Lei chi spiega: un qualsiasi modello di IA, una persona che desidera aiutare o un professionista sanitario abilitato. Diplodoctor etichetta ciascuno per ciò che è e non lascia mai che uno passi per un altro.",
+    "tiersTitle": "Tre tipi di aiuto",
+    "tiersLead": "Sceglie Lei chi spiega. Ciascuno è etichettato per ciò che è.",
     "tiers": {
-      "kicker": "Chi fa cosa",
       "ai": {
         "name": "Qualsiasi modello di IA",
-        "can": "Legge il referto, elenca ogni valore, segnala ciò che è fuori intervallo, spiega cosa misura e prepara le domande per la Sua visita. Funziona con modelli gratuiti condivisi o con la Sua chiave; nulla qui è legato a un solo fornitore.",
-        "limit": "È un software. Non diagnostica, non prescrive e non Le dice che un risultato non è motivo di preoccupazione."
+        "can": "Legge e spiega il Suo referto.",
+        "limit": "Un software. Nessuna diagnosi."
       },
       "assistant": {
         "name": "Un assistente sanitario",
-        "can": "Chiunque desideri aiutare, con un nome o uno pseudonimo: un infermiere, un medico di un altro paese, qualcuno che ha vissuto lo stesso risultato. Spiega, traduce, aiuta a prepararsi e dà il proprio parere, per un prezzo che stabilisce lui.",
-        "limit": "Il suo parere è l’opinione di una persona, non un consiglio medico di un professionista abilitato dove si trova Lei. Viene mostrato quanto le persone lo hanno trovato utile. Decide Lei a chi rivolgersi."
+        "can": "Chiunque, con un nome o uno pseudonimo. Spiega, traduce, condivide esperienza.",
+        "limit": "Un’opinione, non un consiglio medico."
       },
       "licensed": {
         "name": "Un professionista sanitario abilitato",
-        "can": "Un medico o un altro professionista sanitario la cui abilitazione è verificata, nei luoghi in cui è abilitato. Lì può consigliare, diagnosticare e curare.",
-        "limit": "Previsto. La sua abilitazione può essere dimostrata senza rivelare chi è, così può restare pseudonimo. Per ora non è elencato nessuno."
+        "can": "Un’abilitazione verificata. Può consigliare e curare dove è abilitato.",
+        "limit": "Previsto. Può restare pseudonimo."
       }
     },
-    "identity": {
-      "problem": "Il problema",
-      "solution": "Cosa abbiamo costruito",
-      "mission": "Missione",
-      "vision": "Visione"
+    "peopleLink": "Come possono aiutare le persone",
+    "status": {
+      "text": "Beta: in funzione, non ancora pubblicato.",
+      "link": "Cosa funziona oggi"
     },
-    "fleet": {
-      "kicker": "Una tra molte della flotta",
-      "title": "Costruito sulle stesse basi degli altri",
-      "lede": "Diplodoctor è il livello sanitario della flotta: OrangeCat ne è l’economia, Loki lo costruisce e Solon decide come viene governato.",
-      "more": "Vedere l’ecosistema",
+    "closing": {
+      "title": "Lo provi con un referto in Suo possesso.",
       "cta": "Leggere un referto"
-    },
-    "peopleLink": "Come possono aiutare le persone"
+    }
   },
   "Reports": {
     "title": "I miei referti",
@@ -165,17 +146,17 @@
   },
   "NewReport": {
     "title": "Leggere un referto",
-    "lead": "Consegni il referto a Diplodoctor. Viene inviato, anonimizzato, a un fornitore di modelli di IA per essere letto e non viene conservato da Diplodoctor; il risultato resta solo in questo browser.",
+    "lead": "Incolli un referto o fotografi le pagine. I nomi vengono rimossi nel Suo browser, un modello di IA lo legge e il risultato resta su questo dispositivo.",
     "modelOwn": "Letto dal Suo modello, {model}.",
-    "modelFree": "Letto da modelli gratuiti condivisi, che variano e hanno un piccolo budget giornaliero.",
-    "modelFreeNoPhoto": "Letto da modelli gratuiti condivisi, che variano e hanno un piccolo budget giornaliero. Per ora possono leggere il testo incollato ma non le foto.",
-    "modelOff": "I modelli gratuiti condivisi al momento non sono attivi. Colleghi il Suo modello per leggere un referto, oppure lo archivi a mano qui sotto.",
+    "modelFree": "Lo leggono modelli gratuiti condivisi (limitati al giorno).",
+    "modelFreeNoPhoto": "Per ora i modelli gratuiti condivisi leggono testo, non foto.",
+    "modelOff": "I modelli gratuiti al momento non sono attivi. Usi il Suo modello o archivi a mano.",
     "change": "Cambiare",
     "useOwn": "Usare il proprio modello",
     "textLabel": "Il testo del referto",
     "textPlaceholder": "Lo incolli qui, in qualsiasi lingua.",
     "photoLabel": "Oppure le foto delle pagine",
-    "photoHint": "Fino a {max} pagine, in ordine. JPEG, PNG o WebP. Le foto vengono rimpicciolite nel Suo browser prima dell’invio.",
+    "photoHint": "Fino a {max} pagine, in ordine. Rimpicciolite prima nel Suo browser.",
     "pages": "{count, plural, one {# pagina aggiunta} other {# pagine aggiunte}}",
     "page": "Pagina {n}",
     "removePage": "Rimuovere la pagina {n}",
@@ -193,7 +174,7 @@
     "openSettings": "Aprire le impostazioni del modello",
     "byHand": {
       "title": "Archiviarlo a mano",
-      "body": "Nessuna lettura, ma il documento e la sua data restano insieme e il file può essere consegnato a una persona di Sua scelta. Ha già un file di referto?",
+      "body": "Nessuna lettura, ma il documento e la sua data restano insieme. Ha già un file di referto?",
       "import": "Importarlo",
       "about": "Di cosa si tratta?",
       "provider": "Chi lo ha emesso?",
@@ -202,26 +183,26 @@
       "original": "Originale"
     },
     "errors": {
-      "not_configured": "I modelli gratuiti condivisi al momento non sono attivi su questo sito. Può collegare il Suo modello oppure archiviare il referto a mano.",
-      "busy": "Nessun modello ha risposto. Il budget gratuito condiviso di oggi potrebbe essere esaurito oppure un fornitore è fuori servizio. Il Suo modello non dipende dal budget condiviso.",
-      "busy_own": "Il Suo modello non ha risposto. La chiave potrebbe aver esaurito il credito o essere stata revocata. La controlli nelle impostazioni oppure la rimuova per usare i modelli gratuiti condivisi.",
-      "no_vision": "Nessuno dei modelli disponibili al momento può leggere una foto. Incolli invece il testo del referto, oppure colleghi un Suo modello che sappia leggere le immagini.",
-      "rate_limited": "Sono molti referti in poco tempo. I modelli gratuiti condivisi ne consentono alcuni all’ora; il Suo modello ne consente molti di più.",
+      "not_configured": "I modelli gratuiti al momento non sono attivi su questo sito. Usi il Suo modello o archivi il referto a mano.",
+      "busy": "Nessun modello ha risposto. Il budget gratuito di oggi potrebbe essere esaurito, o un fornitore è fuori servizio. Il Suo modello non è interessato.",
+      "busy_own": "Il Suo modello non ha risposto. La chiave potrebbe aver esaurito il credito o essere stata revocata. La controlli nelle impostazioni o la rimuova per usare i modelli gratuiti.",
+      "no_vision": "Al momento nessun modello disponibile può leggere una foto. Incolli invece il testo, o colleghi un Suo modello che legga le immagini.",
+      "rate_limited": "Sono molti referti in poco tempo. I modelli gratuiti ne consentono alcuni all’ora; il Suo modello molti di più.",
       "bad_own_model": "Le impostazioni salvate del Suo modello non hanno potuto essere usate. Le configuri di nuovo.",
-      "unreadable_analysis": "Il modello ha risposto, ma in una forma che Diplodoctor non ha potuto trasformare in un referto. Riprovi; un modello più potente lo fa in modo più affidabile.",
+      "unreadable_analysis": "Il modello ha risposto, ma in una forma che Diplodoctor non ha potuto usare. Riprovi; un modello più potente è più affidabile.",
       "empty": "Incolli il testo del referto oppure aggiunga una sua foto.",
-      "bad_image": "Questo file non ha potuto essere usato come foto. Invii un’immagine JPEG, PNG o WebP.",
+      "bad_image": "Questo file non è utilizzabile come foto. Invii un’immagine JPEG, PNG o WebP.",
       "too_many_pages": "Sono più di {max} pagine. Aggiunga le pagine che contengono i valori.",
       "offline": "Diplodoctor non è raggiungibile. Controlli la connessione e riprovi.",
       "unknown": "La lettura non è andata a buon fine. Riprovi tra un minuto."
     }
   },
   "Report": {
-    "sampleBanner": "Questo è un esempio svolto. Ogni dato personale è inventato.",
+    "sampleBanner": "Un esempio svolto. Ogni dato personale è inventato.",
     "notHereTitle": "Questo referto non è su questo dispositivo",
     "notHereBody": "I referti sono conservati nel browser che li ha letti. Lo apra dove lo ha letto, oppure importi il suo file di referto.",
     "goReports": "Vai ai miei referti",
-    "aiNotice": "Letto da un modello di IA, che può leggere male un numero o una parola. Controlli ogni valore con la riga del referto da cui proviene, a un tocco di distanza. Questa è un’informazione, non una diagnosi.",
+    "aiNotice": "Lo ha letto un’IA, che può leggere male un numero. Controlli ogni valore con la riga da cui proviene. Informazione, non diagnosi.",
     "facts": {
       "provider": "Emesso da",
       "kind": "Tipo",
@@ -240,18 +221,18 @@
     "attention": {
       "routine": {
         "title": "Alla prossima visita",
-        "body": "Nulla in questo referto è fuori intervallo o contrassegnato come urgente. Lo porti al prossimo controllo di routine."
+        "body": "Nulla è fuori intervallo o contrassegnato come urgente."
       },
       "soon": {
-        "title": "A breve — entro giorni o settimane",
-        "body": "Uno o più valori sono fuori dall’intervallo stampato. Un medico dovrebbe esaminare il referto. Quanto presto dipende da Lei e dai Suoi sintomi, che solo un medico può valutare."
+        "title": "A breve, entro giorni o settimane",
+        "body": "Uno o più valori sono fuori intervallo. Lo faccia vedere a un medico. Quanto presto dipende da Lei e dai Suoi sintomi."
       },
       "urgent": {
         "title": "Oggi",
-        "body": "Il referto stesso contrassegna un valore come critico o chiede un intervento immediato. Contatti un medico oggi."
+        "body": "Il referto stesso contrassegna un valore come critico. Contatti un medico oggi."
       }
     },
-    "emergency": "Se in questo momento non si sente bene — dolore al petto, difficoltà a respirare, confusione, dolore forte — non aspetti un referto: chiami il numero di emergenza (112 in Europa, 144 in Svizzera, 911 negli Stati Uniti).",
+    "emergency": "Non sta bene adesso? Non aspetti: chiami il numero di emergenza (112 in Europa, 144 in Svizzera, 911 negli Stati Uniti).",
     "outsideTitle": "{count, plural, one {# valore fuori intervallo} other {# valori fuori intervallo}}",
     "allInRange": "Ogni valore è entro il suo intervallo stampato",
     "insideTitle": "{count, plural, one {# valore nell’intervallo} other {# valori nell’intervallo}}",
@@ -269,21 +250,21 @@
     },
     "source": "La riga da cui è stato letto",
     "checked": "Segnalazione stabilita confrontando il numero con l’intervallo stampato.",
-    "notChecked": "Segnalazione come la indica il referto. Non c’è un intervallo numerico con cui verificarla.",
+    "notChecked": "Segnalazione come stampata. Nessun intervallo numerico da verificare.",
     "questionsTitle": "Domande per il Suo medico",
-    "questionsHint": "Scritte a partire dai valori fuori intervallo. Le porti alla Sua visita.",
+    "questionsHint": "Dai valori fuori intervallo.",
     "copy": "Copiare",
     "copied": "Copiato",
     "termsTitle": "Termini spiegati",
     "followUpsTitle": "Cosa dice il referto di fare",
-    "followUpsHint": "Solo ciò che il documento stesso richiede. Li spunti man mano.",
+    "followUpsHint": "Solo ciò che il referto stesso richiede.",
     "followUpsDone": "{done} su {total} fatti",
     "notesTitle": "Utile sapere",
     "docTitle": "Il documento",
     "language": "Lingua",
     "whoEyebrow": "Una persona",
     "whoTitle": "Desidera che lo esamini una persona?",
-    "whoBody": "L’IA di Diplodoctor spiega. Una persona può dirLe di più: un assistente sanitario per il suo parere e la sua esperienza, un professionista sanitario abilitato per un consiglio medico. La consegna di un referto a una persona qui è prevista ma non ancora disponibile: esporti il file anonimizzato e lo porti a chiunque Le ispiri fiducia, oppure al Suo medico.",
+    "whoBody": "Una persona può dirLe di più: un assistente per l’esperienza, un professionista sanitario abilitato per un consiglio medico. Non ancora realizzato. Esporti il file anonimizzato e lo porti a una persona di fiducia.",
     "findClinician": "Come possono aiutare le persone",
     "exportAnon": "Esportare anonimizzato, da condividere con una persona",
     "export": "Esportare il referto completo",
@@ -330,11 +311,11 @@
   },
   "Redact": {
     "title": "Anonimizzare prima dell’invio",
-    "lead": "Nomi, date di nascita e numeri che La identificano vengono sostituiti da segnaposto nel Suo browser prima dell’invio del referto. Il modello non li vede mai; il Suo browser li rimette nel risultato.",
+    "lead": "Nomi e numeri che La identificano vengono sostituiti da segnaposto nel Suo browser. Il modello non li vede mai.",
     "toggle": "Anonimizzare",
     "ownWords": "Nascondere anche queste parole",
     "ownWordsPlaceholder": "Il Suo nome, il datore di lavoro, un familiare…",
-    "ownWordsHint": "Separi con virgole. Conservate in questo browser per i Suoi prossimi referti.",
+    "ownWordsHint": "Separate da virgole. Conservate in questo browser.",
     "found": "{count, plural, =0 {Non verrà nascosto nulla} one {# dato verrà nascosto} other {# dati verranno nascosti}}. Ne tocchi uno per inviarlo comunque.",
     "foundNone": "Nessun dato personale trovato nel testo. Aggiunga il Suo nome qui sopra se compare.",
     "sendThis": "Inviarlo comunque",
@@ -361,7 +342,8 @@
       "AHV": "N. AVS",
       "REF": "Riferimento",
       "BIRTHDATE": "Nato il"
-    }
+    },
+    "more": "Altre opzioni"
   },
   "Capabilities": {
     "status": {
@@ -518,6 +500,19 @@
       "roadmap": "Leggere la roadmap",
       "ecosystem": "L’ecosistema",
       "source": "Codice sorgente"
+    },
+    "status": {
+      "kicker": "Ciò che esiste",
+      "title": "Reale oggi, e cosa verrà",
+      "lede": "Ogni riga indica se funziona già.",
+      "roadmap": "Roadmap",
+      "changelog": "Changelog"
+    },
+    "identity": {
+      "problem": "Il problema",
+      "solution": "Cosa abbiamo costruito",
+      "mission": "Missione",
+      "vision": "Visione"
     }
   },
   "Security": {
@@ -624,58 +619,56 @@
     "metaDescription": "Assistenti sanitari e professionisti sanitari abilitati: come le persone aiuteranno accanto a Diplodoctor e cosa può dire ciascuno.",
     "eyebrow": "Persone",
     "title": "Una persona, quando La desidera",
-    "lead": "L’IA di Diplodoctor spiega un referto. Potrebbe desiderare anche una persona. Ce ne sono di due tipi, e la differenza non è una graduatoria: è chi può dire cosa e chi garantisce per lui. In ogni caso, decide Lei a chi rivolgersi.",
+    "lead": "L’IA di Diplodoctor spiega un referto. Potrebbe volere anche una persona. I due tipi differiscono per chi può dire cosa, non per chi è migliore. Decide Lei a chi rivolgersi.",
     "noneTitle": "Per ora non è elencato nessuno",
-    "noneBody": "Nessun assistente o professionista si è unito, quindi non ne viene mostrato nessuno. Qui non ci sono profili, valutazioni o tempi di attesa inventati, e non ce ne saranno. Fino ad allora, esporti il file anonimizzato e lo porti a chiunque Le ispiri fiducia, oppure al Suo medico.",
+    "noneBody": "Nessuno si è ancora unito, quindi non viene mostrato nessuno. Qui non ci sono profili o valutazioni inventati, e non ce ne saranno. Per ora, esporti il file anonimizzato e lo porti a una persona di fiducia.",
     "listedUnder": "Elencato con {identity}",
     "assistant": {
       "name": "Assistente sanitario",
       "identity": "un nome o uno pseudonimo",
-      "does1": "Spiega un referto in parole semplici e nella Sua lingua",
-      "does2": "Dà la propria esperienza e il proprio parere su cosa chiedere o provare, per un prezzo che stabilisce lui",
-      "does3": "Aiuta con visite, pratiche amministrative e assicurazioni",
-      "doesNot": "Ciò che dice è l’opinione di una persona, non un consiglio medico di un professionista abilitato dove si trova Lei. Può avere o meno una qualifica sanitaria, e lo indica nel suo profilo.",
-      "checks": "Nel suo profilo viene mostrato quanto lo hanno trovato utile le persone che ha aiutato. La decisione su a chi rivolgersi è Sua."
+      "does1": "Spiega in parole semplici, nella Sua lingua",
+      "does2": "Condivide esperienza e parere, per un prezzo che stabilisce lui",
+      "doesNot": "Il suo parere è un’opinione, non un consiglio medico. Può avere o meno una qualifica sanitaria e lo dichiara.",
+      "checks": "Mostrato con quanto lo hanno trovato utile le persone."
     },
     "licensed": {
       "name": "Professionista sanitario abilitato",
       "identity": "un’abilitazione verificata, e un nome o uno pseudonimo",
       "does1": "Consiglia su cosa significa un risultato per Lei",
-      "does2": "Diagnostica e cura entro l’abilitazione che possiede",
-      "does3": "Firma la risposta che Le dà",
-      "doesNot": "Solo nei luoghi in cui è abilitato.",
-      "checks": "La sua abilitazione viene verificata nel registro pubblico. Con una prova a conoscenza zero può mostrare che è valida senza mostrare chi è. Previsto."
+      "does2": "Diagnostica e cura dove è abilitato",
+      "doesNot": "Solo dove è abilitato.",
+      "checks": "Abilitazione verificata nel registro pubblico e dimostrabile senza rivelare chi è (previsto)."
     },
     "wantTitle": "Desidera offrire questo servizio?",
-    "wantBody": "Chiunque può offrire il proprio lavoro come servizio su OrangeCat e viene pagato lì dalla persona che aiuta, in qualsiasi valuta. Diplodoctor aggiungerà le etichette, la verifica dell’abilitazione e il registro di quanto le persone sono state utili; nulla di ciò è ancora realizzato.",
+    "wantBody": "Chiunque può offrire aiuto come servizio su OrangeCat ed essere pagato lì, in qualsiasi valuta. Le etichette, la verifica dell’abilitazione e il registro dell’utilità non sono ancora realizzati.",
     "offer": "Offrire un servizio su OrangeCat",
     "seeRoadmap": "Vedere la roadmap",
     "clinic": {
       "eyebrow": "Per cliniche e studi medici",
       "title": "I referti dei Suoi pazienti, letti prima della visita",
-      "lead": "Una clinica può usare Diplodoctor come lo usa un paziente e, più avanti, alle proprie condizioni:",
-      "c1": "I pazienti arrivano con i risultati già letti e le domande già scritte.",
-      "c2": "Un paziente Le consegna la sua pratica per scelta, anonimizzata finché non decide diversamente.",
-      "c3": "Funziona con un modello all’interno delle Sue mura, così i dati dei pazienti non lasciano mai lo studio.",
-      "status": "Previsto. Nulla di tutto ciò è ancora disponibile per le cliniche; è nella roadmap."
+      "lead": "Una clinica potrebbe usare Diplodoctor come lo usa un paziente e, più avanti, alle proprie condizioni:",
+      "c1": "I pazienti arrivano con i risultati letti e le domande scritte.",
+      "c2": "Un paziente consegna il proprio file per scelta.",
+      "c3": "Un modello all’interno delle Sue mura: i dati dei pazienti non escono mai.",
+      "status": "Previsto. Nella roadmap."
     },
     "rulesTitle": "Regole che non si piegano",
     "rules": {
       "label": {
         "title": "Tutti sono etichettati",
-        "body": "Un assistente è indicato come assistente e un professionista sanitario abilitato come tale. L’etichetta dice cosa può fare; non dice chi è migliore."
+        "body": "Un assistente è indicato come assistente, un professionista sanitario abilitato come tale. L’etichetta dice cosa può fare, non chi è migliore."
       },
       "pseudonym": {
         "title": "I nomi sono facoltativi per tutti",
-        "body": "Pazienti, assistenti e professionisti sanitari abilitati possono tutti usare uno pseudonimo. Un’abilitazione può essere dimostrata senza rivelare chi la possiede (previsto)."
+        "body": "Tutti possono usare uno pseudonimo. Un’abilitazione può essere dimostrata senza rivelare chi la possiede (previsto)."
       },
       "share": {
         "title": "Decide Lei cosa esce",
-        "body": "Una persona riceve il file anonimizzato, a meno che Lei non scelga di condividere di più. Nulla viene inviato senza una Sua azione."
+        "body": "Una persona riceve il file anonimizzato, a meno che Lei non condivida di più."
       },
       "place": {
         "title": "Il consiglio vale dove è abilitato",
-        "body": "Consigli medici, diagnosi e cure possono venire solo da chi è abilitato dove Lei è in cura. Il parere di un assistente è un’altra cosa e viene sempre indicato come tale."
+        "body": "Un consiglio medico vale solo da chi è abilitato dove Lei è in cura."
       }
     },
     "start": "Leggere un referto"

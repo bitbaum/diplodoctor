@@ -179,8 +179,10 @@ export function ReportView({ data, others = [], onChange, onDelete, onSaveCopy }
             <h2 id="attention" className="mt-1.5 text-xl font-semibold tracking-tight">
               {t(`attention.${data.attention}.title`)}
             </h2>
-            <p className="mt-2 text-sm leading-relaxed text-fg-secondary">{t(`attention.${data.attention}.body`)}</p>
-            {data.attentionReason && <p className="mt-2 text-sm leading-relaxed">{data.attentionReason}</p>}
+            {/* The report's own reason when there is one; the general sentence only as its fallback. */}
+            <p className="mt-2 text-sm leading-relaxed text-fg-secondary">
+              {data.attentionReason ?? t(`attention.${data.attention}.body`)}
+            </p>
             <p className="mt-3 border-t border-border-subtle pt-3 text-xs leading-relaxed text-fg-secondary">
               {t("emergency")}
             </p>

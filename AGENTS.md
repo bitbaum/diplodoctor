@@ -57,6 +57,10 @@ Repo-only notes live below this line.
   change like "red and white" or "more gothic" stays a one-file edit; keep it so.
   `globals.css` defines no token of its own. Whether a capability works today is decided
   only in `lib/capabilities.ts`.
+- **Words are a cost.** A landing page is a decision to try, not a document: `lib/copy-budget.test.ts`
+  holds Home, the intake form, the report page and `/people` to a word budget, and depth lives one
+  click away. Before adding a sentence, ask who reads it and what they do next; if nobody does,
+  cut it. Use `<details>` for what only some people need.
 - **Zero-knowledge proofs are the fleet's ethos, applied here where an identity would
   otherwise be exposed:** proving a licence without revealing who holds it, and later other
   claims. They are planned; no page may say they exist until they do.

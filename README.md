@@ -180,12 +180,14 @@ shapes in `app/globals.css`. No component sets a colour, a face or a radius of i
 - light or dark is the reader's choice, defaulting to their device's.
 
 `lib/theme.test.ts` reads `theme.css` and fails if a change makes text unreadable (WCAG AA,
-4.5:1) in either mode, so a look can be tried freely.
+4.5:1) in either mode, so a look can be tried freely. `lib/copy-budget.test.ts` holds each page to a
+word budget (Home is about 230 words): to add copy, cut copy.
 
 It deliberately differs from OrangeCat, Loki and Solon, which are black with one orange
 accent: this is for someone holding a result they may be afraid of, so it is light, calm and
-rounded by default. The structure, the tokens and the primitives are the same, so the products
-still sit together. What a capability page says is real is decided in one file,
+rounded by default: warm paper and a deep pine green, not the clinical blue every hospital uses,
+with amber and red kept clear for flagging a value. The structure, the tokens and the primitives
+are the same, so the products still sit together. What a capability page says is real is decided in one file,
 `lib/capabilities.ts`; pages name capabilities and never state a status.
 
 ## Development

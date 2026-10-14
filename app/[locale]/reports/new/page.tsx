@@ -325,8 +325,11 @@ export default function NewReportPage() {
 
           {anonymise ? (
             <>
-              <div>
-                <label htmlFor="own-words" className="block text-sm font-medium">
+              <details>
+                <summary className="inline-flex min-h-11 cursor-pointer items-center text-sm font-medium text-fg-secondary">
+                  {r("more")}
+                </summary>
+                <label htmlFor="own-words" className="mt-1 block text-sm font-medium">
                   {r("ownWords")}
                 </label>
                 <input
@@ -342,7 +345,7 @@ export default function NewReportPage() {
                   className={`${field} mt-2`}
                 />
                 <p className="mt-1.5 text-xs text-fg-secondary">{r("ownWordsHint")}</p>
-              </div>
+              </details>
 
               {text.trim() !== "" && (
                 <div>

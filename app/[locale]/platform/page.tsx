@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { CapabilityList } from "@/components/site/CapabilityList";
 import { Link } from "@/i18n/navigation";
 import { toLocale } from "@/i18n/routing";
+import { CAPABILITY_KEYS } from "@/lib/capabilities";
+import { loadFleetPresence } from "@/lib/fleet";
 import { EXTERNAL, ROUTES } from "@/lib/routes";
 
 type Params = { params: Promise<{ locale: string }> };
@@ -14,6 +17,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 const LAYERS = ["intake", "redaction", "reading", "checks", "file"] as const;
 const TURN = ["s1", "s2", "s3", "s4", "s5", "s6"] as const;
 const PRINCIPLES = ["information", "honest", "open", "shared"] as const;
+/** The order a reader is owed it in: what hurts, what we built, why, where it goes. */
+const IDENTITY = ["problem", "solution", "mission", "vision"] as const;
 const STACK = ["framework", "models", "privacy", "design", "record", "limits", "languages", "tests"] as const;
 
 /**
@@ -24,6 +29,10 @@ const STACK = ["framework", "models", "privacy", "design", "record", "limits", "
 export default async function PlatformPage({ params }: Params) {
   setRequestLocale(toLocale((await params).locale));
   const t = await getTranslations("Platform");
+  const { identity } = await loadFleetPresence();
+  // Rendered from the Loki project profile, never authored here (fleet
+  // AGENTS.md, "The identity contract"). Written once, in English, so marked so.
+  const stated = IDENTITY.filter((key) => identity[key]);
 
   return (
     <main>
@@ -75,6 +84,25 @@ export default async function PlatformPage({ params }: Params) {
         </div>
       </section>
 
+      <section id="status" className="section-shell scroll-mt-24 border-t border-border-subtle py-section">
+        <div className="grid gap-12 lg:grid-cols-[1fr_2fr] lg:gap-20">
+          <div>
+            <div className="kicker">{t("status.kicker")}</div>
+            <h2 className="headline-caps mt-5 text-3xl sm:text-4xl">{t("status.title")}</h2>
+            <p className="mt-5 text-fg-secondary">{t("status.lede")}</p>
+            <div className="mt-6 flex flex-wrap gap-x-6 text-sm">
+              <Link href={ROUTES.roadmap} className="text-link inline-flex min-h-11 items-center">
+                {t("status.roadmap")}
+              </Link>
+              <Link href={ROUTES.changelog} className="text-link inline-flex min-h-11 items-center">
+                {t("status.changelog")}
+              </Link>
+            </div>
+          </div>
+          <CapabilityList items={CAPABILITY_KEYS} />
+        </div>
+      </section>
+
       <section className="border-t border-border-subtle py-section">
         <div className="section-shell">
           <h2 className="headline-caps text-3xl sm:text-4xl">{t("principles.title")}</h2>
@@ -105,6 +133,21 @@ export default async function PlatformPage({ params }: Params) {
           </dl>
         </div>
       </section>
+
+      {stated.length > 0 && (
+        <section className="border-t border-border-subtle py-section-tight">
+          <dl className="section-shell grid gap-x-16 gap-y-10 sm:grid-cols-2">
+            {stated.map((key) => (
+              <div key={key}>
+                <dt className="kicker">{t(`identity.${key}`)}</dt>
+                <dd lang="en" className="mt-3 max-w-copy text-fg-primary">
+                  {identity[key]}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
 
       <section className="public-backdrop border-t border-border-subtle py-section">
         <div className="section-shell max-w-4xl">

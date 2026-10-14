@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
  */
 const ROLES = ["assistant", "licensed"] as const;
 const RULES = ["label", "pseudonym", "share", "place"] as const;
-const DOES = ["does1", "does2", "does3"] as const;
+const DOES = ["does1", "does2"] as const;
 const CLINIC = ["c1", "c2", "c3"] as const;
 
 export default async function PeoplePage({ params }: Params) {
