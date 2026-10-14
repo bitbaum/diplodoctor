@@ -19,6 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - uses: actions/checkout@v7
+
       - name: Create the role, database and env on the box
         env:
           SSH_KEY: ${{ secrets.HETZNER_SSH_PRIVATE_KEY }}
@@ -70,4 +72,15 @@ jobs:
           done
           echo "database $DB ready; $ENV_FILE has:$present"
           REMOTE
+          # The deploy's schema step treats the FIRST run as a baseline: it records
+          # the migrations present as already applied and applies none. So the first
+          # migration (accounts) is applied here, once, when the table is absent;
+          # every later one is the deploy's to apply.
+          if [ "$(ssh -i ~/.ssh/id -o BatchMode=yes "ubuntu@$IP" "sudo -u postgres psql -d diplodoctor -qtAX -c \"select to_regclass('public.users') is not null\"")" = "f" ]; then
+            # As the app's own role, so it owns what it creates.
+            { echo 'set role diplodoctor;'; cat drizzle/0000_accounts.sql; } | ssh -i ~/.ssh/id -o BatchMode=yes "ubuntu@$IP" "sudo -u postgres psql -v ON_ERROR_STOP=1 -1 -q -d diplodoctor"
+            echo "applied drizzle/0000_accounts.sql"
+          else
+            echo "users table already present; nothing to apply"
+          fi
           rm -f ~/.ssh/id
