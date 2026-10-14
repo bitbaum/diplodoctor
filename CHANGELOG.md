@@ -4,6 +4,20 @@ What changed for the people who use Diplodoctor, newest first. Every entry
 comes from a change merged into this repository; where there is a number in
 brackets, it is the pull request to read for the detail.
 
+## 2026-10-14 (later)
+
+### Changed
+
+- **Three kinds of help, said honestly.** Any AI model (there is no "Diplodoctor
+  model"; it is whichever model answers), a health assistant anyone can be, under
+  a name or a pseudonym, whose view is an opinion and whose helpfulness will be
+  shown, and a licensed professional, whose licence can be proven without
+  revealing who they are. `/clinicians` is now `/people`. Nobody is listed yet and
+  the pages say so; the zero-knowledge licence proof is planned. {#people}
+- **A look of its own.** Light and calm by default, dark on request or when your
+  device asks, with a toggle in the header. The whole look is one file,
+  `app/theme.css`, and a test keeps any change readable. {#theme}
+
 ## 2026-10-14
 
 ### Added

@@ -3,7 +3,7 @@ import { z } from "zod";
 /**
  * The health file — the one shape everything in Diplodoctor reads and writes.
  *
- * The AI reading produces it, the browser stores it, a clinician is handed it,
+ * The AI reading produces it, the browser stores it, a person you choose is handed it,
  * and "Export" writes exactly it to disk. One shape on purpose: a file that can
  * be exported and re-imported belongs to the person it is about, not to us.
  *

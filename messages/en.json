@@ -1,12 +1,11 @@
 {
   "Meta": {
     "title": "Diplodoctor — understand your medical reports",
-    "description": "Diplodoctor reads a lab report with you: every value, which ones are outside their range, and what to ask your doctor. When you want a person, a licensed clinician."
+    "description": "Diplodoctor reads a lab report with you: every value, which ones are outside their range, and what to ask. Any AI model, and, when you want a person, a health assistant or a licensed professional of your choice."
   },
   "Nav": {
     "main": "Main",
     "reports": "My reports",
-    "clinicians": "Clinicians",
     "settings": "Settings",
     "new": "Read a report",
     "beta": "Beta",
@@ -15,10 +14,12 @@
     "security": "Security",
     "ecosystem": "Ecosystem",
     "menu": "Menu",
-    "skip": "Skip to content"
+    "skip": "Skip to content",
+    "people": "People",
+    "dark": "Dark mode"
   },
   "Footer": {
-    "tagline": "The health layer of the fleet: an agent that reads the report, and a doctor who decides.",
+    "tagline": "The health layer of the fleet: an agent that reads the report, and the people you choose to help.",
     "sections": {
       "product": "Product",
       "platform": "Platform",
@@ -27,7 +28,6 @@
     "links": {
       "reports": "My reports",
       "new": "Read a report",
-      "clinicians": "Clinicians",
       "settings": "Settings",
       "platform": "How it is built",
       "security": "Security",
@@ -37,7 +37,8 @@
       "source": "Source code",
       "license": "MIT licence",
       "orangecat": "Diplodoctor on OrangeCat",
-      "solon": "Diplodoctor on Solon"
+      "solon": "Diplodoctor on Solon",
+      "people": "People who help"
     },
     "disclaimer": "Beta: running, not released. Diplodoctor gives health information, not a diagnosis, and is not a medical device or a substitute for a doctor. In an emergency, call your emergency number.",
     "openSource": "Open source under the MIT licence. Built in Zürich.",
@@ -45,7 +46,7 @@
   },
   "Home": {
     "hero": {
-      "kicker": "Medicine, with a doctor in the loop",
+      "kicker": "Open, private, and your choice of help",
       "line1": "Your results,",
       "line2": "read with you.",
       "lede": "Add a lab report as text or a photo. Diplodoctor lists every value, checks which ones are outside their printed range, explains what they measure and writes the questions to take to your doctor. Your name never leaves your browser.",
@@ -88,8 +89,8 @@
         "body": "Each value with its unit and printed range, the line it was read from, and a flag that comes from comparing the numbers, not from a model's opinion."
       },
       "ask": {
-        "title": "You take it to a doctor",
-        "body": "Plain-language information on what is outside its range, questions to ask, and the report in a form you can export or hand to a clinician."
+        "title": "You bring it to a person",
+        "body": "Plain-language information on what is outside its range, questions to ask, and the report in a form you can export and share with whoever you choose."
       }
     },
     "privacy": {
@@ -116,22 +117,26 @@
       "roadmap": "Read the roadmap",
       "changelog": "Read the changelog"
     },
-    "tiersTitle": "Two kinds of help, and an honest line between them",
-    "tiersLead": "Most results need explaining, not treatment. Some need a doctor. Diplodoctor keeps the difference visible and never pretends to be the second.",
+    "tiersTitle": "Three kinds of help, and an honest line between them",
+    "tiersLead": "Most results need explaining, not treatment. You choose who explains: any AI model, a person who wants to help, or a licensed professional. Diplodoctor labels each for what it is and never lets one pass for another.",
     "tiers": {
       "kicker": "Who does what",
       "ai": {
-        "name": "Diplodoctor AI",
-        "can": "Reads, lists every value, flags what is out of range, explains what it measures and drafts questions for your appointment.",
-        "limit": "Does not diagnose, prescribe, or tell you a result is nothing to worry about."
+        "name": "Any AI model",
+        "can": "Reads the report, lists every value, flags what is out of range, explains what it measures and drafts questions for your appointment. It runs on free shared models or on your own key; nothing here is tied to one vendor.",
+        "limit": "It is software. It does not diagnose, prescribe, or tell you a result is nothing to worry about."
       },
-      "clinician": {
-        "name": "A licensed clinician",
-        "can": "Looks at your file and tells you what it means for you, advises and, where the law allows, treats.",
-        "limit": "Planned. Nobody is listed yet, and the page says so."
+      "assistant": {
+        "name": "A health assistant",
+        "can": "Anyone who wants to help, under a name or a pseudonym: a nurse, a doctor from another country, someone who has lived with the same result. They explain, translate, help you prepare, and give their view, for a price they set.",
+        "limit": "Their view is a person's opinion, not medical advice from a professional licensed where you are. How helpful people found them is shown. You decide whom to ask."
+      },
+      "licensed": {
+        "name": "A licensed professional",
+        "can": "A doctor or other health professional whose licence is verified, in the places they are licensed. They may advise, diagnose and treat there.",
+        "limit": "Planned. Their licence can be proven without revealing who they are, so they may stay pseudonymous. Nobody is listed yet."
       }
     },
-    "cliniciansLink": "How clinicians will work with Diplodoctor",
     "identity": {
       "problem": "The problem",
       "solution": "What we built",
@@ -144,7 +149,8 @@
       "lede": "Diplodoctor is the health layer of the fleet: OrangeCat is its economy, Loki builds it and Solon decides how it is governed.",
       "more": "See the ecosystem",
       "cta": "Read a report"
-    }
+    },
+    "peopleLink": "How people can help"
   },
   "Reports": {
     "title": "My reports",
@@ -187,7 +193,7 @@
     "openSettings": "Open model settings",
     "byHand": {
       "title": "File it by hand",
-      "body": "No reading, but the document and its date are kept together, and the file can be handed to a clinician. Already have a report file?",
+      "body": "No reading, but the document and its date are kept together, and the file can be handed to a person you choose. Already have a report file?",
       "import": "Import it",
       "about": "What is it?",
       "provider": "Who issued it?",
@@ -276,75 +282,14 @@
     "docTitle": "The document",
     "language": "Language",
     "whoEyebrow": "A person",
-    "whoTitle": "Want a doctor to look at it?",
-    "whoBody": "Diplodoctor explains; a licensed clinician decides what it means for you. Handing a report to a clinician is planned and not available yet: export the anonymised file and take it to your own doctor.",
-    "findClinician": "How clinicians will work with Diplodoctor",
-    "exportAnon": "Export for a clinician (anonymised)",
+    "whoTitle": "Want a person to look at it?",
+    "whoBody": "Diplodoctor's AI explains. A person can tell you more: a health assistant for their view and experience, or a licensed professional for medical advice. Handing a report to a person here is planned and not available yet: export the anonymised file and take it to anyone you trust, or to your own doctor.",
+    "findClinician": "How people can help",
+    "exportAnon": "Export anonymised, to share with a person",
     "export": "Export the full report",
     "saveCopy": "Save a copy to my reports",
     "delete": "Delete",
     "deleteConfirm": "Delete this report from this browser? This cannot be undone."
-  },
-  "Clinicians": {
-    "metaTitle": "Clinicians",
-    "metaDescription": "How licensed clinicians and patient assistants will work with Diplodoctor.",
-    "eyebrow": "Clinicians",
-    "title": "A doctor behind the answer",
-    "lead": "Diplodoctor explains a report. Diagnosis, treatment and prescriptions are reserved by law to licensed clinicians, and that line is not ours to move. This is how the people on the other side of it will work with you.",
-    "noneTitle": "Nobody is listed yet",
-    "noneBody": "No clinician or assistant has joined, so none is shown. There are no invented profiles, ratings or waiting times here, and there will not be. Until then, export the anonymised file and take it to your own doctor.",
-    "listedUnder": "Listed under {identity}",
-    "clinician": {
-      "name": "Licensed clinician",
-      "identity": "their real name and licence number",
-      "does1": "Advises on what a result means for you",
-      "does2": "Diagnoses and treats within the licence they hold",
-      "does3": "Signs the answer they give you",
-      "doesNot": "Does not work outside the places they are licensed.",
-      "checks": "A licence is verified privately; the name is shown to you when you choose to engage."
-    },
-    "assistant": {
-      "name": "Patient assistant",
-      "identity": "a name or a pseudonym",
-      "does1": "Explains a report in plain words and in your language",
-      "does2": "Helps you prepare an appointment and gather documents",
-      "does3": "Helps with insurer and clinic paperwork",
-      "doesNot": "Does not diagnose, treat, prescribe or give medical advice.",
-      "checks": "Always labelled as an assistant, never as a clinician."
-    },
-    "wantTitle": "Want to offer this?",
-    "wantBody": "Clinicians and assistants offer their work as services on OrangeCat and are paid there by the person they help. Diplodoctor will add the label and the licence check; that part is not built yet.",
-    "offer": "Offer a service on OrangeCat",
-    "seeRoadmap": "See the roadmap",
-    "clinic": {
-      "eyebrow": "For clinics and practices",
-      "title": "Your patients' reports, read before the appointment",
-      "lead": "A clinic can use Diplodoctor the way a patient does, and later on its own terms:",
-      "c1": "Patients arrive with their results read and their questions written.",
-      "c2": "A patient hands you their file by choice, anonymised until they decide otherwise.",
-      "c3": "Run on a model inside your own walls, so patient data never leaves the practice.",
-      "status": "Planned. Nothing here is available to clinics yet; it is on the roadmap."
-    },
-    "rulesTitle": "Rules that do not bend",
-    "rules": {
-      "label": {
-        "title": "Everyone is labelled",
-        "body": "A clinician is shown as a clinician and an assistant as an assistant. The label is not a marketing choice; it is the law's line."
-      },
-      "pseudonym": {
-        "title": "Who may be pseudonymous",
-        "body": "Patients and assistants may use a pseudonym. A clinician's licence is verified privately and their real name shown to a patient on engagement."
-      },
-      "share": {
-        "title": "You decide what leaves",
-        "body": "A clinician receives the anonymised file unless you choose to share more. Nothing is sent without your action."
-      },
-      "place": {
-        "title": "Licensed where you are",
-        "body": "Only a clinician licensed in your place of treatment may advise or treat you there."
-      }
-    },
-    "start": "Read a report"
   },
   "Settings": {
     "metaTitle": "Settings",
@@ -444,9 +389,13 @@
       "name": "Connect your records",
       "body": "Swiss and European records as they are held: the electronic patient record (EPD), hospital portals and laboratory PDFs, not only US providers."
     },
-    "clinicians": {
-      "name": "A licensed clinician signs the answer",
-      "body": "A doctor admitted where you are reads your anonymised file, corrects it and signs it, and is paid for that through OrangeCat."
+    "people": {
+      "name": "Ask a person, of your choice",
+      "body": "Health assistants, anyone under a name or a pseudonym, shown with how helpful people found them, and licensed professionals offer their help as OrangeCat services, paid in any currency."
+    },
+    "licence": {
+      "name": "Prove a licence without revealing who you are",
+      "body": "A licensed professional shows with a zero-knowledge proof that their licence is valid, and can stay pseudonymous."
     },
     "matters": {
       "name": "A health matter, worked by an agent",
@@ -471,7 +420,7 @@
       "title": "Why it is built this way",
       "p1": "A lab report is a table of numbers with a range printed beside each. The hard part for a person is not the table; it is knowing what to ask, and trusting the answer.",
       "p2": "A language model is good at reading the table and at saying in plain words what a measurement is for. It is the wrong tool for deciding whether 5.8 is above 5.6. So the model reads, and code compares.",
-      "p3": "And only a licensed clinician may say what a result means for you. Diplodoctor is built to prepare that conversation, not to replace it."
+      "p3": "And only a licensed professional may give medical advice where you are treated. A person who is not licensed can still help, and the product says what each one is. Diplodoctor is built to prepare that conversation, not to replace it."
     },
     "architecture": {
       "kicker": "Architecture",
@@ -565,7 +514,7 @@
     "next": {
       "kicker": "Next",
       "title": "Where it goes",
-      "lede": "Health matters worked by an agent, and a licensed clinician who signs the answer. What is built and what is not is on the roadmap, in that order.",
+      "lede": "Health matters worked by an agent, and people you choose to help: assistants, and licensed professionals who can prove their licence without revealing who they are. What is built and what is not is on the roadmap, in that order.",
       "roadmap": "Read the roadmap",
       "ecosystem": "The ecosystem",
       "source": "Source code"
@@ -652,7 +601,7 @@
       },
       "pay": {
         "title": "Paid on OrangeCat",
-        "body": "Clinicians and assistants will offer their work as OrangeCat services and be paid there."
+        "body": "Assistants and licensed professionals will offer their work as OrangeCat services and be paid there, in any currency."
       },
       "build": {
         "title": "Built with Loki",
@@ -669,5 +618,66 @@
       "body": "Reading a report needs none, and nothing about it is on our server. When health matters arrive, the same OrangeCat account that opens the rest of the fleet will open them.",
       "cta": "Read a report"
     }
+  },
+  "People": {
+    "metaTitle": "People who help",
+    "metaDescription": "Health assistants and licensed professionals: how people will help alongside Diplodoctor, and what each is allowed to say.",
+    "eyebrow": "People",
+    "title": "A person, when you want one",
+    "lead": "Diplodoctor's AI explains a report. You may want a person as well. There are two kinds, and the difference is not a ranking: it is who is allowed to say what, and who vouches for them. Either way, you decide whom to ask.",
+    "noneTitle": "Nobody is listed yet",
+    "noneBody": "No assistant or professional has joined, so none is shown. There are no invented profiles, ratings or waiting times here, and there will not be. Until then, export the anonymised file and take it to anyone you trust, or to your own doctor.",
+    "listedUnder": "Listed under {identity}",
+    "assistant": {
+      "name": "Health assistant",
+      "identity": "a name or a pseudonym",
+      "does1": "Explains a report in plain words and in your language",
+      "does2": "Gives their experience and their view of what to ask or try, for a price they set",
+      "does3": "Helps with appointments, paperwork and insurers",
+      "doesNot": "What they say is a person's opinion, not medical advice from a professional licensed where you are. They may or may not hold a health qualification, and say so on their profile.",
+      "checks": "How helpful people found them is shown on their profile, from the people they helped. You make your own decision about whom to ask."
+    },
+    "licensed": {
+      "name": "Licensed professional",
+      "identity": "a verified licence, and a name or a pseudonym",
+      "does1": "Advises on what a result means for you",
+      "does2": "Diagnoses and treats within the licence they hold",
+      "does3": "Signs the answer they give you",
+      "doesNot": "Only in the places they are licensed.",
+      "checks": "Their licence is checked against the public register. With a zero-knowledge proof they can show it is valid without showing who they are. Planned."
+    },
+    "wantTitle": "Want to offer this?",
+    "wantBody": "Anyone can offer their work as a service on OrangeCat and is paid there by the person they help, in any currency. Diplodoctor will add the labels, the licence check and the record of how helpful people were; none of that is built yet.",
+    "offer": "Offer a service on OrangeCat",
+    "seeRoadmap": "See the roadmap",
+    "clinic": {
+      "eyebrow": "For clinics and practices",
+      "title": "Your patients' reports, read before the appointment",
+      "lead": "A clinic can use Diplodoctor the way a patient does, and later on its own terms:",
+      "c1": "Patients arrive with their results read and their questions written.",
+      "c2": "A patient hands you their file by choice, anonymised until they decide otherwise.",
+      "c3": "Run on a model inside your own walls, so patient data never leaves the practice.",
+      "status": "Planned. Nothing here is available to clinics yet; it is on the roadmap."
+    },
+    "rulesTitle": "Rules that do not bend",
+    "rules": {
+      "label": {
+        "title": "Everyone is labelled",
+        "body": "An assistant is shown as an assistant and a licensed professional as one. The label says what they are allowed to do; it does not say who is better."
+      },
+      "pseudonym": {
+        "title": "Names are optional on every side",
+        "body": "Patients, assistants and licensed professionals may all use a pseudonym. A licence can be proven without revealing who holds it (planned)."
+      },
+      "share": {
+        "title": "You decide what leaves",
+        "body": "A person receives the anonymised file unless you choose to share more. Nothing is sent without your action."
+      },
+      "place": {
+        "title": "Advice counts where it is licensed",
+        "body": "Medical advice, diagnosis and treatment can only come from someone licensed where you are treated. An assistant's view is something else, and is always labelled as such."
+      }
+    },
+    "start": "Read a report"
   }
 }

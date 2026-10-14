@@ -33,9 +33,14 @@ Repo-only notes live below this line.
   the code, the tests, the sample or a commit message. `lib/sample.ts` is
   invented.
 - **Information, not diagnosis.** Do not weaken the system prompt's refusal to
-  diagnose, advise on a medicine, or reassure, and do not blur the
-  assistant/clinician line on `/clinicians`: who may diagnose and treat is set
-  by law, not by us.
+  diagnose, advise on a medicine, or reassure. There are three kinds of help (any
+  AI model, a health assistant, a licensed professional) and the labels on
+  `/people` say what each is allowed to do. An assistant is anyone, evaluated by
+  the people they helped, whose view is an opinion; a licensed professional's
+  licence is verified and may be proven by a zero-knowledge proof so they can stay
+  pseudonymous. Do not blur those labels: who may give medical advice where the
+  patient is treated is set by law, not by us. There is no "Diplodoctor model" —
+  the AI is whichever model answers; never write copy that implies a proprietary one.
 - **The model reads; code decides.** A flag comes from `computeFlag` in
   `lib/report.ts`, and `attention` can never be lower than `attentionFloor`
   implies. Do not move either decision back into the prompt.
@@ -43,8 +48,21 @@ Repo-only notes live below this line.
   browser stores and Export writes. Change the zod schema, not a copy of it.
 - The model call is `@bitbaum/ai-kit`'s `complete()` in `lib/analyze.ts`. Do not
   add a vendor SDK, a hand-rolled fetch to a model, or a pinned model id.
-- Design is `@bitbaum/design-tokens`; `app/globals.css` defines no token. Whether
-  a capability works today is decided only in `lib/capabilities.ts`.
+- **The look is `app/theme.css` and nothing else.** Colour, faces, radii, headline
+  case and action style are values there; components use semantic tokens only
+  (`bg-surface-base`, `text-fg-secondary`, `rounded-surface`, `bg-accent`), never a
+  hex, a palette colour or a one-off radius. `lib/theme.test.ts` enforces AA contrast
+  in light and dark, so restyling is safe. The owner asked (2026-10-14) that Diplodoctor
+  look different from OrangeCat/Loki/Solon (light, calm, not black and orange) and that a
+  change like "red and white" or "more gothic" stays a one-file edit; keep it so.
+  `globals.css` defines no token of its own. Whether a capability works today is decided
+  only in `lib/capabilities.ts`.
+- **Zero-knowledge proofs are the fleet's ethos, applied here where an identity would
+  otherwise be exposed:** proving a licence without revealing who holds it, and later other
+  claims. They are planned; no page may say they exist until they do.
+- Diplodoctor and Causius (and the accounting product later) approach the same problems the
+  same way and are built the same way, so they coexist: same packages, same privacy
+  pattern, same three kinds of help. They differ in their theme and their domain.
 - Nothing is claimed on a page unless it is true today. No invented clinicians,
   ratings or testimonials.
 - `ROADMAP.md` and `CHANGELOG.md` are the public record; Loki's fleet map

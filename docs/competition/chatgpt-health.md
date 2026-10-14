@@ -47,12 +47,20 @@ These are OpenAI's words to its own model, and each one is a limit:
 We do not try to out-aggregate Apple and OpenAI on wearables. We win where
 their design stops.
 
-1. **A licensed clinician stands behind the answer.** The AI prepares a case
-   file; a doctor admitted in Switzerland (later: in the reader's country)
-   reads it, corrects it and signs it, and is paid for that through OrangeCat.
-   Diagnosis and prescription are reserved to licensed doctors by law, the
-   same line Causius keeps between assistant and lawyer. ChatGPT Health can
-   never cross it; we are built on it.
+1. **A person stands behind the answer, of your choosing.** The AI prepares a
+   file; you may hand it to a health assistant (anyone, under a name or a
+   pseudonym, whose helpfulness is shown from the people they helped, who might
+   be a doctor from another country charging a fraction of a Swiss fee, and
+   whose view is an opinion, not medical advice) or to a licensed professional
+   (admitted where you are, who signs the answer). Either is paid through
+   OrangeCat, in any currency. Diagnosis and prescription are reserved to
+   licensed professionals by law, the same line Causius keeps between assistant
+   and lawyer. ChatGPT Health has no person in it at all; we are built on the
+   choice. A licensed professional can prove their licence with a zero-knowledge
+   proof and stay pseudonymous (planned).
+1a. **Any model.** There is no Diplodoctor model. The reading runs on whichever
+   model answers, from a shared free chain or the reader's own key; ChatGPT
+   Health is OpenAI's, on OpenAI's.
 2. **Swiss and European records, starting with paper.** Most Swiss patients
    hold their results as PDFs and printouts. Photograph or upload a lab report,
    and every value comes out with its unit, reference range, flag and the line

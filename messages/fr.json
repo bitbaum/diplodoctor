@@ -1,12 +1,11 @@
 {
   "Meta": {
     "title": "Diplodoctor — comprenez vos rapports médicaux",
-    "description": "Diplodoctor lit un rapport de laboratoire avec vous : chaque valeur, celles qui sortent de leur intervalle et ce qu'il faut demander à votre médecin. Quand vous voulez une personne, un professionnel de santé autorisé."
+    "description": "Diplodoctor lit un rapport de laboratoire avec vous : chaque valeur, celles qui sortent de leur intervalle et ce qu'il faut demander. N'importe quel modèle d'IA et, quand vous voulez une personne, un assistant de santé ou un professionnel de santé autorisé de votre choix."
   },
   "Nav": {
     "main": "Navigation principale",
     "reports": "Mes rapports",
-    "clinicians": "Cliniciens",
     "settings": "Réglages",
     "new": "Lire un rapport",
     "beta": "Bêta",
@@ -15,10 +14,12 @@
     "security": "Sécurité",
     "ecosystem": "Écosystème",
     "menu": "Menu",
-    "skip": "Aller au contenu"
+    "skip": "Aller au contenu",
+    "people": "Personnes",
+    "dark": "Mode sombre"
   },
   "Footer": {
-    "tagline": "La couche santé de la flotte : un agent qui lit le rapport, et un médecin qui décide.",
+    "tagline": "La couche santé de la flotte : un agent qui lit le rapport, et les personnes que vous choisissez pour vous aider.",
     "sections": {
       "product": "Produit",
       "platform": "Plateforme",
@@ -27,7 +28,6 @@
     "links": {
       "reports": "Mes rapports",
       "new": "Lire un rapport",
-      "clinicians": "Cliniciens",
       "settings": "Réglages",
       "platform": "Comment c'est construit",
       "security": "Sécurité",
@@ -37,7 +37,8 @@
       "source": "Code source",
       "license": "Licence MIT",
       "orangecat": "Diplodoctor sur OrangeCat",
-      "solon": "Diplodoctor sur Solon"
+      "solon": "Diplodoctor sur Solon",
+      "people": "Des personnes qui aident"
     },
     "disclaimer": "Bêta : en service, pas encore publié. Diplodoctor donne de l'information de santé, pas un diagnostic, et n'est ni un dispositif médical ni un substitut à un médecin. En cas d'urgence, appelez votre numéro d'urgence.",
     "openSource": "Open source sous licence MIT. Construit à Zurich.",
@@ -45,7 +46,7 @@
   },
   "Home": {
     "hero": {
-      "kicker": "La médecine, avec un médecin dans la boucle",
+      "kicker": "Ouvert, privé, et l'aide de votre choix",
       "line1": "Vos résultats,",
       "line2": "lus avec vous.",
       "lede": "Ajoutez un rapport de laboratoire en texte ou en photo. Diplodoctor liste chaque valeur, vérifie lesquelles sortent de leur intervalle imprimé, explique ce qu'elles mesurent et rédige les questions à poser à votre médecin. Votre nom ne quitte jamais votre navigateur.",
@@ -88,8 +89,8 @@
         "body": "Chaque valeur avec son unité et son intervalle imprimé, la ligne d'où elle a été lue, et un marquage issu de la comparaison des nombres, pas de l'opinion d'un modèle."
       },
       "ask": {
-        "title": "Vous l'apportez à un médecin",
-        "body": "Une information en langage clair sur ce qui sort de l'intervalle, des questions à poser, et le rapport sous une forme que vous pouvez exporter ou remettre à un professionnel de santé."
+        "title": "Vous l'apportez à une personne",
+        "body": "Une information en langage clair sur ce qui sort de l'intervalle, des questions à poser, et le rapport sous une forme que vous pouvez exporter et partager avec qui vous voulez."
       }
     },
     "privacy": {
@@ -116,22 +117,26 @@
       "roadmap": "Lire la feuille de route",
       "changelog": "Lire le journal des modifications"
     },
-    "tiersTitle": "Deux formes d'aide, et une frontière honnête entre elles",
-    "tiersLead": "La plupart des résultats demandent des explications, pas un traitement. Certains demandent un médecin. Diplodoctor garde la différence visible et ne prétend jamais être le second.",
+    "tiersTitle": "Trois formes d'aide, et une frontière honnête entre elles",
+    "tiersLead": "La plupart des résultats demandent des explications, pas un traitement. Vous choisissez qui explique : n'importe quel modèle d'IA, une personne qui veut aider, ou un professionnel de santé autorisé. Diplodoctor étiquette chacun pour ce qu'il est et ne laisse jamais l'un passer pour un autre.",
     "tiers": {
       "kicker": "Qui fait quoi",
       "ai": {
-        "name": "L'IA de Diplodoctor",
-        "can": "Lit, liste chaque valeur, signale ce qui sort de l'intervalle, explique ce que cela mesure et rédige des questions pour votre rendez-vous.",
-        "limit": "Ne pose pas de diagnostic, ne prescrit pas et ne vous dit pas qu'un résultat n'a rien d'inquiétant."
+        "name": "N’importe quel modèle d’IA",
+        "can": "Lit le rapport, liste chaque valeur, signale ce qui sort de l'intervalle, explique ce que cela mesure et rédige des questions pour votre rendez-vous. Il tourne sur des modèles gratuits partagés ou sur votre propre clé ; rien ici n'est lié à un seul fournisseur.",
+        "limit": "C'est un logiciel. Il ne pose pas de diagnostic, ne prescrit pas et ne vous dit pas qu'un résultat n'a rien d'inquiétant."
       },
-      "clinician": {
+      "assistant": {
+        "name": "Un assistant de santé",
+        "can": "Toute personne qui veut aider, sous un nom ou un pseudonyme : une infirmière, un médecin d'un autre pays, quelqu'un qui a vécu le même résultat. Elle explique, traduit, vous aide à vous préparer et donne son avis, pour un prix qu'elle fixe.",
+        "limit": "Son avis est l'opinion d'une personne, pas un conseil médical d'un professionnel autorisé là où vous êtes. L'utilité que les gens lui ont trouvée est affichée. Vous décidez à qui demander."
+      },
+      "licensed": {
         "name": "Un professionnel de santé autorisé",
-        "can": "Regarde votre dossier et vous dit ce qu'il signifie pour vous, vous conseille et, là où la loi le permet, vous soigne.",
-        "limit": "Prévu. Personne n'est encore répertorié, et la page le dit."
+        "can": "Un médecin ou un autre professionnel de santé dont l'autorisation est vérifiée, dans les lieux où il est autorisé. Il peut y conseiller, poser un diagnostic et soigner.",
+        "limit": "Prévu. Son autorisation peut être prouvée sans révéler qui il est, il peut donc rester sous pseudonyme. Personne n'est encore répertorié."
       }
     },
-    "cliniciansLink": "Comment les professionnels de santé travailleront avec Diplodoctor",
     "identity": {
       "problem": "Le problème",
       "solution": "Ce que nous avons construit",
@@ -144,7 +149,8 @@
       "lede": "Diplodoctor est la couche santé de la flotte : OrangeCat en est l'économie, Loki le construit et Solon décide de sa gouvernance.",
       "more": "Voir l'écosystème",
       "cta": "Lire un rapport"
-    }
+    },
+    "peopleLink": "Comment des personnes peuvent aider"
   },
   "Reports": {
     "title": "Mes rapports",
@@ -187,7 +193,7 @@
     "openSettings": "Ouvrir les réglages du modèle",
     "byHand": {
       "title": "Classer à la main",
-      "body": "Pas de lecture, mais le document et sa date restent ensemble, et le dossier peut être remis à un professionnel de santé. Vous avez déjà un fichier de rapport ?",
+      "body": "Pas de lecture, mais le document et sa date restent ensemble, et le dossier peut être remis à une personne de votre choix. Vous avez déjà un fichier de rapport ?",
       "import": "Importez-le",
       "about": "De quoi s'agit-il ?",
       "provider": "Qui l'a établi ?",
@@ -276,75 +282,14 @@
     "docTitle": "Le document",
     "language": "Langue",
     "whoEyebrow": "Une personne",
-    "whoTitle": "Envie qu'un médecin le regarde ?",
-    "whoBody": "Diplodoctor explique ; un professionnel de santé autorisé décide de ce que cela signifie pour vous. Remettre un rapport à un professionnel de santé est prévu mais pas encore disponible : exportez le fichier anonymisé et apportez-le à votre propre médecin.",
-    "findClinician": "Comment les professionnels de santé travailleront avec Diplodoctor",
-    "exportAnon": "Exporter pour un professionnel de santé (anonymisé)",
+    "whoTitle": "Envie qu'une personne le regarde ?",
+    "whoBody": "L'IA de Diplodoctor explique. Une personne peut vous en dire plus : un assistant de santé pour son avis et son expérience, ou un professionnel de santé autorisé pour un conseil médical. Remettre un rapport à une personne ici est prévu mais pas encore disponible : exportez le fichier anonymisé et apportez-le à quelqu'un en qui vous avez confiance, ou à votre propre médecin.",
+    "findClinician": "Comment des personnes peuvent aider",
+    "exportAnon": "Exporter anonymisé, à partager avec une personne",
     "export": "Exporter le rapport complet",
     "saveCopy": "Enregistrer une copie dans mes rapports",
     "delete": "Supprimer",
     "deleteConfirm": "Supprimer ce rapport de ce navigateur ? Cette action est irréversible."
-  },
-  "Clinicians": {
-    "metaTitle": "Cliniciens",
-    "metaDescription": "Comment les professionnels de santé autorisés et les accompagnants de patients travailleront avec Diplodoctor.",
-    "eyebrow": "Cliniciens",
-    "title": "Un médecin derrière la réponse",
-    "lead": "Diplodoctor explique un rapport. Le diagnostic, le traitement et les prescriptions sont réservés par la loi aux professionnels de santé autorisés, et cette frontière n'est pas à nous de la déplacer. Voici comment les personnes de l'autre côté travailleront avec vous.",
-    "noneTitle": "Personne n'est encore répertorié",
-    "noneBody": "Aucun professionnel de santé ni accompagnant n'a rejoint la plateforme, donc aucun n'est affiché. Il n'y a ici ni profils inventés, ni évaluations, ni délais d'attente, et il n'y en aura pas. D'ici là, exportez le fichier anonymisé et apportez-le à votre propre médecin.",
-    "listedUnder": "Répertorié sous {identity}",
-    "clinician": {
-      "name": "Professionnel de santé autorisé",
-      "identity": "son vrai nom et son numéro d'autorisation",
-      "does1": "Vous conseille sur ce qu'un résultat signifie pour vous",
-      "does2": "Pose un diagnostic et soigne dans le cadre de l'autorisation qu'il détient",
-      "does3": "Signe la réponse qu'il vous donne",
-      "doesNot": "N'exerce pas en dehors des lieux où il est autorisé.",
-      "checks": "L'autorisation est vérifiée en privé ; le nom vous est montré lorsque vous choisissez de faire appel à lui."
-    },
-    "assistant": {
-      "name": "Accompagnant de patients",
-      "identity": "un nom ou un pseudonyme",
-      "does1": "Explique un rapport en mots simples et dans votre langue",
-      "does2": "Vous aide à préparer un rendez-vous et à réunir des documents",
-      "does3": "Aide pour les démarches auprès des assureurs et des cliniques",
-      "doesNot": "Ne pose pas de diagnostic, ne soigne pas, ne prescrit pas et ne donne pas de conseil médical.",
-      "checks": "Toujours indiqué comme accompagnant, jamais comme professionnel de santé."
-    },
-    "wantTitle": "Envie de proposer ce service ?",
-    "wantBody": "Les professionnels de santé et les accompagnants proposent leur travail comme services sur OrangeCat et y sont payés par la personne qu'ils aident. Diplodoctor ajoutera l'étiquette et la vérification de l'autorisation ; cette partie n'est pas encore construite.",
-    "offer": "Proposer un service sur OrangeCat",
-    "seeRoadmap": "Voir la feuille de route",
-    "clinic": {
-      "eyebrow": "Pour les cliniques et cabinets",
-      "title": "Les rapports de vos patients, lus avant le rendez-vous",
-      "lead": "Une clinique peut utiliser Diplodoctor comme un patient le fait, et plus tard selon ses propres conditions :",
-      "c1": "Les patients arrivent avec leurs résultats lus et leurs questions rédigées.",
-      "c2": "Un patient vous remet son dossier par choix, anonymisé tant qu'il n'en décide pas autrement.",
-      "c3": "Exécuté sur un modèle dans vos propres murs, afin que les données des patients ne quittent jamais le cabinet.",
-      "status": "Prévu. Rien ici n'est encore disponible pour les cliniques ; c'est sur la feuille de route."
-    },
-    "rulesTitle": "Des règles qui ne plient pas",
-    "rules": {
-      "label": {
-        "title": "Chacun est étiqueté",
-        "body": "Un professionnel de santé est présenté comme tel et un accompagnant comme accompagnant. L'étiquette n'est pas un choix marketing ; c'est la frontière fixée par la loi."
-      },
-      "pseudonym": {
-        "title": "Qui peut être sous pseudonyme",
-        "body": "Les patients et les accompagnants peuvent utiliser un pseudonyme. L'autorisation d'un professionnel de santé est vérifiée en privé et son vrai nom est montré au patient lors de l'engagement."
-      },
-      "share": {
-        "title": "Vous décidez de ce qui sort",
-        "body": "Un professionnel de santé reçoit le fichier anonymisé, sauf si vous choisissez d'en partager davantage. Rien n'est envoyé sans votre action."
-      },
-      "place": {
-        "title": "Autorisé là où vous êtes",
-        "body": "Seul un professionnel de santé autorisé à exercer dans votre lieu de traitement peut vous y conseiller ou vous y soigner."
-      }
-    },
-    "start": "Lire un rapport"
   },
   "Settings": {
     "metaTitle": "Réglages",
@@ -444,9 +389,13 @@
       "name": "Connecter vos dossiers",
       "body": "Les dossiers suisses et européens tels qu'ils sont tenus : le dossier électronique du patient (DEP), les portails hospitaliers et les PDF de laboratoire, pas seulement les prestataires américains."
     },
-    "clinicians": {
-      "name": "Un professionnel de santé autorisé signe la réponse",
-      "body": "Un médecin admis là où vous êtes lit votre dossier anonymisé, le corrige et le signe, et est rémunéré pour cela via OrangeCat."
+    "people": {
+      "name": "Demander à une personne, de votre choix",
+      "body": "Les assistants de santé, toute personne sous un nom ou un pseudonyme, affichés avec l'utilité que les gens leur ont trouvée, et les professionnels de santé autorisés proposent leur aide comme services OrangeCat, payés dans n'importe quelle monnaie."
+    },
+    "licence": {
+      "name": "Prouver une autorisation sans révéler qui vous êtes",
+      "body": "Un professionnel de santé autorisé montre par une preuve à divulgation nulle de connaissance que son autorisation est valide, et peut rester sous pseudonyme."
     },
     "matters": {
       "name": "Un dossier de santé, traité par un agent",
@@ -471,7 +420,7 @@
       "title": "Pourquoi il est construit ainsi",
       "p1": "Un rapport de laboratoire est un tableau de nombres avec un intervalle imprimé à côté de chacun. Le plus difficile pour une personne n'est pas le tableau ; c'est de savoir quoi demander, et de faire confiance à la réponse.",
       "p2": "Un modèle de langage lit bien le tableau et dit bien en mots simples à quoi sert une mesure. C'est le mauvais outil pour décider si 5,8 dépasse 5,6. Donc le modèle lit, et le code compare.",
-      "p3": "Et seul un professionnel de santé autorisé peut dire ce qu'un résultat signifie pour vous. Diplodoctor est conçu pour préparer cette conversation, pas pour la remplacer."
+      "p3": "Et seul un professionnel de santé autorisé peut donner un conseil médical là où vous êtes soigné. Une personne sans autorisation peut quand même aider, et le produit dit ce que chacun est. Diplodoctor est conçu pour préparer cette conversation, pas pour la remplacer."
     },
     "architecture": {
       "kicker": "Architecture",
@@ -565,7 +514,7 @@
     "next": {
       "kicker": "Suite",
       "title": "Où cela va",
-      "lede": "Des dossiers de santé traités par un agent, et un professionnel de santé autorisé qui signe la réponse. Ce qui est construit et ce qui ne l'est pas figure sur la feuille de route, dans cet ordre.",
+      "lede": "Des dossiers de santé traités par un agent, et des personnes que vous choisissez pour vous aider : des assistants, et des professionnels de santé autorisés qui peuvent prouver leur autorisation sans révéler qui ils sont. Ce qui est construit et ce qui ne l'est pas figure sur la feuille de route, dans cet ordre.",
       "roadmap": "Lire la feuille de route",
       "ecosystem": "L'écosystème",
       "source": "Code source"
@@ -652,7 +601,7 @@
       },
       "pay": {
         "title": "Payé sur OrangeCat",
-        "body": "Les professionnels de santé et les accompagnants proposeront leur travail comme services OrangeCat et y seront payés."
+        "body": "Les assistants et les professionnels de santé autorisés proposeront leur travail comme services OrangeCat et y seront payés, dans n'importe quelle monnaie."
       },
       "build": {
         "title": "Construit avec Loki",
@@ -669,5 +618,66 @@
       "body": "Lire un rapport n'en demande aucun, et rien à son sujet n'est sur notre serveur. Quand les dossiers de santé arriveront, le même compte OrangeCat qui ouvre le reste de la flotte les ouvrira.",
       "cta": "Lire un rapport"
     }
+  },
+  "People": {
+    "metaTitle": "Des personnes qui aident",
+    "metaDescription": "Assistants de santé et professionnels de santé autorisés : comment des personnes aideront aux côtés de Diplodoctor, et ce que chacun a le droit de dire.",
+    "eyebrow": "Personnes",
+    "title": "Une personne, quand vous en voulez une",
+    "lead": "L'IA de Diplodoctor explique un rapport. Vous voudrez peut-être aussi une personne. Il en existe deux sortes, et la différence n'est pas un classement : elle tient à qui a le droit de dire quoi, et à qui se porte garant d'elle. Dans les deux cas, vous décidez à qui demander.",
+    "noneTitle": "Personne n'est encore répertorié",
+    "noneBody": "Aucun assistant ni professionnel n'a rejoint la plateforme, donc aucun n'est affiché. Il n'y a ici ni profils inventés, ni évaluations, ni délais d'attente, et il n'y en aura pas. D'ici là, exportez le fichier anonymisé et apportez-le à quelqu'un en qui vous avez confiance, ou à votre propre médecin.",
+    "listedUnder": "Répertorié sous {identity}",
+    "assistant": {
+      "name": "Assistant de santé",
+      "identity": "un nom ou un pseudonyme",
+      "does1": "Explique un rapport en mots simples et dans votre langue",
+      "does2": "Donne son expérience et son avis sur ce qu'il faut demander ou essayer, pour un prix qu'il fixe",
+      "does3": "Aide pour les rendez-vous, les démarches et les assureurs",
+      "doesNot": "Ce qu'il dit est l'opinion d'une personne, pas un conseil médical d'un professionnel autorisé là où vous êtes. Il peut détenir ou non une qualification en santé, et l'indique sur son profil.",
+      "checks": "L'utilité que les gens lui ont trouvée est affichée sur son profil, d'après les personnes qu'il a aidées. Vous décidez vous-même à qui demander."
+    },
+    "licensed": {
+      "name": "Professionnel de santé autorisé",
+      "identity": "une autorisation vérifiée, et un nom ou un pseudonyme",
+      "does1": "Vous conseille sur ce qu'un résultat signifie pour vous",
+      "does2": "Pose un diagnostic et soigne dans le cadre de l'autorisation qu'il détient",
+      "does3": "Signe la réponse qu'il vous donne",
+      "doesNot": "Uniquement dans les lieux où il est autorisé.",
+      "checks": "Son autorisation est vérifiée auprès du registre public. Avec une preuve à divulgation nulle de connaissance, il peut montrer qu'elle est valide sans montrer qui il est. Prévu."
+    },
+    "wantTitle": "Envie de proposer ce service ?",
+    "wantBody": "Chacun peut proposer son travail comme service sur OrangeCat et y est payé par la personne qu'il aide, dans n'importe quelle monnaie. Diplodoctor ajoutera les étiquettes, la vérification de l'autorisation et le relevé de l'utilité que les gens ont trouvée ; rien de tout cela n'est encore construit.",
+    "offer": "Proposer un service sur OrangeCat",
+    "seeRoadmap": "Voir la feuille de route",
+    "clinic": {
+      "eyebrow": "Pour les cliniques et cabinets",
+      "title": "Les rapports de vos patients, lus avant le rendez-vous",
+      "lead": "Une clinique peut utiliser Diplodoctor comme un patient le fait, et plus tard selon ses propres conditions :",
+      "c1": "Les patients arrivent avec leurs résultats lus et leurs questions rédigées.",
+      "c2": "Un patient vous remet son dossier par choix, anonymisé tant qu'il n'en décide pas autrement.",
+      "c3": "Exécuté sur un modèle dans vos propres murs, afin que les données des patients ne quittent jamais le cabinet.",
+      "status": "Prévu. Rien ici n'est encore disponible pour les cliniques ; c'est sur la feuille de route."
+    },
+    "rulesTitle": "Des règles qui ne plient pas",
+    "rules": {
+      "label": {
+        "title": "Chacun est étiqueté",
+        "body": "Un assistant est présenté comme assistant et un professionnel de santé autorisé comme tel. L'étiquette dit ce qu'il a le droit de faire ; elle ne dit pas qui vaut mieux."
+      },
+      "pseudonym": {
+        "title": "Le nom est facultatif de tous les côtés",
+        "body": "Les patients, les assistants et les professionnels de santé autorisés peuvent tous utiliser un pseudonyme. Une autorisation peut être prouvée sans révéler qui la détient (prévu)."
+      },
+      "share": {
+        "title": "Vous décidez de ce qui sort",
+        "body": "Une personne reçoit le fichier anonymisé, sauf si vous choisissez d'en partager davantage. Rien n'est envoyé sans votre action."
+      },
+      "place": {
+        "title": "Un conseil compte là où il est autorisé",
+        "body": "Un conseil médical, un diagnostic et un traitement ne peuvent venir que de quelqu'un d'autorisé là où vous êtes soigné. L'avis d'un assistant est autre chose, et toujours étiqueté comme tel."
+      }
+    },
+    "start": "Lire un rapport"
   }
 }

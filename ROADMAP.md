@@ -2,8 +2,8 @@
 
 Where Diplodoctor is going, in the order it is going there. Diplodoctor is the
 health layer of the fleet: an agent that does the work on a sealed health file,
-a person who decides what leaves it, and licensed clinicians where the law
-reserves the work for them. It is built the way Causius is built, on the same
+a person who decides what leaves it, and the people they choose to help: assistants
+anyone can be, and licensed professionals where the law reserves the work for them. It is built the way Causius is built, on the same
 packages, for people (B2C) and for clinics and practices (B2B). Nothing below
 is dated on purpose, and nothing is described as built unless it is. Why this
 order: `docs/competition/chatgpt-health.md`.
@@ -31,7 +31,8 @@ A report in, a health file out, without an account.
 
 - [x] Names, birth dates, addresses, insurance, patient and order numbers replaced in the browser before a report is sent {#anonymise}
 - [x] Details covered on page photos before they are sent {#anonymise-photos}
-- [x] An anonymised file to hand to a clinician {#anonymise-export}
+- [x] An anonymised file to hand to a person you choose {#anonymise-export}
+- [ ] Zero-knowledge proofs wherever an identity would otherwise be exposed, starting with a licence {#zk}
 - [x] A strict content security policy and security headers {#security}
 - [ ] Read the text of a photographed page in the browser, so photos are anonymised automatically too
 - [ ] Model providers that contractually do not train on or retain what they are sent
@@ -40,11 +41,16 @@ A report in, a health file out, without an account.
 ### A legal opinion on the medical-device line {#mdr}
 
 Software that interprets one person's values may be a medical device under the
-Swiss MepV (which follows the EU MDR). "Information, not diagnosis", with a
-clinician who signs, is the design that keeps it clear of that; it needs a real
-opinion before the explanation step is public.
+Swiss MepV (which follows the EU MDR). "Information, not diagnosis", with
+medical advice left to people licensed where the patient is, is the design that
+keeps it clear of that; it needs a real opinion before the explanation step is promoted.
 
 - [ ] A written opinion on whether the explanation step is a medical device, before it is promoted
+
+### A look of its own {#look}
+
+- [x] A light, calm theme, dark on request, the whole look in one file {#theme}
+- [x] A test that keeps any theme readable (WCAG AA) {#theme-test}
 
 ### Say what Diplodoctor is, in one place {#identity}
 
@@ -72,13 +78,19 @@ drafts, and proposes anything outward for the owner to approve.
 - [ ] Caring for someone else, with their consent recorded and revocable
 - [ ] Bring a quick-check report into a matter in one step
 
-### A clinician in the loop {#clinicians}
+### People in the loop {#people}
 
-- [x] The rules: what the AI may say, what only a licensed clinician may, and who may be pseudonymous {#clinician-rules}
-- [ ] "Have a doctor look at it": a redacted file handed to a clinician admitted where the patient is, who signs the answer
-- [ ] Clinicians and patient assistants offer their work as OrangeCat services and are paid there
-- [ ] A clinician's licence checked against the public register before the label
-- [ ] Admission and labelling rules adopted by a recorded vote on Solon
+Three kinds of help, labelled for what each is: any AI model, a health assistant
+(anyone, under a name or a pseudonym, evaluated by the people they helped) and a
+licensed professional (a verified licence, which may be proven without revealing who
+holds it).
+
+- [x] The rules: what an AI model may say, what an assistant's view is, what only a licensed professional may give, and who may be pseudonymous {#people-rules}
+- [ ] "Have a person look at it": a redacted file handed to an assistant or a licensed professional you choose
+- [ ] Assistants and licensed professionals offer their work as OrangeCat services and are paid there, in any currency
+- [ ] How helpful people found an assistant, shown on their profile, from the people they helped
+- [ ] A licence proven with a zero-knowledge proof against the public register, so a licensed professional can stay pseudonymous
+- [ ] Admission, labelling and evaluation rules adopted by a recorded vote on Solon
 
 ### For clinics and practices {#clinics}
 
@@ -91,6 +103,7 @@ drafts, and proposes anything outward for the owner to approve.
 
 - [ ] The EPD (elektronisches Patientendossier)
 - [ ] Android Health Connect, Apple Health export, Garmin, Withings, Oura, when a matter needs them
-- [ ] Home diagnostics, ordered and read through a clinician
+- [ ] Home diagnostics, ordered and read through a licensed professional
 - [ ] Keys only the owner holds, so the operator cannot open a matter
-- [ ] More languages where there are readers
+- [ ] More languages where there are readers; the five already shipped are the Swiss three, English and Spanish
+- [ ] Look: more themes beside the first, one file each

@@ -9,35 +9,44 @@ type Params = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale: toLocale(locale), namespace: "Clinicians" });
+  const t = await getTranslations({ locale: toLocale(locale), namespace: "People" });
   return { title: t("metaTitle"), description: t("metaDescription") };
 }
 
 /**
  * NOBODY IS LISTED HERE YET, AND THE PAGE SAYS SO.
  *
- * A health site that fills this space with invented doctors, ratings and
+ * A health site that fills this space with invented helpers, ratings and
  * response times is not a demo, it is a person with a result they are afraid of
  * trying to book someone who does not exist. So: the rules, the roles, what a
  * clinic would get, and where to list yourself — and profiles only when there
  * are real ones.
  *
- * WHERE A CLINICIAN LIVES. Fleet STACK.md, "Identity": if an app needs
- * profiles, payments or a public presence, those live at OrangeCat, and
- * rebuilding them here is the same mistake in a different repo. A clinician is
- * an OrangeCat actor offering a service, paid there by the person they helped.
- * What Diplodoctor adds on top — the label, and checking a licence — is not
+ * TWO KINDS OF PERSON, NOT A LADDER. A health assistant is anyone who wants to
+ * help, under a name or a pseudonym, who may or may not hold a qualification
+ * and whose helpfulness is shown from the people they helped; what they say is
+ * their view, and the person asking decides whom to ask. A licensed
+ * professional has a verified licence, which is what the law requires for
+ * medical advice where the patient is, and can prove it without revealing who
+ * they are (zero-knowledge proofs; planned). The labels say what each is
+ * allowed to do, not who is better.
+ *
+ * WHERE THEY LIVE. Fleet STACK.md, "Identity": if an app needs profiles,
+ * payments or a public presence, those live at OrangeCat, and rebuilding them
+ * here is the same mistake in a different repo. A helper is an OrangeCat actor
+ * offering a service, paid there by the person they helped. What Diplodoctor
+ * adds on top — the labels, the licence check, the helpfulness record — is not
  * built yet, and the page says that too.
  */
-const ROLES = ["clinician", "assistant"] as const;
+const ROLES = ["assistant", "licensed"] as const;
 const RULES = ["label", "pseudonym", "share", "place"] as const;
 const DOES = ["does1", "does2", "does3"] as const;
 const CLINIC = ["c1", "c2", "c3"] as const;
 
-export default async function CliniciansPage({ params }: Params) {
+export default async function PeoplePage({ params }: Params) {
   const { locale } = await params;
   setRequestLocale(toLocale(locale));
-  const t = await getTranslations("Clinicians");
+  const t = await getTranslations("People");
   const inlineLink = `${link} inline-flex min-h-11 items-center`;
 
   return (
