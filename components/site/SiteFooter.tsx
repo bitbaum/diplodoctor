@@ -11,6 +11,7 @@ const SECTIONS = [
     links: [
       { key: "today", href: ROUTES.today },
       { key: "records", href: ROUTES.records },
+      { key: "ask", href: ROUTES.ask },
       { key: "new", href: ROUTES.newReport },
       { key: "people", href: ROUTES.people },
       { key: "settings", href: ROUTES.settings },

@@ -36,7 +36,7 @@ import { newId, parseReport, type ReportFile } from "./report";
 const ENV_PREFIX = "DIPLODOCTOR";
 
 /** Health is per process, so a vendor that just failed is skipped for everyone. */
-const health = createHealthTracker();
+export const health = createHealthTracker();
 
 const IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp"] as const;
 /** The languages the interface speaks; the analysis is written in the reader's. */

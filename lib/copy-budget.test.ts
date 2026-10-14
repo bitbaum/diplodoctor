@@ -26,6 +26,7 @@ const BUDGETS: Record<string, number> = {
   Today: 90,
   Records: 110,
   Add: 130,
+  Ask: 150,
   // A form: every line is something someone must read to proceed.
   NewReport: 380,
   // The result, around the values themselves.

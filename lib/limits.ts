@@ -32,6 +32,8 @@ export const limits = {
    */
   analyzeFree: slidingWindow({ limit: 8, windowMs: 60 * 60_000 }),
   analyzeOwn: slidingWindow({ limit: 60, windowMs: 60 * 60_000 }),
+  askFree: slidingWindow({ limit: 30, windowMs: 60 * 60_000 }),
+  askOwn: slidingWindow({ limit: 200, windowMs: 60 * 60_000 }),
   modelCheck: slidingWindow({ limit: 30, windowMs: 10 * 60_000 }),
   // A spoken take or a photographed page each cost a model call on the shared free tier.
   transcribe: slidingWindow({ limit: 40, windowMs: 10 * 60_000 }),

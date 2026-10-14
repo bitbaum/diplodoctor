@@ -19,7 +19,8 @@
     "account": "Account",
     "signIn": "Sign in",
     "today": "Today",
-    "records": "Records"
+    "records": "Records",
+    "ask": "Ask"
   },
   "Footer": {
     "tagline": "The health layer of the fleet: an agent that reads the report, and the people you choose to help.",
@@ -42,7 +43,8 @@
       "solon": "Diplodoctor on Solon",
       "people": "People who help",
       "today": "Today",
-      "records": "Records"
+      "records": "Records",
+      "ask": "Ask"
     },
     "disclaimer": "Beta: running, not released. Diplodoctor gives health information, not a diagnosis, and is not a medical device or a substitute for a doctor. In an emergency, call your emergency number.",
     "openSource": "Open source under the MIT licence. Built in Zürich.",
@@ -871,5 +873,44 @@
     "cancel": "Cancel",
     "error": "Fill in the required field.",
     "notFound": "That record is not on this device."
+  },
+  "Ask": {
+    "title": "Ask",
+    "subtitle": "Questions about your own file. Names are hidden before anything is sent.",
+    "placeholder": "Ask about your file",
+    "starters": {
+      "s1": "What stands out in my latest results?",
+      "s2": "What should I ask my doctor?",
+      "s3": "What do I take, and when?"
+    },
+    "empty": {
+      "title": "Nothing to ask about yet",
+      "body": "Add a report or a medicine first.",
+      "cta": "Add"
+    },
+    "thread": {
+      "copy": "Copy",
+      "copied": "Copied",
+      "retry": "Retry",
+      "stop": "Stop",
+      "working": "Writing the answer…",
+      "stopped": "Stopped",
+      "jump": "Jump to latest",
+      "failed": "That did not work",
+      "loading": "Loading…",
+      "replies": "Suggestions"
+    },
+    "composer": {
+      "send": "Send",
+      "stop": "Stop",
+      "queue": "Queue a message…"
+    },
+    "errors": {
+      "not_configured": "No model is available right now. Add your own key in Settings.",
+      "busy": "The free models are busy. Try again in a moment, or use your own key in Settings.",
+      "rate": "Too many questions for now. Try again later.",
+      "generic": "That did not work."
+    },
+    "disclaimer": "Information, not a diagnosis."
   }
 }

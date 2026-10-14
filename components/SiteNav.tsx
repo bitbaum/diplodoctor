@@ -10,6 +10,7 @@ import { ROUTES } from "@/lib/routes";
 const NAV = [
   { href: ROUTES.today, key: "today" },
   { href: ROUTES.records, key: "records" },
+  { href: ROUTES.ask, key: "ask" },
   { href: ROUTES.people, key: "people" },
 ] as const;
 
