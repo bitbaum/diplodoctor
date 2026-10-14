@@ -1,0 +1,73 @@
+name: Provision
+
+# One-off, by hand, idempotent: give Diplodoctor its Postgres role and database
+# and its box env (DATABASE_URL, BETTER_AUTH_SECRET) on the Hetzner host. The
+# same thing bitbaum/loki's scripts/hetzner/provision-db-on-box.sh does for a
+# new starter site, run here because this product predates it.
+#
+# Secrets are generated on the box and never leave it; the log names the
+# variables that are present, never a value. A value already in the env is
+# never replaced: rotating BETTER_AUTH_SECRET signs everyone out.
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  provision:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Create the role, database and env on the box
+        env:
+          SSH_KEY: ${{ secrets.HETZNER_SSH_PRIVATE_KEY }}
+        run: |
+          set -euo pipefail
+          IP=167.233.22.31
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/id && chmod 600 ~/.ssh/id
+          ssh-keyscan -H "$IP" >> ~/.ssh/known_hosts 2>/dev/null
+          ssh -i ~/.ssh/id -o BatchMode=yes "ubuntu@$IP" 'bash -s' <<'REMOTE'
+          set -euo pipefail
+          SLUG=diplodoctor; DB=diplodoctor
+          ENV_FILE="/opt/$SLUG/shared/.env"
+          CREDS="$HOME/.db-credentials"
+          umask 077
+          touch "$CREDS"; chmod 600 "$CREDS"
+          psql_su() { sudo -u postgres psql -v ON_ERROR_STOP=1 -qtAX "$@"; }
+          pass="$(grep "^$DB|" "$CREDS" | head -1 | cut -d'|' -f2 || true)"
+          if [ -z "$pass" ]; then
+            pass="$(openssl rand -hex 24)"
+            printf '%s|%s\n' "$DB" "$pass" >> "$CREDS"
+            new_password=1
+          else
+            new_password=0
+          fi
+          if [ -z "$(psql_su -c "select 1 from pg_roles where rolname = '$DB'")" ]; then
+            psql_su -c "create role \"$DB\" login password '$pass'"
+          elif [ "$new_password" = 1 ]; then
+            psql_su -c "alter role \"$DB\" password '$pass'"
+          fi
+          if [ -z "$(psql_su -c "select 1 from pg_database where datname = '$DB'")" ]; then
+            psql_su -c "create database \"$DB\" owner \"$DB\""
+          fi
+          psql_su -d "$DB" -c "alter schema public owner to \"$DB\""
+          sudo mkdir -p "/opt/$SLUG/shared"
+          sudo chown -R ubuntu:ubuntu "/opt/$SLUG"
+          # A product older than shared/ keeps its env in app/; carry it over once,
+          # so the model keys already there are not lost to the new file.
+          if [ ! -f "$ENV_FILE" ] && [ -f "/opt/$SLUG/app/.env" ]; then cp "/opt/$SLUG/app/.env" "$ENV_FILE"; fi
+          touch "$ENV_FILE"; chmod 600 "$ENV_FILE"
+          has() { grep -qE "^$1=" "$ENV_FILE"; }
+          add() { printf '%s=%s\n' "$1" "$2" >> "$ENV_FILE"; }
+          has DATABASE_URL       || add DATABASE_URL "postgresql://$DB:$pass@localhost:5432/$DB"
+          has BETTER_AUTH_SECRET || add BETTER_AUTH_SECRET "$(openssl rand -base64 48 | tr -d '\n')"
+          has NEXT_PUBLIC_APP_URL || add NEXT_PUBLIC_APP_URL "https://diplodoctor.orangecat.ch"
+          present=""
+          for k in DATABASE_URL BETTER_AUTH_SECRET NEXT_PUBLIC_APP_URL GROQ_API_KEY GEMINI_API_KEY OPENROUTER_API_KEY RESEND_API_KEY; do
+            has "$k" && present="$present $k"
+          done
+          echo "database $DB ready; $ENV_FILE has:$present"
+          REMOTE
+          rm -f ~/.ssh/id
