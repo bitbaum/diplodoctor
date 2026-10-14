@@ -1,0 +1,673 @@
+{
+  "Meta": {
+    "title": "Diplodoctor — capire i propri referti medici",
+    "description": "Diplodoctor legge con Lei un referto di laboratorio: ogni valore, quali sono fuori intervallo e cosa chiedere al medico. Quando desidera una persona, un medico abilitato."
+  },
+  "Nav": {
+    "main": "Principale",
+    "reports": "I miei referti",
+    "clinicians": "Medici",
+    "settings": "Impostazioni",
+    "new": "Leggere un referto",
+    "beta": "Beta",
+    "language": "Lingua",
+    "platform": "Piattaforma",
+    "security": "Sicurezza",
+    "ecosystem": "Ecosistema",
+    "menu": "Menu",
+    "skip": "Vai al contenuto"
+  },
+  "Footer": {
+    "tagline": "Il livello sanitario della flotta: un agente che legge il referto e un medico che decide.",
+    "sections": {
+      "product": "Prodotto",
+      "platform": "Piattaforma",
+      "open": "In chiaro"
+    },
+    "links": {
+      "reports": "I miei referti",
+      "new": "Leggere un referto",
+      "clinicians": "Medici",
+      "settings": "Impostazioni",
+      "platform": "Come è costruito",
+      "security": "Sicurezza",
+      "ecosystem": "Ecosistema",
+      "roadmap": "Roadmap",
+      "changelog": "Changelog",
+      "source": "Codice sorgente",
+      "license": "Licenza MIT",
+      "orangecat": "Diplodoctor su OrangeCat",
+      "solon": "Diplodoctor su Solon"
+    },
+    "disclaimer": "Beta: in funzione, non ancora pubblicato. Diplodoctor offre informazioni sulla salute, non una diagnosi, e non è un dispositivo medico né un sostituto del medico. In caso di emergenza chiami il numero di emergenza.",
+    "openSource": "Open source con licenza MIT. Costruito a Zurigo.",
+    "fleet": "La flotta"
+  },
+  "Home": {
+    "hero": {
+      "kicker": "La medicina, con un medico nel processo",
+      "line1": "I Suoi risultati,",
+      "line2": "letti insieme a Lei.",
+      "lede": "Aggiunga un referto di laboratorio come testo o foto. Diplodoctor elenca ogni valore, verifica quali sono fuori dall’intervallo stampato, spiega cosa misurano e scrive le domande da portare al medico. Il Suo nome non lascia mai il Suo browser.",
+      "open": "Leggere un referto",
+      "sample": "Vedere un esempio"
+    },
+    "example": {
+      "label": "Esempio",
+      "title": "Ferritina, un valore in un referto",
+      "s1": {
+        "tool": "Letto",
+        "text": "Ferritina 14 µg/L, intervallo 15 – 150"
+      },
+      "s2": {
+        "tool": "Verificato",
+        "text": "Sotto l’intervallo stampato — per calcolo aritmetico, non per opinione del modello"
+      },
+      "s3": {
+        "tool": "Prima",
+        "text": "22 µg/L a maggio 2026, in calo"
+      },
+      "s4": {
+        "tool": "Chiedere",
+        "text": "Dobbiamo cercare una causa e quando devo ripetere l’esame?"
+      },
+      "valueLabel": "Valore",
+      "value": "14 µg/L",
+      "rangeLabel": "Intervallo stampato",
+      "range": "15 – 150"
+    },
+    "how": {
+      "kicker": "Come funziona",
+      "title": "Un referto in ingresso, una pratica in uscita",
+      "add": {
+        "title": "Aggiunga il referto",
+        "body": "Incolli il testo o fotografi le pagine, in qualsiasi lingua. Nomi e numeri che La identificano vengono prima rimossi nel Suo browser."
+      },
+      "read": {
+        "title": "Legge ogni valore",
+        "body": "Ogni valore con la sua unità e il suo intervallo stampato, la riga da cui è stato letto e una segnalazione che deriva dal confronto dei numeri, non dall’opinione di un modello."
+      },
+      "ask": {
+        "title": "Lo porta a un medico",
+        "body": "Informazioni in linguaggio semplice su ciò che è fuori intervallo, domande da porre e il referto in una forma che può esportare o consegnare a un professionista sanitario."
+      }
+    },
+    "privacy": {
+      "kicker": "Privato per costruzione",
+      "title": "Una cartella clinica è Sua prima di essere qualsiasi altra cosa",
+      "cta": "Come è protetta",
+      "redact": {
+        "title": "I nomi restano a casa",
+        "body": "Il Suo nome, la data di nascita, i numeri di assicurazione e di ordine vengono sostituiti da segnaposto nel Suo browser. Il modello legge i segnaposto; il Suo browser rimette i valori reali."
+      },
+      "browser": {
+        "title": "Conservato sul Suo dispositivo",
+        "body": "I Suoi referti sono memorizzati in questo browser e da nessun’altra parte. Non c’è alcun account e nessuna copia sul nostro server."
+      },
+      "model": {
+        "title": "Il Suo modello, se lo desidera",
+        "body": "Per impostazione predefinita, modelli gratuiti condivisi. Oppure colleghi la Sua chiave per un modello più potente con il Suo budget; la chiave resta nel Suo browser."
+      }
+    },
+    "capabilities": {
+      "kicker": "Ciò che esiste",
+      "title": "Reale oggi, e cosa verrà",
+      "lede": "Ogni riga indica se funziona già. Nulla è presentato come funzionante se non lo è.",
+      "roadmap": "Leggere la roadmap",
+      "changelog": "Leggere il changelog"
+    },
+    "tiersTitle": "Due tipi di aiuto, e un confine onesto tra loro",
+    "tiersLead": "La maggior parte dei risultati richiede una spiegazione, non una cura. Alcuni richiedono un medico. Diplodoctor mantiene visibile la differenza e non finge mai di essere il secondo.",
+    "tiers": {
+      "kicker": "Chi fa cosa",
+      "ai": {
+        "name": "Diplodoctor AI",
+        "can": "Legge, elenca ogni valore, segnala ciò che è fuori intervallo, spiega cosa misura e prepara le domande per la Sua visita.",
+        "limit": "Non diagnostica, non prescrive e non Le dice che un risultato non è motivo di preoccupazione."
+      },
+      "clinician": {
+        "name": "Un medico abilitato",
+        "can": "Esamina la Sua pratica e Le dice cosa significa per Lei, Le dà consigli e, dove la legge lo consente, La cura.",
+        "limit": "Previsto. Per ora non è elencato nessuno, e la pagina lo dice."
+      }
+    },
+    "cliniciansLink": "Come lavoreranno i medici con Diplodoctor",
+    "identity": {
+      "problem": "Il problema",
+      "solution": "Cosa abbiamo costruito",
+      "mission": "Missione",
+      "vision": "Visione"
+    },
+    "fleet": {
+      "kicker": "Una tra molte della flotta",
+      "title": "Costruito sulle stesse basi degli altri",
+      "lede": "Diplodoctor è il livello sanitario della flotta: OrangeCat ne è l’economia, Loki lo costruisce e Solon decide come viene governato.",
+      "more": "Vedere l’ecosistema",
+      "cta": "Leggere un referto"
+    }
+  },
+  "Reports": {
+    "title": "I miei referti",
+    "subtitle": "Conservati in questo browser, su questo dispositivo.",
+    "import": "Importare un file di referto",
+    "new": "Leggere un referto",
+    "importError": "Questo file non è un file di referto Diplodoctor.",
+    "emptyTitle": "Ancora nessun referto",
+    "emptyBody": "Cominci da un referto di laboratorio in Suo possesso, oppure guardi prima un esempio svolto.",
+    "example": "Vedere l’esempio svolto",
+    "outside": "{outside} su {total} fuori intervallo"
+  },
+  "NewReport": {
+    "title": "Leggere un referto",
+    "lead": "Consegni il referto a Diplodoctor. Viene inviato, anonimizzato, a un fornitore di modelli di IA per essere letto e non viene conservato da Diplodoctor; il risultato resta solo in questo browser.",
+    "modelOwn": "Letto dal Suo modello, {model}.",
+    "modelFree": "Letto da modelli gratuiti condivisi, che variano e hanno un piccolo budget giornaliero.",
+    "modelFreeNoPhoto": "Letto da modelli gratuiti condivisi, che variano e hanno un piccolo budget giornaliero. Per ora possono leggere il testo incollato ma non le foto.",
+    "modelOff": "I modelli gratuiti condivisi al momento non sono attivi. Colleghi il Suo modello per leggere un referto, oppure lo archivi a mano qui sotto.",
+    "change": "Cambiare",
+    "useOwn": "Usare il proprio modello",
+    "textLabel": "Il testo del referto",
+    "textPlaceholder": "Lo incolli qui, in qualsiasi lingua.",
+    "photoLabel": "Oppure le foto delle pagine",
+    "photoHint": "Fino a {max} pagine, in ordine. JPEG, PNG o WebP. Le foto vengono rimpicciolite nel Suo browser prima dell’invio.",
+    "pages": "{count, plural, one {# pagina aggiunta} other {# pagine aggiunte}}",
+    "page": "Pagina {n}",
+    "removePage": "Rimuovere la pagina {n}",
+    "languagesLegend": "Tradurre in",
+    "lang": {
+      "English": "Inglese",
+      "German": "Tedesco",
+      "French": "Francese",
+      "Italian": "Italiano",
+      "Spanish": "Spagnolo"
+    },
+    "submit": "Leggere il referto",
+    "busy": "Lettura del referto in corso…",
+    "byHandLink": "Archiviarlo a mano",
+    "openSettings": "Aprire le impostazioni del modello",
+    "byHand": {
+      "title": "Archiviarlo a mano",
+      "body": "Nessuna lettura, ma il documento e la sua data restano insieme e il file può essere consegnato a un professionista sanitario. Ha già un file di referto?",
+      "import": "Importarlo",
+      "about": "Di cosa si tratta?",
+      "provider": "Chi lo ha emesso?",
+      "collected": "Data del prelievo",
+      "save": "Salvare il referto",
+      "original": "Originale"
+    },
+    "errors": {
+      "not_configured": "I modelli gratuiti condivisi al momento non sono attivi su questo sito. Può collegare il Suo modello oppure archiviare il referto a mano.",
+      "busy": "Nessun modello ha risposto. Il budget gratuito condiviso di oggi potrebbe essere esaurito oppure un fornitore è fuori servizio. Il Suo modello non dipende dal budget condiviso.",
+      "busy_own": "Il Suo modello non ha risposto. La chiave potrebbe aver esaurito il credito o essere stata revocata. La controlli nelle impostazioni oppure la rimuova per usare i modelli gratuiti condivisi.",
+      "no_vision": "Nessuno dei modelli disponibili al momento può leggere una foto. Incolli invece il testo del referto, oppure colleghi un Suo modello che sappia leggere le immagini.",
+      "rate_limited": "Sono molti referti in poco tempo. I modelli gratuiti condivisi ne consentono alcuni all’ora; il Suo modello ne consente molti di più.",
+      "bad_own_model": "Le impostazioni salvate del Suo modello non hanno potuto essere usate. Le configuri di nuovo.",
+      "unreadable_analysis": "Il modello ha risposto, ma in una forma che Diplodoctor non ha potuto trasformare in un referto. Riprovi; un modello più potente lo fa in modo più affidabile.",
+      "empty": "Incolli il testo del referto oppure aggiunga una sua foto.",
+      "bad_image": "Questo file non ha potuto essere usato come foto. Invii un’immagine JPEG, PNG o WebP.",
+      "too_many_pages": "Sono più di {max} pagine. Aggiunga le pagine che contengono i valori.",
+      "offline": "Diplodoctor non è raggiungibile. Controlli la connessione e riprovi.",
+      "unknown": "La lettura non è andata a buon fine. Riprovi tra un minuto."
+    }
+  },
+  "Report": {
+    "sampleBanner": "Questo è un esempio svolto. Ogni dato personale è inventato.",
+    "notHereTitle": "Questo referto non è su questo dispositivo",
+    "notHereBody": "I referti sono conservati nel browser che li ha letti. Lo apra dove lo ha letto, oppure importi il suo file di referto.",
+    "goReports": "Vai ai miei referti",
+    "aiNotice": "Letto da un modello di IA, che può leggere male un numero o una parola. Controlli ogni valore con la riga del referto da cui proviene, a un tocco di distanza. Questa è un’informazione, non una diagnosi.",
+    "facts": {
+      "provider": "Emesso da",
+      "kind": "Tipo",
+      "reference": "Riferimento",
+      "collected": "Prelievo",
+      "reported": "Refertato il"
+    },
+    "kind": {
+      "lab": "Referto di laboratorio",
+      "imaging": "Referto di diagnostica per immagini",
+      "discharge": "Lettera di dimissione",
+      "prescription": "Prescrizione",
+      "other": "Documento medico"
+    },
+    "attentionEyebrow": "Con quale urgenza farlo esaminare",
+    "attention": {
+      "routine": {
+        "title": "Alla prossima visita",
+        "body": "Nulla in questo referto è fuori intervallo o contrassegnato come urgente. Lo porti al prossimo controllo di routine."
+      },
+      "soon": {
+        "title": "A breve — entro giorni o settimane",
+        "body": "Uno o più valori sono fuori dall’intervallo stampato. Un medico dovrebbe esaminare il referto. Quanto presto dipende da Lei e dai Suoi sintomi, che solo un medico può valutare."
+      },
+      "urgent": {
+        "title": "Oggi",
+        "body": "Il referto stesso contrassegna un valore come critico o chiede un intervento immediato. Contatti un medico oggi."
+      }
+    },
+    "emergency": "Se in questo momento non si sente bene — dolore al petto, difficoltà a respirare, confusione, dolore forte — non aspetti un referto: chiami il numero di emergenza (112 in Europa, 144 in Svizzera, 911 negli Stati Uniti).",
+    "outsideTitle": "{count, plural, one {# valore fuori intervallo} other {# valori fuori intervallo}}",
+    "allInRange": "Ogni valore è entro il suo intervallo stampato",
+    "insideTitle": "{count, plural, one {# valore nell’intervallo} other {# valori nell’intervallo}}",
+    "range": "Intervallo {range}",
+    "noRange": "Nessun intervallo stampato",
+    "before": "Prima: {value} il {date}",
+    "rising": "in aumento",
+    "falling": "in calo",
+    "flag": {
+      "normal": "Nella norma",
+      "low": "Basso",
+      "high": "Alto",
+      "critical": "Critico",
+      "unknown": "Non valutato"
+    },
+    "source": "La riga da cui è stato letto",
+    "checked": "Segnalazione stabilita confrontando il numero con l’intervallo stampato.",
+    "notChecked": "Segnalazione come la indica il referto. Non c’è un intervallo numerico con cui verificarla.",
+    "questionsTitle": "Domande per il Suo medico",
+    "questionsHint": "Scritte a partire dai valori fuori intervallo. Le porti alla Sua visita.",
+    "copy": "Copiare",
+    "copied": "Copiato",
+    "termsTitle": "Termini spiegati",
+    "followUpsTitle": "Cosa dice il referto di fare",
+    "followUpsHint": "Solo ciò che il documento stesso richiede. Li spunti man mano.",
+    "followUpsDone": "{done} su {total} fatti",
+    "notesTitle": "Utile sapere",
+    "docTitle": "Il documento",
+    "language": "Lingua",
+    "whoEyebrow": "Una persona",
+    "whoTitle": "Desidera che un medico lo esamini?",
+    "whoBody": "Diplodoctor spiega; un medico abilitato decide cosa significa per Lei. La consegna di un referto a un medico è prevista ma non ancora disponibile: esporti il file anonimizzato e lo porti al Suo medico.",
+    "findClinician": "Come lavoreranno i medici con Diplodoctor",
+    "exportAnon": "Esportare per un medico (anonimizzato)",
+    "export": "Esportare il referto completo",
+    "saveCopy": "Salvare una copia nei miei referti",
+    "delete": "Eliminare",
+    "deleteConfirm": "Eliminare questo referto da questo browser? Non è possibile annullare l’operazione."
+  },
+  "Clinicians": {
+    "metaTitle": "Medici",
+    "metaDescription": "Come lavoreranno con Diplodoctor i medici abilitati e gli assistenti del paziente.",
+    "eyebrow": "Medici",
+    "title": "Un medico dietro la risposta",
+    "lead": "Diplodoctor spiega un referto. Diagnosi, cure e prescrizioni sono riservate per legge ai medici abilitati, e questo confine non spetta a noi spostarlo. Ecco come lavoreranno con Lei le persone dall’altra parte.",
+    "noneTitle": "Per ora non è elencato nessuno",
+    "noneBody": "Nessun medico o assistente si è unito, quindi non ne viene mostrato nessuno. Qui non ci sono profili, valutazioni o tempi di attesa inventati, e non ce ne saranno. Fino ad allora, esporti il file anonimizzato e lo porti al Suo medico.",
+    "listedUnder": "Elencato con {identity}",
+    "clinician": {
+      "name": "Medico abilitato",
+      "identity": "nome reale e numero di abilitazione",
+      "does1": "Consiglia su cosa significa un risultato per Lei",
+      "does2": "Diagnostica e cura entro l’abilitazione che possiede",
+      "does3": "Firma la risposta che Le dà",
+      "doesNot": "Non lavora al di fuori dei luoghi in cui è abilitato.",
+      "checks": "L’abilitazione viene verificata in modo riservato; il nome Le viene mostrato quando sceglie di rivolgersi a lui."
+    },
+    "assistant": {
+      "name": "Assistente del paziente",
+      "identity": "un nome o uno pseudonimo",
+      "does1": "Spiega un referto in parole semplici e nella Sua lingua",
+      "does2": "La aiuta a preparare una visita e a raccogliere i documenti",
+      "does3": "La aiuta con le pratiche amministrative di assicurazioni e cliniche",
+      "doesNot": "Non diagnostica, non cura, non prescrive e non dà consigli medici.",
+      "checks": "Sempre indicato come assistente, mai come medico."
+    },
+    "wantTitle": "Desidera offrire questo servizio?",
+    "wantBody": "Medici e assistenti offrono il loro lavoro come servizi su OrangeCat e vengono pagati lì dalla persona che aiutano. Diplodoctor aggiungerà l’etichetta e la verifica dell’abilitazione; questa parte non è ancora realizzata.",
+    "offer": "Offrire un servizio su OrangeCat",
+    "seeRoadmap": "Vedere la roadmap",
+    "clinic": {
+      "eyebrow": "Per cliniche e studi medici",
+      "title": "I referti dei Suoi pazienti, letti prima della visita",
+      "lead": "Una clinica può usare Diplodoctor come lo usa un paziente e, più avanti, alle proprie condizioni:",
+      "c1": "I pazienti arrivano con i risultati già letti e le domande già scritte.",
+      "c2": "Un paziente Le consegna la sua pratica per scelta, anonimizzata finché non decide diversamente.",
+      "c3": "Funziona con un modello all’interno delle Sue mura, così i dati dei pazienti non lasciano mai lo studio.",
+      "status": "Previsto. Nulla di tutto ciò è ancora disponibile per le cliniche; è nella roadmap."
+    },
+    "rulesTitle": "Regole che non si piegano",
+    "rules": {
+      "label": {
+        "title": "Tutti sono etichettati",
+        "body": "Un medico è indicato come medico e un assistente come assistente. L’etichetta non è una scelta di marketing; è il confine tracciato dalla legge."
+      },
+      "pseudonym": {
+        "title": "Chi può usare uno pseudonimo",
+        "body": "Pazienti e assistenti possono usare uno pseudonimo. L’abilitazione di un medico viene verificata in modo riservato e il suo nome reale viene mostrato al paziente al momento dell’incarico."
+      },
+      "share": {
+        "title": "Decide Lei cosa esce",
+        "body": "Un medico riceve il file anonimizzato, a meno che Lei non scelga di condividere di più. Nulla viene inviato senza una Sua azione."
+      },
+      "place": {
+        "title": "Abilitato dove si trova Lei",
+        "body": "Solo un medico abilitato nel Suo luogo di cura può consigliarLa o curarLa lì."
+      }
+    },
+    "start": "Leggere un referto"
+  },
+  "Settings": {
+    "metaTitle": "Impostazioni",
+    "metaDescription": "Usi il proprio modello di IA per le letture di Diplodoctor.",
+    "title": "Impostazioni",
+    "ownTitle": "Il Suo modello",
+    "p1": "Senza chiave, Diplodoctor legge i referti con modelli gratuiti condivisi. Hanno un piccolo budget giornaliero a cui attingono tutti i visitatori e non sono i più potenti disponibili.",
+    "p2": "Un referto medico merita la migliore lettura possibile. Colleghi una chiave API di uno dei fornitori qui sotto e le Sue letture useranno il modello più potente che quella chiave può usare, con il Suo budget. La chiave resta solo in questo browser: viene inviata a ogni lettura per raggiungere il Suo fornitore e non viene mai conservata da Diplodoctor.",
+    "p3": "Usi una chiave API, possibilmente con un limite di spesa. Diplodoctor non chiede mai le credenziali di un abbonamento come Claude Pro o ChatGPT Plus.",
+    "using": "Sta usando il Suo modello: {label}",
+    "keyKept": "Chiave {hint}, conservata solo in questo browser",
+    "remove": "Rimuovere la chiave",
+    "provider": "Fornitore",
+    "keyLabel": "Chiave API di {vendor}",
+    "getKey": "Ottenere una chiave da {vendor}",
+    "checking": "Verifica della chiave in corso…",
+    "notWrong": "Questo non significa che la chiave sia errata.",
+    "model": "Modello",
+    "strongest": "il più potente che questa chiave può usare",
+    "use": "Usare questo modello",
+    "saved": "Salvato in questo browser. Le nuove letture lo useranno.",
+    "tooMany": "Troppe verifiche in poco tempo. Attenda qualche minuto e riprovi.",
+    "unreachable": "Diplodoctor non era raggiungibile per verificare la chiave. Controlli la connessione."
+  },
+  "Records": {
+    "roadmap": "Roadmap",
+    "changelog": "Changelog",
+    "home": "Torna al prodotto",
+    "profile": "Profilo di sviluppo completo",
+    "beta": "Beta — in funzione, non ancora pubblicato",
+    "source": "Questi registri provengono dal profilo canonico del progetto. Il lavoro pianificato non è una promessa di consegna.",
+    "unavailable": "I registri di sviluppo sono temporaneamente non disponibili. Riprovi tra poco.",
+    "emptyRoadmap": "Non è ancora stata registrata nessuna voce della roadmap.",
+    "emptyChangelog": "Non è ancora stata registrata nessuna modifica.",
+    "progress": "avanzamento registrato",
+    "target": "Obiettivo",
+    "englishOnly": "Queste voci sono tenute in inglese."
+  },
+  "Redact": {
+    "title": "Anonimizzare prima dell’invio",
+    "lead": "Nomi, date di nascita e numeri che La identificano vengono sostituiti da segnaposto nel Suo browser prima dell’invio del referto. Il modello non li vede mai; il Suo browser li rimette nel risultato.",
+    "toggle": "Anonimizzare",
+    "ownWords": "Nascondere anche queste parole",
+    "ownWordsPlaceholder": "Il Suo nome, il datore di lavoro, un familiare…",
+    "ownWordsHint": "Separi con virgole. Conservate in questo browser per i Suoi prossimi referti.",
+    "found": "{count, plural, =0 {Non verrà nascosto nulla} one {# dato verrà nascosto} other {# dati verranno nascosti}}. Ne tocchi uno per inviarlo comunque.",
+    "foundNone": "Nessun dato personale trovato nel testo. Aggiunga il Suo nome qui sopra se compare.",
+    "sendThis": "Inviarlo comunque",
+    "hideThis": "Nasconderlo",
+    "preview": "Mostrare esattamente ciò che riceve il modello",
+    "photosWarning": "Le foto vengono inviate così come sono. Copra il Suo nome, la data di nascita e i numeri su ogni pagina prima dell’invio.",
+    "offWarning": "L’anonimizzazione è disattivata: il referto viene inviato con tutti i dati personali.",
+    "cover": "Coprire dati",
+    "coveredCount": "{count, plural, one {# area coperta} other {# aree coperte}}",
+    "notCovered": "ancora nulla di coperto",
+    "photoTitle": "Coprire dati su {label}",
+    "photoHint": "Trascini un riquadro sul Suo nome, sull’indirizzo e su ogni numero che La identifica. Ciò che si trova sotto un riquadro viene rimosso dalla foto.",
+    "undo": "Annullare l’ultima",
+    "cancel": "Chiudere",
+    "done": "{count, plural, =0 {Fatto} one {Coprire # area} other {Coprire # aree}}",
+    "canvas": "La pagina. Trascini per coprire un’area.",
+    "kind": {
+      "NAME": "Nome",
+      "ADDRESS": "Indirizzo",
+      "POSTCODE": "Località",
+      "EMAIL": "E-mail",
+      "PHONE": "Telefono",
+      "IBAN": "IBAN",
+      "AHV": "N. AVS",
+      "REF": "Riferimento",
+      "BIRTHDATE": "Nato il"
+    }
+  },
+  "Capabilities": {
+    "status": {
+      "available": "Funziona oggi",
+      "inDevelopment": "In sviluppo",
+      "planned": "Previsto"
+    },
+    "reports": {
+      "name": "Leggere un referto medico",
+      "body": "Lo incolli o lo fotografi: ogni valore con la sua unità e il suo intervallo stampato, quali sono fuori intervallo, cosa misurano, domande per il medico e una traduzione. Nessun account; i nomi vengono prima rimossi nel Suo browser."
+    },
+    "privacy": {
+      "name": "Anonimizzato prima di lasciare il Suo browser",
+      "body": "Nomi, date di nascita, numeri di assicurazione e di ordine vengono sostituiti da segnaposto nel browser, e Lei vede ogni sostituzione prima dell’invio."
+    },
+    "trends": {
+      "name": "Seguire un valore nel tempo",
+      "body": "Quando la stessa misurazione è presente in un referto precedente in questo browser, vengono mostrati il valore precedente e la direzione. Unità diverse non vengono mai convertite."
+    },
+    "models": {
+      "name": "Qualsiasi modello, anche il Suo",
+      "body": "Modelli gratuiti condivisi per impostazione predefinita, oppure la Sua chiave con un fornitore supportato come OpenAI, Anthropic, Google o Mistral. La chiave resta nel Suo browser."
+    },
+    "records": {
+      "name": "Collegare le Sue cartelle cliniche",
+      "body": "Cartelle svizzere ed europee così come sono tenute: la cartella informatizzata del paziente (CIP), i portali degli ospedali e i PDF dei laboratori, non solo i fornitori statunitensi."
+    },
+    "clinicians": {
+      "name": "Un medico abilitato firma la risposta",
+      "body": "Un medico ammesso nel luogo in cui si trova legge il Suo file anonimizzato, lo corregge e lo firma, e viene pagato per questo tramite OrangeCat."
+    },
+    "matters": {
+      "name": "Una pratica sanitaria, seguita da un agente",
+      "body": "Uno spazio di lavoro per ogni questione: cronologia, farmaci con dose e frequenza, anamnesi familiare, promemoria e bozze che attendono la Sua approvazione."
+    },
+    "wearables": {
+      "name": "Dispositivi indossabili ed esportazioni",
+      "body": "Esportazioni di Apple Health e Android Health Connect, Garmin, Withings e Oura, quando una pratica ne ha bisogno."
+    },
+    "clinics": {
+      "name": "Cliniche con i propri modelli",
+      "body": "Gli studi usano Diplodoctor con modelli all’interno delle proprie mura e ricevono i file dei pazienti con il loro consenso."
+    }
+  },
+  "Platform": {
+    "metaTitle": "Piattaforma",
+    "metaDescription": "Come è costruito Diplodoctor, cosa fa ciascuna parte e dove si ferma.",
+    "kicker": "Piattaforma",
+    "title": "Come è costruito Diplodoctor, e perché",
+    "lede": "Un resoconto breve e onesto delle parti, di cosa fa ciascuna e di dove si ferma. Ogni frase descrive il codice di questo repository così com’è oggi; ciò che è previsto è indicato come tale e rimanda alla roadmap.",
+    "why": {
+      "title": "Perché è costruito così",
+      "p1": "Un referto di laboratorio è una tabella di numeri con un intervallo stampato accanto a ciascuno. Per una persona la difficoltà non è la tabella: è sapere cosa chiedere e potersi fidare della risposta.",
+      "p2": "Un modello linguistico è bravo a leggere la tabella e a dire in parole semplici a cosa serve una misurazione. È lo strumento sbagliato per decidere se 5,8 è sopra 5,6. Perciò il modello legge e il codice confronta.",
+      "p3": "E solo un medico abilitato può dire cosa significa un risultato per Lei. Diplodoctor è costruito per preparare quella conversazione, non per sostituirla."
+    },
+    "architecture": {
+      "kicker": "Architettura",
+      "title": "Cinque parti, ciascuna con un solo compito",
+      "intake": {
+        "title": "Acquisizione",
+        "body": "Una casella di testo e fino a quattro foto di pagine, rimpicciolite nel Suo browser. Nulla viene inviato finché non preme il pulsante."
+      },
+      "redaction": {
+        "title": "Anonimizzazione",
+        "body": "lib/redact.ts trova nomi, date di nascita, indirizzi, numeri di assicurazione, di ordine e di telefono e sostituisce ciascuno con un segnaposto, nel browser. Li vede tutti e può disattivarla."
+      },
+      "reading": {
+        "title": "Lettura",
+        "body": "Un’unica route chiama complete() di ai-kit sulla catena gratuita condivisa, o con la Sua chiave. Il modello restituisce un solo oggetto JSON: valori, unità, intervalli, la riga da cui proviene ciascuno, informazioni in linguaggio semplice e domande."
+      },
+      "checks": {
+        "title": "Verifiche",
+        "body": "È lo schema del referto, non il modello, a decidere ogni segnalazione confrontando il valore con i limiti stampati, e non lascia mai scendere l’urgenza al di sotto di ciò che le segnalazioni implicano. Un valore non viene mai mostrato senza la riga da cui è stato letto."
+      },
+      "file": {
+        "title": "Il file",
+        "body": "Un solo schema zod è il referto: ciò che produce il modello, ciò che memorizza il browser e ciò che scrive l’esportazione. Un file che può uscire è un file che Le appartiene."
+      }
+    },
+    "turn": {
+      "title": "Una lettura, passo per passo",
+      "lede": "Cosa accade tra la pressione del pulsante e la comparsa del risultato.",
+      "s1": "Il Suo browser trova i dati personali nel testo e li sostituisce con segnaposto.",
+      "s2": "Solo il testo anonimizzato e le foto delle Sue pagine vanno al server.",
+      "s3": "Il server chiede a un modello, della catena gratuita o con la Sua chiave, di leggere il referto. Nulla viene conservato né registrato.",
+      "s4": "La risposta viene verificata rispetto allo schema e ogni segnalazione viene ricalcolata dai numeri.",
+      "s5": "Il Suo browser rimette i valori reali al posto dei segnaposto.",
+      "s6": "Il referto viene salvato in questo browser. Il server lo ha già dimenticato."
+    },
+    "principles": {
+      "title": "Principi",
+      "information": {
+        "title": "Informazione, non diagnosi",
+        "body": "Al modello viene detto di non diagnosticare mai, di non consigliare farmaci e di non rassicurare. Il prodotto lo ripete ovunque venga mostrato un risultato."
+      },
+      "honest": {
+        "title": "Non si afferma nulla che non sia vero",
+        "body": "Ogni funzione ha uno stato in un unico file, e le pagine lo leggono. Nessuno viene elencato, valutato o citato se non esiste."
+      },
+      "open": {
+        "title": "Open source",
+        "body": "Il codice, il prompt e i test sono pubblici con licenza MIT, così un’affermazione qui può essere verificata là."
+      },
+      "shared": {
+        "title": "Basi condivise",
+        "body": "Design, modelli, limiti e registri provengono da pacchetti che usa tutta la flotta, non da copie."
+      }
+    },
+    "stack": {
+      "title": "Lo stack",
+      "lede": "La stessa colonna di pacchetti del resto della flotta.",
+      "framework": {
+        "label": "Framework",
+        "value": "Next.js 16, React 19, TypeScript"
+      },
+      "models": {
+        "label": "Modelli",
+        "value": "@bitbaum/ai-kit complete() sulla catena gratuita; la Sua chiave"
+      },
+      "privacy": {
+        "label": "Privacy",
+        "value": "lib/redact.ts nel browser; CSP con nonce"
+      },
+      "design": {
+        "label": "Design",
+        "value": "@bitbaum/design-tokens"
+      },
+      "record": {
+        "label": "Roadmap",
+        "value": "ROADMAP.md e CHANGELOG.md, letti tramite bip-kit"
+      },
+      "limits": {
+        "label": "Limiti di frequenza",
+        "value": "limitkit, in memoria"
+      },
+      "languages": {
+        "label": "Lingue",
+        "value": "next-intl: en, de, fr, it, es"
+      },
+      "tests": {
+        "label": "Test",
+        "value": "Vitest; la chiamata al modello è iniettata"
+      }
+    },
+    "next": {
+      "kicker": "Prossimamente",
+      "title": "Dove porta",
+      "lede": "Pratiche sanitarie seguite da un agente e un medico abilitato che firma la risposta. Ciò che è costruito e ciò che non lo è si trova nella roadmap, in quest’ordine.",
+      "roadmap": "Leggere la roadmap",
+      "ecosystem": "L’ecosistema",
+      "source": "Codice sorgente"
+    }
+  },
+  "Security": {
+    "metaTitle": "Sicurezza",
+    "metaDescription": "Cosa protegge un referto medico su Diplodoctor, e cosa no.",
+    "kicker": "Sicurezza",
+    "title": "Cosa protegge qui un referto",
+    "lede": "I dati sanitari sono tra i dati più sensibili che esistano; il diritto svizzero li definisce «besonders schützenswert» (particolarmente degni di protezione). Ecco cosa si fa al riguardo, e dove sono i limiti.",
+    "anon": {
+      "title": "Anonimizzato prima di uscire",
+      "body": "Il modello ha bisogno dei valori, non di sapere a chi appartengono.",
+      "d1": "Nomi, date di nascita, indirizzi, numeri di telefono, e-mail, IBAN, numeri AVS e di assicurazione, e numeri di paziente e di ordine vengono sostituiti da segnaposto nel Suo browser.",
+      "d2": "Vede ogni sostituzione prima dell’invio, può disattivarne qualsiasi e può aggiungere parole Sue.",
+      "d3": "La tabella di ciò che ogni segnaposto rappresenta non lascia mai il Suo dispositivo.",
+      "d4": "Il rilevamento è volutamente generoso: nascondere una parola di troppo costa un po’ di dettaglio; una di meno invierebbe i Suoi dati.",
+      "d5": "Le foto non vengono lette nel browser, quindi vengono inviate così come sono a meno che Lei non copra prima i dati."
+    },
+    "browser": {
+      "title": "Conservato sul Suo dispositivo",
+      "body": "I Suoi referti risiedono nella memoria di questo browser.",
+      "d1": "Non c’è alcun account e nessuna copia dei Suoi referti sul nostro server.",
+      "d2": "Cancellare i dati di questo sito li elimina; esporti prima un file se desidera conservarne uno.",
+      "d3": "Chiunque abbia accesso a questo profilo del browser può leggerli."
+    },
+    "minimal": {
+      "title": "Nulla conservato sul server",
+      "body": "Il server inoltra una richiesta e la dimentica.",
+      "d1": "Il testo anonimizzato va a un fornitore di modelli per una sola richiesta; il server non memorizza nulla e registra solo quale modello ha risposto.",
+      "d2": "Le richieste sono limitate per chiamante, per proteggere il livello gratuito condiviso.",
+      "d3": "Un fornitore di modelli vede il testo anonimizzato, quindi ne legga le condizioni. Con la Sua chiave va invece al Suo fornitore."
+    },
+    "transport": {
+      "title": "Un browser istruito a fidarsi poco",
+      "body": "La pagina viene servita con intestazioni rigorose.",
+      "d1": "Gli script vengono eseguiti solo da questo sito e solo con il nonce di questa risposta; le richieste vanno solo a questo sito.",
+      "d2": "Solo HTTPS per due anni; nessun incorporamento in frame; nessun referrer lascia il sito.",
+      "d3": "Nessuna analisi statistica e nessuno script di terzi."
+    },
+    "model": {
+      "title": "La Sua chiave resta Sua",
+      "body": "Se collega il Suo modello:",
+      "d1": "La chiave è conservata solo in questo browser e inviata a ogni lettura per raggiungere il Suo fornitore.",
+      "d2": "Non viene mai conservata né registrata dal server."
+    },
+    "breach": {
+      "title": "Se qualcosa va storto",
+      "lede": "Cosa esporrebbe ciascun guasto, detto chiaramente.",
+      "provider": {
+        "title": "Un fornitore di modelli subisce una violazione",
+        "body": "Potrebbe esporre il testo anonimizzato delle letture inviategli: valori e date senza il Suo nome, indirizzo o numeri, a meno che una foto non sia stata inviata scoperta."
+      },
+      "operator": {
+        "title": "Siamo noi a subire una violazione",
+        "body": "Non esiste un database di referti da rubare. Un aggressore potrebbe modificare il sito per inviare dati altrove, ed è per questo che il codice è pubblico e le intestazioni vengono controllate dopo ogni rilascio."
+      },
+      "device": {
+        "title": "Il Suo dispositivo viene perso o condiviso",
+        "body": "I Suoi referti sono leggibili da chiunque possa aprire questo browser. Usi il blocco del dispositivo ed elimini ciò di cui non ha più bisogno."
+      }
+    },
+    "links": {
+      "source": "Leggere il sorgente",
+      "platform": "Come è costruito"
+    }
+  },
+  "Ecosystem": {
+    "metaTitle": "Ecosistema",
+    "metaDescription": "Diplodoctor è il livello sanitario di una flotta di prodotti — OrangeCat, Loki e Solon — che un solo account OrangeCat apre.",
+    "kicker": "Ecosistema",
+    "title": "Una persona, un’intera flotta",
+    "lede": "Diplodoctor è un prodotto di una flotta costruita per dare a una singola persona ciò che prima richiedeva un’istituzione. Ogni prodotto svolge un solo compito, e un solo account OrangeCat li apre tutti.",
+    "layer": "{layer, select, economic {Economia} execution {Esecuzione} governance {Governance} other {{layer}}}",
+    "open": "Aprire {name}",
+    "unavailable": "Non è stato possibile caricare l’elenco dei prodotti in questo momento. Riprovi tra un minuto.",
+    "layerTitle": "Il livello sanitario",
+    "layerBody": "OrangeCat muove il valore, Loki porta a termine il lavoro e Solon governa. Diplodoctor è il livello sanitario sopra di essi: i referti, le cartelle e le visite attraverso cui una persona capisce il proprio corpo e coinvolge un medico.",
+    "seams": {
+      "account": {
+        "title": "Un solo account",
+        "body": "L’accesso con OrangeCat è previsto per le pratiche sanitarie. Per leggere un referto oggi non serve alcun account."
+      },
+      "pay": {
+        "title": "Pagati su OrangeCat",
+        "body": "Medici e assistenti offriranno il loro lavoro come servizi OrangeCat e verranno pagati lì."
+      },
+      "build": {
+        "title": "Costruito con Loki",
+        "body": "Loki costruisce e rilascia Diplodoctor e ne detiene l’identità."
+      },
+      "law": {
+        "title": "Le controversie vanno a Causius",
+        "body": "Quando un referto diventa una controversia con un’assicurazione o con un datore di lavoro, il livello giuridico, Causius, la prende in carico da lì."
+      }
+    },
+    "account": {
+      "kicker": "Il Suo account",
+      "title": "Oggi non serve alcun account",
+      "body": "Per leggere un referto non ne serve nessuno, e nulla di esso è sul nostro server. Quando arriveranno le pratiche sanitarie, lo stesso account OrangeCat che apre il resto della flotta le aprirà.",
+      "cta": "Leggere un referto"
+    }
+  }
+}

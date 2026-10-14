@@ -1,0 +1,115 @@
+name: Live check
+
+# After every deploy, ask the live site what it can do, from outside.
+#
+# The deploy's own checks prove the page answers. This proves the product
+# works: every language answers, the security headers are on, and the reading
+# of a report is switched on. A deploy that ships a site which cannot read a
+# report is red here, not discovered later by the owner opening the page.
+on:
+  workflow_run:
+    workflows: ["Deploy"]
+    types: [completed]
+  workflow_dispatch: {}
+  schedule:
+    - cron: "23 */6 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  live:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Pages answer in every language
+        run: |
+          set -uo pipefail
+          fail=0
+          for l in en de fr it es; do
+            for path in "/$l" "/$l/reports" "/$l/reports/new" "/$l/reports/sample" "/$l/clinicians" "/$l/platform" "/$l/security" "/$l/ecosystem" "/$l/settings" "/$l/roadmap" "/$l/changelog"; do
+              code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "https://diplodoctor.orangecat.ch$path")
+              echo "::notice::$path → $code"
+              [ "$code" = "200" ] || fail=1
+            done
+          done
+          code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "https://diplodoctor.orangecat.ch/")
+          echo "::notice::/ → $code (expected a redirect to a language)"
+          [ "$code" = "307" ] || [ "$code" = "308" ] || fail=1
+          exit $fail
+
+      - name: Each language speaks its own language
+        run: |
+          set -uo pipefail
+          fail=0
+          check() { # path, a phrase the page must contain
+            body=$(curl -s --max-time 20 "https://diplodoctor.orangecat.ch$1")
+            if printf '%s' "$body" | grep -q "$2"; then echo "::notice::$1 has «$2»"; else echo "::error::$1 lacks «$2»"; fail=1; fi
+          }
+          check /en/reports "My reports"
+          check /de/reports "Meine Berichte"
+          check /fr/reports "Mes rapports"
+          check /it/reports "I miei referti"
+          check /es/reports "Mis informes"
+          exit $fail
+
+      - name: Security headers are on
+        run: |
+          set -uo pipefail
+          h=$(curl -s -D - -o /dev/null --max-time 20 https://diplodoctor.orangecat.ch/en | tr -d '\r')
+          fail=0
+          for want in "content-security-policy: default-src 'self'" "strict-transport-security: max-age=63072000" "x-frame-options: deny" "referrer-policy: no-referrer" "x-content-type-options: nosniff"; do
+            if printf '%s\n' "$h" | grep -qi "^$want"; then echo "::notice::ok — $want"; else echo "::error::missing — $want"; fail=1; fi
+          done
+          if printf '%s\n' "$h" | grep -qi '^x-powered-by'; then echo "::error::x-powered-by is exposed"; fail=1; fi
+          exit $fail
+
+      - name: Reading a report is switched on
+        run: |
+          set -uo pipefail
+          body=$(curl -s --max-time 20 https://diplodoctor.orangecat.ch/api/health)
+          echo "::notice::health $body"
+          echo "$body" | grep -q '"text":true' || { echo "::error::free reading is OFF: no shared model key reaches the app"; exit 1; }
+          echo "$body" | grep -q '"photo":true' || echo "::warning::photos cannot be read by the free models (needs GEMINI_API_KEY or OPENROUTER_API_KEY)"
+
+      # Only when run by hand: it spends a free-tier completion. The report is
+      # the invented sample (lib/sample.ts): four of its eleven values are
+      # outside their printed range — hemoglobin, ferritin, LDL and vitamin D.
+      - name: A real model reads the sample report
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          set -uo pipefail
+          report=$(printf '%s\n' \
+            "Medizinisches Labor Beispiel AG" "Laborbericht" "" \
+            "Patientin: Erika Muster, geboren 14.03.1985" "Auftragsnummer: 2026-091415" "Entnahme: 14.09.2026    Bericht: 15.09.2026" "" \
+            "Hämatologie" \
+            "Hämoglobin          118    g/L       120 - 160      L" \
+            "Erythrozyten        4.1    T/L       3.9 - 5.2" \
+            "Leukozyten          6.3    G/L       3.5 - 10.0" \
+            "Thrombozyten        245    G/L       150 - 400" "" \
+            "Eisenstoffwechsel" \
+            "Ferritin            14     µg/L      15 - 150       L" "" \
+            "Stoffwechsel" \
+            "HbA1c               5.4    %         4.0 - 5.6" \
+            "LDL-Cholesterin     3.9    mmol/L    < 3.0          H" \
+            "HDL-Cholesterin     1.6    mmol/L    > 1.2" \
+            "Triglyceride        1.1    mmol/L    < 1.7" "" \
+            "Schilddrüse" \
+            "TSH                 2.1    mIU/L     0.4 - 4.0" "" \
+            "Vitamine" \
+            "25-OH-Vitamin D     18     µg/L      30 - 100       L")
+          # The browser would send placeholders for the name, birth date and order number.
+          report=$(printf '%s' "$report" | sed -e 's/Erika Muster/[NAME-1]/' -e 's/14.03.1985/[BIRTHDATE-1]/' -e 's/2026-091415/[REF-1]/')
+          fail=0
+          for locale in en de fr it es; do
+            body=$(jq -n --arg t "$report" --arg l "$locale" '{text:$t, locale:$l, languages:["English"]}')
+            res=$(curl -s --max-time 170 -H 'content-type: application/json' -d "$body" https://diplodoctor.orangecat.ch/api/analyze)
+            outside=$(echo "$res" | jq -r '[.report.results[]? | select(.flag=="low" or .flag=="high") | .name] | join(", ")')
+            echo "::notice::[$locale] values=$(echo "$res" | jq -r '.report.results | length? // 0') outside=[$outside] attention=$(echo "$res" | jq -r '.report.attention // .error') questions=$(echo "$res" | jq -r '.report.questions | length? // 0')"
+            echo "::notice::[$locale] summary=$(echo "$res" | jq -r '.report.summary // "-"' | head -c 300)"
+            [ "$(echo "$res" | jq -r '[.report.results[]? | select(.flag=="low" or .flag=="high")] | length')" = "4" ] || { echo "::error::[$locale] expected exactly four values outside their range"; fail=1; }
+            [ "$(echo "$res" | jq -r '[.report.results[]? | select(.flag=="critical")] | length')" = "0" ] || { echo "::error::[$locale] a value was called critical that the report does not mark"; fail=1; }
+            [ "$(echo "$res" | jq -r '.report.attention // empty')" = "soon" ] || { echo "::error::[$locale] attention is not 'soon'"; fail=1; }
+          done
+          exit $fail

@@ -1,0 +1,673 @@
+{
+  "Meta": {
+    "title": "Diplodoctor — understand your medical reports",
+    "description": "Diplodoctor reads a lab report with you: every value, which ones are outside their range, and what to ask your doctor. When you want a person, a licensed clinician."
+  },
+  "Nav": {
+    "main": "Main",
+    "reports": "My reports",
+    "clinicians": "Clinicians",
+    "settings": "Settings",
+    "new": "Read a report",
+    "beta": "Beta",
+    "language": "Language",
+    "platform": "Platform",
+    "security": "Security",
+    "ecosystem": "Ecosystem",
+    "menu": "Menu",
+    "skip": "Skip to content"
+  },
+  "Footer": {
+    "tagline": "The health layer of the fleet: an agent that reads the report, and a doctor who decides.",
+    "sections": {
+      "product": "Product",
+      "platform": "Platform",
+      "open": "In the open"
+    },
+    "links": {
+      "reports": "My reports",
+      "new": "Read a report",
+      "clinicians": "Clinicians",
+      "settings": "Settings",
+      "platform": "How it is built",
+      "security": "Security",
+      "ecosystem": "Ecosystem",
+      "roadmap": "Roadmap",
+      "changelog": "Changelog",
+      "source": "Source code",
+      "license": "MIT licence",
+      "orangecat": "Diplodoctor on OrangeCat",
+      "solon": "Diplodoctor on Solon"
+    },
+    "disclaimer": "Beta: running, not released. Diplodoctor gives health information, not a diagnosis, and is not a medical device or a substitute for a doctor. In an emergency, call your emergency number.",
+    "openSource": "Open source under the MIT licence. Built in Zürich.",
+    "fleet": "The fleet"
+  },
+  "Home": {
+    "hero": {
+      "kicker": "Medicine, with a doctor in the loop",
+      "line1": "Your results,",
+      "line2": "read with you.",
+      "lede": "Add a lab report as text or a photo. Diplodoctor lists every value, checks which ones are outside their printed range, explains what they measure and writes the questions to take to your doctor. Your name never leaves your browser.",
+      "open": "Read a report",
+      "sample": "See an example"
+    },
+    "example": {
+      "label": "Example",
+      "title": "Ferritin, one value in a report",
+      "s1": {
+        "tool": "Read",
+        "text": "Ferritin 14 µg/L, range 15 – 150"
+      },
+      "s2": {
+        "tool": "Checked",
+        "text": "Below the printed range — by arithmetic, not by the model"
+      },
+      "s3": {
+        "tool": "Before",
+        "text": "22 µg/L in May 2026, falling"
+      },
+      "s4": {
+        "tool": "Ask",
+        "text": "Should we look for a cause, and when do I retest?"
+      },
+      "valueLabel": "Value",
+      "value": "14 µg/L",
+      "rangeLabel": "Printed range",
+      "range": "15 – 150"
+    },
+    "how": {
+      "kicker": "How it works",
+      "title": "A report in, a file out",
+      "add": {
+        "title": "Add the report",
+        "body": "Paste the text or photograph the pages, in any language. Names and numbers that identify you are removed in your browser first."
+      },
+      "read": {
+        "title": "It reads every value",
+        "body": "Each value with its unit and printed range, the line it was read from, and a flag that comes from comparing the numbers, not from a model's opinion."
+      },
+      "ask": {
+        "title": "You take it to a doctor",
+        "body": "Plain-language information on what is outside its range, questions to ask, and the report in a form you can export or hand to a clinician."
+      }
+    },
+    "privacy": {
+      "kicker": "Private by construction",
+      "title": "A medical record is yours before it is anything else",
+      "cta": "How it is protected",
+      "redact": {
+        "title": "Names stay home",
+        "body": "Your name, birth date, insurance and order numbers are replaced with placeholders in your browser. The model reads placeholders; your browser puts the real values back."
+      },
+      "browser": {
+        "title": "Kept on your device",
+        "body": "Your reports are stored in this browser and nowhere else. There is no account and no copy on our server."
+      },
+      "model": {
+        "title": "Your model, if you want",
+        "body": "Free shared models by default. Or connect your own key for a stronger model on your own budget; the key stays in your browser."
+      }
+    },
+    "capabilities": {
+      "kicker": "What exists",
+      "title": "Real today, and what is next",
+      "lede": "Each line says whether it works now. Nothing is listed as working unless it is.",
+      "roadmap": "Read the roadmap",
+      "changelog": "Read the changelog"
+    },
+    "tiersTitle": "Two kinds of help, and an honest line between them",
+    "tiersLead": "Most results need explaining, not treatment. Some need a doctor. Diplodoctor keeps the difference visible and never pretends to be the second.",
+    "tiers": {
+      "kicker": "Who does what",
+      "ai": {
+        "name": "Diplodoctor AI",
+        "can": "Reads, lists every value, flags what is out of range, explains what it measures and drafts questions for your appointment.",
+        "limit": "Does not diagnose, prescribe, or tell you a result is nothing to worry about."
+      },
+      "clinician": {
+        "name": "A licensed clinician",
+        "can": "Looks at your file and tells you what it means for you, advises and, where the law allows, treats.",
+        "limit": "Planned. Nobody is listed yet, and the page says so."
+      }
+    },
+    "cliniciansLink": "How clinicians will work with Diplodoctor",
+    "identity": {
+      "problem": "The problem",
+      "solution": "What we built",
+      "mission": "Mission",
+      "vision": "Vision"
+    },
+    "fleet": {
+      "kicker": "One of a fleet",
+      "title": "Built on the same ground as the rest",
+      "lede": "Diplodoctor is the health layer of the fleet: OrangeCat is its economy, Loki builds it and Solon decides how it is governed.",
+      "more": "See the ecosystem",
+      "cta": "Read a report"
+    }
+  },
+  "Reports": {
+    "title": "My reports",
+    "subtitle": "Kept in this browser, on this device.",
+    "import": "Import a report file",
+    "new": "Read a report",
+    "importError": "That file is not a Diplodoctor report file.",
+    "emptyTitle": "No reports yet",
+    "emptyBody": "Start with a lab report you hold, or look at a worked example first.",
+    "example": "See the worked example",
+    "outside": "{outside} of {total} outside range"
+  },
+  "NewReport": {
+    "title": "Read a report",
+    "lead": "Give Diplodoctor the report. It is sent, anonymised, to an AI model provider to be read and is not stored by Diplodoctor; the result is kept in this browser only.",
+    "modelOwn": "Read by your own model, {model}.",
+    "modelFree": "Read by free shared models, which vary and have a small daily budget.",
+    "modelFreeNoPhoto": "Read by free shared models, which vary and have a small daily budget. Right now they can read pasted text but not photos.",
+    "modelOff": "The free shared models are not switched on right now. Connect your own model to read a report, or file it by hand below.",
+    "change": "Change",
+    "useOwn": "Use your own model",
+    "textLabel": "The report's text",
+    "textPlaceholder": "Paste it here, in any language.",
+    "photoLabel": "Or photos of its pages",
+    "photoHint": "Up to {max} pages, in order. JPEG, PNG or WebP. Photos are made smaller in your browser before they are sent.",
+    "pages": "{count, plural, one {# page added} other {# pages added}}",
+    "page": "Page {n}",
+    "removePage": "Remove page {n}",
+    "languagesLegend": "Translate it into",
+    "lang": {
+      "English": "English",
+      "German": "German",
+      "French": "French",
+      "Italian": "Italian",
+      "Spanish": "Spanish"
+    },
+    "submit": "Read the report",
+    "busy": "Reading the report…",
+    "byHandLink": "File it by hand instead",
+    "openSettings": "Open model settings",
+    "byHand": {
+      "title": "File it by hand",
+      "body": "No reading, but the document and its date are kept together, and the file can be handed to a clinician. Already have a report file?",
+      "import": "Import it",
+      "about": "What is it?",
+      "provider": "Who issued it?",
+      "collected": "Date of the sample",
+      "save": "Save report",
+      "original": "Original"
+    },
+    "errors": {
+      "not_configured": "The free shared models are not switched on for this site right now. You can connect your own model, or file the report by hand.",
+      "busy": "No model answered. The free shared budget for today may be used up, or a provider is down. Your own model is not affected by the shared budget.",
+      "busy_own": "Your model did not answer. The key may have run out of credit or been revoked. Check it in the settings, or remove it to use the free shared models.",
+      "no_vision": "None of the models available right now can read a photo. Paste the report's text instead, or connect your own model that can read images.",
+      "rate_limited": "That is a lot of reports in a short time. The free shared models allow a few per hour; your own model allows many more.",
+      "bad_own_model": "Your saved model settings could not be used. Set them up again.",
+      "unreadable_analysis": "The model answered, but not in a form Diplodoctor could turn into a report. Try again; a stronger model does this more reliably.",
+      "empty": "Paste the report's text or add a photo of it.",
+      "bad_image": "That file could not be used as a photo. Send a JPEG, PNG or WebP image.",
+      "too_many_pages": "That is more than {max} pages. Add the pages that carry the values.",
+      "offline": "Diplodoctor could not be reached. Check your connection and try again.",
+      "unknown": "The reading did not go through. Try again in a minute."
+    }
+  },
+  "Report": {
+    "sampleBanner": "This is a worked example. Every personal detail in it is invented.",
+    "notHereTitle": "That report is not on this device",
+    "notHereBody": "Reports are kept in the browser that read them. Open it where you read it, or import its report file.",
+    "goReports": "Go to my reports",
+    "aiNotice": "Read by an AI model, which can misread a number or a word. Check each value against the line of the report it came from, one tap away. This is information, not a diagnosis.",
+    "facts": {
+      "provider": "Issued by",
+      "kind": "Type",
+      "reference": "Reference",
+      "collected": "Sample taken",
+      "reported": "Reported"
+    },
+    "kind": {
+      "lab": "Laboratory report",
+      "imaging": "Imaging report",
+      "discharge": "Discharge letter",
+      "prescription": "Prescription",
+      "other": "Medical document"
+    },
+    "attentionEyebrow": "How soon to have it looked at",
+    "attention": {
+      "routine": {
+        "title": "At your next appointment",
+        "body": "Nothing in this report is outside its range or marked urgent. Bring it to your next routine check-up."
+      },
+      "soon": {
+        "title": "Soon — within days or weeks",
+        "body": "One or more values are outside their printed range. A doctor should look at the report. How soon depends on you and your symptoms, which only a doctor can weigh."
+      },
+      "urgent": {
+        "title": "Today",
+        "body": "The report itself marks a value as critical or asks for action at once. Contact a doctor today."
+      }
+    },
+    "emergency": "If you feel unwell now — chest pain, trouble breathing, confusion, severe pain — do not wait for a report: call your emergency number (112 in Europe, 144 in Switzerland, 911 in the US).",
+    "outsideTitle": "{count, plural, one {# value outside its range} other {# values outside their range}}",
+    "allInRange": "Every value is within its printed range",
+    "insideTitle": "{count, plural, one {# value within range} other {# values within range}}",
+    "range": "Range {range}",
+    "noRange": "No range printed",
+    "before": "Before: {value} on {date}",
+    "rising": "rising",
+    "falling": "falling",
+    "flag": {
+      "normal": "In range",
+      "low": "Low",
+      "high": "High",
+      "critical": "Critical",
+      "unknown": "Not rated"
+    },
+    "source": "The line it was read from",
+    "checked": "Flag decided by comparing the number with the printed range.",
+    "notChecked": "Flag as the report marks it. There is no numeric range to check it against.",
+    "questionsTitle": "Questions for your doctor",
+    "questionsHint": "Written from the values that are outside their range. Take them to your appointment.",
+    "copy": "Copy",
+    "copied": "Copied",
+    "termsTitle": "Terms explained",
+    "followUpsTitle": "What the report says to do",
+    "followUpsHint": "Only what the document itself asks for. Tick them off as you go.",
+    "followUpsDone": "{done} of {total} done",
+    "notesTitle": "Good to know",
+    "docTitle": "The document",
+    "language": "Language",
+    "whoEyebrow": "A person",
+    "whoTitle": "Want a doctor to look at it?",
+    "whoBody": "Diplodoctor explains; a licensed clinician decides what it means for you. Handing a report to a clinician is planned and not available yet: export the anonymised file and take it to your own doctor.",
+    "findClinician": "How clinicians will work with Diplodoctor",
+    "exportAnon": "Export for a clinician (anonymised)",
+    "export": "Export the full report",
+    "saveCopy": "Save a copy to my reports",
+    "delete": "Delete",
+    "deleteConfirm": "Delete this report from this browser? This cannot be undone."
+  },
+  "Clinicians": {
+    "metaTitle": "Clinicians",
+    "metaDescription": "How licensed clinicians and patient assistants will work with Diplodoctor.",
+    "eyebrow": "Clinicians",
+    "title": "A doctor behind the answer",
+    "lead": "Diplodoctor explains a report. Diagnosis, treatment and prescriptions are reserved by law to licensed clinicians, and that line is not ours to move. This is how the people on the other side of it will work with you.",
+    "noneTitle": "Nobody is listed yet",
+    "noneBody": "No clinician or assistant has joined, so none is shown. There are no invented profiles, ratings or waiting times here, and there will not be. Until then, export the anonymised file and take it to your own doctor.",
+    "listedUnder": "Listed under {identity}",
+    "clinician": {
+      "name": "Licensed clinician",
+      "identity": "their real name and licence number",
+      "does1": "Advises on what a result means for you",
+      "does2": "Diagnoses and treats within the licence they hold",
+      "does3": "Signs the answer they give you",
+      "doesNot": "Does not work outside the places they are licensed.",
+      "checks": "A licence is verified privately; the name is shown to you when you choose to engage."
+    },
+    "assistant": {
+      "name": "Patient assistant",
+      "identity": "a name or a pseudonym",
+      "does1": "Explains a report in plain words and in your language",
+      "does2": "Helps you prepare an appointment and gather documents",
+      "does3": "Helps with insurer and clinic paperwork",
+      "doesNot": "Does not diagnose, treat, prescribe or give medical advice.",
+      "checks": "Always labelled as an assistant, never as a clinician."
+    },
+    "wantTitle": "Want to offer this?",
+    "wantBody": "Clinicians and assistants offer their work as services on OrangeCat and are paid there by the person they help. Diplodoctor will add the label and the licence check; that part is not built yet.",
+    "offer": "Offer a service on OrangeCat",
+    "seeRoadmap": "See the roadmap",
+    "clinic": {
+      "eyebrow": "For clinics and practices",
+      "title": "Your patients' reports, read before the appointment",
+      "lead": "A clinic can use Diplodoctor the way a patient does, and later on its own terms:",
+      "c1": "Patients arrive with their results read and their questions written.",
+      "c2": "A patient hands you their file by choice, anonymised until they decide otherwise.",
+      "c3": "Run on a model inside your own walls, so patient data never leaves the practice.",
+      "status": "Planned. Nothing here is available to clinics yet; it is on the roadmap."
+    },
+    "rulesTitle": "Rules that do not bend",
+    "rules": {
+      "label": {
+        "title": "Everyone is labelled",
+        "body": "A clinician is shown as a clinician and an assistant as an assistant. The label is not a marketing choice; it is the law's line."
+      },
+      "pseudonym": {
+        "title": "Who may be pseudonymous",
+        "body": "Patients and assistants may use a pseudonym. A clinician's licence is verified privately and their real name shown to a patient on engagement."
+      },
+      "share": {
+        "title": "You decide what leaves",
+        "body": "A clinician receives the anonymised file unless you choose to share more. Nothing is sent without your action."
+      },
+      "place": {
+        "title": "Licensed where you are",
+        "body": "Only a clinician licensed in your place of treatment may advise or treat you there."
+      }
+    },
+    "start": "Read a report"
+  },
+  "Settings": {
+    "metaTitle": "Settings",
+    "metaDescription": "Use your own AI model for Diplodoctor readings.",
+    "title": "Settings",
+    "ownTitle": "Your own model",
+    "p1": "Without a key, Diplodoctor reads reports with free shared models. They have a small daily budget that every visitor draws on, and they are not the strongest available.",
+    "p2": "A medical report deserves the best reading you can give it. Connect an API key from a provider below and your readings run on the strongest model that key can use, on your own budget. The key is kept in this browser only: it is sent with each reading to reach your provider and is never stored by Diplodoctor.",
+    "p3": "Use an API key, ideally one with a spending cap. Diplodoctor never asks for a subscription login such as Claude Pro or ChatGPT Plus.",
+    "using": "Using your own model: {label}",
+    "keyKept": "Key {hint}, kept in this browser only",
+    "remove": "Remove key",
+    "provider": "Provider",
+    "keyLabel": "{vendor} API key",
+    "getKey": "Get a key from {vendor}",
+    "checking": "Checking the key…",
+    "notWrong": "This does not mean the key is wrong.",
+    "model": "Model",
+    "strongest": "strongest this key can use",
+    "use": "Use this model",
+    "saved": "Saved in this browser. New readings use it.",
+    "tooMany": "Too many checks in a short time. Wait a few minutes and try again.",
+    "unreachable": "Could not reach Diplodoctor to check the key. Check your connection."
+  },
+  "Records": {
+    "roadmap": "Roadmap",
+    "changelog": "Changelog",
+    "home": "Back to the product",
+    "profile": "Full development profile",
+    "beta": "Beta — running, not released",
+    "source": "These records come from the canonical project profile. Planned work is not a delivery promise.",
+    "unavailable": "Development records are temporarily unavailable. Please try again shortly.",
+    "emptyRoadmap": "No roadmap items have been recorded yet.",
+    "emptyChangelog": "No changes have been recorded yet.",
+    "progress": "recorded progress",
+    "target": "Target",
+    "englishOnly": ""
+  },
+  "Redact": {
+    "title": "Anonymise before sending",
+    "lead": "Names, birth dates and numbers that identify you are replaced with placeholders in your browser before the report is sent. The model never sees them; your browser puts them back into the result.",
+    "toggle": "Anonymise",
+    "ownWords": "Also hide these words",
+    "ownWordsPlaceholder": "Your name, your employer, a family member…",
+    "ownWordsHint": "Separate with commas. Kept in this browser for your next reports.",
+    "found": "{count, plural, =0 {Nothing will be hidden} one {# detail will be hidden} other {# details will be hidden}}. Tap one to send it after all.",
+    "foundNone": "No personal details found in the text. Add your name above if it appears.",
+    "sendThis": "Send this after all",
+    "hideThis": "Hide this",
+    "preview": "Show exactly what the model receives",
+    "photosWarning": "Photos are sent as they are. Cover your name, birth date and numbers on each page before sending.",
+    "offWarning": "Anonymising is off: the report is sent with every personal detail in it.",
+    "cover": "Cover details",
+    "coveredCount": "{count, plural, one {# area covered} other {# areas covered}}",
+    "notCovered": "nothing covered yet",
+    "photoTitle": "Cover details on {label}",
+    "photoHint": "Drag a box over your name, address, and any number that identifies you. What is under a box is removed from the photo.",
+    "undo": "Undo",
+    "cancel": "Cancel",
+    "done": "{count, plural, =0 {Done} one {Cover # area} other {Cover # areas}}",
+    "canvas": "The page. Drag to cover an area.",
+    "kind": {
+      "NAME": "Name",
+      "ADDRESS": "Address",
+      "POSTCODE": "Town",
+      "EMAIL": "E-mail",
+      "PHONE": "Phone",
+      "IBAN": "IBAN",
+      "AHV": "AHV no.",
+      "REF": "Reference",
+      "BIRTHDATE": "Born"
+    }
+  },
+  "Capabilities": {
+    "status": {
+      "available": "Works today",
+      "inDevelopment": "In development",
+      "planned": "Planned"
+    },
+    "reports": {
+      "name": "Read a medical report",
+      "body": "Paste it or photograph it: every value with its unit and printed range, which ones are outside it, what they measure, questions for your doctor and a translation. No account; names are removed in your browser first."
+    },
+    "privacy": {
+      "name": "Anonymised before it leaves your browser",
+      "body": "Names, birth dates, insurance and order numbers are replaced with placeholders in the browser, and you see every replacement before sending."
+    },
+    "trends": {
+      "name": "Follow a value over time",
+      "body": "When the same measurement is in an earlier report in this browser, the earlier value and the direction are shown. Different units are never converted."
+    },
+    "models": {
+      "name": "Any model, including your own",
+      "body": "Free shared models by default, or your own key with a supported provider such as OpenAI, Anthropic, Google or Mistral. The key stays in your browser."
+    },
+    "records": {
+      "name": "Connect your records",
+      "body": "Swiss and European records as they are held: the electronic patient record (EPD), hospital portals and laboratory PDFs, not only US providers."
+    },
+    "clinicians": {
+      "name": "A licensed clinician signs the answer",
+      "body": "A doctor admitted where you are reads your anonymised file, corrects it and signs it, and is paid for that through OrangeCat."
+    },
+    "matters": {
+      "name": "A health matter, worked by an agent",
+      "body": "One workspace per concern: timeline, medications with dose and frequency, family history, reminders, and drafts that wait for your approval."
+    },
+    "wearables": {
+      "name": "Wearables and exports",
+      "body": "Apple Health and Android Health Connect exports, Garmin, Withings and Oura, when a matter needs them."
+    },
+    "clinics": {
+      "name": "Clinics on their own models",
+      "body": "Practices run Diplodoctor with models inside their own walls and receive patients' files by consent."
+    }
+  },
+  "Platform": {
+    "metaTitle": "Platform",
+    "metaDescription": "How Diplodoctor is built, what each part does and where it stops.",
+    "kicker": "Platform",
+    "title": "How Diplodoctor is built, and why",
+    "lede": "A short, honest account of the parts, what each one does and where it stops. Every sentence describes code in this repository as it is today; what is planned is labelled and points to the roadmap.",
+    "why": {
+      "title": "Why it is built this way",
+      "p1": "A lab report is a table of numbers with a range printed beside each. The hard part for a person is not the table; it is knowing what to ask, and trusting the answer.",
+      "p2": "A language model is good at reading the table and at saying in plain words what a measurement is for. It is the wrong tool for deciding whether 5.8 is above 5.6. So the model reads, and code compares.",
+      "p3": "And only a licensed clinician may say what a result means for you. Diplodoctor is built to prepare that conversation, not to replace it."
+    },
+    "architecture": {
+      "kicker": "Architecture",
+      "title": "Five parts, each with one job",
+      "intake": {
+        "title": "Intake",
+        "body": "A text box and up to four page photos, made smaller in your browser. Nothing is sent until you press the button."
+      },
+      "redaction": {
+        "title": "Redaction",
+        "body": "lib/redact.ts finds names, birth dates, addresses, insurance, order and phone numbers and replaces each with a placeholder, in the browser. You see every one and can switch it off."
+      },
+      "reading": {
+        "title": "Reading",
+        "body": "One route calls ai-kit's complete() over the shared free chain, or your own key. The model returns one JSON object: values, units, ranges, the line each came from, plain-language information and questions."
+      },
+      "checks": {
+        "title": "Checks",
+        "body": "The report schema, not the model, decides each flag by comparing the value with the printed bounds, and never lets the urgency fall below what the flags imply. A value is never shown without the line it was read from."
+      },
+      "file": {
+        "title": "The file",
+        "body": "One zod schema is the report: what the model produces, what the browser stores and what Export writes. A file that can leave is a file that belongs to you."
+      }
+    },
+    "turn": {
+      "title": "One reading, step by step",
+      "lede": "What happens between pressing the button and seeing the result.",
+      "s1": "Your browser finds the personal details in the text and replaces them with placeholders.",
+      "s2": "Only the anonymised text and your page photos go to the server.",
+      "s3": "The server asks a model, from the free chain or your own key, to read the report. Nothing about it is stored or logged.",
+      "s4": "The reply is checked against the schema, and every flag is recomputed from the numbers.",
+      "s5": "Your browser puts the real values back where the placeholders were.",
+      "s6": "The report is saved in this browser. The server has already forgotten it."
+    },
+    "principles": {
+      "title": "Principles",
+      "information": {
+        "title": "Information, not diagnosis",
+        "body": "The model is told never to diagnose, advise on medicines or reassure. The product repeats it wherever a result is shown."
+      },
+      "honest": {
+        "title": "Nothing is claimed that is not true",
+        "body": "Every capability has a status in one file, and the pages read it. Nobody is listed, rated or quoted who does not exist."
+      },
+      "open": {
+        "title": "Open source",
+        "body": "The code, the prompt and the tests are public under the MIT licence, so a claim here can be checked there."
+      },
+      "shared": {
+        "title": "Shared ground",
+        "body": "Design, models, limits and records come from packages the whole fleet uses, not from copies."
+      }
+    },
+    "stack": {
+      "title": "The stack",
+      "lede": "The same column of packages as the rest of the fleet.",
+      "framework": {
+        "label": "Framework",
+        "value": "Next.js 16, React 19, TypeScript"
+      },
+      "models": {
+        "label": "Models",
+        "value": "@bitbaum/ai-kit complete() over the free chain; your own key"
+      },
+      "privacy": {
+        "label": "Privacy",
+        "value": "lib/redact.ts in the browser; CSP with a nonce"
+      },
+      "design": {
+        "label": "Design",
+        "value": "@bitbaum/design-tokens"
+      },
+      "record": {
+        "label": "Roadmap",
+        "value": "ROADMAP.md and CHANGELOG.md, read through bip-kit"
+      },
+      "limits": {
+        "label": "Rate limits",
+        "value": "limitkit, in memory"
+      },
+      "languages": {
+        "label": "Languages",
+        "value": "next-intl: en, de, fr, it, es"
+      },
+      "tests": {
+        "label": "Tests",
+        "value": "Vitest; the model call is injected"
+      }
+    },
+    "next": {
+      "kicker": "Next",
+      "title": "Where it goes",
+      "lede": "Health matters worked by an agent, and a licensed clinician who signs the answer. What is built and what is not is on the roadmap, in that order.",
+      "roadmap": "Read the roadmap",
+      "ecosystem": "The ecosystem",
+      "source": "Source code"
+    }
+  },
+  "Security": {
+    "metaTitle": "Security",
+    "metaDescription": "What protects a medical report on Diplodoctor, and what does not.",
+    "kicker": "Security",
+    "title": "What protects a report here",
+    "lede": "Health data is among the most sensitive data there is; Swiss law calls it «besonders schützenswert». Here is what is done about it, and where the limits are.",
+    "anon": {
+      "title": "Anonymised before it leaves",
+      "body": "The model needs the values, not who they belong to.",
+      "d1": "Names, birth dates, addresses, phone numbers, e-mail, IBAN, AHV and insurance numbers, and patient and order numbers are replaced with placeholders in your browser.",
+      "d2": "You see each replacement before sending, can switch any off and can add words of your own.",
+      "d3": "The table of what each placeholder stands for never leaves your device.",
+      "d4": "Detection is deliberately generous: hiding one word too many costs a little detail; one too few would send your data.",
+      "d5": "Photos are not read in the browser, so they are sent as they are unless you cover the details first."
+    },
+    "browser": {
+      "title": "Kept on your device",
+      "body": "Your reports live in this browser's storage.",
+      "d1": "There is no account and no copy of your reports on our server.",
+      "d2": "Clearing this site's data deletes them; export a file first if you want to keep one.",
+      "d3": "Anyone with access to this browser profile can read them."
+    },
+    "minimal": {
+      "title": "Nothing kept on the server",
+      "body": "The server passes a request through and forgets it.",
+      "d1": "The anonymised text goes to a model provider for one request; the server stores nothing and logs only which model answered.",
+      "d2": "Requests are rate limited per caller to protect the shared free tier.",
+      "d3": "A model provider sees the anonymised text, so read its terms. With your own key it goes to your provider instead."
+    },
+    "transport": {
+      "title": "A browser told to trust little",
+      "body": "The page is served with strict headers.",
+      "d1": "Scripts run only from this site and only with this response's nonce; requests go only to this site.",
+      "d2": "HTTPS only for two years; no framing; no referrer leaves the site.",
+      "d3": "No analytics and no third-party scripts."
+    },
+    "model": {
+      "title": "Your key stays yours",
+      "body": "If you connect your own model:",
+      "d1": "The key is kept in this browser only and sent with each reading to reach your provider.",
+      "d2": "It is never stored or logged by the server."
+    },
+    "breach": {
+      "title": "If something goes wrong",
+      "lede": "What each failure would expose, said plainly.",
+      "provider": {
+        "title": "A model provider is breached",
+        "body": "It could expose the anonymised text of readings sent to it: values and dates without your name, address or numbers, unless a photo went uncovered."
+      },
+      "operator": {
+        "title": "We are compromised",
+        "body": "There is no database of reports to steal. An attacker could change the site to send data elsewhere, which is why the code is public and the headers are checked after every deploy."
+      },
+      "device": {
+        "title": "Your device is lost or shared",
+        "body": "Your reports are readable by anyone who can open this browser. Use a device lock, and delete what you no longer need."
+      }
+    },
+    "links": {
+      "source": "Read the source",
+      "platform": "How it is built"
+    }
+  },
+  "Ecosystem": {
+    "metaTitle": "Ecosystem",
+    "metaDescription": "Diplodoctor is the health layer of a fleet of products — OrangeCat, Loki and Solon — that one OrangeCat account opens.",
+    "kicker": "Ecosystem",
+    "title": "One person, a whole fleet",
+    "lede": "Diplodoctor is one product in a fleet built to give a single person what used to take an institution. Each product does one job, and one OrangeCat account opens them all.",
+    "layer": "{layer, select, economic {Economy} execution {Execution} governance {Governance} other {{layer}}}",
+    "open": "Open {name}",
+    "unavailable": "The list of products could not be loaded just now. Try again in a minute.",
+    "layerTitle": "The health layer",
+    "layerBody": "OrangeCat moves value, Loki gets the work done and Solon governs. Diplodoctor is the health layer on top: the reports, records and appointments through which a person understands their own body and brings a doctor in.",
+    "seams": {
+      "account": {
+        "title": "One account",
+        "body": "Sign-in with OrangeCat is planned for health matters. Reading a report needs no account today."
+      },
+      "pay": {
+        "title": "Paid on OrangeCat",
+        "body": "Clinicians and assistants will offer their work as OrangeCat services and be paid there."
+      },
+      "build": {
+        "title": "Built with Loki",
+        "body": "Loki builds and ships Diplodoctor and holds its identity."
+      },
+      "law": {
+        "title": "Disputes go to Causius",
+        "body": "When a report turns into a dispute with an insurer or an employer, the legal layer, Causius, takes it from there."
+      }
+    },
+    "account": {
+      "kicker": "Your account",
+      "title": "No account needed today",
+      "body": "Reading a report needs none, and nothing about it is on our server. When health matters arrive, the same OrangeCat account that opens the rest of the fleet will open them.",
+      "cta": "Read a report"
+    }
+  }
+}
