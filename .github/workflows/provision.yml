@@ -98,4 +98,14 @@ jobs:
           end $$;
           SQL
           ssh -i ~/.ssh/id -o BatchMode=yes "ubuntu@$IP" "sudo -u postgres psql -qtAX -d diplodoctor -c \"set role diplodoctor; select 'app role reads users: ' || count(*) from users\""
+          # What the app itself would see: its own env file, its own URL, the same
+          # query the health probe runs. Nothing here prints the URL.
+          ssh -i ~/.ssh/id -o BatchMode=yes "ubuntu@$IP" 'bash -s' <<'DIAG' || true
+          set -uo pipefail
+          url=$(grep -m1 '^DATABASE_URL=' /opt/diplodoctor/shared/.env | cut -d= -f2-)
+          echo "url scheme/host/db: $(printf '%s' "$url" | sed -E 's#^([a-z]+)://[^@]*@([^/]*)/(.*)$#\1 \2 \3#')"
+          psql "$url" -qtAX -c "select 'url login reads users: ' || count(*) from users" 2>&1 | sed -E 's#postgres(ql)?://[^ ]*#<url>#g'
+          for u in diplodoctor-app diplodoctor; do systemctl is-active "$u" 2>/dev/null && echo "unit $u active"; done
+          for u in diplodoctor-app diplodoctor; do journalctl -u "$u" -n 40 --no-pager 2>/dev/null | grep -E '\[db\]|ECONN|password|auth|ENOTFOUND|SSL' | tail -5 | sed -E 's#postgres(ql)?://[^ ]*#<url>#g'; done
+          DIAG
           rm -f ~/.ssh/id
