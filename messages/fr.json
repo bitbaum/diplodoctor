@@ -1,0 +1,673 @@
+{
+  "Meta": {
+    "title": "Diplodoctor — comprenez vos rapports médicaux",
+    "description": "Diplodoctor lit un rapport de laboratoire avec vous : chaque valeur, celles qui sortent de leur intervalle et ce qu'il faut demander à votre médecin. Quand vous voulez une personne, un professionnel de santé autorisé."
+  },
+  "Nav": {
+    "main": "Navigation principale",
+    "reports": "Mes rapports",
+    "clinicians": "Cliniciens",
+    "settings": "Réglages",
+    "new": "Lire un rapport",
+    "beta": "Bêta",
+    "language": "Langue",
+    "platform": "Plateforme",
+    "security": "Sécurité",
+    "ecosystem": "Écosystème",
+    "menu": "Menu",
+    "skip": "Aller au contenu"
+  },
+  "Footer": {
+    "tagline": "La couche santé de la flotte : un agent qui lit le rapport, et un médecin qui décide.",
+    "sections": {
+      "product": "Produit",
+      "platform": "Plateforme",
+      "open": "En public"
+    },
+    "links": {
+      "reports": "Mes rapports",
+      "new": "Lire un rapport",
+      "clinicians": "Cliniciens",
+      "settings": "Réglages",
+      "platform": "Comment c'est construit",
+      "security": "Sécurité",
+      "ecosystem": "Écosystème",
+      "roadmap": "Feuille de route",
+      "changelog": "Journal des modifications",
+      "source": "Code source",
+      "license": "Licence MIT",
+      "orangecat": "Diplodoctor sur OrangeCat",
+      "solon": "Diplodoctor sur Solon"
+    },
+    "disclaimer": "Bêta : en service, pas encore publié. Diplodoctor donne de l'information de santé, pas un diagnostic, et n'est ni un dispositif médical ni un substitut à un médecin. En cas d'urgence, appelez votre numéro d'urgence.",
+    "openSource": "Open source sous licence MIT. Construit à Zurich.",
+    "fleet": "La flotte"
+  },
+  "Home": {
+    "hero": {
+      "kicker": "La médecine, avec un médecin dans la boucle",
+      "line1": "Vos résultats,",
+      "line2": "lus avec vous.",
+      "lede": "Ajoutez un rapport de laboratoire en texte ou en photo. Diplodoctor liste chaque valeur, vérifie lesquelles sortent de leur intervalle imprimé, explique ce qu'elles mesurent et rédige les questions à poser à votre médecin. Votre nom ne quitte jamais votre navigateur.",
+      "open": "Lire un rapport",
+      "sample": "Voir un exemple"
+    },
+    "example": {
+      "label": "Exemple",
+      "title": "Ferritine, une valeur dans un rapport",
+      "s1": {
+        "tool": "Lu",
+        "text": "Ferritine 14 µg/L, intervalle 15 – 150"
+      },
+      "s2": {
+        "tool": "Vérifié",
+        "text": "Sous l'intervalle imprimé — par calcul, pas par le modèle"
+      },
+      "s3": {
+        "tool": "Avant",
+        "text": "22 µg/L en mai 2026, en baisse"
+      },
+      "s4": {
+        "tool": "Demander",
+        "text": "Faut-il chercher une cause, et quand refaire l'analyse ?"
+      },
+      "valueLabel": "Valeur",
+      "value": "14 µg/L",
+      "rangeLabel": "Intervalle imprimé",
+      "range": "15 – 150"
+    },
+    "how": {
+      "kicker": "Comment ça marche",
+      "title": "Un rapport en entrée, un dossier en sortie",
+      "add": {
+        "title": "Ajoutez le rapport",
+        "body": "Collez le texte ou photographiez les pages, dans n'importe quelle langue. Les noms et numéros qui vous identifient sont d'abord retirés dans votre navigateur."
+      },
+      "read": {
+        "title": "Il lit chaque valeur",
+        "body": "Chaque valeur avec son unité et son intervalle imprimé, la ligne d'où elle a été lue, et un marquage issu de la comparaison des nombres, pas de l'opinion d'un modèle."
+      },
+      "ask": {
+        "title": "Vous l'apportez à un médecin",
+        "body": "Une information en langage clair sur ce qui sort de l'intervalle, des questions à poser, et le rapport sous une forme que vous pouvez exporter ou remettre à un professionnel de santé."
+      }
+    },
+    "privacy": {
+      "kicker": "Privé par construction",
+      "title": "Un dossier médical est à vous avant d'être quoi que ce soit d'autre",
+      "cta": "Comment il est protégé",
+      "redact": {
+        "title": "Les noms restent chez vous",
+        "body": "Votre nom, votre date de naissance, vos numéros d'assurance et de commande sont remplacés par des marqueurs dans votre navigateur. Le modèle lit des marqueurs ; votre navigateur remet les vraies valeurs."
+      },
+      "browser": {
+        "title": "Conservé sur votre appareil",
+        "body": "Vos rapports sont stockés dans ce navigateur et nulle part ailleurs. Il n'y a ni compte ni copie sur notre serveur."
+      },
+      "model": {
+        "title": "Votre modèle, si vous le souhaitez",
+        "body": "Des modèles gratuits partagés par défaut. Ou connectez votre propre clé pour un modèle plus puissant, sur votre propre budget ; la clé reste dans votre navigateur."
+      }
+    },
+    "capabilities": {
+      "kicker": "Ce qui existe",
+      "title": "Réel aujourd'hui, et la suite",
+      "lede": "Chaque ligne dit si cela fonctionne aujourd'hui. Rien n'est indiqué comme fonctionnel s'il ne l'est pas.",
+      "roadmap": "Lire la feuille de route",
+      "changelog": "Lire le journal des modifications"
+    },
+    "tiersTitle": "Deux formes d'aide, et une frontière honnête entre elles",
+    "tiersLead": "La plupart des résultats demandent des explications, pas un traitement. Certains demandent un médecin. Diplodoctor garde la différence visible et ne prétend jamais être le second.",
+    "tiers": {
+      "kicker": "Qui fait quoi",
+      "ai": {
+        "name": "L'IA de Diplodoctor",
+        "can": "Lit, liste chaque valeur, signale ce qui sort de l'intervalle, explique ce que cela mesure et rédige des questions pour votre rendez-vous.",
+        "limit": "Ne pose pas de diagnostic, ne prescrit pas et ne vous dit pas qu'un résultat n'a rien d'inquiétant."
+      },
+      "clinician": {
+        "name": "Un professionnel de santé autorisé",
+        "can": "Regarde votre dossier et vous dit ce qu'il signifie pour vous, vous conseille et, là où la loi le permet, vous soigne.",
+        "limit": "Prévu. Personne n'est encore répertorié, et la page le dit."
+      }
+    },
+    "cliniciansLink": "Comment les professionnels de santé travailleront avec Diplodoctor",
+    "identity": {
+      "problem": "Le problème",
+      "solution": "Ce que nous avons construit",
+      "mission": "Mission",
+      "vision": "Vision"
+    },
+    "fleet": {
+      "kicker": "Un parmi une flotte",
+      "title": "Bâti sur le même terrain que les autres",
+      "lede": "Diplodoctor est la couche santé de la flotte : OrangeCat en est l'économie, Loki le construit et Solon décide de sa gouvernance.",
+      "more": "Voir l'écosystème",
+      "cta": "Lire un rapport"
+    }
+  },
+  "Reports": {
+    "title": "Mes rapports",
+    "subtitle": "Conservés dans ce navigateur, sur cet appareil.",
+    "import": "Importer un fichier de rapport",
+    "new": "Lire un rapport",
+    "importError": "Ce fichier n'est pas un fichier de rapport Diplodoctor.",
+    "emptyTitle": "Aucun rapport pour l'instant",
+    "emptyBody": "Commencez par un rapport de laboratoire que vous avez, ou regardez d'abord un exemple détaillé.",
+    "example": "Voir l'exemple détaillé",
+    "outside": "{outside} sur {total} hors intervalle"
+  },
+  "NewReport": {
+    "title": "Lire un rapport",
+    "lead": "Donnez le rapport à Diplodoctor. Il est envoyé, anonymisé, à un fournisseur de modèles d'IA pour être lu et n'est pas conservé par Diplodoctor ; le résultat reste uniquement dans ce navigateur.",
+    "modelOwn": "Lu par votre propre modèle, {model}.",
+    "modelFree": "Lu par des modèles gratuits partagés, qui varient et disposent d'un petit budget quotidien.",
+    "modelFreeNoPhoto": "Lu par des modèles gratuits partagés, qui varient et disposent d'un petit budget quotidien. Pour l'instant, ils lisent un texte collé mais pas les photos.",
+    "modelOff": "Les modèles gratuits partagés ne sont pas activés pour l'instant. Connectez votre propre modèle pour lire un rapport, ou classez-le à la main ci-dessous.",
+    "change": "Modifier",
+    "useOwn": "Utiliser votre propre modèle",
+    "textLabel": "Le texte du rapport",
+    "textPlaceholder": "Collez-le ici, dans n'importe quelle langue.",
+    "photoLabel": "Ou des photos de ses pages",
+    "photoHint": "Jusqu'à {max} pages, dans l'ordre. JPEG, PNG ou WebP. Les photos sont réduites dans votre navigateur avant d'être envoyées.",
+    "pages": "{count, plural, one {# page ajoutée} other {# pages ajoutées}}",
+    "page": "Page {n}",
+    "removePage": "Retirer la page {n}",
+    "languagesLegend": "Traduire en",
+    "lang": {
+      "English": "anglais",
+      "German": "allemand",
+      "French": "français",
+      "Italian": "italien",
+      "Spanish": "espagnol"
+    },
+    "submit": "Lire le rapport",
+    "busy": "Lecture du rapport…",
+    "byHandLink": "Le classer à la main",
+    "openSettings": "Ouvrir les réglages du modèle",
+    "byHand": {
+      "title": "Classer à la main",
+      "body": "Pas de lecture, mais le document et sa date restent ensemble, et le dossier peut être remis à un professionnel de santé. Vous avez déjà un fichier de rapport ?",
+      "import": "Importez-le",
+      "about": "De quoi s'agit-il ?",
+      "provider": "Qui l'a établi ?",
+      "collected": "Date du prélèvement",
+      "save": "Enregistrer le rapport",
+      "original": "Original"
+    },
+    "errors": {
+      "not_configured": "Les modèles gratuits partagés ne sont pas activés pour ce site en ce moment. Vous pouvez connecter votre propre modèle, ou classer le rapport à la main.",
+      "busy": "Aucun modèle n'a répondu. Le budget gratuit partagé du jour est peut-être épuisé, ou un fournisseur est en panne. Votre propre modèle ne dépend pas du budget partagé.",
+      "busy_own": "Votre modèle n'a pas répondu. Le crédit de la clé est peut-être épuisé, ou la clé a été révoquée. Vérifiez-la dans les réglages, ou retirez-la pour utiliser les modèles gratuits partagés.",
+      "no_vision": "Aucun des modèles disponibles en ce moment ne peut lire une photo. Collez plutôt le texte du rapport, ou connectez votre propre modèle capable de lire des images.",
+      "rate_limited": "Cela fait beaucoup de rapports en peu de temps. Les modèles gratuits partagés en acceptent quelques-uns par heure ; votre propre modèle, bien davantage.",
+      "bad_own_model": "Vos réglages de modèle enregistrés n'ont pas pu être utilisés. Configurez-les à nouveau.",
+      "unreadable_analysis": "Le modèle a répondu, mais pas sous une forme dont Diplodoctor pouvait tirer un rapport. Réessayez ; un modèle plus puissant y parvient plus sûrement.",
+      "empty": "Collez le texte du rapport ou ajoutez-en une photo.",
+      "bad_image": "Ce fichier n'a pas pu être utilisé comme photo. Envoyez une image JPEG, PNG ou WebP.",
+      "too_many_pages": "Cela fait plus de {max} pages. Ajoutez les pages qui portent les valeurs.",
+      "offline": "Diplodoctor est injoignable. Vérifiez votre connexion et réessayez.",
+      "unknown": "La lecture n'a pas abouti. Réessayez dans une minute."
+    }
+  },
+  "Report": {
+    "sampleBanner": "Ceci est un exemple détaillé. Tous les détails personnels qui s'y trouvent sont inventés.",
+    "notHereTitle": "Ce rapport n'est pas sur cet appareil",
+    "notHereBody": "Les rapports sont conservés dans le navigateur qui les a lus. Ouvrez-le là où vous l'avez lu, ou importez son fichier de rapport.",
+    "goReports": "Aller à mes rapports",
+    "aiNotice": "Lu par un modèle d'IA, qui peut mal lire un nombre ou un mot. Vérifiez chaque valeur avec la ligne du rapport d'où elle vient, à un geste de là. C'est de l'information, pas un diagnostic.",
+    "facts": {
+      "provider": "Établi par",
+      "kind": "Type",
+      "reference": "Référence",
+      "collected": "Prélèvement",
+      "reported": "Rapport du"
+    },
+    "kind": {
+      "lab": "Rapport de laboratoire",
+      "imaging": "Rapport d'imagerie",
+      "discharge": "Lettre de sortie",
+      "prescription": "Ordonnance",
+      "other": "Document médical"
+    },
+    "attentionEyebrow": "Dans quel délai le faire examiner",
+    "attention": {
+      "routine": {
+        "title": "Lors de votre prochain rendez-vous",
+        "body": "Rien dans ce rapport n'est hors de son intervalle ni marqué comme urgent. Apportez-le à votre prochain contrôle de routine."
+      },
+      "soon": {
+        "title": "Bientôt — dans les jours ou semaines à venir",
+        "body": "Une ou plusieurs valeurs sont hors de leur intervalle imprimé. Un médecin devrait regarder le rapport. Le délai dépend de vous et de vos symptômes, que seul un médecin peut évaluer."
+      },
+      "urgent": {
+        "title": "Aujourd'hui",
+        "body": "Le rapport lui-même marque une valeur comme critique ou demande d'agir immédiatement. Contactez un médecin aujourd'hui."
+      }
+    },
+    "emergency": "Si vous vous sentez mal maintenant — douleur à la poitrine, difficulté à respirer, confusion, douleur intense — n'attendez pas un rapport : appelez votre numéro d'urgence (112 en Europe, 144 en Suisse, 911 aux États-Unis).",
+    "outsideTitle": "{count, plural, one {# valeur hors de son intervalle} other {# valeurs hors de leur intervalle}}",
+    "allInRange": "Toutes les valeurs sont dans leur intervalle imprimé",
+    "insideTitle": "{count, plural, one {# valeur dans l'intervalle} other {# valeurs dans l'intervalle}}",
+    "range": "Intervalle {range}",
+    "noRange": "Aucun intervalle imprimé",
+    "before": "Avant : {value} le {date}",
+    "rising": "en hausse",
+    "falling": "en baisse",
+    "flag": {
+      "normal": "Dans l'intervalle",
+      "low": "Bas",
+      "high": "Élevé",
+      "critical": "Critique",
+      "unknown": "Non évalué"
+    },
+    "source": "La ligne d'où elle a été lue",
+    "checked": "Marquage décidé en comparant le nombre à l'intervalle imprimé.",
+    "notChecked": "Marquage tel que le rapport l'indique. Il n'y a pas d'intervalle numérique pour le vérifier.",
+    "questionsTitle": "Questions pour votre médecin",
+    "questionsHint": "Rédigées à partir des valeurs hors de leur intervalle. Apportez-les à votre rendez-vous.",
+    "copy": "Copier",
+    "copied": "Copié",
+    "termsTitle": "Termes expliqués",
+    "followUpsTitle": "Ce que le rapport demande de faire",
+    "followUpsHint": "Seulement ce que le document demande lui-même. Cochez au fur et à mesure.",
+    "followUpsDone": "{done} sur {total} faits",
+    "notesTitle": "Bon à savoir",
+    "docTitle": "Le document",
+    "language": "Langue",
+    "whoEyebrow": "Une personne",
+    "whoTitle": "Envie qu'un médecin le regarde ?",
+    "whoBody": "Diplodoctor explique ; un professionnel de santé autorisé décide de ce que cela signifie pour vous. Remettre un rapport à un professionnel de santé est prévu mais pas encore disponible : exportez le fichier anonymisé et apportez-le à votre propre médecin.",
+    "findClinician": "Comment les professionnels de santé travailleront avec Diplodoctor",
+    "exportAnon": "Exporter pour un professionnel de santé (anonymisé)",
+    "export": "Exporter le rapport complet",
+    "saveCopy": "Enregistrer une copie dans mes rapports",
+    "delete": "Supprimer",
+    "deleteConfirm": "Supprimer ce rapport de ce navigateur ? Cette action est irréversible."
+  },
+  "Clinicians": {
+    "metaTitle": "Cliniciens",
+    "metaDescription": "Comment les professionnels de santé autorisés et les accompagnants de patients travailleront avec Diplodoctor.",
+    "eyebrow": "Cliniciens",
+    "title": "Un médecin derrière la réponse",
+    "lead": "Diplodoctor explique un rapport. Le diagnostic, le traitement et les prescriptions sont réservés par la loi aux professionnels de santé autorisés, et cette frontière n'est pas à nous de la déplacer. Voici comment les personnes de l'autre côté travailleront avec vous.",
+    "noneTitle": "Personne n'est encore répertorié",
+    "noneBody": "Aucun professionnel de santé ni accompagnant n'a rejoint la plateforme, donc aucun n'est affiché. Il n'y a ici ni profils inventés, ni évaluations, ni délais d'attente, et il n'y en aura pas. D'ici là, exportez le fichier anonymisé et apportez-le à votre propre médecin.",
+    "listedUnder": "Répertorié sous {identity}",
+    "clinician": {
+      "name": "Professionnel de santé autorisé",
+      "identity": "son vrai nom et son numéro d'autorisation",
+      "does1": "Vous conseille sur ce qu'un résultat signifie pour vous",
+      "does2": "Pose un diagnostic et soigne dans le cadre de l'autorisation qu'il détient",
+      "does3": "Signe la réponse qu'il vous donne",
+      "doesNot": "N'exerce pas en dehors des lieux où il est autorisé.",
+      "checks": "L'autorisation est vérifiée en privé ; le nom vous est montré lorsque vous choisissez de faire appel à lui."
+    },
+    "assistant": {
+      "name": "Accompagnant de patients",
+      "identity": "un nom ou un pseudonyme",
+      "does1": "Explique un rapport en mots simples et dans votre langue",
+      "does2": "Vous aide à préparer un rendez-vous et à réunir des documents",
+      "does3": "Aide pour les démarches auprès des assureurs et des cliniques",
+      "doesNot": "Ne pose pas de diagnostic, ne soigne pas, ne prescrit pas et ne donne pas de conseil médical.",
+      "checks": "Toujours indiqué comme accompagnant, jamais comme professionnel de santé."
+    },
+    "wantTitle": "Envie de proposer ce service ?",
+    "wantBody": "Les professionnels de santé et les accompagnants proposent leur travail comme services sur OrangeCat et y sont payés par la personne qu'ils aident. Diplodoctor ajoutera l'étiquette et la vérification de l'autorisation ; cette partie n'est pas encore construite.",
+    "offer": "Proposer un service sur OrangeCat",
+    "seeRoadmap": "Voir la feuille de route",
+    "clinic": {
+      "eyebrow": "Pour les cliniques et cabinets",
+      "title": "Les rapports de vos patients, lus avant le rendez-vous",
+      "lead": "Une clinique peut utiliser Diplodoctor comme un patient le fait, et plus tard selon ses propres conditions :",
+      "c1": "Les patients arrivent avec leurs résultats lus et leurs questions rédigées.",
+      "c2": "Un patient vous remet son dossier par choix, anonymisé tant qu'il n'en décide pas autrement.",
+      "c3": "Exécuté sur un modèle dans vos propres murs, afin que les données des patients ne quittent jamais le cabinet.",
+      "status": "Prévu. Rien ici n'est encore disponible pour les cliniques ; c'est sur la feuille de route."
+    },
+    "rulesTitle": "Des règles qui ne plient pas",
+    "rules": {
+      "label": {
+        "title": "Chacun est étiqueté",
+        "body": "Un professionnel de santé est présenté comme tel et un accompagnant comme accompagnant. L'étiquette n'est pas un choix marketing ; c'est la frontière fixée par la loi."
+      },
+      "pseudonym": {
+        "title": "Qui peut être sous pseudonyme",
+        "body": "Les patients et les accompagnants peuvent utiliser un pseudonyme. L'autorisation d'un professionnel de santé est vérifiée en privé et son vrai nom est montré au patient lors de l'engagement."
+      },
+      "share": {
+        "title": "Vous décidez de ce qui sort",
+        "body": "Un professionnel de santé reçoit le fichier anonymisé, sauf si vous choisissez d'en partager davantage. Rien n'est envoyé sans votre action."
+      },
+      "place": {
+        "title": "Autorisé là où vous êtes",
+        "body": "Seul un professionnel de santé autorisé à exercer dans votre lieu de traitement peut vous y conseiller ou vous y soigner."
+      }
+    },
+    "start": "Lire un rapport"
+  },
+  "Settings": {
+    "metaTitle": "Réglages",
+    "metaDescription": "Utilisez votre propre modèle d'IA pour les lectures de Diplodoctor.",
+    "title": "Réglages",
+    "ownTitle": "Votre propre modèle",
+    "p1": "Sans clé, Diplodoctor lit les rapports avec des modèles gratuits partagés. Ils disposent d'un petit budget quotidien que tous les visiteurs se partagent, et ce ne sont pas les plus puissants.",
+    "p2": "Un rapport médical mérite la meilleure lecture possible. Connectez une clé API de l'un des fournisseurs ci-dessous et vos lectures tournent sur le modèle le plus puissant que cette clé peut utiliser, sur votre propre budget. La clé reste uniquement dans ce navigateur : elle est envoyée avec chaque lecture pour joindre votre fournisseur et n'est jamais conservée par Diplodoctor.",
+    "p3": "Utilisez une clé API, de préférence avec un plafond de dépenses. Diplodoctor ne demande jamais l'identifiant d'un abonnement tel que Claude Pro ou ChatGPT Plus.",
+    "using": "Vous utilisez votre propre modèle : {label}",
+    "keyKept": "Clé {hint}, conservée uniquement dans ce navigateur",
+    "remove": "Retirer la clé",
+    "provider": "Fournisseur",
+    "keyLabel": "Clé API {vendor}",
+    "getKey": "Obtenir une clé chez {vendor}",
+    "checking": "Vérification de la clé…",
+    "notWrong": "Cela ne veut pas dire que la clé est fausse.",
+    "model": "Modèle",
+    "strongest": "le plus puissant que cette clé peut utiliser",
+    "use": "Utiliser ce modèle",
+    "saved": "Enregistré dans ce navigateur. Les nouvelles lectures l'utilisent.",
+    "tooMany": "Trop de vérifications en peu de temps. Attendez quelques minutes et réessayez.",
+    "unreachable": "Diplodoctor était injoignable pour vérifier la clé. Vérifiez votre connexion."
+  },
+  "Records": {
+    "roadmap": "Feuille de route",
+    "changelog": "Changements",
+    "home": "Retour au produit",
+    "profile": "Profil de développement complet",
+    "beta": "Bêta — en service, pas encore publié",
+    "source": "Ces entrées proviennent du profil de référence du projet. Un travail prévu n'est pas une promesse de livraison.",
+    "unavailable": "Les entrées de développement sont momentanément indisponibles. Veuillez réessayer sous peu.",
+    "emptyRoadmap": "Aucun élément de feuille de route n'a encore été enregistré.",
+    "emptyChangelog": "Aucun changement n'a encore été enregistré.",
+    "progress": "progression enregistrée",
+    "target": "Échéance",
+    "englishOnly": "Ces entrées sont tenues en anglais."
+  },
+  "Redact": {
+    "title": "Anonymiser avant l'envoi",
+    "lead": "Les noms, dates de naissance et numéros qui permettent de vous identifier sont remplacés par des marqueurs dans votre navigateur avant l'envoi du rapport. Le modèle ne les voit jamais ; votre navigateur les remet dans le résultat.",
+    "toggle": "Anonymiser",
+    "ownWords": "Masquer aussi ces mots",
+    "ownWordsPlaceholder": "Votre nom, votre employeur, un membre de votre famille…",
+    "ownWordsHint": "Séparez par des virgules. Conservé dans ce navigateur pour vos prochains rapports.",
+    "found": "{count, plural, =0 {Rien ne sera masqué} one {# donnée sera masquée} other {# données seront masquées}}. Touchez-en une pour l'envoyer quand même.",
+    "foundNone": "Aucune donnée personnelle trouvée dans le texte. Ajoutez votre nom ci-dessus s'il y figure.",
+    "sendThis": "L'envoyer quand même",
+    "hideThis": "La masquer",
+    "preview": "Voir exactement ce que reçoit le modèle",
+    "photosWarning": "Les photos sont envoyées telles quelles. Masquez votre nom, votre date de naissance et vos numéros sur chaque page avant l'envoi.",
+    "offWarning": "L'anonymisation est désactivée : le rapport est envoyé avec toutes les données personnelles.",
+    "cover": "Masquer des données",
+    "coveredCount": "{count, plural, one {# zone masquée} other {# zones masquées}}",
+    "notCovered": "rien de masqué pour l'instant",
+    "photoTitle": "Masquer des données sur la {label}",
+    "photoHint": "Tracez un rectangle sur votre nom, votre adresse et tout numéro qui vous identifie. Ce qui se trouve dessous est retiré de la photo.",
+    "undo": "Annuler",
+    "cancel": "Fermer",
+    "done": "{count, plural, =0 {Terminé} one {Masquer # zone} other {Masquer # zones}}",
+    "canvas": "La page. Faites glisser pour masquer une zone.",
+    "kind": {
+      "NAME": "Nom",
+      "ADDRESS": "Adresse",
+      "POSTCODE": "Localité",
+      "EMAIL": "E-mail",
+      "PHONE": "Téléphone",
+      "IBAN": "IBAN",
+      "AHV": "N° AVS",
+      "REF": "Référence",
+      "BIRTHDATE": "Né(e)"
+    }
+  },
+  "Capabilities": {
+    "status": {
+      "available": "Fonctionne aujourd'hui",
+      "inDevelopment": "En développement",
+      "planned": "Prévu"
+    },
+    "reports": {
+      "name": "Lire un rapport médical",
+      "body": "Collez-le ou photographiez-le : chaque valeur avec son unité et son intervalle imprimé, celles qui en sortent, ce qu'elles mesurent, des questions pour votre médecin et une traduction. Sans compte ; les noms sont d'abord retirés dans votre navigateur."
+    },
+    "privacy": {
+      "name": "Anonymisé avant de quitter votre navigateur",
+      "body": "Les noms, dates de naissance, numéros d'assurance et de commande sont remplacés par des marqueurs dans le navigateur, et vous voyez chaque remplacement avant l'envoi."
+    },
+    "trends": {
+      "name": "Suivre une valeur dans le temps",
+      "body": "Lorsque la même mesure figure dans un rapport antérieur de ce navigateur, la valeur précédente et la tendance sont affichées. Les unités différentes ne sont jamais converties."
+    },
+    "models": {
+      "name": "Tout modèle, y compris le vôtre",
+      "body": "Des modèles gratuits partagés par défaut, ou votre propre clé auprès d'un fournisseur pris en charge comme OpenAI, Anthropic, Google ou Mistral. La clé reste dans votre navigateur."
+    },
+    "records": {
+      "name": "Connecter vos dossiers",
+      "body": "Les dossiers suisses et européens tels qu'ils sont tenus : le dossier électronique du patient (DEP), les portails hospitaliers et les PDF de laboratoire, pas seulement les prestataires américains."
+    },
+    "clinicians": {
+      "name": "Un professionnel de santé autorisé signe la réponse",
+      "body": "Un médecin admis là où vous êtes lit votre dossier anonymisé, le corrige et le signe, et est rémunéré pour cela via OrangeCat."
+    },
+    "matters": {
+      "name": "Un dossier de santé, traité par un agent",
+      "body": "Un espace par préoccupation : chronologie, médicaments avec dose et fréquence, antécédents familiaux, rappels, et brouillons qui attendent votre approbation."
+    },
+    "wearables": {
+      "name": "Objets connectés et exports",
+      "body": "Exports d'Apple Santé et d'Android Health Connect, Garmin, Withings et Oura, lorsqu'un dossier en a besoin."
+    },
+    "clinics": {
+      "name": "Des cliniques sur leurs propres modèles",
+      "body": "Les cabinets font tourner Diplodoctor avec des modèles dans leurs propres murs et reçoivent les dossiers des patients avec leur consentement."
+    }
+  },
+  "Platform": {
+    "metaTitle": "Plateforme",
+    "metaDescription": "Comment Diplodoctor est construit, ce que fait chaque partie et où elle s'arrête.",
+    "kicker": "Plateforme",
+    "title": "Comment Diplodoctor est construit, et pourquoi",
+    "lede": "Un récit court et honnête des parties, de ce que fait chacune et où elle s'arrête. Chaque phrase décrit le code de ce dépôt tel qu'il est aujourd'hui ; ce qui est prévu est signalé et renvoie à la feuille de route.",
+    "why": {
+      "title": "Pourquoi il est construit ainsi",
+      "p1": "Un rapport de laboratoire est un tableau de nombres avec un intervalle imprimé à côté de chacun. Le plus difficile pour une personne n'est pas le tableau ; c'est de savoir quoi demander, et de faire confiance à la réponse.",
+      "p2": "Un modèle de langage lit bien le tableau et dit bien en mots simples à quoi sert une mesure. C'est le mauvais outil pour décider si 5,8 dépasse 5,6. Donc le modèle lit, et le code compare.",
+      "p3": "Et seul un professionnel de santé autorisé peut dire ce qu'un résultat signifie pour vous. Diplodoctor est conçu pour préparer cette conversation, pas pour la remplacer."
+    },
+    "architecture": {
+      "kicker": "Architecture",
+      "title": "Cinq parties, chacune avec une seule tâche",
+      "intake": {
+        "title": "Saisie",
+        "body": "Une zone de texte et jusqu'à quatre photos de pages, réduites dans votre navigateur. Rien n'est envoyé avant que vous n'appuyiez sur le bouton."
+      },
+      "redaction": {
+        "title": "Anonymisation",
+        "body": "lib/redact.ts repère les noms, dates de naissance, adresses, numéros d'assurance, de commande et de téléphone et remplace chacun par un marqueur, dans le navigateur. Vous les voyez tous et pouvez la désactiver."
+      },
+      "reading": {
+        "title": "Lecture",
+        "body": "Une seule route appelle complete() d'ai-kit sur la chaîne gratuite partagée, ou avec votre propre clé. Le modèle renvoie un objet JSON : valeurs, unités, intervalles, la ligne d'où chacune vient, information en langage clair et questions."
+      },
+      "checks": {
+        "title": "Vérifications",
+        "body": "Le schéma du rapport, et non le modèle, décide de chaque marquage en comparant la valeur aux bornes imprimées, et ne laisse jamais l'urgence tomber sous ce que les marquages impliquent. Une valeur n'est jamais montrée sans la ligne d'où elle a été lue."
+      },
+      "file": {
+        "title": "Le fichier",
+        "body": "Un seul schéma zod est le rapport : ce que produit le modèle, ce que stocke le navigateur et ce qu'écrit l'export. Un fichier qui peut sortir est un fichier qui vous appartient."
+      }
+    },
+    "turn": {
+      "title": "Une lecture, étape par étape",
+      "lede": "Ce qui se passe entre l'appui sur le bouton et l'affichage du résultat.",
+      "s1": "Votre navigateur repère les données personnelles dans le texte et les remplace par des marqueurs.",
+      "s2": "Seuls le texte anonymisé et vos photos de pages vont au serveur.",
+      "s3": "Le serveur demande à un modèle, de la chaîne gratuite ou avec votre clé, de lire le rapport. Rien n'est stocké ni journalisé à son sujet.",
+      "s4": "La réponse est vérifiée par rapport au schéma, et chaque marquage est recalculé à partir des nombres.",
+      "s5": "Votre navigateur remet les vraies valeurs à la place des marqueurs.",
+      "s6": "Le rapport est enregistré dans ce navigateur. Le serveur l'a déjà oublié."
+    },
+    "principles": {
+      "title": "Principes",
+      "information": {
+        "title": "De l'information, pas un diagnostic",
+        "body": "Le modèle a pour consigne de ne jamais poser de diagnostic, de ne pas conseiller sur les médicaments et de ne pas rassurer. Le produit le répète partout où un résultat est affiché."
+      },
+      "honest": {
+        "title": "Rien n'est affirmé qui ne soit vrai",
+        "body": "Chaque capacité a un statut dans un seul fichier, et les pages le lisent. Personne n'est répertorié, évalué ou cité s'il n'existe pas."
+      },
+      "open": {
+        "title": "Open source",
+        "body": "Le code, le prompt et les tests sont publics sous licence MIT, de sorte qu'une affirmation ici peut être vérifiée là."
+      },
+      "shared": {
+        "title": "Un terrain commun",
+        "body": "Design, modèles, limites et registres viennent de paquets que toute la flotte utilise, pas de copies."
+      }
+    },
+    "stack": {
+      "title": "La pile technique",
+      "lede": "La même colonne de paquets que le reste de la flotte.",
+      "framework": {
+        "label": "Framework",
+        "value": "Next.js 16, React 19, TypeScript"
+      },
+      "models": {
+        "label": "Modèles",
+        "value": "@bitbaum/ai-kit complete() sur la chaîne gratuite ; votre propre clé"
+      },
+      "privacy": {
+        "label": "Confidentialité",
+        "value": "lib/redact.ts dans le navigateur ; CSP avec nonce"
+      },
+      "design": {
+        "label": "Design",
+        "value": "@bitbaum/design-tokens"
+      },
+      "record": {
+        "label": "Feuille de route",
+        "value": "ROADMAP.md et CHANGELOG.md, lus via bip-kit"
+      },
+      "limits": {
+        "label": "Limites de débit",
+        "value": "limitkit, en mémoire"
+      },
+      "languages": {
+        "label": "Langues",
+        "value": "next-intl : en, de, fr, it, es"
+      },
+      "tests": {
+        "label": "Tests",
+        "value": "Vitest ; l'appel au modèle est injecté"
+      }
+    },
+    "next": {
+      "kicker": "Suite",
+      "title": "Où cela va",
+      "lede": "Des dossiers de santé traités par un agent, et un professionnel de santé autorisé qui signe la réponse. Ce qui est construit et ce qui ne l'est pas figure sur la feuille de route, dans cet ordre.",
+      "roadmap": "Lire la feuille de route",
+      "ecosystem": "L'écosystème",
+      "source": "Code source"
+    }
+  },
+  "Security": {
+    "metaTitle": "Sécurité",
+    "metaDescription": "Ce qui protège un rapport médical sur Diplodoctor, et ce qui ne le protège pas.",
+    "kicker": "Sécurité",
+    "title": "Ce qui protège un rapport ici",
+    "lede": "Les données de santé comptent parmi les plus sensibles qui soient ; le droit suisse les qualifie de « besonders schützenswert ». Voici ce qui est fait, et où sont les limites.",
+    "anon": {
+      "title": "Anonymisé avant de sortir",
+      "body": "Le modèle a besoin des valeurs, pas de savoir à qui elles appartiennent.",
+      "d1": "Les noms, dates de naissance, adresses, numéros de téléphone, e-mails, IBAN, numéros AVS et d'assurance, ainsi que les numéros de patient et de commande sont remplacés par des marqueurs dans votre navigateur.",
+      "d2": "Vous voyez chaque remplacement avant l'envoi, pouvez en désactiver et ajouter vos propres mots.",
+      "d3": "La table de ce que représente chaque marqueur ne quitte jamais votre appareil.",
+      "d4": "La détection est volontairement large : masquer un mot de trop coûte un peu de détail ; en masquer un de trop peu enverrait vos données.",
+      "d5": "Les photos ne sont pas lues dans le navigateur, elles sont donc envoyées telles quelles, sauf si vous masquez d'abord les données."
+    },
+    "browser": {
+      "title": "Conservé sur votre appareil",
+      "body": "Vos rapports vivent dans le stockage de ce navigateur.",
+      "d1": "Il n'y a ni compte ni copie de vos rapports sur notre serveur.",
+      "d2": "Effacer les données de ce site les supprime ; exportez d'abord un fichier si vous voulez en garder un.",
+      "d3": "Toute personne ayant accès à ce profil de navigateur peut les lire."
+    },
+    "minimal": {
+      "title": "Rien n'est conservé sur le serveur",
+      "body": "Le serveur transmet une requête et l'oublie.",
+      "d1": "Le texte anonymisé va à un fournisseur de modèles pour une requête ; le serveur ne stocke rien et ne journalise que le modèle qui a répondu.",
+      "d2": "Les requêtes sont limitées en débit par appelant pour protéger l'offre gratuite partagée.",
+      "d3": "Un fournisseur de modèles voit le texte anonymisé, lisez donc ses conditions. Avec votre propre clé, il va plutôt à votre fournisseur."
+    },
+    "transport": {
+      "title": "Un navigateur appelé à se méfier",
+      "body": "La page est servie avec des en-têtes stricts.",
+      "d1": "Les scripts ne s'exécutent que depuis ce site et uniquement avec le nonce de cette réponse ; les requêtes ne vont qu'à ce site.",
+      "d2": "HTTPS uniquement pendant deux ans ; pas d'intégration en cadre ; aucun référent ne quitte le site.",
+      "d3": "Aucune analyse d'audience et aucun script tiers."
+    },
+    "model": {
+      "title": "Votre clé reste la vôtre",
+      "body": "Si vous connectez votre propre modèle :",
+      "d1": "La clé est conservée uniquement dans ce navigateur et envoyée avec chaque lecture pour joindre votre fournisseur.",
+      "d2": "Elle n'est jamais stockée ni journalisée par le serveur."
+    },
+    "breach": {
+      "title": "Si quelque chose tourne mal",
+      "lede": "Ce que chaque défaillance exposerait, dit simplement.",
+      "provider": {
+        "title": "Un fournisseur de modèles est piraté",
+        "body": "Cela pourrait exposer le texte anonymisé des lectures qui lui sont envoyées : valeurs et dates sans votre nom, votre adresse ni vos numéros, sauf si une photo est partie sans être masquée."
+      },
+      "operator": {
+        "title": "Nous sommes compromis",
+        "body": "Il n'y a pas de base de rapports à voler. Un attaquant pourrait modifier le site pour envoyer des données ailleurs, c'est pourquoi le code est public et les en-têtes vérifiés après chaque déploiement."
+      },
+      "device": {
+        "title": "Votre appareil est perdu ou partagé",
+        "body": "Vos rapports sont lisibles par quiconque peut ouvrir ce navigateur. Utilisez un verrouillage de l'appareil et supprimez ce dont vous n'avez plus besoin."
+      }
+    },
+    "links": {
+      "source": "Lire le code source",
+      "platform": "Comment c'est construit"
+    }
+  },
+  "Ecosystem": {
+    "metaTitle": "Écosystème",
+    "metaDescription": "Diplodoctor est la couche santé d'une flotte de produits — OrangeCat, Loki et Solon — qu'un seul compte OrangeCat ouvre.",
+    "kicker": "Écosystème",
+    "title": "Une personne, toute une flotte",
+    "lede": "Diplodoctor est un produit d'une flotte conçue pour donner à une seule personne ce qui demandait autrefois une institution. Chaque produit fait une seule chose, et un compte OrangeCat les ouvre tous.",
+    "layer": "{layer, select, economic {Économie} execution {Exécution} governance {Gouvernance} other {{layer}}}",
+    "open": "Ouvrir {name}",
+    "unavailable": "La liste des produits n'a pas pu être chargée pour l'instant. Réessayez dans une minute.",
+    "layerTitle": "La couche santé",
+    "layerBody": "OrangeCat fait circuler la valeur, Loki fait le travail et Solon gouverne. Diplodoctor est la couche santé par-dessus : les rapports, dossiers et rendez-vous par lesquels une personne comprend son propre corps et fait appel à un médecin.",
+    "seams": {
+      "account": {
+        "title": "Un seul compte",
+        "body": "La connexion avec OrangeCat est prévue pour les dossiers de santé. Lire un rapport ne demande aucun compte aujourd'hui."
+      },
+      "pay": {
+        "title": "Payé sur OrangeCat",
+        "body": "Les professionnels de santé et les accompagnants proposeront leur travail comme services OrangeCat et y seront payés."
+      },
+      "build": {
+        "title": "Construit avec Loki",
+        "body": "Loki construit et livre Diplodoctor et en détient l'identité."
+      },
+      "law": {
+        "title": "Les litiges vont à Causius",
+        "body": "Lorsqu'un rapport devient un litige avec un assureur ou un employeur, la couche juridique, Causius, prend le relais."
+      }
+    },
+    "account": {
+      "kicker": "Votre compte",
+      "title": "Aucun compte nécessaire aujourd'hui",
+      "body": "Lire un rapport n'en demande aucun, et rien à son sujet n'est sur notre serveur. Quand les dossiers de santé arriveront, le même compte OrangeCat qui ouvre le reste de la flotte les ouvrira.",
+      "cta": "Lire un rapport"
+    }
+  }
+}
