@@ -61,9 +61,13 @@ jobs:
           # so the model keys already there are not lost to the new file.
           if [ ! -f "$ENV_FILE" ] && [ -f "/opt/$SLUG/app/.env" ]; then cp "/opt/$SLUG/app/.env" "$ENV_FILE"; fi
           touch "$ENV_FILE"; chmod 600 "$ENV_FILE"
+          # The box's pg_hba.conf admits 127.0.0.1 and rejects ::1, and "localhost"
+          # resolves to ::1 first: a URL saying localhost is refused although the
+          # role and password are right. Rewrite one a previous run wrote.
+          sed -i -E 's#^(DATABASE_URL=postgres(ql)?://[^@]*@)localhost([:/])#\1127.0.0.1\3#' "$ENV_FILE"
           has() { grep -qE "^$1=" "$ENV_FILE"; }
           add() { printf '%s=%s\n' "$1" "$2" >> "$ENV_FILE"; }
-          has DATABASE_URL       || add DATABASE_URL "postgresql://$DB:$pass@localhost:5432/$DB"
+          has DATABASE_URL       || add DATABASE_URL "postgresql://$DB:$pass@127.0.0.1:5432/$DB"
           has BETTER_AUTH_SECRET || add BETTER_AUTH_SECRET "$(openssl rand -base64 48 | tr -d '\n')"
           has NEXT_PUBLIC_APP_URL || add NEXT_PUBLIC_APP_URL "https://diplodoctor.orangecat.ch"
           present=""
