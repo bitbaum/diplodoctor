@@ -37,7 +37,17 @@ export function ThemeToggle() {
       }}
       className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-control text-fg-secondary transition-colors hover:text-fg-primary"
     >
-      <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        width="18"
+        height="18"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         {dark ? (
           <>
             <circle cx="12" cy="12" r="4" />

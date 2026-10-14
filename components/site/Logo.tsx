@@ -13,7 +13,9 @@ export function Logo({ size = "md" }: { size?: "sm" | "md" }) {
       >
         +
       </span>
-      <span className={`font-bold uppercase tracking-caps text-fg-primary ${size === "sm" ? "text-sm" : "text-base"}`}>
+      <span
+        className={`font-bold uppercase tracking-caps text-fg-primary ${size === "sm" ? "text-sm" : "text-base"}`}
+      >
         Diplodoctor
       </span>
     </span>

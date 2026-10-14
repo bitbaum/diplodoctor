@@ -10,7 +10,10 @@ import { EXTERNAL, ROUTES } from "@/lib/routes";
 type Params = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-  const t = await getTranslations({ locale: toLocale((await params).locale), namespace: "Platform" });
+  const t = await getTranslations({
+    locale: toLocale((await params).locale),
+    namespace: "Platform",
+  });
   return { title: t("metaTitle"), description: t("metaDescription") };
 }
 
@@ -19,7 +22,16 @@ const TURN = ["s1", "s2", "s3", "s4", "s5", "s6"] as const;
 const PRINCIPLES = ["information", "honest", "open", "shared"] as const;
 /** The order a reader is owed it in: what hurts, what we built, why, where it goes. */
 const IDENTITY = ["problem", "solution", "mission", "vision"] as const;
-const STACK = ["framework", "models", "privacy", "design", "record", "limits", "languages", "tests"] as const;
+const STACK = [
+  "framework",
+  "models",
+  "privacy",
+  "design",
+  "record",
+  "limits",
+  "languages",
+  "tests",
+] as const;
 
 /**
  * The technical narrative: what Diplodoctor is, how it is built and why it is
@@ -38,7 +50,9 @@ export default async function PlatformPage({ params }: Params) {
     <main>
       <section className="section-shell pb-16 pt-section-tight">
         <div className="kicker">{t("kicker")}</div>
-        <h1 className="headline-caps mt-5 max-w-4xl text-4xl sm:text-6xl lg:text-7xl">{t("title")}</h1>
+        <h1 className="headline-caps mt-5 max-w-4xl text-4xl sm:text-6xl lg:text-7xl">
+          {t("title")}
+        </h1>
         <p className="mt-6 max-w-2xl text-lg text-fg-secondary">{t("lede")}</p>
       </section>
 
@@ -54,12 +68,16 @@ export default async function PlatformPage({ params }: Params) {
       <section className="border-y border-border-subtle bg-surface-public py-section">
         <div className="section-shell">
           <div className="kicker">{t("architecture.kicker")}</div>
-          <h2 className="headline-caps mt-5 max-w-3xl text-4xl sm:text-5xl">{t("architecture.title")}</h2>
+          <h2 className="headline-caps mt-5 max-w-3xl text-4xl sm:text-5xl">
+            {t("architecture.title")}
+          </h2>
           <ol className="mt-16 divide-y divide-border-subtle border-y border-border-subtle">
             {LAYERS.map((layer, i) => (
               <li key={layer} className="grid gap-3 py-8 md:grid-cols-[4rem_16rem_1fr] md:gap-8">
                 <span className="font-mono text-sm text-fg-tertiary">0{i + 1}</span>
-                <h3 className="text-xl font-bold tracking-tight text-fg-primary">{t(`architecture.${layer}.title`)}</h3>
+                <h3 className="text-xl font-bold tracking-tight text-fg-primary">
+                  {t(`architecture.${layer}.title`)}
+                </h3>
                 <p className="max-w-copy text-fg-secondary">{t(`architecture.${layer}.body`)}</p>
               </li>
             ))}
@@ -84,7 +102,10 @@ export default async function PlatformPage({ params }: Params) {
         </div>
       </section>
 
-      <section id="status" className="section-shell scroll-mt-24 border-t border-border-subtle py-section">
+      <section
+        id="status"
+        className="section-shell scroll-mt-24 border-t border-border-subtle py-section"
+      >
         <div className="grid gap-12 lg:grid-cols-[1fr_2fr] lg:gap-20">
           <div>
             <div className="kicker">{t("status.kicker")}</div>
@@ -109,7 +130,9 @@ export default async function PlatformPage({ params }: Params) {
           <div className="mt-12 grid gap-x-10 gap-y-12 md:grid-cols-2">
             {PRINCIPLES.map((p) => (
               <div key={p} className="border-t border-border-strong pt-6">
-                <h3 className="text-xl font-semibold text-fg-primary">{t(`principles.${p}.title`)}</h3>
+                <h3 className="text-xl font-semibold text-fg-primary">
+                  {t(`principles.${p}.title`)}
+                </h3>
                 <p className="mt-3 max-w-xl text-fg-secondary">{t(`principles.${p}.body`)}</p>
               </div>
             ))}

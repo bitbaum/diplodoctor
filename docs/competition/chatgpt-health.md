@@ -9,11 +9,11 @@ interface), and what that leaves open for Diplodoctor.
 An app inside ChatGPT, built by OpenAI, with the label "Interactive and Read".
 It connects two kinds of source and lets the model read them:
 
-| Source | How it arrives | Tools that read it |
-| --- | --- | --- |
-| **Apple Health** | Synced from an iPhone | `view_all_metrics` (the catalogue), `view_synced_metrics` (what has data, with date ranges), `query_samples_file` (raw samples, e.g. `sleepAnalysis`, `workout`, `heartRate`), `aggregate_timeseries_file` (server-side, de-duplicated totals and buckets), `fetch_characteristics` (static facts) |
-| **Medical records** from connected providers | Account connections, synced on request | `list_account_connections`, `sync_account_connection`, `open_medical_resource` (visits, labs, medications, imaging, notes, ECG waveforms), `health_summary` |
-| **A health profile** | What the user confirms in chat | `read_health_profile`, `update_health_profile` (conditions and medications against a catalogue) |
+| Source                                       | How it arrives                         | Tools that read it                                                                                                                                                                                                                                                                                 |
+| -------------------------------------------- | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Apple Health**                             | Synced from an iPhone                  | `view_all_metrics` (the catalogue), `view_synced_metrics` (what has data, with date ranges), `query_samples_file` (raw samples, e.g. `sleepAnalysis`, `workout`, `heartRate`), `aggregate_timeseries_file` (server-side, de-duplicated totals and buckets), `fetch_characteristics` (static facts) |
+| **Medical records** from connected providers | Account connections, synced on request | `list_account_connections`, `sync_account_connection`, `open_medical_resource` (visits, labs, medications, imaging, notes, ECG waveforms), `health_summary`                                                                                                                                        |
+| **A health profile**                         | What the user confirms in chat         | `read_health_profile`, `update_health_profile` (conditions and medications against a catalogue)                                                                                                                                                                                                    |
 
 There are two write actions, and both write only to the user's own copy: sync
 a connection, and update the profile. Nothing goes outward.
@@ -58,7 +58,7 @@ their design stops.
    and lawyer. ChatGPT Health has no person in it at all; we are built on the
    choice. A licensed professional can prove their licence with a zero-knowledge
    proof and stay pseudonymous (planned).
-1a. **Any model.** There is no Diplodoctor model. The reading runs on whichever
+   1a. **Any model.** There is no Diplodoctor model. The reading runs on whichever
    model answers, from a shared free chain or the reader's own key; ChatGPT
    Health is OpenAI's, on OpenAI's.
 2. **Swiss and European records, starting with paper.** Most Swiss patients

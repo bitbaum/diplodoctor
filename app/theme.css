@@ -31,9 +31,9 @@
 
 :root {
   /* — Faces. The display face is for headlines of 1.5rem and up only. ——— */
-  --font-display: 'Instrument Serif', Georgia, serif;
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* — How a headline is set. Read by .headline and .headline-caps. ————— */
   --theme-headline-font: var(--font-display);

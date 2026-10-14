@@ -9,7 +9,10 @@ import { ROUTES } from "@/lib/routes";
 type Params = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-  const t = await getTranslations({ locale: toLocale((await params).locale), namespace: "Ecosystem" });
+  const t = await getTranslations({
+    locale: toLocale((await params).locale),
+    namespace: "Ecosystem",
+  });
   return { title: t("metaTitle"), description: t("metaDescription") };
 }
 
@@ -34,7 +37,10 @@ export default async function EcosystemPage({ params }: Params) {
       {others.length > 0 ? (
         <div className="grid gap-4 md:grid-cols-3">
           {others.map((p) => (
-            <article key={p.slug} className="flex min-h-72 flex-col justify-between rounded-surface border border-border p-8">
+            <article
+              key={p.slug}
+              className="flex min-h-72 flex-col justify-between rounded-surface border border-border p-8"
+            >
               <div>
                 <div className="kicker">{t("layer", { layer: p.layer })}</div>
                 <h2 className="headline-caps mt-4 text-4xl">{p.name}</h2>
@@ -43,7 +49,10 @@ export default async function EcosystemPage({ params }: Params) {
                 </p>
               </div>
               {p.url && (
-                <a href={p.url} className="text-link mt-8 inline-flex min-h-11 items-center text-sm font-semibold">
+                <a
+                  href={p.url}
+                  className="text-link mt-8 inline-flex min-h-11 items-center text-sm font-semibold"
+                >
                   {t("open", { name: p.name })}
                 </a>
               )}

@@ -28,7 +28,7 @@ function hslToRgb(h: number, s: number, l: number): RGB {
 function parse(value: string): RGB {
   const v = value.trim();
   const hex = /^#([0-9a-f]{6})$/i.exec(v);
-  if (hex) return [0, 2, 4].map((i) => parseInt(hex[1].slice(i, i + 2), 16) / 255) as RGB;
+  if (hex) return [0, 2, 4].map((i) => parseInt(hex[1]!.slice(i, i + 2), 16) / 255) as RGB;
   const hsl = /^([\d.]+)\s+([\d.]+)%\s+([\d.]+)%/.exec(v);
   if (hsl) return hslToRgb(Number(hsl[1]), Number(hsl[2]), Number(hsl[3]));
   throw new Error(`cannot read colour «${value}»`);
@@ -41,7 +41,7 @@ function luminance([r, g, b]: RGB): number {
 
 function contrast(a: RGB, b: RGB): number {
   const [hi, lo] = [luminance(a), luminance(b)].toSorted((x, y) => y - x);
-  return (hi + 0.05) / (lo + 0.05);
+  return (hi! + 0.05) / (lo! + 0.05);
 }
 
 /** Dark overrides light; a name the dark block does not set is light's. */
@@ -51,7 +51,7 @@ function tokens(mode: "light" | "dark"): (name: string) => RGB {
   return (name) => {
     for (const source of [dark, light]) {
       const m = new RegExp(`--${name}:\\s*([^;]+);`).exec(source);
-      if (m) return parse(m[1]);
+      if (m) return parse(m[1]!);
     }
     throw new Error(`--${name} is not set in theme.css`);
   };
@@ -89,7 +89,14 @@ describe.each(["light", "dark"] as const)("theme.css, %s mode", (mode) => {
 
 describe("theme.css", () => {
   it("sets every knob the shapes in globals.css read", () => {
-    for (const knob of ["theme-headline-font", "theme-headline-case", "theme-headline-weight", "theme-action-case", "radius-control", "radius-surface"]) {
+    for (const knob of [
+      "theme-headline-font",
+      "theme-headline-case",
+      "theme-headline-weight",
+      "theme-action-case",
+      "radius-control",
+      "radius-surface",
+    ]) {
       expect(css, knob).toContain(`--${knob}:`);
     }
   });

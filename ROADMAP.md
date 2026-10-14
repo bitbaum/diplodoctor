@@ -23,7 +23,7 @@ A report in, a health file out, without an account.
 - [x] A value followed across reports in this browser, with units never converted {#trends}
 - [x] The interface and the reading in German, French, Italian, English and Spanish {#languages}
 - [x] Analysis through the fleet's shared model chain, with a rate limit; or your own model {#models}
-- [ ] Shared model keys set on the host, and the first real report read there
+- [x] Shared model keys set on the host, and the first real report read there
 - [ ] A set of real reports with known values, to measure how often extraction is right
 - [ ] Reports that arrive as a PDF
 
@@ -69,7 +69,8 @@ rendered here, never written twice.
 A health matter is any concern to be handled. The agent keeps the timeline,
 drafts, and proposes anything outward for the owner to approve.
 
-- [ ] Sign in with OrangeCat; one account across the fleet; pseudonymous by default
+- [x] Accounts of our own, optional, pseudonymous by default: email and password, link, passkey, two-factor, OrangeCat and the shared sign-in
+- [ ] One account across the fleet without a second sign-up
 - [ ] Matters stored on our host in Switzerland, each sealed with its own key
 - [ ] A timeline of results, visits and documents; medications with dose and frequency; family history
 - [ ] Reminders: a retest, a refill, a follow-up

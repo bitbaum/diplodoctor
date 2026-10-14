@@ -31,9 +31,7 @@ interface Probe {
 /** A failure of ours (not the vendor's verdict), named so it can be said in the reader's language. */
 type Local = "tooMany" | "unreachable";
 type Check =
-  | { state: "idle" }
-  | { state: "checking" }
-  | { state: "done"; probe: Probe; local?: Local };
+  { state: "idle" } | { state: "checking" } | { state: "done"; probe: Probe; local?: Local };
 
 const NO_ANSWER: Probe = { ok: false, reachable: false, message: "", models: [], suggested: null };
 
@@ -47,7 +45,7 @@ export function OwnModelSettings() {
   const [model, setModel] = useState("");
   const [justSaved, setJustSaved] = useState(false);
 
-  const chosen = BYOK_VENDORS.find((v) => v.id === vendor) ?? BYOK_VENDORS[0];
+  const chosen = BYOK_VENDORS.find((v) => v.id === vendor) ?? BYOK_VENDORS[0]!;
   const trimmed = key.trim();
 
   // Checked on its own, ~600 ms after typing stops. The answer for a key the

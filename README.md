@@ -4,7 +4,8 @@ The health layer of the fleet: an agent that reads a medical report with you, a
 person who decides what leaves it, and the people they choose to help: assistants
 anyone can be, and licensed professionals where the law reserves the work for them. Paste or photograph a lab report and see every value, which
 ones are outside their printed range, what they measure and what to ask your
-doctor. Read it without an account, in five languages.
+doctor. Read it without an account, in five languages. An account is there for
+what comes next (people you choose, matters), not for the reading.
 
 Served at [diplodoctor.orangecat.ch](https://diplodoctor.orangecat.ch). Beta:
 running, not released. Why it looks the way it does, and what it does that
@@ -12,11 +13,11 @@ ChatGPT's Health app does not: [`docs/competition/chatgpt-health.md`](docs/compe
 
 ## Three kinds of help
 
-| | Does | Does not |
-| --- | --- | --- |
-| **Any AI model** | Reads, lists every value, flags what is outside its range, explains what it measures, drafts questions for an appointment | Diagnose, prescribe, advise on a medicine, or say a result is nothing to worry about |
-| **A health assistant** (a name or a pseudonym) | Explains, translates, helps prepare an appointment, gives their experience and view, for a price they set | Give medical advice with a clinician's standing; what they say is an opinion, and is labelled as one |
-| **A licensed professional** (verified licence; a name or a pseudonym) | Advises on what a result means for you, diagnoses and treats within their licence | Work outside the places they are licensed |
+|                                                                       | Does                                                                                                                      | Does not                                                                                             |
+| --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| **Any AI model**                                                      | Reads, lists every value, flags what is outside its range, explains what it measures, drafts questions for an appointment | Diagnose, prescribe, advise on a medicine, or say a result is nothing to worry about                 |
+| **A health assistant** (a name or a pseudonym)                        | Explains, translates, helps prepare an appointment, gives their experience and view, for a price they set                 | Give medical advice with a clinician's standing; what they say is an opinion, and is labelled as one |
+| **A licensed professional** (verified licence; a name or a pseudonym) | Advises on what a result means for you, diagnoses and treats within their licence                                         | Work outside the places they are licensed                                                            |
 
 There is no "Diplodoctor model": the AI is whichever model answers, from the fleet's
 shared free chain or the reader's own key, and nothing is tied to one vendor.
@@ -54,17 +55,17 @@ the same packages, for people and later for clinics and practices.
 
 The blessed column of fleet `STACK.md`, nothing else:
 
-| Job | Here |
-| --- | --- |
-| AI | `@bitbaum/ai-kit` `complete()` over the shared free chain; no vendor SDK, no pinned model id |
-| A reader's own model | `ai-kit/byok` + `ai-kit/byok-probe`, key kept in the browser only |
-| Validation | `zod` (the report, every request body, the fleet map entry) |
-| Rate limiting | `limitkit` |
-| Roadmap and changelog | `bip-kit`, from the fleet map |
-| i18n | `next-intl`: English, German, French, Italian, Spanish |
-| Design | `@bitbaum/design-tokens` (tokens.css + the Tailwind preset via `@config`) |
-| Tests | Vitest, hermetic |
-| Deploy | PR, CI, auto-merge, deploy to the box, Live check |
+| Job                   | Here                                                                                         |
+| --------------------- | -------------------------------------------------------------------------------------------- |
+| AI                    | `@bitbaum/ai-kit` `complete()` over the shared free chain; no vendor SDK, no pinned model id |
+| A reader's own model  | `ai-kit/byok` + `ai-kit/byok-probe`, key kept in the browser only                            |
+| Validation            | `zod` (the report, every request body, the fleet map entry)                                  |
+| Rate limiting         | `limitkit`                                                                                   |
+| Roadmap and changelog | `bip-kit`, from the fleet map                                                                |
+| i18n                  | `next-intl`: English, German, French, Italian, Spanish                                       |
+| Design                | `@bitbaum/design-tokens` (tokens.css + the Tailwind preset via `@config`)                    |
+| Tests                 | Vitest, hermetic                                                                             |
+| Deploy                | PR, CI, auto-merge, deploy to the box, Live check                                            |
 
 ## What exists today
 
@@ -94,8 +95,11 @@ Said plainly, because the pages say it too. `ROADMAP.md` has the order.
 - **Nobody is listed.** Nothing pulls in OrangeCat services, labels them, shows how helpful
   people were or checks a licence. Proving a licence with a zero-knowledge proof is planned.
   "Have a person look at it" is planned.
-- **No accounts and no server-side records.** Reports live in the browser that
-  read them. Matters, reminders and the EPD are on the roadmap.
+- **Accounts are optional and hold no health data.** You can sign in (email and
+  password, a link, a passkey, two-factor, OrangeCat or the shared sign-in) but
+  reading a report needs none, and reports still live only in the browser that
+  read them. Your own model key stays in the browser too, never on the server.
+  Matters, reminders and the EPD are on the roadmap.
 - **Photos are not anonymised automatically.** The reader covers details by hand.
 - **PDFs are not read** yet; paste the text or photograph the pages.
 - **No independent security review** and **no legal opinion on the medical-device
@@ -121,11 +125,11 @@ The free reading runs on whichever of the fleet's shared vendor keys this
 deployment has. With none of them, `/api/analyze` answers `503 not_configured`
 and the intake page offers your own model or filing by hand.
 
-| Variable | Effect |
-| --- | --- |
+| Variable                                               | Effect                                                                                                                              |
+| ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
 | `GROQ_API_KEY`, `GEMINI_API_KEY`, `OPENROUTER_API_KEY` | The shared free chain. Any one switches free reading on. A photo needs Gemini or OpenRouter: Groq's free models cannot read images. |
-| `DIPLODOCTOR_MODEL` | Optional. Start the chain at this model instead of the front. |
-| `DIPLODOCTOR_GROQ_MODELS` and the like | Optional per-vendor overrides, read by ai-kit's `freeChain("DIPLODOCTOR")`. |
+| `DIPLODOCTOR_MODEL`                                    | Optional. Start the chain at this model instead of the front.                                                                       |
+| `DIPLODOCTOR_GROQ_MODELS` and the like                 | Optional per-vendor overrides, read by ai-kit's `freeChain("DIPLODOCTOR")`.                                                         |
 
 Limits (per hour, in memory): 8 free readings per visitor, 60 on your own key.
 

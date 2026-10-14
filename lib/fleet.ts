@@ -27,7 +27,10 @@ const REVALIDATE_SECONDS = 300;
 const TIMEOUT_MS = 4_000;
 
 const nullableText = z.string().trim().min(1).nullable().catch(null);
-const nullableUrl = z.url({ protocol: /^https$/ }).nullable().catch(null);
+const nullableUrl = z
+  .url({ protocol: /^https$/ })
+  .nullable()
+  .catch(null);
 
 const EntrySchema = z.object({
   slug: z.string(),
@@ -52,7 +55,11 @@ export type FleetIdentity = z.output<typeof EntrySchema>["identity"];
  * it, or do not ship it." So the ecosystem section renders these, and renders
  * nothing when the map cannot be read.
  */
-const PillarSchema = z.object({ slug: z.string(), layer: z.string(), role: z.string().trim().min(1) });
+const PillarSchema = z.object({
+  slug: z.string(),
+  layer: z.string(),
+  role: z.string().trim().min(1),
+});
 const ProjectSchema = z.object({
   slug: z.string(),
   name: z.string().trim().min(1),

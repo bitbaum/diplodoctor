@@ -8,7 +8,10 @@ import { EXTERNAL, ROUTES } from "@/lib/routes";
 type Params = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-  const t = await getTranslations({ locale: toLocale((await params).locale), namespace: "Security" });
+  const t = await getTranslations({
+    locale: toLocale((await params).locale),
+    namespace: "Security",
+  });
   return { title: t("metaTitle"), description: t("metaDescription") };
 }
 

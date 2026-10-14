@@ -47,15 +47,15 @@ export async function DevelopmentRecords({
   return (
     <main className={`${shell} py-10 sm:py-14`}>
       {note && <p className="mb-6 text-sm text-fg-secondary">{note}</p>}
-        <DevelopmentPage
-          profile={development}
-          section={section}
-          homeHref={at(ROUTES.home)}
-          roadmapHref={at(ROUTES.roadmap)}
-          changelogHref={at(ROUTES.changelog)}
-          profileHref={FLEET_PROFILE_URL}
-          labels={Object.fromEntries(LABELS.map((key) => [key, t(key)]))}
-        />
+      <DevelopmentPage
+        profile={development}
+        section={section}
+        homeHref={at(ROUTES.home)}
+        roadmapHref={at(ROUTES.roadmap)}
+        changelogHref={at(ROUTES.changelog)}
+        profileHref={FLEET_PROFILE_URL}
+        labels={Object.fromEntries(LABELS.map((key) => [key, t(key)]))}
+      />
     </main>
   );
 }

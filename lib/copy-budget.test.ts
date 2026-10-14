@@ -34,6 +34,6 @@ const BUDGETS: Record<string, number> = {
 
 describe("copy budget", () => {
   it.each(Object.entries(BUDGETS))("%s stays within %i words", (namespace, budget) => {
-    expect(words((en as Tree)[namespace])).toBeLessThanOrEqual(budget);
+    expect(words((en as Tree)[namespace]!)).toBeLessThanOrEqual(budget);
   });
 });

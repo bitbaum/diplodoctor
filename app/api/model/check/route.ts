@@ -37,7 +37,7 @@ const bad = () =>
   );
 
 export async function POST(request: Request) {
-  const allowed = limits.modelCheck.check(callerKey(request, "model-check"));
+  const allowed = limits.modelCheck.check(callerKey(request.headers, "model-check"));
   if (!allowed.allowed) return tooMany(allowed);
 
   let json: unknown;

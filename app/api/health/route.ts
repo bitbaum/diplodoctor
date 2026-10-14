@@ -1,17 +1,31 @@
 import { freeAvailability } from "@/lib/analyze";
+import { authStatus } from "@/lib/auth/server";
+import { buildCommit, probeDatabase, summarise } from "@/lib/health";
+import { mailConfigured } from "@/lib/mail";
 
 /**
- * GET /api/health — is the site up, and can it analyse a letter without the
- * reader's own key? Booleans only: which vendors are keyed is nobody's
- * business, and no key or key hint is ever returned.
+ * GET /api/health — the one thing to curl after a deploy, and what the Live
+ * check workflow and the auto-merge reconciler read. 200 only when the
+ * database is reachable AND the app can read its own tables; 503 otherwise,
+ * with the same body saying which part is missing.
  *
- * The intake page reads this to say what will happen before a report is added, and it is the one thing to curl after a deploy.
+ * `analysis` is whether a report can be read without the reader's own key; the
+ * intake page reads it to say what will happen. Booleans only: which vendors
+ * are keyed is nobody's business, and no key or hint is ever returned.
  */
 export const dynamic = "force-dynamic";
 
-export function GET() {
+export async function GET() {
+  const analysis = freeAvailability(process.env);
+  const health = summarise({
+    commit: buildCommit(),
+    db: await probeDatabase(),
+    accounts: authStatus().ready,
+    mail: mailConfigured(),
+    ai: analysis.text,
+  });
   return Response.json(
-    { ok: true, analysis: freeAvailability(process.env) },
-    { headers: { "Cache-Control": "no-store" } },
+    { ...health, analysis },
+    { status: health.ok ? 200 : 503, headers: { "Cache-Control": "no-store" } },
   );
 }

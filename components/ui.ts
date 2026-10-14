@@ -17,3 +17,12 @@ export const field = "field";
 export const card = "rounded-surface border border-border p-5 sm:p-6";
 
 export const shell = "section-shell";
+
+/** Shapes the account screens use, named as the fleet starter names them. */
+export const button = btnPrimary;
+export const buttonQuiet = btnQuiet;
+export const input = field;
+export const label = "block text-sm font-medium text-fg-primary";
+export const notice =
+  "rounded-control border border-subtle bg-surface-base px-4 py-3 text-sm text-fg-secondary";
+export const errorText = "text-sm text-status-negative";

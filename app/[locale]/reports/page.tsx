@@ -69,7 +69,10 @@ export default function ReportsPage() {
           <h2 className="text-2xl font-semibold tracking-tight">{t("emptyTitle")}</h2>
           <p className="mt-2 max-w-prose text-fg-secondary">{t("emptyBody")}</p>
           <p className="mt-3">
-            <Link href={ROUTES.sampleReport} className={`${link} inline-flex min-h-11 items-center`}>
+            <Link
+              href={ROUTES.sampleReport}
+              className={`${link} inline-flex min-h-11 items-center`}
+            >
               {t("example")}
             </Link>
           </p>
@@ -95,7 +98,9 @@ export default function ReportsPage() {
                 <span className="text-sm sm:text-right">
                   {date && <span className="block">{formatDate(date, locale)}</span>}
                   {r.results.length > 0 && (
-                    <span className={`block font-mono text-xs ${outside > 0 ? "text-status-warning" : "text-fg-secondary"}`}>
+                    <span
+                      className={`block font-mono text-xs ${outside > 0 ? "text-status-warning" : "text-fg-secondary"}`}
+                    >
                       {t("outside", { outside, total: r.results.length })}
                     </span>
                   )}

@@ -16,16 +16,20 @@ import { SiteNav } from "@/components/SiteNav";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Link } from "@/i18n/navigation";
 import { routing, toLocale } from "@/i18n/routing";
+import { getSession } from "@/lib/auth/session";
 import { ROUTES } from "@/lib/routes";
+import { SITE } from "@/lib/site";
 import { THEME_BOOT } from "@/lib/theme";
 
-const SITE_URL = "https://diplodoctor.orangecat.ch";
-
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale: toLocale(locale), namespace: "Meta" });
   return {
-    metadataBase: new URL(SITE_URL),
+    metadataBase: new URL(SITE.url),
     title: { default: t("title"), template: "%s · Diplodoctor" },
     description: t("description"),
     openGraph: { siteName: "Diplodoctor", type: "website", description: t("description") },
@@ -38,9 +42,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
  * (light, or dark by choice), a header with the product's places and the one account,
  * and a footer that holds the rest of the site.
  *
- * Deliberately bare otherwise: no analytics, no third-party script, no account
- * — a health record is kept in the reader's own browser until there is a server
- * it should sit on.
+ * Deliberately bare otherwise: no analytics, no third-party script. An account
+ * is optional and holds no health record — a report is kept in the reader's own
+ * browser until there is a server it should sit on.
  */
 export default async function LocaleLayout({
   children,
@@ -56,7 +60,8 @@ export default async function LocaleLayout({
   // what a nonce needs: a nonce baked into a static page is no nonce at all.
   const nonce = (await headers()).get("x-nonce") ?? undefined;
   const nav = await getTranslations("Nav");
-  
+  const session = await getSession();
+
   return (
     // The class is set before paint by THEME_BOOT, so React must not insist on
     // the server's. Light is the default; dark follows the device or the toggle.
@@ -75,7 +80,11 @@ export default async function LocaleLayout({
           <header className="header-solid sticky top-0 z-40 border-b border-border-subtle">
             <div className="section-shell flex min-h-16 items-center justify-between gap-4">
               <div className="flex min-w-0 items-center gap-3">
-                <Link href={ROUTES.home} className="inline-flex min-h-11 items-center" aria-label="Diplodoctor">
+                <Link
+                  href={ROUTES.home}
+                  className="inline-flex min-h-11 items-center"
+                  aria-label="Diplodoctor"
+                >
                   <Logo />
                 </Link>
                 {/* Fleet AGENTS.md: nothing is "Live". Served and unfinished says so. */}
@@ -84,7 +93,7 @@ export default async function LocaleLayout({
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <SiteNav />
+                <SiteNav signedIn={session !== null} />
                 <ThemeToggle />
               </div>
             </div>

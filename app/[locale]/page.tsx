@@ -47,7 +47,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
 
           {/* What a reading looks like. Invented, and labelled so. */}
-          <figure lang={locale} className="rise rounded-surface border border-border bg-surface-base/80 p-6" aria-label={t("example.label")}>
+          <figure
+            lang={locale}
+            className="rise rounded-surface border border-border bg-surface-base/80 p-6"
+            aria-label={t("example.label")}
+          >
             <figcaption className="flex items-center justify-between gap-4">
               <span className="kicker">{t("example.label")}</span>
               <span className="text-lg font-semibold text-fg-primary">{t("example.title")}</span>
@@ -55,7 +59,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <ol className="mt-4 divide-y divide-border-subtle border-y border-border-subtle text-sm">
               {EXAMPLE_STEPS.map((s) => (
                 <li key={s} className="grid grid-cols-[5.5rem_1fr] gap-3 py-2.5">
-                  <span className="font-mono text-xs uppercase text-fg-tertiary">{t(`example.${s}.tool`)}</span>
+                  <span className="font-mono text-xs uppercase text-fg-tertiary">
+                    {t(`example.${s}.tool`)}
+                  </span>
                   <span className="text-fg-secondary">{t(`example.${s}.text`)}</span>
                 </li>
               ))}
@@ -70,7 +76,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           {STEPS.map((step, i) => (
             <li key={step} className="border-t border-border-strong pt-5">
               <div className="font-mono text-sm text-fg-tertiary">0{i + 1}</div>
-              <h3 className="mt-3 text-xl font-semibold tracking-tight text-fg-primary">{t(`how.${step}.title`)}</h3>
+              <h3 className="mt-3 text-xl font-semibold tracking-tight text-fg-primary">
+                {t(`how.${step}.title`)}
+              </h3>
               <p className="mt-2 text-fg-secondary">{t(`how.${step}.body`)}</p>
             </li>
           ))}
@@ -81,7 +89,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <div className="section-shell">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <h2 className="headline-caps text-3xl sm:text-4xl">{t("privacy.title")}</h2>
-            <Link href={ROUTES.security} className="text-link inline-flex min-h-11 items-center text-sm">
+            <Link
+              href={ROUTES.security}
+              className="text-link inline-flex min-h-11 items-center text-sm"
+            >
               {t("privacy.cta")}
             </Link>
           </div>
@@ -89,7 +100,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             {PRIVACY.map((p) => (
               <div key={p}>
                 <span className="block h-1 w-6 bg-accent" aria-hidden="true" />
-                <h3 className="mt-4 text-lg font-semibold text-fg-primary">{t(`privacy.${p}.title`)}</h3>
+                <h3 className="mt-4 text-lg font-semibold text-fg-primary">
+                  {t(`privacy.${p}.title`)}
+                </h3>
                 <p className="mt-2 text-fg-secondary">{t(`privacy.${p}.body`)}</p>
               </div>
             ))}
@@ -102,17 +115,27 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <p className="mt-3 text-fg-secondary">{t("tiersLead")}</p>
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {TIERS.map((tier) => (
-            <article key={tier} className="flex flex-col justify-between rounded-surface border border-border p-6">
+            <article
+              key={tier}
+              className="flex flex-col justify-between rounded-surface border border-border p-6"
+            >
               <div>
-                <h3 className="text-xl font-semibold tracking-tight text-fg-primary">{t(`tiers.${tier}.name`)}</h3>
+                <h3 className="text-xl font-semibold tracking-tight text-fg-primary">
+                  {t(`tiers.${tier}.name`)}
+                </h3>
                 <p className="mt-3 text-fg-secondary">{t(`tiers.${tier}.can`)}</p>
               </div>
-              <p className="mt-6 border-t border-border-subtle pt-3 text-sm text-fg-tertiary">{t(`tiers.${tier}.limit`)}</p>
+              <p className="mt-6 border-t border-border-subtle pt-3 text-sm text-fg-tertiary">
+                {t(`tiers.${tier}.limit`)}
+              </p>
             </article>
           ))}
         </div>
         <p className="mt-6">
-          <Link href={ROUTES.people} className="text-link inline-flex min-h-11 items-center text-sm">
+          <Link
+            href={ROUTES.people}
+            className="text-link inline-flex min-h-11 items-center text-sm"
+          >
             {t("peopleLink")}
           </Link>
         </p>

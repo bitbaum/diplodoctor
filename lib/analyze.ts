@@ -15,6 +15,7 @@ import {
 import { byokChain, isByokConfig } from "@bitbaum/ai-kit/byok";
 import { z } from "zod";
 import { MAX_IMAGE_B64, MAX_PAGES, MAX_TEXT } from "./analyze-limits";
+import { SITE } from "./site";
 import { newId, parseReport, type ReportFile } from "./report";
 
 /**
@@ -33,7 +34,6 @@ import { newId, parseReport, type ReportFile } from "./report";
  */
 
 const ENV_PREFIX = "DIPLODOCTOR";
-const SITE = { url: "https://diplodoctor.orangecat.ch", title: "Diplodoctor" };
 
 /** Health is per process, so a vendor that just failed is skipped for everyone. */
 const health = createHealthTracker();
@@ -56,7 +56,11 @@ export const AnalyzeRequestSchema = z
       .array(
         z.object({
           mediaType: z.enum(IMAGE_TYPES),
-          data: z.string().min(1).max(MAX_IMAGE_B64).regex(/^[A-Za-z0-9+/=]+$/),
+          data: z
+            .string()
+            .min(1)
+            .max(MAX_IMAGE_B64)
+            .regex(/^[A-Za-z0-9+/=]+$/),
         }),
       )
       .max(MAX_PAGES)
@@ -138,7 +142,9 @@ export function buildMessages(request: AnalyzeRequest): ChatMessage[] {
   const pages = request.images.length;
   const instruction = `The reader's language: ${reader}.\nTranslate into: ${targets}.\n\n<document>\n${
     request.text.trim() ||
-    (pages > 1 ? `(see the ${pages} attached images: the pages, in order)` : "(see the attached image)")
+    (pages > 1
+      ? `(see the ${pages} attached images: the pages, in order)`
+      : "(see the attached image)")
   }\n</document>`;
   return [
     { role: "system", content: SYSTEM_PROMPT },
