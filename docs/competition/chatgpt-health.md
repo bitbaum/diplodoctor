@@ -62,14 +62,15 @@ their design stops.
    model answers, from a shared free chain or the reader's own key; ChatGPT
    Health is OpenAI's, on OpenAI's.
 2. **Swiss and European records, starting with paper.** Most Swiss patients
-   hold their results as PDFs and printouts. Photograph or upload a lab report,
+   hold their results as PDFs and printouts. Photograph or paste a lab report (PDF is planned),
    and every value comes out with its unit, reference range, flag and the line
    of the report it was read from. This is Causius's letter intake, pointed at
    a lab report. The EPD and Android Health Connect follow.
 3. **Private by construction.** Names, insurance numbers and dates of birth
    are replaced in the browser before anything reaches a model
-   (`causius/lib/redact.ts`). Each record is sealed with its own key
-   (`causius/lib/crypto.ts`), on our own host in Switzerland. Health data is
+   (`lib/redact.ts`, built like `causius/lib/redact.ts`). A file a person keeps
+   in their account is sealed on our own host (`lib/secrets.ts`); a key per
+   matter, as in `causius/lib/crypto.ts`, is planned. Health data is
    "besonders schützenswert" under the revDSG; we treat it that way.
    Pseudonymous by default, and a reader may bring their own model.
 4. **It does the work.** A health concern is a matter, like in Causius: a
