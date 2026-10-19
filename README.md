@@ -55,27 +55,27 @@ the same packages, for people and later for clinics and practices.
 
 The blessed column of fleet `STACK.md`, nothing else:
 
-| Job                   | Here                                                                                         |
-| --------------------- | -------------------------------------------------------------------------------------------- |
-| AI                    | `@bitbaum/ai-kit` `complete()` over the shared free chain; no vendor SDK, no pinned model id |
-| A reader's own model  | `ai-kit/byok` + `ai-kit/byok-probe`, key kept in the browser only                            |
-| Validation            | `zod` (the report, every request body, the fleet map entry)                                  |
-| Rate limiting         | `limitkit`                                                                                   |
-| Accounts              | `better-auth` on Drizzle + Postgres, owned by this app (fleet STACK rule; not a package)     |
-| Mail                  | `@bitbaum/mail-kit`, for sign-in links, when a key is set                                    |
-| A list                | `listkit` (filters, order, pages, in the address) + `@bitbaum/searchkit` (typo-tolerant)     |
-| Dates                 | `@bitbaum/whenkit` (nobody types a date)                                                     |
-| Chat                  | `@bitbaum/chatkit` for Ask                                                                   |
-| Roadmap and changelog | `bip-kit`, from the fleet map                                                                |
-| i18n                  | `next-intl`: English, German, French, Italian, Spanish                                       |
-| Design                | `@bitbaum/design-tokens` (tokens.css + the Tailwind preset via `@config`)                    |
-| Tests                 | Vitest, hermetic                                                                             |
-| Deploy                | PR, CI, auto-merge, deploy to the box, Live check                                            |
+| Job                   | Here                                                                                           |
+| --------------------- | ---------------------------------------------------------------------------------------------- |
+| AI                    | `@bitbaum/ai-kit` `complete()` over the shared free chain; no vendor SDK, no pinned model id   |
+| A reader's own model  | `ai-kit/byok` + `ai-kit/byok-probe`, key kept in the browser only                              |
+| Validation            | `zod` (the report, every request body, the fleet map entry)                                    |
+| Rate limiting         | `limitkit`                                                                                     |
+| Accounts              | `better-auth` on Drizzle + Postgres, wired in this app (not yet on `@bitbaum/accountkit/auth`) |
+| Mail                  | `@bitbaum/mail-kit`, for sign-in links, when a key is set                                      |
+| A list                | `listkit` (filters, order, pages, in the address) + `@bitbaum/searchkit` (typo-tolerant)       |
+| Dates                 | `@bitbaum/whenkit` (nobody types a date)                                                       |
+| Chat                  | `@bitbaum/chatkit` for Ask                                                                     |
+| Roadmap and changelog | `bip-kit`, from the fleet map                                                                  |
+| i18n                  | `next-intl`: English, German, French, Italian, Spanish                                         |
+| Design                | `@bitbaum/design-tokens` (tokens.css + the Tailwind preset via `@config`)                      |
+| Tests                 | Vitest, hermetic                                                                               |
+| Deploy                | PR, CI, auto-merge, deploy to the box, Live check                                              |
 
 ### Fleet packages not used, and why
 
-`accountkit` (its sign-in is next-auth; accounts here are better-auth, per STACK), `paykit` and
-`threadkit` (they belong to paying and messaging people who help, which does not exist yet),
+`accountkit` (accounts here are still this app's own better-auth wiring; fleet STACK moves
+products onto `@bitbaum/accountkit/auth` one at a time), `paykit` and `threadkit` (they belong to paying and messaging people who help, which does not exist yet),
 `geo-kit`, `speechkit` (it measures how someone speaks, not what they say), `sitekit` (this is an
 app, not a generated site), `ai-forms` (the add forms have three fields; a form assistant would be
 more to read than the form). Header and footer are not packages by design: each product owns its
@@ -87,6 +87,7 @@ navigation, checked against the fleet's navigation contract.
   searchable, filterable list; `/records/add` add a medicine, an appointment or a note
 - `/ask` questions about your own file, answered from it, names hidden first
 - `/account` your account; one switch keeps your file in it, sealed, so it follows you to any device
+- `/sign-in`, `/sign-up` accounts: email and password, link, passkey, two-factor, OrangeCat or the shared sign-in
 
 - `/` what Diplodoctor is; `/platform` how it is built and why; `/security` what
   protects a report; `/ecosystem` the fleet, read from the fleet map
@@ -102,6 +103,8 @@ navigation, checked against the fleet's navigation contract.
 - `POST /api/analyze` report in, health file out
 - `POST /api/model/check` does this key work, and which models can it use
 - `GET /api/health` is the site up, and can it read text and photos without a reader's key
+- `POST /api/ask` a question about your own (redacted) file, answered from it; nothing stored
+- `GET`/`PUT`/`DELETE /api/file` the signed-in person's sealed file, only if they turned it on
 
 Every page exists in English (`/en/…`), German (`/de/…`), French (`/fr/…`),
 Italian (`/it/…`) and Spanish (`/es/…`); `/` opens in the browser's language. A
@@ -152,7 +155,20 @@ and the intake page offers your own model or filing by hand.
 | `DIPLODOCTOR_MODEL`                                    | Optional. Start the chain at this model instead of the front.                                                                       |
 | `DIPLODOCTOR_GROQ_MODELS` and the like                 | Optional per-vendor overrides, read by ai-kit's `freeChain("DIPLODOCTOR")`.                                                         |
 
-Limits (per hour, in memory): 8 free readings per visitor, 60 on your own key.
+Limits (per hour, in memory): 8 free readings per visitor, 60 on your own key;
+30 questions on Ask on the free chain, 200 on your own key.
+
+Accounts and the file kept in an account need more; `.env.example` lists every
+variable with what it does:
+
+| Variable                                                                               | Effect                                                                                          |
+| -------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `DATABASE_URL`                                                                         | Postgres for accounts. `/api/health` is red without it.                                         |
+| `BETTER_AUTH_SECRET`                                                                   | 32+ characters. Signs sessions and seals two-factor secrets.                                    |
+| `SECRET_SEAL_KEY`                                                                      | 32+ characters. Seals a file kept in an account. Without it that switch says it is unavailable. |
+| `RESEND_API_KEY`, `RESEND_FROM`                                                        | Optional. With both, addresses are verified and sign-in links work.                             |
+| `SIGNIN_ISSUER`, `SIGNIN_CLIENT_ID`, `SIGNIN_CLIENT_SECRET`                            | Optional. The shared bitbaum sign-in button.                                                    |
+| `ORANGECAT_OAUTH_CLIENT_ID`, `ORANGECAT_OAUTH_CLIENT_SECRET`, `ORANGECAT_OAUTH_ISSUER` | Optional. The "Sign in with OrangeCat" button.                                                  |
 
 After setting a key on the host, check it end to end:
 
@@ -177,9 +193,11 @@ are designed in rather than added:
   model answers with the placeholders and the browser restores the real values. Photos are
   covered by hand in `components/PhotoRedactor.tsx`; the boxes are burnt into the pixels
   before upload.
-- **Nothing stored on the server.** A report goes to the model provider and the answer comes
-  back; only which model served it is logged. Reports, the placeholder table and a reader's
-  own API key live in the browser.
+- **Nothing stored on the server unless you choose it.** A report goes to the model provider
+  and the answer comes back; only which model served it is logged. Reports, the placeholder
+  table and a reader's own API key live in the browser. A signed-in person may turn on one
+  switch that keeps their file on the server, sealed with `SECRET_SEAL_KEY`
+  (`lib/health-file.ts`, `lib/secrets.ts`); turning it off deletes the copy.
 - **Anonymised hand-over.** "Export anonymised" writes the report with every personal
   detail replaced and without the placeholder table.
 - **Headers** (`lib/security.ts`, `proxy.ts`): a per-request nonce CSP with `strict-dynamic`,
@@ -220,7 +238,8 @@ are the same, so the products still sit together. What a capability page says is
 ```sh
 pnpm install
 pnpm dev
-pnpm run verify          # type-check, lint and tests; CI also builds
+pnpm run verify             # format check, lint, typecheck, tests and build
+pnpm run test:integration   # needs DATABASE_URL naming a throwaway *_test database
 pnpm run check:analyze   # needs a vendor key: the sample report through a real model
 ```
 

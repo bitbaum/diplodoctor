@@ -66,7 +66,7 @@ rendered here, never written twice.
 
 ### One health file {#file}
 
-- [x] Today, Records, and medicines, appointments and notes beside reports {#records}
+- [x] Today, Records, and medicines, appointments and notes beside reports {#health-file}
 - [x] Search that forgives a typo, and filters that live in the address {#find}
 - [x] The file kept for you across devices, sealed on our host, for signed-in people, if they choose
 - [x] Ask about your file, in a chat

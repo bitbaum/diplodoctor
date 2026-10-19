@@ -12,10 +12,12 @@ Repo-only notes live below this line.
   `live-check.yml` asks the live site from outside after every deploy; a red
   Live check means the product is not working, whatever Deploy said.
 - Run: `pnpm install`, `pnpm dev`. Check before pushing: `pnpm run verify`
-  (type-check, lint, tests). CI also builds.
+  (format check, lint, typecheck, tests, build).
 - Tests are Vitest, next to the code they test (`lib/*.test.ts`,
-  `i18n/parity.test.ts`). They are hermetic. `pnpm run check:analyze` is the
-  one check that calls a real model; it needs a vendor key and is not in CI.
+  `i18n/parity.test.ts`). They are hermetic. `pnpm run test:integration` drives
+  sign-up and sign-in against a throwaway `*_test` Postgres (CI provides one).
+  `pnpm run check:analyze` is the one check that calls a real model; it needs a
+  vendor key and is not in CI.
 - Every string a reader sees lives in `messages/{en,de,fr,it,es}.json`; the
   parity test fails on a missing key or a changed argument. English is the
   source. German uses Swiss spelling (ss, never ß). Link with
@@ -25,7 +27,8 @@ Repo-only notes live below this line.
 - **A medical record is the most private thing here. Security and privacy are
   not negotiable, whatever else is.** A report leaves the browser only after
   `lib/redact.ts` has anonymised it; nothing about a report is stored or logged
-  on the server; the CSP in `lib/security.ts` stays nonce-based with
+  on the server, except the file a signed-in person chooses to keep there,
+  sealed (`lib/health-file.ts`); the CSP in `lib/security.ts` stays nonce-based with
   `connect-src 'self'`. A change that loosens any of these needs a reason
   written next to it.
 - **This repository is public and the product handles medical reports.** No
