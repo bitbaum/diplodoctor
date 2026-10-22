@@ -35,7 +35,7 @@
     "drizzle-orm": "^0.45.4",
     "limitkit": "^0.2.0",
     "listkit": "git+https://github.com/bitbaum/listkit.git#v0.1.0",
-    "next": "16.4.0",
+    "next": "16.4.2",
     "next-intl": "^4.14.9",
     "pg": "^8.23.1",
     "react": "19.3.0",
