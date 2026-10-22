@@ -157,3 +157,24 @@ html {
     }
   }
 }
+
+/* ── Ask: the conversation as the whole display (chatkit ChatScreen) ────────
+   Unlayered, like chatkit's own stylesheet, so these win on order alone.
+   The site header stays in place above it; the screen takes the rest of the
+   VISUAL viewport (chatkit measures it, so the composer rides above the phone
+   keyboard), and the footer follows below, reached by scrolling the page.
+   --site-header is the header's min-h-16 plus its 1px border (app/[locale]/layout.tsx). */
+:root {
+  --site-header: calc(4rem + 1px);
+}
+.ck-screen.ask-screen {
+  height: calc(var(--ck-viewport-height, 100dvh) - var(--site-header));
+}
+/* The page title as one frosted pill in the floating header: a label, not a
+   control, so no pointer; its type is the pill's, not a headline's. */
+.ask-screen .ask-title {
+  margin: 0;
+  cursor: default;
+  font-weight: 600;
+  line-height: 1.2;
+}

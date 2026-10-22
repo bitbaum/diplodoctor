@@ -891,6 +891,8 @@
     "thread": {
       "copy": "Copiar",
       "copied": "Copiado",
+      "listen": "Escuchar",
+      "share": "Compartir",
       "retry": "Reintentar",
       "stop": "Detener",
       "working": "Escribiendo la respuesta…",
