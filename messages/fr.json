@@ -900,7 +900,10 @@
       "jump": "Aller au plus récent",
       "failed": "Cela n’a pas fonctionné",
       "loading": "Chargement…",
-      "replies": "Suggestions"
+      "replies": "Suggestions",
+      "thoughtFor": "A réfléchi pendant {time}",
+      "thought": "Ce qu'il a fait",
+      "thinking": "Réfléchit"
     },
     "composer": {
       "send": "Envoyer",

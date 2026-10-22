@@ -900,7 +900,10 @@
       "jump": "Zum Neuesten",
       "failed": "Das hat nicht geklappt",
       "loading": "Lädt…",
-      "replies": "Vorschläge"
+      "replies": "Vorschläge",
+      "thoughtFor": "{time} nachgedacht",
+      "thought": "Was es getan hat",
+      "thinking": "Denkt nach"
     },
     "composer": {
       "send": "Senden",

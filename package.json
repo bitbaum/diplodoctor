@@ -25,7 +25,7 @@
   "dependencies": {
     "@better-auth/passkey": "^1.7.7",
     "@bitbaum/ai-kit": "^1.21.0",
-    "@bitbaum/chatkit": "^0.12.0",
+    "@bitbaum/chatkit": "^0.13.0",
     "@bitbaum/design-tokens": "^1.1.0",
     "@bitbaum/mail-kit": "^0.1.1",
     "@bitbaum/searchkit": "git+https://github.com/bitbaum/searchkit.git#v0.2.2",
