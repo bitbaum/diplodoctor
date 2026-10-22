@@ -1,3 +1,4 @@
+import { REPLIES_INSTRUCTION, RICH_ANSWERS_INSTRUCTION } from "@bitbaum/chatkit";
 import { describe, expect, it } from "vitest";
 import { AskRequestSchema, askFile, buildAskMessages } from "./ask";
 import { buildFileContext, CONTEXT_MAX_CHARS } from "./file-context";
@@ -99,6 +100,15 @@ describe("buildAskMessages", () => {
     expect(system!.content).toContain("Answer ONLY from the file");
     expect(user).toEqual({ role: "user", content: "What stands out?" });
   });
+
+  it("asks for the fleet's visual answers, then the one-tap replies", () => {
+    const system = buildAskMessages(ask())[0]!.content as string;
+    expect(system).toContain(RICH_ANSWERS_INSTRUCTION);
+    expect(system).toContain(REPLIES_INSTRUCTION);
+    expect(system.indexOf(RICH_ANSWERS_INSTRUCTION)).toBeLessThan(
+      system.indexOf(REPLIES_INSTRUCTION),
+    );
+  });
 });
 
 describe("askFile", () => {
@@ -125,6 +135,26 @@ describe("askFile", () => {
     );
     expect(b).toMatchObject({ ok: true, ownModel: true });
     expect(own.seen[0]!.auth).toBe("Bearer reader-key");
+  });
+
+  it("takes the replies block out of the answer and returns the replies as data", async () => {
+    const { impl } = vendor(
+      'Your ferritin is in range.\n\n```quick_replies\n["What should I ask my doctor?", "Show the range"]\n```',
+    );
+    const out = await askFile(ask(), { env: { GROQ_API_KEY: "shared" }, fetchImpl: impl });
+    expect(out).toEqual({
+      ok: true,
+      text: "Your ferritin is in range.",
+      replies: ["What should I ask my doctor?", "Show the range"],
+      servedBy: expect.any(String),
+      ownModel: false,
+    });
+  });
+
+  it("answers with no replies when the model wrote none", async () => {
+    const { impl } = vendor("Nothing in the file says.");
+    const out = await askFile(ask(), { env: { GROQ_API_KEY: "shared" }, fetchImpl: impl });
+    expect(out).toMatchObject({ ok: true, text: "Nothing in the file says.", replies: [] });
   });
 
   it("refuses an own-model config outside the closed vendor list", async () => {

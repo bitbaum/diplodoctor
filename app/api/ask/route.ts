@@ -32,5 +32,9 @@ export async function POST(request: Request) {
   if (!outcome.ok)
     return Response.json({ error: outcome.error }, { status: STATUS[outcome.error] });
   console.warn(`[ask] served by ${outcome.servedBy}${outcome.ownModel ? " (own key)" : ""}`);
-  return Response.json({ text: outcome.text, ownModel: outcome.ownModel });
+  return Response.json({
+    text: outcome.text,
+    replies: outcome.replies,
+    ownModel: outcome.ownModel,
+  });
 }

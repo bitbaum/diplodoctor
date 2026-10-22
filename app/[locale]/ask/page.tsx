@@ -1,6 +1,12 @@
 "use client";
 
-import { ChatStarters, ChatThread, Composer, type ChatMessageData } from "@bitbaum/chatkit/react";
+import {
+  ChatScreen,
+  ChatStarters,
+  ChatThread,
+  Composer,
+  type ChatMessageData,
+} from "@bitbaum/chatkit/react";
 import "@bitbaum/chatkit/styles.css";
 import { useLocale, useTranslations } from "next-intl";
 import { useRef, useState } from "react";
@@ -9,15 +15,18 @@ import { Link } from "@/i18n/navigation";
 import { buildFileContext } from "@/lib/file-context";
 import { applyRedactions, assignTokens, findPersonalData, restore } from "@/lib/redact";
 import { ROUTES } from "@/lib/routes";
+import { SITE } from "@/lib/site";
 import { useHydrated, useItems, useOwnModel, useOwnWords, useReports } from "@/lib/store";
 
 const ERRORS = new Set(["not_configured", "busy"]);
 
 /**
- * Ask about your own file, in the fleet's one chat (chatkit). The file is
- * turned into text here, run through the same redaction as a report, and sent
- * with the conversation; the answer comes back with the placeholders put back
- * so it reads as it should. Nothing is kept on the server, and the thread
+ * Ask about your own file, in the fleet's one chat (chatkit), as the whole
+ * display: the conversation fills the screen under the site header, the title
+ * and the composer float over it (ChatScreen, as Loki and Solon do). The file
+ * is turned into text here, run through the same redaction as a report, and
+ * sent with the conversation; the answer comes back with the placeholders put
+ * back so it reads as it should. Nothing is kept on the server, and the thread
  * itself lives only in this tab: leave and it is gone, which for health
  * questions is the right default.
  */
@@ -64,8 +73,15 @@ export default function AskPage() {
         const key = res.status === 429 ? "rate" : ERRORS.has(code) ? code : "generic";
         return { id, role: "assistant", content: t(`errors.${key}`), failed: true };
       }
-      const { text } = (await res.json()) as { text: string };
-      return { id, role: "assistant", content: restore(text, redactions) };
+      // The server has already taken the replies block out of the text; a
+      // reply is a thing the person may send next, so it gets its names back too.
+      const { text, replies } = (await res.json()) as { text: string; replies?: string[] };
+      return {
+        id,
+        role: "assistant",
+        content: restore(text, redactions),
+        replies: (replies ?? []).map((r) => restore(r, redactions)),
+      };
     } catch (error) {
       if ((error as Error).name === "AbortError")
         return { id, role: "assistant", content: "", failed: true };
@@ -94,12 +110,11 @@ export default function AskPage() {
     if (base.length) void run(base);
   }
 
-  return (
-    <main className={`${shell} py-10 sm:py-14`}>
-      <h1 className="headline text-4xl sm:text-5xl">{t("title")}</h1>
-      <p className="mt-2 text-sm text-fg-secondary">{t("subtitle")}</p>
-
-      {hydrated && empty ? (
+  if (hydrated && empty) {
+    return (
+      <main className={`${shell} py-10 sm:py-14`}>
+        <h1 className="headline text-4xl sm:text-5xl">{t("title")}</h1>
+        <p className="mt-2 text-sm text-fg-secondary">{t("subtitle")}</p>
         <div className={`${card} mt-10 sm:p-8`}>
           <h2 className="text-2xl font-semibold tracking-tight">{t("empty.title")}</h2>
           <p className="mt-2 max-w-prose text-fg-secondary">{t("empty.body")}</p>
@@ -109,33 +124,48 @@ export default function AskPage() {
             </Link>
           </p>
         </div>
-      ) : (
-        <div className="mt-8 grid max-w-3xl gap-4">
-          <ChatThread
-            messages={messages}
-            live={sending ? { status: t("thread.working") } : null}
-            onStop={() => abort.current?.abort()}
-            onRetry={retry}
-            onReply={send}
-            labels={{ ...t.raw("thread") }}
-            empty={
-              <ChatStarters
-                starters={[t("starters.s1"), t("starters.s2"), t("starters.s3")]}
-                onPick={send}
-              />
-            }
-          />
+      </main>
+    );
+  }
+
+  return (
+    <main>
+      <ChatScreen
+        fill="viewport"
+        className="ask-screen"
+        // The site header already holds the way home, so the floating row is
+        // the page's name alone, as one frosted pill over the words.
+        header={<h1 className="ck-glass ask-title">{t("title")}</h1>}
+        composer={
           <Composer
             onSend={(text) => send(text)}
             placeholder={t("placeholder")}
             sending={sending}
             onStop={() => abort.current?.abort()}
+            // No transcription route in this app yet; a microphone that does
+            // nothing is never shown.
             voice={false}
             labels={{ ...t.raw("composer") }}
           />
-          <p className="text-xs text-fg-tertiary">{t("disclaimer")}</p>
-        </div>
-      )}
+        }
+        footnote={t("disclaimer")}
+      >
+        <ChatThread
+          messages={messages}
+          live={sending ? { status: t("thread.working") } : null}
+          onStop={() => abort.current?.abort()}
+          onRetry={retry}
+          onReply={send}
+          share={{ title: SITE.title }}
+          labels={{ ...t.raw("thread") }}
+          empty={
+            <ChatStarters
+              starters={[t("starters.s1"), t("starters.s2"), t("starters.s3")]}
+              onPick={send}
+            />
+          }
+        />
+      </ChatScreen>
     </main>
   );
 }
