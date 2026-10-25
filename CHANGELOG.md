@@ -4,6 +4,14 @@ What changed for the people who use Diplodoctor, newest first. Every entry
 comes from a change merged into this repository; where there is a number in
 brackets, it is the pull request to read for the detail.
 
+## 2026-10-25
+
+### Fixed
+
+- **Dictation no longer repeats words on Android.** Speaking a question into Ask
+  used to append every partial result again ("why why exactly why exactly is
+  ..."); it now types what you said once.
+
 ## 2026-10-15
 
 ### Added
