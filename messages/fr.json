@@ -917,5 +917,19 @@
       "generic": "Cela n’a pas fonctionné."
     },
     "disclaimer": "De l’information, pas un diagnostic."
+  },
+  "DevelopmentRecords": {
+    "roadmap": "Feuille de route",
+    "changelog": "Changements",
+    "home": "Retour au produit",
+    "profile": "Profil de développement complet",
+    "beta": "Bêta — en service, pas encore publié",
+    "source": "Ces entrées proviennent du profil de référence du projet. Un travail prévu n'est pas une promesse de livraison.",
+    "unavailable": "Les entrées de développement sont momentanément indisponibles. Veuillez réessayer sous peu.",
+    "emptyRoadmap": "Aucun élément de feuille de route n'a encore été enregistré.",
+    "emptyChangelog": "Aucun changement n'a encore été enregistré.",
+    "progress": "progression enregistrée",
+    "target": "Échéance",
+    "englishOnly": "Ces entrées sont tenues en anglais."
   }
 }

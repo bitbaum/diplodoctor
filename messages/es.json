@@ -917,5 +917,19 @@
       "generic": "No ha funcionado."
     },
     "disclaimer": "Información, no un diagnóstico."
+  },
+  "DevelopmentRecords": {
+    "roadmap": "Hoja de ruta",
+    "changelog": "Registro de cambios",
+    "home": "Volver al producto",
+    "profile": "Perfil completo de desarrollo",
+    "beta": "Beta: en funcionamiento, aún no publicado",
+    "source": "Estos registros proceden del perfil canónico del proyecto. El trabajo previsto no es una promesa de entrega.",
+    "unavailable": "Los registros de desarrollo no están disponibles temporalmente. Vuelva a intentarlo en breve.",
+    "emptyRoadmap": "Todavía no se han registrado elementos en la hoja de ruta.",
+    "emptyChangelog": "Todavía no se han registrado cambios.",
+    "progress": "progreso registrado",
+    "target": "Objetivo",
+    "englishOnly": "Los registros se muestran en el idioma en que fueron escritos."
   }
 }

@@ -4,6 +4,13 @@ What changed for the people who use Diplodoctor, newest first. Every entry
 comes from a change merged into this repository; where there is a number in
 brackets, it is the pull request to read for the detail.
 
+## 2026-10-26
+
+### Fixed
+
+- **Readable roadmap and changelog labels.** Development pages now use their
+  own translation namespace in all five languages, separate from medical records.
+
 ## 2026-10-15
 
 ### Added

@@ -917,5 +917,19 @@
       "generic": "Das hat nicht geklappt."
     },
     "disclaimer": "Information, keine Diagnose."
+  },
+  "DevelopmentRecords": {
+    "roadmap": "Roadmap",
+    "changelog": "Änderungen",
+    "home": "Zurück zum Produkt",
+    "profile": "Vollständiges Entwicklungsprofil",
+    "beta": "Beta — in Betrieb, nicht veröffentlicht",
+    "source": "Diese Einträge stammen aus dem massgebenden Projektprofil. Geplante Arbeit ist kein Lieferversprechen.",
+    "unavailable": "Die Entwicklungseinträge sind vorübergehend nicht verfügbar. Bitte versuchen Sie es in Kürze noch einmal.",
+    "emptyRoadmap": "Es sind noch keine Roadmap-Einträge erfasst.",
+    "emptyChangelog": "Es sind noch keine Änderungen erfasst.",
+    "progress": "erfasster Fortschritt",
+    "target": "Ziel",
+    "englishOnly": "Diese Einträge werden auf Englisch geführt."
   }
 }

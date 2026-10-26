@@ -917,5 +917,19 @@
       "generic": "Non ha funzionato."
     },
     "disclaimer": "Informazione, non una diagnosi."
+  },
+  "DevelopmentRecords": {
+    "roadmap": "Tabella di marcia",
+    "changelog": "Registro delle modifiche",
+    "home": "Tornare al prodotto",
+    "profile": "Profilo di sviluppo completo",
+    "beta": "Beta — in funzione, non ancora rilasciato",
+    "source": "Queste voci provengono dal profilo di progetto canonico. Il lavoro pianificato non è una promessa di consegna.",
+    "unavailable": "I dati di sviluppo non sono temporaneamente disponibili. Riprovi tra poco.",
+    "emptyRoadmap": "Non è stata ancora registrata nessuna voce della tabella di marcia.",
+    "emptyChangelog": "Non è stata ancora registrata nessuna modifica.",
+    "progress": "avanzamento registrato",
+    "target": "Obiettivo",
+    "englishOnly": "Queste voci sono redatte in inglese."
   }
 }
