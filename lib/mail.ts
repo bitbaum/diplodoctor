@@ -1,4 +1,4 @@
-import { isMailConfigured, sendMail } from "@bitbaum/mail-kit";
+import { conventionalFrom, fromAddress, isMailConfigured, sendMail } from "@bitbaum/mail-kit";
 import { createTranslator } from "next-intl";
 import de from "@/messages/de.json";
 import en from "@/messages/en.json";
@@ -73,15 +73,20 @@ export function renderAuthMail(kind: AuthMail, url: string, locale: Locale) {
 export async function sendAuthMail(kind: AuthMail, to: string, url: string): Promise<void> {
   if (!isDeliverable(to)) return;
   if (!isMailConfigured()) {
-    // Development only: there is no inbox, so the link goes to the console of
-    // the person running the server. Production never reaches this line with
-    // a link, because the methods that need mail are hidden without it.
+    // Development only: there is no inbox, so report the missing transport without logging the bearer link.
+    // Production methods that require mail are hidden when it is unavailable.
     if (process.env.NODE_ENV === "development")
-      console.warn(`[mail] not configured — ${kind}: ${url}`);
+      console.warn(`[mail] not configured — ${kind} unavailable`);
     return;
   }
   const { subject, html, text } = renderAuthMail(kind, url, localeOfLink(url));
-  const result = await sendMail({ to, subject, html, text });
+  const result = await sendMail({
+    to,
+    subject,
+    html,
+    text,
+    from: fromAddress() ?? conventionalFrom(SITE.title),
+  });
   if (!result.sent) {
     console.error(
       `[mail] ${kind} not sent (status ${result.status ?? "none"}, retryable ${result.retryable})`,

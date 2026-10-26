@@ -23,14 +23,14 @@
     "check:analyze": "vitest run --config vitest.live.config.mts live/analyze.live.ts"
   },
   "dependencies": {
-    "@better-auth/passkey": "^1.7.7",
+    "@better-auth/passkey": "^1.7.12",
     "@bitbaum/ai-kit": "^1.21.0",
     "@bitbaum/chatkit": "^0.13.0",
     "@bitbaum/design-tokens": "^1.1.0",
-    "@bitbaum/mail-kit": "^0.1.1",
+    "@bitbaum/mail-kit": "^0.2.0",
     "@bitbaum/searchkit": "git+https://github.com/bitbaum/searchkit.git#v0.2.2",
     "@bitbaum/whenkit": "git+https://github.com/bitbaum/whenkit.git#v0.3.2",
-    "better-auth": "^1.7.7",
+    "better-auth": "^1.7.12",
     "bip-kit": "^0.6.0",
     "drizzle-orm": "^0.45.4",
     "limitkit": "^0.2.0",
@@ -40,7 +40,8 @@
     "pg": "^8.23.1",
     "react": "19.3.0",
     "react-dom": "19.3.0",
-    "zod": "^4.6.5"
+    "zod": "^4.6.5",
+    "@bitbaum/accountkit": "github:bitbaum/accountkit#d9c311e54fe97442f367874cfaa0ef451ba0f2bd"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
@@ -54,6 +55,7 @@
     "prettier": "3.9.10",
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.11"
+    "vitest": "^4.1.11",
+    "playwright": "^1.64.1"
   }
 }

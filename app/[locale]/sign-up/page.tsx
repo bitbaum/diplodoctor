@@ -1,15 +1,16 @@
+import { accountDestination, redirectAccountDestination } from "@/lib/auth/entry";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SignUpForm } from "@/components/auth/SignUpForm";
 import { AccountsUnavailable } from "@/components/auth/Unavailable";
 import { card, shell } from "@/components/ui";
-import { getPathname, redirect } from "@/i18n/navigation";
+import { getPathname } from "@/i18n/navigation";
 import { toLocale } from "@/i18n/routing";
 import { signInMethods } from "@/lib/auth/methods";
 import { authStatus } from "@/lib/auth/server";
 import { getSession } from "@/lib/auth/session";
 import { mailConfigured } from "@/lib/mail";
-import { ROUTES, safeNext } from "@/lib/routes";
+import { ROUTES } from "@/lib/routes";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -27,7 +28,7 @@ export default async function SignUpPage({ params, searchParams }: Props) {
   const t = await getTranslations("Auth");
   const query = await searchParams;
 
-  if (await getSession()) redirect({ href: safeNext(query.next), locale });
+  if (await getSession()) redirectAccountDestination(locale, query.next);
 
   return (
     <div className={`${shell} py-12 sm:py-16`}>
@@ -37,7 +38,7 @@ export default async function SignUpPage({ params, searchParams }: Props) {
         {authStatus().ready ? (
           <SignUpForm
             methods={signInMethods(process.env, mailConfigured())}
-            next={getPathname({ href: safeNext(query.next), locale })}
+            next={accountDestination(locale, query.next)}
             signUpPath={getPathname({ href: ROUTES.signUp, locale })}
           />
         ) : (

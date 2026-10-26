@@ -4,6 +4,14 @@ What changed for the people who use Diplodoctor, newest first. Every entry
 comes from a change merged into this repository; where there is a number in
 brackets, it is the pull request to read for the detail.
 
+## 2026-10-26 — Shared account lifecycle
+
+### Changed
+
+- **Shared account recovery and sign-in.** AccountKit supplies account screens
+  and runtime, including recovery and consistent second-factor enforcement.
+  Existing accounts, health-file ownership and product roles retain their tables.
+
 ## 2026-10-26
 
 ### Fixed
