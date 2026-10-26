@@ -917,5 +917,19 @@
       "generic": "That did not work."
     },
     "disclaimer": "Information, not a diagnosis."
+  },
+  "DevelopmentRecords": {
+    "roadmap": "Roadmap",
+    "changelog": "Changelog",
+    "home": "Back to the product",
+    "profile": "Full development profile",
+    "beta": "Beta — running, not released",
+    "source": "These records come from the canonical project profile. Planned work is not a delivery promise.",
+    "unavailable": "Development records are temporarily unavailable. Please try again shortly.",
+    "emptyRoadmap": "No roadmap items have been recorded yet.",
+    "emptyChangelog": "No changes have been recorded yet.",
+    "progress": "recorded progress",
+    "target": "Target",
+    "englishOnly": ""
   }
 }

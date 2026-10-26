@@ -64,7 +64,7 @@ function args(message: string): string[] {
 
 const source = leaves(en);
 /** English is empty here on purpose: the note only exists for a translation. */
-const SOURCE_ONLY_EMPTY = new Set(["Records.englishOnly"]);
+const SOURCE_ONLY_EMPTY = new Set(["DevelopmentRecords.englishOnly"]);
 
 describe.each([
   ["de", leaves(de)],

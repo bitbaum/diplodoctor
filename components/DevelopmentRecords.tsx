@@ -38,7 +38,7 @@ export async function DevelopmentRecords({
   section: "roadmap" | "changelog";
   locale: Locale;
 }) {
-  const t = await getTranslations("Records");
+  const t = await getTranslations("DevelopmentRecords");
   const { development } = await loadFleetPresence();
   // bip-kit renders plain anchors, so the language prefix is applied here.
   const at = (href: string) => getPathname({ href, locale });

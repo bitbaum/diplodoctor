@@ -7,7 +7,7 @@ type Params = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale: toLocale(locale), namespace: "Records" });
+  const t = await getTranslations({ locale: toLocale(locale), namespace: "DevelopmentRecords" });
   return { title: t("changelog") };
 }
 
