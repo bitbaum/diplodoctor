@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@better-auth/passkey": "^1.7.12",
+    "@bitbaum/accountkit": "github:bitbaum/accountkit#d9c311e54fe97442f367874cfaa0ef451ba0f2bd",
     "@bitbaum/ai-kit": "^1.21.0",
     "@bitbaum/chatkit": "^0.13.0",
     "@bitbaum/design-tokens": "^1.1.0",
@@ -40,8 +41,7 @@
     "pg": "^8.23.1",
     "react": "19.3.0",
     "react-dom": "19.3.0",
-    "zod": "^4.6.5",
-    "@bitbaum/accountkit": "github:bitbaum/accountkit#d9c311e54fe97442f367874cfaa0ef451ba0f2bd"
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
@@ -52,10 +52,10 @@
     "drizzle-kit": "^0.31.11",
     "eslint": "^10.12.0",
     "eslint-config-next": "16.4.0",
+    "playwright": "^1.64.1",
     "prettier": "3.9.10",
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.11",
-    "playwright": "^1.64.1"
+    "vitest": "^4.1.12"
   }
 }
