@@ -10,6 +10,9 @@ export const SITE = {
   slug: "diplodoctor",
   title: "Diplodoctor",
   /** The public origin. The box env may override it (NEXT_PUBLIC_APP_URL). */
-  url: process.env.NEXT_PUBLIC_APP_URL || "https://diplodoctor.orangecat.ch",
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    process.env.NEXT_PUBLIC_APP_URL ||
+    "https://diplodoctor.orangecat.ch",
   repo: "https://github.com/bitbaum/diplodoctor",
 } as const;

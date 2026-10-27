@@ -61,7 +61,7 @@ The blessed column of fleet `STACK.md`, nothing else:
 | A reader's own model  | `ai-kit/byok` + `ai-kit/byok-probe`, key kept in the browser only                              |
 | Validation            | `zod` (the report, every request body, the fleet map entry)                                    |
 | Rate limiting         | `limitkit`                                                                                     |
-| Accounts              | `better-auth` on Drizzle + Postgres, wired in this app (not yet on `@bitbaum/accountkit/auth`) |
+| Accounts              | `@bitbaum/accountkit/auth` runtime and screens on the existing Drizzle/Postgres account tables |
 | Mail                  | `@bitbaum/mail-kit`, for sign-in links, when a key is set                                      |
 | A list                | `listkit` (filters, order, pages, in the address) + `@bitbaum/searchkit` (typo-tolerant)       |
 | Dates                 | `@bitbaum/whenkit` (nobody types a date)                                                       |
@@ -74,8 +74,7 @@ The blessed column of fleet `STACK.md`, nothing else:
 
 ### Fleet packages not used, and why
 
-`accountkit` (accounts here are still this app's own better-auth wiring; fleet STACK moves
-products onto `@bitbaum/accountkit/auth` one at a time), `paykit` and `threadkit` (they belong to paying and messaging people who help, which does not exist yet),
+`paykit` and `threadkit` (they belong to paying and messaging people who help, which does not exist yet),
 `geo-kit`, `speechkit` (it measures how someone speaks, not what they say), `sitekit` (this is an
 app, not a generated site), `ai-forms` (the add forms have three fields; a form assistant would be
 more to read than the form). Header and footer are not packages by design: each product owns its
