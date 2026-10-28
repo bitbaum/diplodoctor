@@ -26,7 +26,7 @@ minimumReleaseAgeExclude:
   - limitkit
   - bip-kit
   - "@bitbaum/chatkit"
-  - "@bitbaum/accountkit@0.8.0"
+  - "@bitbaum/accountkit@0.8.0 || 0.8.1"
 
 # drizzle-kit still reaches esbuild <=0.24 through the legacy @esbuild-kit
 # loader (GHSA-67mh-4wv8-2f99: its dev server answers any website). Nothing
