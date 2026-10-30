@@ -101,6 +101,17 @@ describe("buildAskMessages", () => {
     expect(user).toEqual({ role: "user", content: "What stands out?" });
   });
 
+  it("without a file, answers in general terms and says a report would let it read the person's own", () => {
+    const [system, user] = buildAskMessages(ask({ context: "" }));
+    const text = system!.content as string;
+    expect(text).toContain("No report has been shared");
+    expect(text).toContain("never a diagnosis");
+    expect(text).not.toContain("<file>");
+    expect(text).not.toContain("Answer ONLY from the file");
+    expect(text).toContain("Reply in German.");
+    expect(user).toEqual({ role: "user", content: "What stands out?" });
+  });
+
   it("asks for the fleet's visual answers, then the one-tap replies", () => {
     const system = buildAskMessages(ask())[0]!.content as string;
     expect(system).toContain(RICH_ANSWERS_INSTRUCTION);
