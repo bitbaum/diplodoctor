@@ -19,6 +19,7 @@ import { SITE } from "./site";
  * logged: the question, the file and the answer exist for the length of a call.
  */
 export const MAX_CONTEXT = 20_000;
+export const MAX_SCENE = 1_000;
 const MAX_TURNS = 20;
 const MAX_MESSAGE = 4_000;
 
@@ -35,6 +36,12 @@ export const AskRequestSchema = z.object({
     .refine((m) => m[m.length - 1]?.role === "user", { message: "last" }),
   /** The file as text, redacted by the browser. */
   context: z.string().max(MAX_CONTEXT).default(""),
+  /**
+   * The setting the question is asked in, written by the caller: a group chat
+   * in OrangeCat's companions home names who else is there and asks the
+   * assistant to speak as itself only. Put after the rules; it cannot change them.
+   */
+  scene: z.string().max(MAX_SCENE).default(""),
   locale: z.enum(["en", "de", "fr", "it", "es"]).catch("en").default("en"),
   byok: z.unknown().optional(),
 });
@@ -77,11 +84,13 @@ Answer general questions about what a test, a value, a reference range or a medi
 export function buildAskMessages(request: AskRequest): ChatMessage[] {
   const language = localeEnglishNames[request.locale];
   const file = request.context.trim();
+  const scene = request.scene.trim();
+  const setting = scene ? `\n\n${scene}` : "";
   // The fleet's two chat instructions, in the order evig and Solon use them:
   // visual answers first, then the one-tap replies that close every answer.
   const rules = file
-    ? `${ASK_SYSTEM}\nReply in ${language}.\n\n<file>\n${file}\n</file>`
-    : `${ASK_SYSTEM_NO_FILE}\nReply in ${language}.`;
+    ? `${ASK_SYSTEM}\nReply in ${language}.${setting}\n\n<file>\n${file}\n</file>`
+    : `${ASK_SYSTEM_NO_FILE}\nReply in ${language}.${setting}`;
   return [
     {
       role: "system",

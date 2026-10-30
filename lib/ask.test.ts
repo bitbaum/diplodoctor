@@ -112,6 +112,17 @@ describe("buildAskMessages", () => {
     expect(user).toEqual({ role: "user", content: "What stands out?" });
   });
 
+  it("puts the caller's scene after the rules, before the file", () => {
+    const text = buildAskMessages(
+      ask({ scene: "## The room\nYou are Diplodoctor, in a group chat." }),
+    )[0]!.content as string;
+    expect(text).toContain(
+      "Reply in German.\n\n## The room\nYou are Diplodoctor, in a group chat.",
+    );
+    expect(text.indexOf("## The room")).toBeLessThan(text.indexOf("<file>\nREPORT"));
+    expect(AskRequestSchema.safeParse({ ...ask(), scene: "x".repeat(1_001) }).success).toBe(false);
+  });
+
   it("asks for the fleet's visual answers, then the one-tap replies", () => {
     const system = buildAskMessages(ask())[0]!.content as string;
     expect(system).toContain(RICH_ANSWERS_INSTRUCTION);
