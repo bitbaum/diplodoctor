@@ -2,7 +2,7 @@ import { randomBytes } from "node:crypto";
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { Client } from "pg";
-import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 
 /**
  * Accounts, end to end, against a real Postgres built from drizzle/ — the
@@ -29,8 +29,14 @@ const fileRoute = await import("@/app/api/file/route");
 let ip = 0;
 const nextIp = () => `198.51.100.${++ip}`;
 
-function post(path: string, body: unknown, init: { cookie?: string; ip?: string } = {}) {
-  return route.POST(
+type AuthRoute = typeof route;
+
+function post(
+  path: string,
+  body: unknown,
+  init: { cookie?: string; ip?: string; via?: AuthRoute } = {},
+) {
+  return (init.via ?? route).POST(
     new Request(`${SITE.url}/api/auth${path}`, {
       method: "POST",
       headers: {
@@ -44,8 +50,8 @@ function post(path: string, body: unknown, init: { cookie?: string; ip?: string 
   );
 }
 
-function get(path: string, cookie?: string) {
-  return route.GET(
+function get(path: string, cookie?: string, via: AuthRoute = route) {
+  return via.GET(
     new Request(`${SITE.url}/api/auth${path}`, {
       headers: { "x-forwarded-for": nextIp(), ...(cookie ? { cookie } : {}) },
     }),
@@ -253,5 +259,135 @@ describe("health", () => {
     const body = (await response.json()) as { ok: boolean; db: string };
     expect(response.status).toBe(200);
     expect(body).toMatchObject({ ok: true, db: "up" });
+  });
+});
+
+describe("password recovery without mail (no mail env on the box)", () => {
+  it("cannot be asked for, and there is no sign-in link either", async () => {
+    expect(process.env.RESEND_API_KEY ?? "").toBe("");
+    const reset = await post("/request-password-reset", {
+      email: "nobody@example.ch",
+      redirectTo: "/de/sign-in",
+    });
+    expect(reset.status).not.toBe(200);
+    const link = await post("/sign-in/magic-link", {
+      email: "nobody@example.ch",
+      callbackURL: "/de/account",
+    });
+    expect(link.status).toBe(404);
+  });
+});
+
+describe("password recovery with mail (RESEND_API_KEY on the box)", () => {
+  type Sent = { to: string[]; subject: string; text: string };
+  const outbox: Sent[] = [];
+  let mailed: AuthRoute;
+  const email = "forgetful@example.ch";
+  const password = "the first long passphrase";
+  const replacement = "a replacement long passphrase";
+
+  /** The link in the last mail, as a path under /api/auth on this site. */
+  const lastLink = () => {
+    const found = outbox.at(-1)?.text.match(/https?:\/\/\S+/)?.[0];
+    expect(found, "a mail with a link was sent").toBeTruthy();
+    const link = new URL(found!);
+    expect(link.origin).toBe(new URL(SITE.url).origin);
+    expect(link.pathname.startsWith("/api/auth/")).toBe(true);
+    return link.pathname.slice("/api/auth".length) + link.search;
+  };
+
+  beforeAll(async () => {
+    // A synthetic key and a captured transport: nothing leaves this process.
+    process.env.RESEND_API_KEY = `re_integration_${randomBytes(12).toString("hex")}`;
+    const realFetch = globalThis.fetch;
+    vi.stubGlobal("fetch", async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = input instanceof Request ? input.url : String(input);
+      if (url !== "https://api.resend.com/emails") return realFetch(input, init);
+      const body = JSON.parse(String(init?.body)) as Sent & { to: string | string[] };
+      outbox.push({ ...body, to: [body.to].flat() });
+      return Response.json({ id: `test-${outbox.length}` });
+    });
+    // The auth instance is built once per process from the mail state; a fresh
+    // module graph is a server started with the mail env present.
+    vi.resetModules();
+    mailed = await import("@/app/api/auth/[...all]/route");
+  });
+
+  afterAll(() => {
+    delete process.env.RESEND_API_KEY;
+    vi.unstubAllGlobals();
+  });
+
+  it("requires a confirmed address at sign-up, by mail", async () => {
+    const signedUp = await post(
+      "/sign-up/email",
+      { email, password, name: "", callbackURL: "/de/account" },
+      { via: mailed },
+    );
+    expect(signedUp.status).toBe(200);
+    expect(cookieOf(signedUp)).not.toContain("session_token");
+    expect(outbox.at(-1)?.to).toEqual([email]);
+  });
+
+  it("mails a reset link, and answers the same for an unknown address", async () => {
+    const redirectTo = `${SITE.url}/de/sign-in`;
+    const unknown = await post(
+      "/request-password-reset",
+      { email: "unknown@example.ch", redirectTo },
+      { via: mailed },
+    );
+    const before = outbox.length;
+    const known = await post("/request-password-reset", { email, redirectTo }, { via: mailed });
+    expect(known.status).toBe(200);
+    expect(await known.json()).toEqual(await unknown.json());
+    expect(outbox.length).toBe(before + 1);
+    expect(outbox.at(-1)?.to).toEqual([email]);
+  });
+
+  it("resets the password through the link, once", async () => {
+    const link = lastLink();
+    const callback = await get(link, undefined, mailed);
+    const landing = new URL(callback.headers.get("location") ?? "", SITE.url);
+    expect(landing.pathname).toBe("/de/sign-in");
+    const token = landing.searchParams.get("token") ?? "";
+    expect(token).toBeTruthy();
+
+    const reset = await post(
+      "/reset-password",
+      { token, newPassword: replacement },
+      { via: mailed },
+    );
+    expect(reset.status).toBe(200);
+    const again = await post(
+      "/reset-password",
+      { token, newPassword: "yet another long passphrase" },
+      { via: mailed },
+    );
+    expect(again.status).toBe(400);
+  });
+
+  it("signs in with the new password only", async () => {
+    expect((await post("/sign-in/email", { email, password }, { via: mailed })).status).toBe(401);
+    const signedIn = await post(
+      "/sign-in/email",
+      { email, password: replacement },
+      { via: mailed },
+    );
+    expect(signedIn.status).toBe(200);
+    expect(cookieOf(signedIn)).toContain("session_token");
+  });
+
+  it("mails a sign-in link", async () => {
+    const before = outbox.length;
+    const response = await post(
+      "/sign-in/magic-link",
+      { email, callbackURL: "/de/account" },
+      { via: mailed },
+    );
+    expect(response.status).toBe(200);
+    expect(outbox.length).toBe(before + 1);
+    const link = lastLink();
+    const used = await get(link, undefined, mailed);
+    expect(cookieOf(used)).toContain("session_token");
   });
 });

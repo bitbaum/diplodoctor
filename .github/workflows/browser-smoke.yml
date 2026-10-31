@@ -14,3 +14,40 @@ jobs:
       sign-in-path: /de/sign-in
       account-path: /de/account
       migrate-command: for file in drizzle/[0-9]*.sql; do psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -q -f "$file"; done
+
+  # The other state: no mail env, as on the box today. The shared journey above
+  # runs WITH a captured mail transport and proves a reset mail is sent and its
+  # link resets the password; this proves that without mail the sign-in page
+  # offers neither "Forgot your password?" nor a sign-in link.
+  recovery-hidden-without-mail:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: app
+          POSTGRES_PASSWORD: app
+          POSTGRES_DB: auth_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U app -d auth_test"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      DATABASE_URL: postgres://app:app@127.0.0.1:5432/auth_test
+      NEXT_TELEMETRY_DISABLED: "1"
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: ".nvmrc"
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Apply the committed migrations to the isolated database
+        run: for file in drizzle/[0-9]*.sql; do psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -q -f "$file"; done
+      - run: pnpm run build
+      - name: No mail env, no recovery or sign-in link offered
+        env:
+          BROWSER_EXECUTABLE: /usr/bin/google-chrome
+        run: node scripts/check-recovery-hidden.mjs
