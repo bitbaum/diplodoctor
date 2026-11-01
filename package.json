@@ -20,7 +20,8 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "role:grant": "node scripts/grant-role.mjs",
-    "check:analyze": "vitest run --config vitest.live.config.mts live/analyze.live.ts"
+    "check:analyze": "vitest run --config vitest.live.config.mts live/analyze.live.ts",
+    "check:ask": "vitest run --config vitest.live.config.mts live/ask.live.ts"
   },
   "dependencies": {
     "@better-auth/passkey": "^1.7.12",
