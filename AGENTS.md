@@ -55,8 +55,9 @@ Repo-only notes live below this line.
 - Tests are Vitest, next to the code they test (`lib/*.test.ts`,
   `i18n/parity.test.ts`). They are hermetic. `pnpm run test:integration` drives
   sign-up and sign-in against a throwaway `*_test` Postgres (CI provides one).
-  `pnpm run check:analyze` is the one check that calls a real model; it needs a
-  vendor key and is not in CI.
+  `pnpm run check:analyze` and `pnpm run check:ask` are the checks that call a
+  real model; they need a vendor key and are not in CI. Run `check:ask` after
+  changing the ask prompt.
 - Every string a reader sees lives in `messages/{en,de,fr,it,es}.json`; the
   parity test fails on a missing key or a changed argument. English is the
   source. German uses Swiss spelling (ss, never ß). Link with

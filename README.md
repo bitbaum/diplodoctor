@@ -174,11 +174,13 @@ After setting a key on the host, check it end to end:
 ```sh
 curl -s https://diplodoctor.orangecat.ch/api/health   # {"ok":true,"analysis":{"text":true,"photo":…}}
 pnpm run check:analyze                                # the sample report through a real model, in all five languages
+pnpm run check:ask                                    # a symptom with no report: asked in German, French, English
 ```
 
 `check:analyze` asserts that exactly the four values outside their range are flagged,
-that nothing is called critical, and prints the rest to read. It is not part of CI: it
-needs a key and the network.
+that nothing is called critical, and prints the rest to read. `check:ask` asserts that a
+symptom question is answered in the person's own language, with questions before advice,
+and with no medicine named. Neither is part of CI: they need a key and the network.
 
 ## Privacy and security
 
@@ -240,6 +242,7 @@ pnpm dev
 pnpm run verify             # format check, lint, typecheck, tests and build
 pnpm run test:integration   # needs DATABASE_URL naming a throwaway *_test database
 pnpm run check:analyze   # needs a vendor key: the sample report through a real model
+pnpm run check:ask       # needs a vendor key: a symptom question through a real model
 ```
 
 Merging to `main` deploys: CI must pass, then the shared deploy workflow builds on the box,

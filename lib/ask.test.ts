@@ -95,7 +95,9 @@ describe("buildAskMessages", () => {
   it("puts the file in tags, asks for the reader's language and keeps the rules", () => {
     const [system, user] = buildAskMessages(ask());
     expect(system!.content).toContain("<file>\nREPORT: Blood test\n</file>");
-    expect(system!.content).toContain("Reply in German.");
+    expect(system!.content).toContain(
+      "Reply in the language the person writes in; if that is unclear, in German.",
+    );
     expect(system!.content).toContain("never a diagnosis");
     expect(system!.content).toContain("Answer ONLY from the file");
     expect(user).toEqual({ role: "user", content: "What stands out?" });
@@ -108,7 +110,9 @@ describe("buildAskMessages", () => {
     expect(text).toContain("never a diagnosis");
     expect(text).not.toContain("<file>");
     expect(text).not.toContain("Answer ONLY from the file");
-    expect(text).toContain("Reply in German.");
+    expect(text).toContain(
+      "Reply in the language the person writes in; if that is unclear, in German.",
+    );
     expect(user).toEqual({ role: "user", content: "What stands out?" });
   });
 
@@ -118,6 +122,9 @@ describe("buildAskMessages", () => {
     expect(SYMPTOM_HISTORY).toMatch(/ASK for them in this answer/);
     expect(SYMPTOM_HISTORY).toMatch(/Always ask when they invite you to/);
     expect(SYMPTOM_HISTORY).toMatch(/never a medicine/);
+    // Both modes: no medicine by name, not even one sold without a prescription.
+    expect(text).toContain("never name a medicine, painkiller, cream or supplement");
+    expect(buildAskMessages(ask())[0]!.content as string).toContain("never name a medicine");
     // The file mode answers from the file, not from a history.
     expect(buildAskMessages(ask())[0]!.content as string).not.toContain(SYMPTOM_HISTORY);
   });
@@ -127,7 +134,7 @@ describe("buildAskMessages", () => {
       ask({ scene: "## The room\nYou are Diplodoctor, in a group chat." }),
     )[0]!.content as string;
     expect(text).toContain(
-      "Reply in German.\n\n## The room\nYou are Diplodoctor, in a group chat.",
+      "Reply in the language the person writes in; if that is unclear, in German.\n\n## The room\nYou are Diplodoctor, in a group chat.",
     );
     expect(text.indexOf("## The room")).toBeLessThan(text.indexOf("<file>\nREPORT"));
     expect(AskRequestSchema.safeParse({ ...ask(), scene: "x".repeat(1_001) }).success).toBe(false);
