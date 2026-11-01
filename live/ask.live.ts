@@ -20,6 +20,11 @@ const available = freeAvailability(process.env).text;
 const MEDICINE =
   /\b(ibuprofen|paracetamol|acetaminophen|aspirin|diclofenac|voltaren|naproxen|painkillers?|schmerzmittel|antalgiques?|anti-inflammatoires?|gel|cream|crème|creme|salbe)\b/i;
 
+// "I have not seen your report", in the three languages asked. Not the bare
+// word: "par rapport à" is everyday French for "compared with".
+const NO_REPORT_SEEN =
+  /\b(report|bericht|befund)\b|\bvotre rapport\b|\bvos (résultats|analyses)\b/i;
+
 const CASES = [
   {
     lang: "German",
@@ -52,7 +57,7 @@ describe.skipIf(!available)("a real model is asked about a symptom, with no repo
       expect((outcome.text.match(/\?/g) ?? []).length).toBeGreaterThanOrEqual(2);
       expect(outcome.text).not.toMatch(MEDICINE);
       // A symptom is not a result: no "I have not seen your report".
-      expect(outcome.text).not.toMatch(/\b(report|bericht|befund|rapport)\b/i);
+      expect(outcome.text).not.toMatch(NO_REPORT_SEEN);
       // The chips answer the question asked; none is a question of its own.
       console.info(`  replies: ${JSON.stringify(outcome.replies)}`);
       expect(outcome.replies.filter((r) => r.trim().endsWith("?"))).toEqual([]);
