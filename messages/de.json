@@ -549,7 +549,7 @@
       "d2": "Sie sehen jede Ersetzung vor dem Senden, können jede ausschalten und eigene Wörter hinzufügen.",
       "d3": "Die Tabelle, wofür jeder Platzhalter steht, verlässt Ihr Gerät nie.",
       "d4": "Die Erkennung ist bewusst grosszügig: Ein Wort zu viel zu verbergen kostet ein wenig Detail; eines zu wenig würde Ihre Daten senden.",
-      "d5": "Fotos werden im Browser nicht gelesen, sie werden also so gesendet, wie sie sind, es sei denn, Sie decken die Angaben zuerst ab."
+      "d5": "Fotos und Sprache werden im Browser nicht gelesen, sie werden also so gesendet, wie sie sind; decken Sie die Angaben auf einem Foto zuerst ab. Sprache wird hier nicht gespeichert und kommt als bearbeitbarer Text zurück."
     },
     "browser": {
       "title": "Auf Ihrem Gerät gespeichert",

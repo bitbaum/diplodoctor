@@ -549,7 +549,7 @@
       "d2": "You see each replacement before sending, can switch any off and can add words of your own.",
       "d3": "The table of what each placeholder stands for never leaves your device.",
       "d4": "Detection is deliberately generous: hiding one word too many costs a little detail; one too few would send your data.",
-      "d5": "Photos are not read in the browser, so they are sent as they are unless you cover the details first."
+      "d5": "Photos and speech are not read in the browser, so they are sent as they are; cover a photo's details first. Speech is not kept here and returns as editable text."
     },
     "browser": {
       "title": "Kept on your device",
