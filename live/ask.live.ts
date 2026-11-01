@@ -11,7 +11,8 @@ import { AskRequestSchema, askFile } from "../lib/ask";
  *
  * The page asks in English (OrangeCat's bot chats always send "en"), the
  * person writes in their own language. A good answer replies in theirs, asks
- * before it advises, and names no medicine. Found 2026-11-01: a German
+ * before it advises, names no medicine and no report it was never given, and
+ * offers chips that answer its own question. Found 2026-11-01: a German
  * question came back in English, and once suggested ibuprofen.
  */
 const available = freeAvailability(process.env).text;
@@ -50,6 +51,11 @@ describe.skipIf(!available)("a real model is asked about a symptom, with no repo
       expect(outcome.text).toMatch(marker);
       expect((outcome.text.match(/\?/g) ?? []).length).toBeGreaterThanOrEqual(2);
       expect(outcome.text).not.toMatch(MEDICINE);
+      // A symptom is not a result: no "I have not seen your report".
+      expect(outcome.text).not.toMatch(/\b(report|bericht|befund|rapport)\b/i);
+      // The chips answer the question asked; none is a question of its own.
+      console.info(`  replies: ${JSON.stringify(outcome.replies)}`);
+      expect(outcome.replies.filter((r) => r.trim().endsWith("?"))).toEqual([]);
     },
     120_000,
   );

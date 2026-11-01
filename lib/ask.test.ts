@@ -122,6 +122,10 @@ describe("buildAskMessages", () => {
     expect(SYMPTOM_HISTORY).toMatch(/ASK for them in this answer/);
     expect(SYMPTOM_HISTORY).toMatch(/Always ask when they invite you to/);
     expect(SYMPTOM_HISTORY).toMatch(/never a medicine/);
+    // The one-tap replies under a question answer it, in the person's words.
+    expect(SYMPTOM_HISTORY).toMatch(/suggested replies are short answers to your FIRST question/);
+    // A symptom is not a result: no "I have not seen your report".
+    expect(text).toContain("When they describe a symptom, do not mention a report at all.");
     // Both modes: no medicine by name, not even one sold without a prescription.
     expect(text).toContain("never name a medicine, painkiller, cream or supplement");
     expect(buildAskMessages(ask())[0]!.content as string).toContain("never name a medicine");
