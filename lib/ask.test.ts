@@ -107,6 +107,9 @@ describe("buildAskMessages", () => {
     const [system, user] = buildAskMessages(ask({ context: "" }));
     const text = system!.content as string;
     expect(text).toContain("No report has been shared");
+    // French answers to a sore knee opened with "I can't see your report"
+    // (live, 2026-11-01): the fact is for result questions only.
+    expect(text).toContain("that matters only when they ask about a result of theirs");
     expect(text).toContain("never a diagnosis");
     expect(text).not.toContain("<file>");
     expect(text).not.toContain("Answer ONLY from the file");
