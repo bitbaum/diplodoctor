@@ -14,7 +14,7 @@ import { btnPrimary, card, shell } from "@/components/ui";
 import { Link } from "@/i18n/navigation";
 import { buildFileContext } from "@/lib/file-context";
 import { applyRedactions, assignTokens, findPersonalData, restore } from "@/lib/redact";
-import { ROUTES } from "@/lib/routes";
+import { API, ROUTES } from "@/lib/routes";
 import { SITE } from "@/lib/site";
 import { useHydrated, useItems, useOwnModel, useOwnWords, useReports } from "@/lib/store";
 
@@ -142,9 +142,9 @@ export default function AskPage() {
             placeholder={t("placeholder")}
             sending={sending}
             onStop={() => abort.current?.abort()}
-            // No transcription route in this app yet; a microphone that does
-            // nothing is never shown.
-            voice={false}
+            // Records until the person presses done; /api/transcribe writes
+            // it down, and the words land in the box to edit before sending.
+            voice={{ transcribeUrl: API.transcribe, prefer: "server" }}
             labels={{ ...t.raw("composer") }}
           />
         }

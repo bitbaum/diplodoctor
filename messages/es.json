@@ -549,7 +549,7 @@
       "d2": "Usted ve cada sustitución antes de enviar, puede desactivar cualquiera y añadir palabras propias.",
       "d3": "La tabla de lo que representa cada marcador de posición nunca sale de su dispositivo.",
       "d4": "La detección es deliberadamente generosa: ocultar una palabra de más cuesta un poco de detalle; una de menos enviaría sus datos.",
-      "d5": "Las fotos no se leen en el navegador, así que se envían tal cual salvo que usted tape antes los datos."
+      "d5": "Las fotos y la voz no se leen en el navegador, así que se envían tal cual; tape antes los datos de una foto. La voz no se guarda aquí y vuelve como texto editable."
     },
     "browser": {
       "title": "Guardado en su dispositivo",

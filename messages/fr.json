@@ -549,7 +549,7 @@
       "d2": "Vous voyez chaque remplacement avant l'envoi, pouvez en désactiver et ajouter vos propres mots.",
       "d3": "La table de ce que représente chaque marqueur ne quitte jamais votre appareil.",
       "d4": "La détection est volontairement large : masquer un mot de trop coûte un peu de détail ; en masquer un de trop peu enverrait vos données.",
-      "d5": "Les photos ne sont pas lues dans le navigateur, elles sont donc envoyées telles quelles, sauf si vous masquez d'abord les données."
+      "d5": "Les photos et la voix ne sont pas lues dans le navigateur, elles sont donc envoyées telles quelles ; masquez d'abord les données d'une photo. La voix n'est pas conservée ici et revient en texte modifiable."
     },
     "browser": {
       "title": "Conservé sur votre appareil",

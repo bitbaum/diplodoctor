@@ -549,7 +549,7 @@
       "d2": "Vede ogni sostituzione prima dell’invio, può disattivarne qualsiasi e può aggiungere parole Sue.",
       "d3": "La tabella di ciò che ogni segnaposto rappresenta non lascia mai il Suo dispositivo.",
       "d4": "Il rilevamento è volutamente generoso: nascondere una parola di troppo costa un po’ di dettaglio; una di meno invierebbe i Suoi dati.",
-      "d5": "Le foto non vengono lette nel browser, quindi vengono inviate così come sono a meno che Lei non copra prima i dati."
+      "d5": "Foto e voce non vengono lette nel browser, quindi vengono inviate così come sono; copra prima i dati di una foto. La voce non viene conservata qui e torna come testo modificabile."
     },
     "browser": {
       "title": "Conservato sul Suo dispositivo",

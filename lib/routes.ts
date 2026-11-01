@@ -28,6 +28,7 @@ export const API = {
   analyze: "/api/analyze",
   modelCheck: "/api/model/check",
   health: "/api/health",
+  transcribe: "/api/transcribe",
 } as const;
 
 /** The three planes this product sits on, and its own repository. */
