@@ -1,6 +1,6 @@
 import { REPLIES_INSTRUCTION, RICH_ANSWERS_INSTRUCTION } from "@bitbaum/chatkit";
 import { describe, expect, it } from "vitest";
-import { AskRequestSchema, askFile, buildAskMessages } from "./ask";
+import { AskRequestSchema, SYMPTOM_HISTORY, askFile, buildAskMessages } from "./ask";
 import { buildFileContext, CONTEXT_MAX_CHARS } from "./file-context";
 import { parseItem } from "./health-item";
 import { parseReport } from "./report";
@@ -110,6 +110,16 @@ describe("buildAskMessages", () => {
     expect(text).not.toContain("Answer ONLY from the file");
     expect(text).toContain("Reply in German.");
     expect(user).toEqual({ role: "user", content: "What stands out?" });
+  });
+
+  it("without a file, asks about a symptom before answering, and uses the answers", () => {
+    const text = buildAskMessages(ask({ context: "" }))[0]!.content as string;
+    expect(text).toContain(SYMPTOM_HISTORY);
+    expect(SYMPTOM_HISTORY).toMatch(/ASK for them in this answer/);
+    expect(SYMPTOM_HISTORY).toMatch(/Always ask when they invite you to/);
+    expect(SYMPTOM_HISTORY).toMatch(/never a medicine/);
+    // The file mode answers from the file, not from a history.
+    expect(buildAskMessages(ask())[0]!.content as string).not.toContain(SYMPTOM_HISTORY);
   });
 
   it("puts the caller's scene after the rules, before the file", () => {
