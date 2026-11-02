@@ -318,14 +318,14 @@ describe("password recovery with mail (RESEND_API_KEY on the box)", () => {
     vi.unstubAllGlobals();
   });
 
-  it("requires a confirmed address at sign-up, by mail", async () => {
+  it("signs in at sign-up and mails a confirmation link, never a wall", async () => {
     const signedUp = await post(
       "/sign-up/email",
       { email, password, name: "", callbackURL: "/de/account" },
       { via: mailed },
     );
     expect(signedUp.status).toBe(200);
-    expect(cookieOf(signedUp)).not.toContain("session_token");
+    expect(cookieOf(signedUp)).toContain("session_token");
     expect(outbox.at(-1)?.to).toEqual([email]);
   });
 

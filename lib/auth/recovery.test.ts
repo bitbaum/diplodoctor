@@ -20,6 +20,21 @@ const stubClient = {
   requestPasswordReset: vi.fn(),
 } as never;
 
+/**
+ * The words a person reads: the screens wrap a word they keep whole in a span.
+ * Test-only markup from our own components, never shown to anyone; repeated
+ * until nothing changes, so no fragment of a tag survives.
+ */
+function words(html: string): string {
+  let previous: string;
+  let text = html;
+  do {
+    previous = text;
+    text = text.replace(/<[^<>]*>/g, "");
+  } while (text !== previous);
+  return text;
+}
+
 function pages() {
   const methods = signInMethods(process.env, mailConfigured());
   const signIn = renderToStaticMarkup(
@@ -42,7 +57,7 @@ function pages() {
       signInLink: null,
     }),
   );
-  return { methods, signIn, signUp };
+  return { methods, signIn: words(signIn), signUp: words(signUp) };
 }
 
 afterEach(() => {
@@ -86,7 +101,7 @@ describe("account mail configured (RESEND_API_KEY on the box)", () => {
     vi.stubEnv("RESEND_API_KEY", "re_unit_test_not_a_key");
     const { methods, signIn, signUp } = pages();
     expect(mailConfigured()).toBe(true);
-    expect(methods).toMatchObject({ passwordReset: true, magicLink: true, verifyEmail: true });
+    expect(methods).toMatchObject({ passwordReset: true, magicLink: true, verifyEmail: false });
     expect(signIn).toContain(forgot);
     expect(signIn).toContain(labels.withLink);
     expect(signUp).toContain(labels.signUpWithLink);
