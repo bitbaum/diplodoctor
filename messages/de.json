@@ -809,7 +809,8 @@
       "lead": "Jemand möchte das Passwort Ihres Kontos bei {site} zurücksetzen.",
       "action": "Neues Passwort wählen"
     },
-    "ignore": "Wenn Sie das nicht waren, ignorieren Sie diese E-Mail — es ändert sich nichts."
+    "ignore": "Wenn Sie das nicht waren, ignorieren Sie diese E-Mail — es ändert sich nichts.",
+    "code": "Auf einem anderen Gerät? Geben Sie diesen Code auf der Seite ein, auf der Sie den Link angefordert haben: {code}"
   },
   "Today": {
     "title": "Heute",

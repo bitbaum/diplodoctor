@@ -1,4 +1,4 @@
-import { conventionalFrom, fromAddress, isMailConfigured, sendMail } from "@bitbaum/mail-kit";
+import { createAuthMailer, spacedCode } from "@bitbaum/accountkit/auth/mail";
 import { createTranslator } from "next-intl";
 import de from "@/messages/de.json";
 import en from "@/messages/en.json";
@@ -7,7 +7,6 @@ import fr from "@/messages/fr.json";
 import it from "@/messages/it.json";
 import { withFallback } from "@/i18n/request";
 import { defaultLocale, toLocale, type Locale } from "@/i18n/routing";
-import { isDeliverable } from "@/lib/auth/methods";
 import { SITE } from "@/lib/site";
 
 /**
@@ -26,10 +25,6 @@ const MESSAGES: Record<Locale, Messages> = {
   it: withFallback(en, it) as Messages,
   es: withFallback(en, es) as Messages,
 };
-
-export function mailConfigured(): boolean {
-  return isMailConfigured();
-}
 
 /**
  * The language a mail is written in, read from the page the person will land
@@ -53,43 +48,36 @@ const escapeHtml = (value: string) =>
     (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c] ?? c,
   );
 
-export function renderAuthMail(kind: AuthMail, url: string, locale: Locale) {
+export function renderAuthMail(kind: AuthMail, url: string, locale: Locale, code?: string) {
   const t = createTranslator({ locale, messages: MESSAGES[locale], namespace: "Mail" });
   const values = { site: SITE.title };
   const subject = t(`${kind}.subject`, values);
   const lead = t(`${kind}.lead`, values);
   const action = t(`${kind}.action`);
   const ignore = t("ignore");
+  const codeLine = code ? t("code", { code: spacedCode(code) }) : null;
   const href = escapeHtml(url);
   const html = `<!doctype html><html lang="${locale}"><body style="font-family:system-ui,sans-serif;line-height:1.5">
 <p>${escapeHtml(lead)}</p>
 <p><a href="${href}">${escapeHtml(action)}</a></p>
-<p style="color:#555">${escapeHtml(ignore)}</p>
+${codeLine ? `<p>${escapeHtml(codeLine)}</p>\n` : ""}<p style="color:#555">${escapeHtml(ignore)}</p>
 </body></html>`;
-  const textBody = `${lead}\n\n${action}: ${url}\n\n${ignore}\n`;
+  const textBody = `${lead}\n\n${action}: ${url}\n\n${codeLine ? `${codeLine}\n\n` : ""}${ignore}\n`;
   return { subject, html, text: textBody };
 }
 
-export async function sendAuthMail(kind: AuthMail, to: string, url: string): Promise<void> {
-  if (!isDeliverable(to)) return;
-  if (!isMailConfigured()) {
-    // Development only: there is no inbox, so report the missing transport without logging the bearer link.
-    // Production methods that require mail are hidden when it is unavailable.
-    if (process.env.NODE_ENV === "development")
-      console.warn(`[mail] not configured — ${kind} unavailable`);
-    return;
-  }
-  const { subject, html, text } = renderAuthMail(kind, url, localeOfLink(url));
-  const result = await sendMail({
-    to,
-    subject,
-    html,
-    text,
-    from: fromAddress() ?? conventionalFrom(SITE.title),
-  });
-  if (!result.sent) {
-    console.error(
-      `[mail] ${kind} not sent (status ${result.status ?? "none"}, retryable ${result.retryable})`,
-    );
-  }
-}
+/**
+ * Sent by AccountKit's shared mailer (@bitbaum/mail-kit underneath): it
+ * checks the link's origin, skips addresses that cannot receive mail and puts
+ * the sign-in code in the link's email, which this template prints.
+ */
+export const authMail = createAuthMailer({
+  site: SITE,
+  codes: true,
+  render: (kind, url, extra) => renderAuthMail(kind, url, localeOfLink(url), extra.code),
+});
+
+export const mailConfigured = (): boolean => authMail.configured;
+
+export const sendAuthMail: typeof authMail.send = (kind, to, url, extra) =>
+  authMail.send(kind, to, url, extra);
