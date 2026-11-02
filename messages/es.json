@@ -809,7 +809,8 @@
       "lead": "Alguien ha pedido restablecer la contraseña de su cuenta en {site}.",
       "action": "Elija una nueva contraseña"
     },
-    "ignore": "Si no ha sido usted, ignore este correo: no cambia nada."
+    "ignore": "Si no ha sido usted, ignore este correo: no cambia nada.",
+    "code": "¿En otro dispositivo? Escriba este código en la página donde pidió el enlace: {code}"
   },
   "Today": {
     "title": "Hoy",

@@ -1,6 +1,6 @@
 import { createAuthRuntime } from "@bitbaum/accountkit/auth/next";
 import { getDb, isDatabaseConfigured, schema } from "@/lib/db/client";
-import { mailConfigured, sendAuthMail } from "@/lib/mail";
+import { authMail } from "@/lib/mail";
 import { SITE } from "@/lib/site";
 
 /** Shared account lifecycle over the existing tables; no identity or data migration. */
@@ -16,12 +16,7 @@ export const { GET, POST, getAuth, authStatus, getSession, requireUser } = creat
     passkey: schema.passkey,
     twoFactor: schema.twoFactor,
   },
-  mail: {
-    get configured() {
-      return mailConfigured();
-    },
-    send: sendAuthMail,
-  },
+  mail: authMail,
 });
 
 export type Auth = ReturnType<typeof getAuth>;

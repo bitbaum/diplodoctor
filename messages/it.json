@@ -809,7 +809,8 @@
       "lead": "Qualcuno ha chiesto di reimpostare la password del Suo account su {site}.",
       "action": "Scelga una nuova password"
     },
-    "ignore": "Se non è stato Lei, ignori questa email: non cambia nulla."
+    "ignore": "Se non è stato Lei, ignori questa email: non cambia nulla.",
+    "code": "Su un altro dispositivo? Inserisca questo codice nella pagina in cui ha chiesto il link: {code}"
   },
   "Today": {
     "title": "Oggi",
