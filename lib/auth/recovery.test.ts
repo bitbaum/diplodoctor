@@ -20,8 +20,20 @@ const stubClient = {
   requestPasswordReset: vi.fn(),
 } as never;
 
-/** The words a person reads: the screens wrap a word they keep whole in a span. */
-const words = (html: string) => html.replace(/<[^>]+>/g, "");
+/**
+ * The words a person reads: the screens wrap a word they keep whole in a span.
+ * Test-only markup from our own components, never shown to anyone; repeated
+ * until nothing changes, so no fragment of a tag survives.
+ */
+function words(html: string): string {
+  let previous: string;
+  let text = html;
+  do {
+    previous = text;
+    text = text.replace(/<[^<>]*>/g, "");
+  } while (text !== previous);
+  return text;
+}
 
 function pages() {
   const methods = signInMethods(process.env, mailConfigured());
