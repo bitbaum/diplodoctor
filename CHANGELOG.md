@@ -4,6 +4,36 @@ What changed for the people who use Diplodoctor, newest first. Every entry
 comes from a change merged into this repository; where there is a number in
 brackets, it is the pull request to read for the detail.
 
+## 2026-11-01 — The assistant asks before it advises
+
+### Added
+
+- **Speak your question.** Ask has a microphone, like every other chat in the
+  fleet; a take lasts until you press done and comes back as text you can edit
+  before sending. Nothing about the audio is kept. (#68)
+
+### Changed
+
+- **A symptom gets questions first.** Tell the assistant about a symptom with
+  no report shared and it asks up to four short questions (where, since when,
+  what makes it worse, what you tried), then uses your answers: what such
+  details commonly go with, general self-care, which signs mean seeing a doctor
+  soon, and a short note for the doctor. It asks whenever you invite it to.
+  (#69, #71, #72)
+- **Your language, not the page's.** Answers come in the language you write
+  in, also from OrangeCat's bot chats, which always ask in English. (#70)
+- **Reply buttons that answer.** Under its questions, the one-tap replies are
+  answers to them ("Since yesterday", "After a fall"), not "I have more info".
+  (#71, #73)
+
+### Fixed
+
+- **No medicine by name.** The assistant never names a medicine, painkiller,
+  cream or supplement, not even one sold without a prescription; a German
+  answer had suggested ibuprofen. (#70)
+- **No report you never shared.** A symptom answer no longer opens with "I
+  can't see your report". (#71, #72)
+
 ## 2026-10-26 — Shared account lifecycle
 
 ### Changed
