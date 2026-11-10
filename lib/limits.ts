@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { clientIp, slidingWindow, toHeaders, type LimitResult } from "limitkit";
+import { clientIp, slidingWindow, toHeaders, type LimitResult } from "@bitbaum/limitkit";
 
 /**
  * Rate limits, as limitkit decisions. In-memory and per process: the right
