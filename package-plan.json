@@ -32,7 +32,7 @@
       ]
     },
     "publishing": {
-      "package": "bip-kit",
+      "package": "@bitbaum/bip-kit",
       "bindings": [
         {
           "file": "components/DevelopmentRecords.tsx",
