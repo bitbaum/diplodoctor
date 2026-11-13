@@ -15,26 +15,26 @@ importers:
         specifier: ^1.7.12
         version: 1.7.12(@better-auth/core@1.7.12(@better-auth/utils@0.5.0)(@better-fetch/fetch@1.3.2)(better-call@1.4.4(zod@4.6.7))(jose@6.2.12)(kysely@0.29.6)(nanostores@1.5.5))(@better-auth/utils@0.5.0)(@better-fetch/fetch@1.3.2)(better-auth@1.7.12(drizzle-kit@0.31.11)(drizzle-orm@0.45.4(@types/pg@8.23.1)(kysely@0.29.6)(pg@8.23.1))(next@16.4.2(@babel/core@7.29.7(supports-color@7.2.0))(@types/node@26.6.5)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(pg@8.23.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(vitest@4.1.12(@types/node@26.6.5)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15))))(better-call@1.4.4(zod@4.6.7))(nanostores@1.5.5)
       '@bitbaum/accountkit':
-        specifier: ^0.27.0
-        version: 0.27.0(0612116fd631f0ec7604a8376a5bed03)
+        specifier: ^0.30.0
+        version: 0.30.0(5f41843d4683210c07312a4ca77a9804)
       '@bitbaum/ai-kit':
-        specifier: ^1.26.0
-        version: 1.26.0(react@19.3.0)
+        specifier: ^1.27.0
+        version: 1.27.0(react@19.3.0)
       '@bitbaum/bip-kit':
-        specifier: ^0.6.1
-        version: 0.6.1(react@19.3.0)
+        specifier: ^0.9.1
+        version: 0.9.1(react@19.3.0)
       '@bitbaum/chatkit':
-        specifier: ^0.23.0
-        version: 0.23.0(react@19.3.0)
+        specifier: ^0.32.0
+        version: 0.32.0(react@19.3.0)
       '@bitbaum/design-tokens':
-        specifier: ^1.5.2
-        version: 1.5.2
+        specifier: ^1.7.1
+        version: 1.7.1
       '@bitbaum/limitkit':
         specifier: ^0.2.1
         version: 0.2.1
       '@bitbaum/mail-kit':
-        specifier: ^0.3.0
-        version: 0.3.0
+        specifier: ^0.4.0
+        version: 0.4.0
       '@bitbaum/searchkit':
         specifier: ^0.2.3
         version: 0.2.3(react@19.3.0)
@@ -268,13 +268,13 @@ packages:
   '@better-fetch/fetch@1.3.2':
     resolution: {integrity: sha512-Gs7n99b5tqUC6cQAPbV0uED3IraHB6xQbHLQ/C3l7ZFafHScOx9pQ+DYmP5blbLFShVWLqxNUlI9wi4xU/X+ow==}
 
-  '@bitbaum/accountkit@0.27.0':
-    resolution: {integrity: sha512-5dBGE8va8x6qnZGKTGDPu72w9b3/MqTGZG+BpsynQ05MF1FsEcN3EkYNXQhZshpjW139qyG9CTym/jFLVP8ilA==}
+  '@bitbaum/accountkit@0.30.0':
+    resolution: {integrity: sha512-SawXRyluBDhOomI0Z0AQFyeZK4ZGyfUmGstkfS3iciRa2OAPNpwukV7If7H2ftNkkG0PsuTC/weY54BtCkf9NQ==}
     engines: {node: '>=20'}
     hasBin: true
     peerDependencies:
       '@better-auth/passkey': ^1.7.10
-      '@bitbaum/mail-kit': ^0.2.0
+      '@bitbaum/mail-kit': ^0.2.0 || ^0.3.0 || ^0.4.0
       better-auth: ^1.7.10
       drizzle-orm: ^0.45.4
       next: ^16.4.0
@@ -291,8 +291,8 @@ packages:
       next:
         optional: true
 
-  '@bitbaum/ai-kit@1.26.0':
-    resolution: {integrity: sha512-BIvsQJu3GOOTheaFy5aStnf9zhc0kgdRV9DU5adsl20nVZ8UmKSARJ24T+lF4HgNhzyZE8HGJwYUOKfpRsanFA==}
+  '@bitbaum/ai-kit@1.27.0':
+    resolution: {integrity: sha512-efcTgG9KolcvPp3jYivI70x3w4TN7eqEOZ6h9XHjRY3n1gRKypcXCJ3vH574rbQY+AQ7bJQ2XJcmBFRGOQtb+A==}
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18'
@@ -300,8 +300,8 @@ packages:
       react:
         optional: true
 
-  '@bitbaum/bip-kit@0.6.1':
-    resolution: {integrity: sha512-bDcAeO3+X+Dh+TVKioYWoYBdk3bgSFJSUMR4Af5K2qemRXjN4bfPrSUQWWDH7s2UlOIf297Ot28/0WPij7wVvQ==}
+  '@bitbaum/bip-kit@0.9.1':
+    resolution: {integrity: sha512-WJd55zZxuFA7HyLQOHhY7daubcgZjxnXp/cSz7QZhBb7/yCbXMyD2CKvX3gBNffnFngfP+McZyERUg95erInJg==}
     engines: {node: '>=20'}
     peerDependencies:
       katex: '>=0.16'
@@ -316,15 +316,15 @@ packages:
       shiki:
         optional: true
 
-  '@bitbaum/chatkit@0.23.0':
-    resolution: {integrity: sha512-iI7tyLcN7Zj3tXN9xZsb7Ixa2VPoDnuMX2taEzb2S1wMtV1A2A7tKfCJsqZp2GELrBCJTH9j59f6djbBF1H1RA==}
+  '@bitbaum/chatkit@0.32.0':
+    resolution: {integrity: sha512-75S6rIjbAFdv+E3ZEnwo1I8bgfW4YMhpl5OukPI3DRO+uJFDTC1AM5b1BOk4eH/ynKNfleXhprkLMUbqek2TWA==}
     engines: {node: '>=20'}
     hasBin: true
     peerDependencies:
       react: '>=18'
 
-  '@bitbaum/design-tokens@1.5.2':
-    resolution: {integrity: sha512-ScF091XRs5ph109PkRgI3t5w3eersltlJUGea64MPItqXaT5asXM2x3Gj4t6THuFGojZ2pvMLAtuOc3DTmCoTg==}
+  '@bitbaum/design-tokens@1.7.1':
+    resolution: {integrity: sha512-ejJOZyaN043LTTXkokpCR8kwU6wBt4SNxepUY0cnFX/1ilZRdZwkxnB+vlSlz75DtrMc1pF3KjyOt8C3o5rIqA==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -336,9 +336,14 @@ packages:
     resolution: {integrity: sha512-MS7SpPodTaxXYccXW565M3sIYaDCHSpWFlJB77FdkE/fM7uktxn0u25p0BSWC97i4U6uCqPedYVt1xV34sGXnQ==}
     engines: {node: '>=20'}
 
-  '@bitbaum/mail-kit@0.3.0':
-    resolution: {integrity: sha512-ULeLkCY7m9gN1TduT4x3a6PV5MI9oyHJvh0ZKJoUEBI05xVXdvssHGcIDOrXFpCFFB5s2sXBYXuDQFZgYacfPA==}
+  '@bitbaum/mail-kit@0.4.0':
+    resolution: {integrity: sha512-2v44Etn6iToxQfwspoQS9cURRlqHjEo5stpmip0Fe/c6ObgzHoP4eTP1sG0pXv2FGEYkQ+X8KrJqwNj1tuUonA==}
     engines: {node: '>=20'}
+    peerDependencies:
+      nodemailer: '>=6.9.0'
+    peerDependenciesMeta:
+      nodemailer:
+        optional: true
 
   '@bitbaum/searchkit@0.2.3':
     resolution: {integrity: sha512-eUN4f2kxn53Z0gz2f94NVcc+mt+taKnpmUr49tCLULKfx+Z/BYfc/tljOD+MUQIC4n/HMxEicey5GjhGOl5fvw==}
@@ -347,6 +352,10 @@ packages:
     peerDependenciesMeta:
       react:
         optional: true
+
+  '@bitbaum/threadkit@0.1.2':
+    resolution: {integrity: sha512-DzM0A/xlOfJStLpoiqleJUEbLSatxAUpUXihvgz5U+ZABLnQ7nCdMT32dz0C6nyKXEXfrnnEakbsChluTFXwSA==}
+    engines: {node: '>=20'}
 
   '@bitbaum/whenkit@0.3.3':
     resolution: {integrity: sha512-wcnaDv89gx6Z1gvbDjCs/4dNx5xc2eSDTEG+kUhxKJTJdElLe02AJeEER4krHqcIyqG//JyFGAb0BJiOBHETCg==}
@@ -3875,7 +3884,7 @@ snapshots:
 
   '@better-fetch/fetch@1.3.2': {}
 
-  '@bitbaum/accountkit@0.27.0(0612116fd631f0ec7604a8376a5bed03)':
+  '@bitbaum/accountkit@0.30.0(5f41843d4683210c07312a4ca77a9804)':
     dependencies:
       '@noble/curves': 2.4.0
       '@scure/base': 2.4.0
@@ -3885,12 +3894,12 @@ snapshots:
       zod: 4.6.7
     optionalDependencies:
       '@better-auth/passkey': 1.7.12(@better-auth/core@1.7.12(@better-auth/utils@0.5.0)(@better-fetch/fetch@1.3.2)(better-call@1.4.4(zod@4.6.7))(jose@6.2.12)(kysely@0.29.6)(nanostores@1.5.5))(@better-auth/utils@0.5.0)(@better-fetch/fetch@1.3.2)(better-auth@1.7.12(drizzle-kit@0.31.11)(drizzle-orm@0.45.4(@types/pg@8.23.1)(kysely@0.29.6)(pg@8.23.1))(next@16.4.2(@babel/core@7.29.7(supports-color@7.2.0))(@types/node@26.6.5)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(pg@8.23.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(vitest@4.1.12(@types/node@26.6.5)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15))))(better-call@1.4.4(zod@4.6.7))(nanostores@1.5.5)
-      '@bitbaum/mail-kit': 0.3.0
+      '@bitbaum/mail-kit': 0.4.0
       better-auth: 1.7.12(drizzle-kit@0.31.11)(drizzle-orm@0.45.4(@types/pg@8.23.1)(kysely@0.29.6)(pg@8.23.1))(next@16.4.2(@babel/core@7.29.7(supports-color@7.2.0))(@types/node@26.6.5)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(pg@8.23.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(vitest@4.1.12(@types/node@26.6.5)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)))
       drizzle-orm: 0.45.4(@types/pg@8.23.1)(kysely@0.29.6)(pg@8.23.1)
       next: 16.4.2(@babel/core@7.29.7(supports-color@7.2.0))(@types/node@26.6.5)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
 
-  '@bitbaum/ai-kit@1.26.0(react@19.3.0)':
+  '@bitbaum/ai-kit@1.27.0(react@19.3.0)':
     dependencies:
       '@mozilla/readability': 0.6.0
       ai-forms: 0.1.3(react@19.3.0)
@@ -3900,26 +3909,29 @@ snapshots:
     transitivePeerDependencies:
       - canvas
 
-  '@bitbaum/bip-kit@0.6.1(react@19.3.0)':
+  '@bitbaum/bip-kit@0.9.1(react@19.3.0)':
     dependencies:
       react: 19.3.0
 
-  '@bitbaum/chatkit@0.23.0(react@19.3.0)':
+  '@bitbaum/chatkit@0.32.0(react@19.3.0)':
     dependencies:
+      '@bitbaum/threadkit': 0.1.2
       pdfjs-dist: 6.4.299
       react: 19.3.0
 
-  '@bitbaum/design-tokens@1.5.2': {}
+  '@bitbaum/design-tokens@1.7.1': {}
 
   '@bitbaum/limitkit@0.2.1': {}
 
   '@bitbaum/listkit@0.2.2': {}
 
-  '@bitbaum/mail-kit@0.3.0': {}
+  '@bitbaum/mail-kit@0.4.0': {}
 
   '@bitbaum/searchkit@0.2.3(react@19.3.0)':
     optionalDependencies:
       react: 19.3.0
+
+  '@bitbaum/threadkit@0.1.2': {}
 
   '@bitbaum/whenkit@0.3.3(react@19.3.0)':
     dependencies:
