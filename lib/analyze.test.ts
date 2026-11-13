@@ -144,7 +144,17 @@ describe("buildMessages", () => {
 describe("freeAvailability", () => {
   it("knows that Groq's free models read text but not photos", () => {
     expect(freeAvailability({ GROQ_API_KEY: "k" })).toEqual({ text: true, photo: false });
-    expect(freeAvailability({ GEMINI_API_KEY: "k" })).toEqual({ text: true, photo: true });
+    expect(freeAvailability({ OPENROUTER_API_KEY: "k" })).toEqual({ text: true, photo: true });
+  });
+
+  it("builds no Google link: a Gemini key is billed, so it switches nothing on", () => {
+    expect(freeLinks({ GEMINI_API_KEY: "k" })).toEqual([]);
+    expect(freeAvailability({ GEMINI_API_KEY: "k" })).toEqual({ text: false, photo: false });
+    const all = { GROQ_API_KEY: "k", GEMINI_API_KEY: "k", OPENROUTER_API_KEY: "k" };
+    const providers = freeLinks(all).map((l) => l.provider.id);
+    expect(providers.some((id) => /google|gemini/i.test(id))).toBe(false);
+    expect(providers[0]).toBe("groq");
+    expect(providers.lastIndexOf("groq")).toBeLessThan(providers.indexOf("openrouter"));
   });
 });
 
