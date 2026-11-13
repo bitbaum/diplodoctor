@@ -17,7 +17,7 @@ import { SAMPLE_FLAGGED, SAMPLE_REPORT } from "../lib/sample";
  * read.
  *
  * Uses the shared free chain from the environment (GROQ_API_KEY,
- * GEMINI_API_KEY, OPENROUTER_API_KEY). Costs one free-tier completion per
+ * OPENROUTER_API_KEY). Costs one free-tier completion per
  * language.
  */
 const available = freeAvailability(process.env).text;
@@ -58,7 +58,7 @@ describe.skipIf(!available)("a real model reads the sample report", () => {
 });
 
 describe.skipIf(available)("no vendor key in the environment", () => {
-  it("has nothing to check — set GROQ_API_KEY, GEMINI_API_KEY or OPENROUTER_API_KEY", () => {
+  it("has nothing to check — set GROQ_API_KEY or OPENROUTER_API_KEY", () => {
     console.info("check:analyze skipped: no shared vendor key is set.");
   });
 });

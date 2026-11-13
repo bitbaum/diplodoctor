@@ -68,6 +68,6 @@ describe.skipIf(!available)("a real model is asked about a symptom, with no repo
 
 describe.skipIf(available)("no vendor key in the environment", () => {
   it("skips the live check", () => {
-    console.info("check:ask needs GROQ_API_KEY, GEMINI_API_KEY or OPENROUTER_API_KEY.");
+    console.info("check:ask needs GROQ_API_KEY or OPENROUTER_API_KEY.");
   });
 });

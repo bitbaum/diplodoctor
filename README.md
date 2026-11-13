@@ -148,11 +148,11 @@ The free reading runs on whichever of the fleet's shared vendor keys this
 deployment has. With none of them, `/api/analyze` answers `503 not_configured`
 and the intake page offers your own model or filing by hand.
 
-| Variable                                               | Effect                                                                                                                              |
-| ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `GROQ_API_KEY`, `GEMINI_API_KEY`, `OPENROUTER_API_KEY` | The shared free chain. Any one switches free reading on. A photo needs Gemini or OpenRouter: Groq's free models cannot read images. |
-| `DIPLODOCTOR_MODEL`                                    | Optional. Start the chain at this model instead of the front.                                                                       |
-| `DIPLODOCTOR_GROQ_MODELS` and the like                 | Optional per-vendor overrides, read by ai-kit's `freeChain("DIPLODOCTOR")`.                                                         |
+| Variable                               | Effect                                                                                                                                                                                                                   |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `GROQ_API_KEY`, `OPENROUTER_API_KEY`   | The shared free chain (Groq, then OpenRouter's `:free` models). Either switches free reading on. A photo needs OpenRouter: Groq's free models cannot read images. Google's Gemini API is billed and is not in the chain. |
+| `DIPLODOCTOR_MODEL`                    | Optional. Start the chain at this model instead of the front.                                                                                                                                                            |
+| `DIPLODOCTOR_GROQ_MODELS` and the like | Optional per-vendor overrides, read by ai-kit's `freeChain("DIPLODOCTOR")`.                                                                                                                                              |
 
 Limits (per hour, in memory): 8 free readings per visitor, 60 on your own key;
 30 questions on Ask on the free chain, 200 on your own key.
